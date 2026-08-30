@@ -1,0 +1,64 @@
+.navbarSearchContainer {
+  width: 340px;
+}
+
+.navbarSearchContainer:empty {
+  display: none;
+}
+
+/* Override Docusaurus search-local default width */
+.navbarSearchContainer :global(.navbar__search-input) {
+  width: 340px !important;
+  max-width: 340px !important;
+  box-sizing: border-box;
+  padding-right: 75px !important;
+}
+
+/* Keep the shortcut inside the search field */
+.navbarSearchContainer :global(.navbar__search) {
+  position: relative;
+  width: 340px;
+}
+
+/* Ctrl + K shortcut */
+.navbarSearchContainer :global(.navbar__search) > div:last-child {
+  right: 10px;
+}
+
+@media (max-width: 996px) {
+  .navbarSearchContainer {
+    position: absolute;
+    right: var(--ifm-navbar-padding-horizontal);
+    width: 280px;
+  }
+
+  .navbarSearchContainer :global(.navbar__search) {
+    width: 280px;
+  }
+
+  .navbarSearchContainer :global(.navbar__search-input) {
+    width: 280px !important;
+    max-width: 280px !important;
+    padding-right: 70px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .navbarSearchContainer {
+    width: 220px;
+  }
+
+  .navbarSearchContainer :global(.navbar__search) {
+    width: 220px;
+  }
+
+  .navbarSearchContainer :global(.navbar__search-input) {
+    width: 220px !important;
+    max-width: 220px !important;
+  }
+}
+
+/* Hide Ctrl + K shortcut badges in navbar search */
+.navbarSearchContainer :global(kbd) {
+  display: none !important;
+}

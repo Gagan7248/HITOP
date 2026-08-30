@@ -1,0 +1,56 @@
+{
+  "name": "hitop",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "docusaurus": "docusaurus",
+    "start": "node scripts/generate-articles.mjs && concurrently \"node scripts/watch-articles.mjs\" \"cross-env WATCHPACK_POLLING=true docusaurus start\"",
+    "build": "docusaurus build",
+    "swizzle": "docusaurus swizzle",
+    "deploy": "npm run build && wrangler deploy",
+    "clear": "docusaurus clear",
+    "serve": "docusaurus serve",
+    "write-translations": "docusaurus write-translations",
+    "write-heading-ids": "docusaurus write-heading-ids",
+    "preview": "npm run build && wrangler dev"
+  },
+  "dependencies": {
+    "@docusaurus/core": "3.10.2",
+    "@docusaurus/faster": "3.10.2",
+    "@docusaurus/preset-classic": "3.10.2",
+    "@easyops-cn/docusaurus-search-local": "^0.55.3",
+    "@mdx-js/react": "^3.0.0",
+    "clsx": "^2.0.0",
+    "gray-matter": "^4.0.3",
+    "lucide-react": "^1.31.0",
+    "prism-react-renderer": "^2.3.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@docusaurus/module-type-aliases": "3.10.2",
+    "@docusaurus/types": "3.10.2",
+    "autoprefixer": "^10.5.4",
+    "chokidar": "^5.0.0",
+    "concurrently": "^10.0.5",
+    "cross-env": "^10.1.0",
+    "postcss": "^8.5.26",
+    "tailwindcss": "^3.4.19",
+    "wrangler": "^4.125.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.5%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 3 chrome version",
+      "last 3 firefox version",
+      "last 5 safari version"
+    ]
+  },
+  "engines": {
+    "node": ">=20.0"
+  }
+}

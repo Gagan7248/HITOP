@@ -1,0 +1,225 @@
+{
+  "main": {
+    "id": "fd0173d899fbc02d",
+    "type": "split",
+    "children": [
+      {
+        "id": "5042eb0efe86eb6c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "f6a6c0bf7fdab7e1",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "New tab"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "e0437251f81a7e56",
+    "type": "split",
+    "children": [
+      {
+        "id": "5638ac01e1550d8d",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "0524539a38b23307",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "909a6d73a1369e9f",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "11ef91fc5b07e9fb",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "59b334bd8fad429c",
+    "type": "split",
+    "children": [
+      {
+        "id": "c7142333c53f46bc",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "aaaf476e14429ec2",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks"
+            }
+          },
+          {
+            "id": "33f9d9184cc5ddb1",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links"
+            }
+          },
+          {
+            "id": "c5f9ceb3ee1132a0",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "a85a1611dec22740",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "c41d508e5b5aef58",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "f6a6c0bf7fdab7e1",
+  "lastOpenFiles": [
+    "docs/How to fix dns.md",
+    "build/sops/it-operations/IT Password Security Guidelines/index.html",
+    "build/sops/it-operations/How to Restart Hotel Server/index.html",
+    "build/blog/tags/hola/index.html",
+    "build/blog/tags/hello/index.html",
+    "build/blog/tags/facebook/index.html",
+    "build/blog/tags/docusaurus/index.html",
+    "build/blog/authors/yangshun/index.html",
+    "build/blog/authors/all-sebastien-lorber-articles/index.html",
+    "build/troubleshooting/How to fix dns/index.html",
+    "build/troubleshooting/DNS Not Resolving/index.html",
+    "build/assets/images/docusaurus-plushie-banner-a60f7593abca1e3eef26a9afa244e4fb.jpeg",
+    "build/img/undraw_docusaurus_tree.svg",
+    "build/img/undraw_docusaurus_react.svg",
+    "build/img/undraw_docusaurus_mountain.svg",
+    "build/img/logo.svg",
+    "build/img/docusaurus.png",
+    "build/img/docusaurus-social-card.jpg",
+    "build/__server/assets/images/docusaurus-plushie-banner-a60f7593abca1e3eef26a9afa244e4fb.jpeg",
+    "troubleshooting/How to fix dns.md",
+    "troubleshooting/DNS Not Resolving.md",
+    "docs/Understanding DNS.md",
+    "docs/How to Troubleshoot Wi-Fi Not Working.md",
+    "docs/01-it-operations/Understanding DNS.md",
+    "troubleshooting/01-it-operations/DNS Not Resolving.md",
+    "sops/01-it-operations/How to Restart Hotel Server.md",
+    "sops/01-it-operations/IT Password Security Guidelines.md",
+    "sops/00-why-sops.md",
+    "sops/01-it-operations/intro.md",
+    "docs/intro.md",
+    "2026-08-17.md",
+    "docs/01-it-operations/How to Troubleshoot Wi-Fi Not Working.md",
+    "docs/02-networking/How to fix dns.md",
+    "docs/05-pms/intro.md",
+    "sops/03-security/Untitled.md",
+    "troubleshooting/02-networking/How to fix dns.md",
+    "IT Support.png",
+    "troubleshooting/01-it-operations/intro.md",
+    "docs/02-networking/intro.md"
+  ]
+}

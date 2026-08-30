@@ -1,0 +1,107 @@
+{
+  "backup_version": 1,
+  "created_at": "2026-08-27T17:50:58.857Z",
+  "data": {
+    "articles": [
+      {
+        "id": "2328ba1d-8742-4260-b037-973e2151616f",
+        "title": "test article",
+        "category": "Networking",
+        "type": "How-to Guide",
+        "status": "Published",
+        "content": "test",
+        "created_at": "2026-08-25T13:25:09.09542+00:00",
+        "updated_at": "2026-08-25T13:26:40.496+00:00",
+        "section": "documentation",
+        "description": null,
+        "slug": "test-article"
+      },
+      {
+        "id": "142e335d-65d8-4e5a-aaed-18d3c008c8b9",
+        "title": "Section Test",
+        "category": "IT Operations",
+        "type": "How-to Guide",
+        "status": "Published",
+        "content": "This is test",
+        "created_at": "2026-08-25T13:41:20.378894+00:00",
+        "updated_at": "2026-08-25T13:41:20.378894+00:00",
+        "section": "documentation",
+        "description": null,
+        "slug": "section-test-2"
+      },
+      {
+        "id": "b1b4f114-154b-424a-91ac-6c039fef4fa8",
+        "title": "Section test",
+        "category": "IT Operations",
+        "type": "Explanation",
+        "status": "Published",
+        "content": "hi",
+        "created_at": "2026-08-25T13:44:14.09051+00:00",
+        "updated_at": "2026-08-25T13:44:14.09051+00:00",
+        "section": "documentation",
+        "description": null,
+        "slug": "section-test"
+      },
+      {
+        "id": "0d2e5bf6-1676-4289-9fd0-68c846d66e9f",
+        "title": "test 3",
+        "category": "Networking",
+        "type": "How-to Guide",
+        "status": "Published",
+        "content": "hi\n\n\n\n![Documentation Home .png](https://stscidhyjhupiqtntzrz.supabase.co/storage/v1/object/public/hitop-media/1787844615628-Documentation-Home-.png)",
+        "created_at": "2026-08-25T18:38:03.869427+00:00",
+        "updated_at": "2026-08-27T16:01:39.153+00:00",
+        "section": "documentation",
+        "description": "",
+        "slug": "test-3"
+      }
+    ],
+    "categories": [
+      {
+        "id": "f72484d2-084d-40c6-a6ff-1e7d7b5f0cbf",
+        "name": "Networking",
+        "section": "documentation",
+        "created_at": "2026-08-25T17:47:33.740224+00:00"
+      },
+      {
+        "id": "f793251a-c836-46ea-88e6-bfb72290b522",
+        "name": "IT Operations",
+        "section": "sop",
+        "created_at": "2026-08-25T17:47:33.740224+00:00"
+      },
+      {
+        "id": "add4d0bf-7fe6-4cf0-b1d2-dd00920a9371",
+        "name": "Networking",
+        "section": "documentation",
+        "created_at": "2026-08-25T17:47:37.434985+00:00"
+      },
+      {
+        "id": "4b7adfb2-571d-442c-b55b-ebdb0b920021",
+        "name": "IT Operations",
+        "section": "sop",
+        "created_at": "2026-08-25T17:47:37.434985+00:00"
+      }
+    ],
+    "article_types": [
+      {
+        "id": "d25a4a6b-9775-4c95-a378-93c4f07f1301",
+        "name": "How-to Guide",
+        "section": "documentation",
+        "created_at": "2026-08-25T17:47:53.881282+00:00"
+      },
+      {
+        "id": "0762c4ca-4b55-4fe9-a9b4-aa4ea3d5e19a",
+        "name": "How-to Guide",
+        "section": "sop",
+        "created_at": "2026-08-25T17:47:53.881282+00:00"
+      },
+      {
+        "id": "1d36ce08-663a-4bf4-958e-390ae1a5fbb8",
+        "name": "Explanation",
+        "section": "sop",
+        "created_at": "2026-08-25T17:47:53.881282+00:00"
+      }
+    ],
+    "media": []
+  }
+}
