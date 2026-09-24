@@ -6,6 +6,7 @@
   "compatibility_flags": [
     "nodejs_compat"
   ],
+  "account_id": "8e261d7057038f56a6f8ef6fca5aa848",
   "assets": {
     "directory": ".open-next/assets",
     "binding": "ASSETS"

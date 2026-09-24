@@ -1,32 +1,145 @@
 import { NextResponse } from "next/server";
-import { supabase } from "@/lib/supabase";
+import fs from "fs";
+import path from "path";
+import matter from "gray-matter";
+import { COOKIE_NAME, verifySessionToken } from "@/lib/auth";
 
-export async function GET(request: Request) {
-  const { searchParams } = new URL(request.url);
-  const section = searchParams.get("section");
+const projectRoot = path.resolve(process.cwd(), "..");
 
-  let query = supabase
-    .from("article_types")
-    .select("id,name,section")
-    .order("name");
+const sectionPaths: Record<string, string> = {
+  documentation: "docs",
+  sop: "sops",
+  troubleshooting: "troubleshooting",
+};
 
-  if (section) {
-    query = query.eq("section", section);
+function getToken(request: Request) {
+  return request.headers
+    .get("cookie")
+    ?.split(";")
+    .find((cookie) =>
+      cookie.trim().startsWith(`${COOKIE_NAME}=`)
+    )
+    ?.split("=")
+    .slice(1)
+    .join("=");
+}
+
+function getTypes(section?: string) {
+  const sections = section
+    ? { [section]: sectionPaths[section] }
+    : sectionPaths;
+
+  const types = new Map<
+    string,
+    {
+      id: string;
+      name: string;
+      section: string;
+    }
+  >();
+
+  function scanDirectory(
+    directory: string,
+    sectionName: string
+  ) {
+    if (!fs.existsSync(directory)) {
+      return;
+    }
+
+    const entries = fs.readdirSync(directory, {
+      withFileTypes: true,
+    });
+
+    for (const entry of entries) {
+      const fullPath = path.join(directory, entry.name);
+
+      if (entry.isDirectory()) {
+        scanDirectory(fullPath, sectionName);
+        continue;
+      }
+
+      if (!entry.name.endsWith(".md")) {
+        continue;
+      }
+
+      try {
+        const raw = fs.readFileSync(fullPath, "utf-8");
+        const { data } = matter(raw);
+
+        const type = String(data.type || "").trim();
+
+        if (!type) {
+          continue;
+        }
+
+        const key = `${sectionName}:${type}`;
+
+        if (!types.has(key)) {
+          types.set(key, {
+            id: `${sectionName}:${type}`,
+            name: type,
+            section: sectionName,
+          });
+        }
+      } catch (error) {
+        console.error(
+          `Failed to read ${fullPath}:`,
+          error
+        );
+      }
+    }
   }
 
-  const { data, error } = await query;
+  for (const [sectionName, folder] of Object.entries(
+    sections
+  )) {
+    if (!folder) continue;
 
-  if (error) {
-    return NextResponse.json(
-      { error: error.message },
-      { status: 500 }
+    scanDirectory(
+      path.join(projectRoot, folder),
+      sectionName
     );
   }
 
-  return NextResponse.json(data || []);
+  return Array.from(types.values()).sort((a, b) =>
+    a.name.localeCompare(b.name)
+  );
 }
+
+export async function GET(request: Request) {
+  try {
+    const { searchParams } = new URL(request.url);
+    const section = searchParams.get("section") || undefined;
+
+    if (section && !sectionPaths[section]) {
+      return NextResponse.json(
+        { error: "Invalid section." },
+        { status: 400 }
+      );
+    }
+
+    return NextResponse.json(getTypes(section));
+  } catch (error) {
+    console.error("GET ARTICLE TYPES ERROR:", error);
+
+    return NextResponse.json(
+      { error: "Failed to load article types." },
+      { status: 500 }
+    );
+  }
+}
+
 export async function POST(request: Request) {
   try {
+    const token = getToken(request);
+
+    if (!(await verifySessionToken(token))) {
+      return NextResponse.json(
+        { error: "Unauthorized" },
+        { status: 401 }
+      );
+    }
+
     const body = await request.json();
 
     const name = String(body.name || "").trim();
@@ -39,45 +152,56 @@ export async function POST(request: Request) {
       );
     }
 
-    if (!section) {
+    if (!section || !sectionPaths[section]) {
       return NextResponse.json(
-        { error: "Section is required." },
+        { error: "Valid section is required." },
         { status: 400 }
       );
     }
 
-    const { data, error } = await supabase
-      .from("article_types")
-      .insert({
-        name,
-        section,
-      })
-      .select("id,name,section")
-      .single();
+    const existingTypes = getTypes(section);
 
-    if (error) {
-      console.error("CREATE ARTICLE TYPE ERROR:", error);
+    const exists = existingTypes.some(
+      (type) =>
+        type.name.toLowerCase() === name.toLowerCase()
+    );
 
+    if (exists) {
       return NextResponse.json(
-        { error: error.message },
-        { status: 500 }
+        { error: "Article type already exists." },
+        { status: 409 }
       );
     }
 
-    return NextResponse.json(data, { status: 201 });
+    return NextResponse.json(
+      {
+        id: `${section}:${name}`,
+        name,
+        section,
+      },
+      { status: 201 }
+    );
   } catch (error) {
     console.error("CREATE ARTICLE TYPE ERROR:", error);
 
     return NextResponse.json(
-      { error: "Invalid request." },
-      { status: 400 }
+      { error: "Failed to create article type." },
+      { status: 500 }
     );
   }
 }
 
-
 export async function PUT(request: Request) {
   try {
+    const token = getToken(request);
+
+    if (!(await verifySessionToken(token))) {
+      return NextResponse.json(
+        { error: "Unauthorized" },
+        { status: 401 }
+      );
+    }
+
     const { searchParams } = new URL(request.url);
     const id = searchParams.get("id");
 
@@ -100,46 +224,48 @@ export async function PUT(request: Request) {
       );
     }
 
-    if (!section) {
+    if (!section || !sectionPaths[section]) {
       return NextResponse.json(
-        { error: "Section is required." },
+        { error: "Valid section is required." },
         { status: 400 }
       );
     }
 
-    const { data, error } = await supabase
-      .from("article_types")
-      .update({
-        name,
-        section,
-      })
-      .eq("id", id)
-      .select("id,name,section")
-      .single();
+    /*
+     * Article types are metadata values stored inside
+     * Markdown frontmatter.
+     *
+     * Therefore PUT does not create a database record.
+     * Existing articles will retain their current type
+     * until their frontmatter is changed.
+     */
 
-    if (error) {
-      console.error("UPDATE ARTICLE TYPE ERROR:", error);
-
-      return NextResponse.json(
-        { error: error.message },
-        { status: 500 }
-      );
-    }
-
-    return NextResponse.json(data);
+    return NextResponse.json({
+      id: `${section}:${name}`,
+      name,
+      section,
+    });
   } catch (error) {
     console.error("UPDATE ARTICLE TYPE ERROR:", error);
 
     return NextResponse.json(
-      { error: "Invalid request." },
-      { status: 400 }
+      { error: "Failed to update article type." },
+      { status: 500 }
     );
   }
 }
 
-
 export async function DELETE(request: Request) {
   try {
+    const token = getToken(request);
+
+    if (!(await verifySessionToken(token))) {
+      return NextResponse.json(
+        { error: "Unauthorized" },
+        { status: 401 }
+      );
+    }
+
     const { searchParams } = new URL(request.url);
     const id = searchParams.get("id");
 
@@ -150,19 +276,14 @@ export async function DELETE(request: Request) {
       );
     }
 
-    const { error } = await supabase
-      .from("article_types")
-      .delete()
-      .eq("id", id);
-
-    if (error) {
-      console.error("DELETE ARTICLE TYPE ERROR:", error);
-
-      return NextResponse.json(
-        { error: error.message },
-        { status: 500 }
-      );
-    }
+    /*
+     * Types are not separate files or database records.
+     * They exist in article frontmatter.
+     *
+     * Therefore DELETE does not remove a type globally.
+     * The type disappears automatically when no article
+     * uses it anymore.
+     */
 
     return NextResponse.json({
       success: true,

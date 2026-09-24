@@ -2,6 +2,7 @@
 
 import { FormEvent, useState } from "react";
 import { useRouter } from "next/navigation";
+import { supabaseBrowser } from "@/lib/supabase-browser";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -17,32 +18,19 @@ export default function LoginPage() {
     setLoading(true);
     setError("");
 
-    try {
-      const response = await fetch("/api/auth/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email,
-          password,
-        }),
-      });
+    const { error } = await supabaseBrowser.auth.signInWithPassword({
+      email,
+      password,
+    });
 
-      const data = await response.json();
-
-      if (!response.ok) {
-        setError(data.error || "Login failed");
-        setLoading(false);
-        return;
-      }
-
-      router.push("/dashboard");
-      router.refresh();
-    } catch {
-      setError("Unable to connect to the server");
+    if (error) {
+      setError(error.message);
       setLoading(false);
+      return;
     }
+
+    router.push("/dashboard");
+    router.refresh();
   }
 
   return (
@@ -58,7 +46,13 @@ export default function LoginPage() {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M24 2 L44 9 V25 C44 38 36 47 24 52 C12 47 4 38 4 25 V9 Z"
+                  d="M24 2
+                     L44 9
+                     V25
+                     C44 38 36 47 24 52
+                     C12 47 4 38 4 25
+                     V9
+                     Z"
                   fill="none"
                   stroke="#1d4ed8"
                   strokeWidth="3"
@@ -66,7 +60,9 @@ export default function LoginPage() {
                 />
 
                 <path
-                  d="M14 27 L21 34 L35 19"
+                  d="M14 27
+                     L21 34
+                     L35 19"
                   fill="none"
                   stroke="#1d4ed8"
                   strokeWidth="3.5"
@@ -118,7 +114,8 @@ export default function LoginPage() {
                 onChange={(event) => setPassword(event.target.value)}
                 placeholder="Enter your password"
                 required
-                className="relative z-10 w-full rounded-lg border border-slate-300 px-4 py-3 outline-none focus:border-blue-600"              />
+                className="w-full rounded-lg border border-slate-300 px-4 py-3 outline-none focus:border-blue-600"
+              />
             </div>
 
             <button

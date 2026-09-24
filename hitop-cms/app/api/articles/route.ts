@@ -3,7 +3,7 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import { execFileSync } from "child_process";
-import { supabase } from "@/lib/supabase";
+import { COOKIE_NAME, verifySessionToken } from "@/lib/auth";
 
 export const runtime = "nodejs";
 
@@ -19,6 +19,10 @@ const sectionPaths: Record<string, string> = {
   troubleshooting: "troubleshooting",
 };
 
+/* =========================
+   SECTION HELPERS
+========================= */
+
 function getSectionFolder(section: string) {
   return sectionPaths[section] || "docs";
 }
@@ -31,7 +35,7 @@ function getSectionPath(section: string) {
 }
 
 /* =========================
-   CATEGORY PATH
+   CATEGORY HELPERS
 ========================= */
 
 function sanitizeCategory(category: string) {
@@ -52,17 +56,14 @@ function getCategoryPath(
   section: string,
   category: string
 ) {
-  const sectionPath = getSectionPath(section);
-  const safeCategory = sanitizeCategory(category);
-
   return path.join(
-    sectionPath,
-    safeCategory
+    getSectionPath(section),
+    sanitizeCategory(category)
   );
 }
 
 /* =========================
-   SAFE FILE NAME
+   FILE NAME
 ========================= */
 
 function createSafeFileName(title: string) {
@@ -90,7 +91,8 @@ function createBaseSlug(title: string) {
       .replace(/[^a-z0-9\s-]/g, "")
       .replace(/\s+/g, "-")
       .replace(/-+/g, "-")
-      .replace(/^-|-$/g, "") || "article"
+      .replace(/^-|-$/g, "") ||
+    "article"
   );
 }
 
@@ -121,6 +123,241 @@ function createMarkdown(
     date,
     updated,
   });
+}
+
+/* =========================
+   ARTICLE ID
+========================= */
+
+function createArticleId(filePath: string) {
+  return path
+    .relative(projectRoot, filePath)
+    .split(path.sep)
+    .join("/");
+}
+
+function getFilePathFromId(id: string) {
+  const normalized = id
+    .replace(/\\/g, "/")
+    .replace(/^\/+/, "");
+
+  const fullPath = path.resolve(
+    projectRoot,
+    normalized
+  );
+
+  const relative = path.relative(
+    projectRoot,
+    fullPath
+  );
+
+  if (
+    relative.startsWith("..") ||
+    path.isAbsolute(relative)
+  ) {
+    throw new Error("Invalid article ID.");
+  }
+
+  if (!fullPath.endsWith(".md")) {
+    throw new Error("Invalid article file.");
+  }
+
+  return fullPath;
+}
+
+/* =========================
+   READ MARKDOWN FILE
+========================= */
+
+function readArticle(filePath: string) {
+  const raw = fs.readFileSync(
+    filePath,
+    "utf-8"
+  );
+
+  const { data, content } = matter(raw);
+
+  const stat = fs.statSync(filePath);
+
+  const section =
+    data.section ||
+    getSectionFromPath(filePath);
+
+  const category =
+    data.category ||
+    getCategoryFromPath(
+      filePath,
+      section
+    );
+
+  const updated =
+    data.updated ||
+    data.date ||
+    stat.mtime.toISOString();
+
+  const created =
+    data.date ||
+    updated;
+
+  return {
+    id: createArticleId(filePath),
+    title: data.title || path.basename(filePath, ".md"),
+    description: data.description || "",
+    category,
+    type: data.type || "",
+    status: data.status || "Draft",
+    section,
+    content,
+    created_at: created,
+    updated_at: updated,
+    slug:
+      data.slug ||
+      createBaseSlug(
+        data.title ||
+          path.basename(filePath, ".md")
+      ),
+  };
+}
+
+/* =========================
+   SECTION FROM PATH
+========================= */
+
+function getSectionFromPath(filePath: string) {
+  const relative = path.relative(
+    projectRoot,
+    filePath
+  );
+
+  const firstFolder =
+    relative.split(path.sep)[0];
+
+  if (firstFolder === "sops") {
+    return "sop";
+  }
+
+  if (
+    firstFolder ===
+    "troubleshooting"
+  ) {
+    return "troubleshooting";
+  }
+
+  return "documentation";
+}
+
+/* =========================
+   CATEGORY FROM PATH
+========================= */
+
+function getCategoryFromPath(
+  filePath: string,
+  section: string
+) {
+  const sectionPath =
+    getSectionPath(section);
+
+  const relative = path.relative(
+    sectionPath,
+    filePath
+  );
+
+  const parts = relative.split(
+    path.sep
+  );
+
+  if (parts.length > 1) {
+    return parts[0];
+  }
+
+  return "General";
+}
+
+/* =========================
+   FIND MARKDOWN FILES
+========================= */
+
+function walkMarkdownFiles(
+  directory: string,
+  files: string[] = []
+) {
+  if (!fs.existsSync(directory)) {
+    return files;
+  }
+
+  const entries =
+    fs.readdirSync(directory, {
+      withFileTypes: true,
+    });
+
+  for (const entry of entries) {
+    const fullPath = path.join(
+      directory,
+      entry.name
+    );
+
+    if (entry.isDirectory()) {
+      walkMarkdownFiles(
+        fullPath,
+        files
+      );
+      continue;
+    }
+
+    if (
+      entry.isFile() &&
+      entry.name.endsWith(".md")
+    ) {
+      files.push(fullPath);
+    }
+  }
+
+  return files;
+}
+
+/* =========================
+   GET ALL ARTICLES
+========================= */
+
+function getAllArticles() {
+  const articles = [];
+
+  for (const section of Object.keys(
+    sectionPaths
+  )) {
+    const sectionPath =
+      getSectionPath(section);
+
+    const files =
+      walkMarkdownFiles(
+        sectionPath
+      );
+
+    for (const filePath of files) {
+      try {
+        const article =
+          readArticle(filePath);
+
+        if (article.title) {
+          articles.push(article);
+        }
+      } catch (error) {
+        console.error(
+          "Failed to read article:",
+          filePath,
+          error
+        );
+      }
+    }
+  }
+
+  articles.sort(
+    (a, b) =>
+      new Date(b.updated_at).getTime() -
+      new Date(a.updated_at).getTime()
+  );
+
+  return articles;
 }
 
 /* =========================
@@ -159,6 +396,30 @@ function syncArticlesJson() {
 }
 
 /* =========================
+   AUTH
+========================= */
+
+async function isAuthorized(
+  request: Request
+) {
+  const token = request.headers
+    .get("cookie")
+    ?.split(";")
+    .find((cookie) =>
+      cookie
+        .trim()
+        .startsWith(
+          `${COOKIE_NAME}=`
+        )
+    )
+    ?.split("=")
+    .slice(1)
+    .join("=");
+
+  return verifySessionToken(token);
+}
+
+/* =========================
    GET
 ========================= */
 
@@ -169,47 +430,59 @@ export async function GET(
     const { searchParams } =
       new URL(request.url);
 
-    const id = searchParams.get("id");
+    const id =
+      searchParams.get("id");
 
-    /* Get single article */
+    /* =========================
+       SINGLE ARTICLE
+    ========================= */
 
     if (id) {
-      const { data, error } =
-        await supabase
-          .from("articles")
-          .select("*")
-          .eq("id", id)
-          .single();
+      let filePath: string;
 
-      if (error) {
+      try {
+        filePath =
+          getFilePathFromId(id);
+      } catch {
         return NextResponse.json(
-          { error: error.message },
-          { status: 500 }
+          {
+            error:
+              "Invalid article ID.",
+          },
+          { status: 400 }
         );
       }
 
-      return NextResponse.json(data);
-    }
-
-    /* Get all articles */
-
-    const { data, error } =
-      await supabase
-        .from("articles")
-        .select("*")
-        .order(
-          "updated_at",
-          { ascending: false }
+      if (
+        !fs.existsSync(filePath)
+      ) {
+        return NextResponse.json(
+          {
+            error:
+              "Article not found.",
+          },
+          { status: 404 }
         );
+      }
 
-    if (error) {
+      const article =
+        readArticle(filePath);
+
       return NextResponse.json(
-        { error: error.message },
-        { status: 500 }
+        article
       );
     }
 
-    return NextResponse.json(data);
+    /* =========================
+       ALL ARTICLES
+    ========================= */
+
+    const articles =
+      getAllArticles();
+
+    return NextResponse.json(
+      articles
+    );
   } catch (error) {
     console.error(
       "GET articles error:",
@@ -227,44 +500,65 @@ export async function GET(
 }
 
 /* =========================
-   POST - CREATE ARTICLE
+   POST
+   CREATE ARTICLE
 ========================= */
 
 export async function POST(
   request: Request
 ) {
+  if (
+    !(await isAuthorized(request))
+  ) {
+    return NextResponse.json(
+      {
+        error: "Unauthorized",
+      },
+      { status: 401 }
+    );
+  }
+
   let filePath = "";
 
   try {
-    const body = await request.json();
+    const body =
+      await request.json();
 
     const title = String(
       body.title || ""
     ).trim();
 
-    const description = String(
-      body.description || ""
-    ).trim();
+    const description =
+      String(
+        body.description || ""
+      ).trim();
 
-    const category = String(
-      body.category || "Uncategorized"
-    ).trim();
+    const category =
+      String(
+        body.category ||
+          "Uncategorized"
+      ).trim();
 
     const type = String(
-      body.type || "How-to Guide"
+      body.type ||
+        "How-to Guide"
     ).trim();
 
-    const status = String(
-      body.status || "Draft"
-    ).trim();
+    const status =
+      String(
+        body.status || "Draft"
+      ).trim();
 
-    const section = String(
-      body.section || "documentation"
-    ).trim();
+    const section =
+      String(
+        body.section ||
+          "documentation"
+      ).trim();
 
-    const content = String(
-      body.content || ""
-    ).trim();
+    const content =
+      String(
+        body.content || ""
+      ).trim();
 
     if (!title || !content) {
       return NextResponse.json(
@@ -287,8 +581,11 @@ export async function POST(
     }
 
     /* =========================
-       Generate unique slug
+       UNIQUE SLUG
     ========================= */
+
+    const existingArticles =
+      getAllArticles();
 
     const baseSlug =
       createBaseSlug(title);
@@ -296,26 +593,19 @@ export async function POST(
     let slug = baseSlug;
     let counter = 2;
 
-    while (true) {
-      const { data: existing } =
-        await supabase
-          .from("articles")
-          .select("id")
-          .eq("slug", slug)
-          .maybeSingle();
-
-      if (!existing) {
-        break;
-      }
-
+    while (
+      existingArticles.some(
+        (article) =>
+          article.slug === slug
+      )
+    ) {
       slug =
         `${baseSlug}-${counter}`;
-
       counter++;
     }
 
     /* =========================
-       Markdown location
+       MARKDOWN LOCATION
     ========================= */
 
     const categoryPath =
@@ -324,7 +614,11 @@ export async function POST(
         category
       );
 
-    if (!fs.existsSync(categoryPath)) {
+    if (
+      !fs.existsSync(
+        categoryPath
+      )
+    ) {
       fs.mkdirSync(
         categoryPath,
         {
@@ -333,7 +627,7 @@ export async function POST(
       );
     }
 
-    const fileName =
+    let fileName =
       createSafeFileName(title);
 
     filePath = path.join(
@@ -341,18 +635,49 @@ export async function POST(
       fileName
     );
 
-    if (fs.existsSync(filePath)) {
-      return NextResponse.json(
-        {
-          error:
-            "An article with this title already exists in this category.",
-        },
-        { status: 409 }
-      );
+    /* =========================
+       PREVENT DUPLICATE FILE
+    ========================= */
+
+    if (
+      fs.existsSync(filePath)
+    ) {
+      const base =
+        path.basename(
+          filePath,
+          ".md"
+        );
+
+      let counter = 2;
+
+      let newPath =
+        path.join(
+          categoryPath,
+          `${base}-${counter}.md`
+        );
+
+      while (
+        fs.existsSync(newPath)
+      ) {
+        counter++;
+
+        newPath =
+          path.join(
+            categoryPath,
+            `${base}-${counter}.md`
+          );
+      }
+
+      filePath = newPath;
+
+      fileName =
+        path.basename(
+          filePath
+        );
     }
 
     /* =========================
-       Create Markdown
+       CREATE MARKDOWN
     ========================= */
 
     const now =
@@ -384,43 +709,7 @@ export async function POST(
     );
 
     /* =========================
-       Save Supabase
-    ========================= */
-
-    const { data, error } =
-      await supabase
-        .from("articles")
-        .insert({
-          title,
-          slug,
-          description,
-          category,
-          type,
-          status,
-          section,
-          content,
-        })
-        .select()
-        .single();
-
-    if (error) {
-      console.error(
-        "CREATE ARTICLE SUPABASE ERROR:",
-        error
-      );
-
-      if (fs.existsSync(filePath)) {
-        fs.unlinkSync(filePath);
-      }
-
-      return NextResponse.json(
-        { error: error.message },
-        { status: 500 }
-      );
-    }
-
-    /* =========================
-       Sync articles.json
+       SYNC PORTAL DATA
     ========================= */
 
     try {
@@ -435,7 +724,8 @@ export async function POST(
         {
           error:
             "Article created, but articles.json sync failed.",
-          article: data,
+          article:
+            readArticle(filePath),
         },
         { status: 500 }
       );
@@ -446,7 +736,8 @@ export async function POST(
         success: true,
         message:
           "Article created successfully.",
-        article: data,
+        article:
+          readArticle(filePath),
         fileName,
       },
       { status: 201 }
@@ -477,16 +768,27 @@ export async function POST(
 }
 
 /* =========================
-   PUT - UPDATE ARTICLE
+   PUT
+   UPDATE ARTICLE
 ========================= */
 
 export async function PUT(
   request: Request
 ) {
-  let newFilePath = "";
+  if (
+    !(await isAuthorized(request))
+  ) {
+    return NextResponse.json(
+      {
+        error: "Unauthorized",
+      },
+      { status: 401 }
+    );
+  }
 
   try {
-    const body = await request.json();
+    const body =
+      await request.json();
 
     const id = String(
       body.id || ""
@@ -502,24 +804,29 @@ export async function PUT(
       );
     }
 
-    /* =========================
-       Get existing article
-    ========================= */
+    let oldFilePath: string;
 
-    const {
-      data: existing,
-      error: fetchError,
-    } = await supabase
-      .from("articles")
-      .select("*")
-      .eq("id", id)
-      .single();
-
-    if (fetchError || !existing) {
+    try {
+      oldFilePath =
+        getFilePathFromId(id);
+    } catch {
       return NextResponse.json(
         {
           error:
-            fetchError?.message ||
+            "Invalid article ID.",
+        },
+        { status: 400 }
+      );
+    }
+
+    if (
+      !fs.existsSync(
+        oldFilePath
+      )
+    ) {
+      return NextResponse.json(
+        {
+          error:
             "Article not found.",
         },
         { status: 404 }
@@ -527,48 +834,66 @@ export async function PUT(
     }
 
     /* =========================
-       New values
+       EXISTING ARTICLE
     ========================= */
 
-    const title = String(
-      body.title ?? existing.title ?? ""
-    ).trim();
+    const existing =
+      readArticle(
+        oldFilePath
+      );
 
-    const description = String(
-      body.description ??
-        existing.description ??
-        ""
-    ).trim();
+    /* =========================
+       NEW VALUES
+    ========================= */
 
-    const category = String(
-      body.category ??
-        existing.category ??
-        "Uncategorized"
-    ).trim();
+    const title =
+      String(
+        body.title ??
+          existing.title ??
+          ""
+      ).trim();
 
-    const type = String(
-      body.type ??
-        existing.type ??
-        "How-to Guide"
-    ).trim();
+    const description =
+      String(
+        body.description ??
+          existing.description ??
+          ""
+      ).trim();
 
-    const status = String(
-      body.status ??
-        existing.status ??
-        "Draft"
-    ).trim();
+    const category =
+      String(
+        body.category ??
+          existing.category ??
+          "Uncategorized"
+      ).trim();
 
-    const section = String(
-      body.section ??
-        existing.section ??
-        "documentation"
-    ).trim();
+    const type =
+      String(
+        body.type ??
+          existing.type ??
+          "How-to Guide"
+      ).trim();
 
-    const content = String(
-      body.content ??
-        existing.content ??
-        ""
-    ).trim();
+    const status =
+      String(
+        body.status ??
+          existing.status ??
+          "Draft"
+      ).trim();
+
+    const section =
+      String(
+        body.section ??
+          existing.section ??
+          "documentation"
+      ).trim();
+
+    const content =
+      String(
+        body.content ??
+          existing.content ??
+          ""
+      ).trim();
 
     if (!title || !content) {
       return NextResponse.json(
@@ -591,7 +916,7 @@ export async function PUT(
     }
 
     /* =========================
-       Keep existing slug
+       KEEP SLUG
     ========================= */
 
     const slug =
@@ -599,33 +924,7 @@ export async function PUT(
       createBaseSlug(title);
 
     /* =========================
-       Old Markdown path
-    ========================= */
-
-    const oldSection =
-      existing.section ||
-      "documentation";
-
-    const oldCategory =
-      existing.category ||
-      "Uncategorized";
-
-    const oldFileName =
-      createSafeFileName(
-        existing.title
-      );
-
-    const oldFilePath =
-      path.join(
-        getCategoryPath(
-          oldSection,
-          oldCategory
-        ),
-        oldFileName
-      );
-
-    /* =========================
-       New Markdown path
+       NEW LOCATION
     ========================= */
 
     const newCategoryPath =
@@ -650,18 +949,22 @@ export async function PUT(
     const newFileName =
       createSafeFileName(title);
 
-    newFilePath = path.join(
-      newCategoryPath,
-      newFileName
-    );
+    const newFilePath =
+      path.join(
+        newCategoryPath,
+        newFileName
+      );
 
     /* =========================
-       Prevent overwrite
+       DUPLICATE CHECK
     ========================= */
 
     if (
-      oldFilePath !== newFilePath &&
-      fs.existsSync(newFilePath)
+      oldFilePath !==
+        newFilePath &&
+      fs.existsSync(
+        newFilePath
+      )
     ) {
       return NextResponse.json(
         {
@@ -673,7 +976,7 @@ export async function PUT(
     }
 
     /* =========================
-       Create updated Markdown
+       UPDATE MARKDOWN
     ========================= */
 
     const updated =
@@ -681,7 +984,6 @@ export async function PUT(
 
     const created =
       existing.created_at ||
-      existing.date ||
       updated;
 
     const markdown =
@@ -698,10 +1000,6 @@ export async function PUT(
         updated
       );
 
-    /* =========================
-       Write new Markdown
-    ========================= */
-
     fs.writeFileSync(
       newFilePath,
       markdown,
@@ -714,59 +1012,15 @@ export async function PUT(
     );
 
     /* =========================
-       Update Supabase
-    ========================= */
-
-    const {
-      data,
-      error,
-    } = await supabase
-      .from("articles")
-      .update({
-        title,
-        description,
-        category,
-        type,
-        status,
-        section,
-        content,
-        updated_at: updated,
-      })
-      .eq("id", id)
-      .select()
-      .single();
-
-    if (error) {
-      console.error(
-        "UPDATE ARTICLE ERROR:",
-        error
-      );
-
-      /* Remove newly created Markdown
-         if database update fails */
-
-      if (
-        newFilePath &&
-        fs.existsSync(newFilePath)
-      ) {
-        fs.unlinkSync(
-          newFilePath
-        );
-      }
-
-      return NextResponse.json(
-        { error: error.message },
-        { status: 500 }
-      );
-    }
-
-    /* =========================
-       Remove old Markdown
+       REMOVE OLD FILE
     ========================= */
 
     if (
-      oldFilePath !== newFilePath &&
-      fs.existsSync(oldFilePath)
+      oldFilePath !==
+        newFilePath &&
+      fs.existsSync(
+        oldFilePath
+      )
     ) {
       fs.unlinkSync(
         oldFilePath
@@ -779,7 +1033,7 @@ export async function PUT(
     }
 
     /* =========================
-       Sync articles.json
+       SYNC PORTAL DATA
     ========================= */
 
     try {
@@ -794,7 +1048,10 @@ export async function PUT(
         {
           error:
             "Article updated, but articles.json sync failed.",
-          article: data,
+          article:
+            readArticle(
+              newFilePath
+            ),
         },
         { status: 500 }
       );
@@ -804,7 +1061,10 @@ export async function PUT(
       success: true,
       message:
         "Article updated successfully.",
-      article: data,
+      article:
+        readArticle(
+          newFilePath
+        ),
       fileName: newFileName,
     });
   } catch (error) {
@@ -826,12 +1086,23 @@ export async function PUT(
 }
 
 /* =========================
-   DELETE ARTICLE
+   DELETE
 ========================= */
 
 export async function DELETE(
   request: Request
 ) {
+  if (
+    !(await isAuthorized(request))
+  ) {
+    return NextResponse.json(
+      {
+        error: "Unauthorized",
+      },
+      { status: 401 }
+    );
+  }
+
   try {
     const { searchParams } =
       new URL(request.url);
@@ -849,24 +1120,27 @@ export async function DELETE(
       );
     }
 
-    /* =========================
-       Get article first
-    ========================= */
+    let filePath: string;
 
-    const {
-      data: article,
-      error: fetchError,
-    } = await supabase
-      .from("articles")
-      .select("*")
-      .eq("id", id)
-      .single();
-
-    if (fetchError || !article) {
+    try {
+      filePath =
+        getFilePathFromId(id);
+    } catch {
       return NextResponse.json(
         {
           error:
-            fetchError?.message ||
+            "Invalid article ID.",
+        },
+        { status: 400 }
+      );
+    }
+
+    if (
+      !fs.existsSync(filePath)
+    ) {
+      return NextResponse.json(
+        {
+          error:
             "Article not found.",
         },
         { status: 404 }
@@ -874,68 +1148,20 @@ export async function DELETE(
     }
 
     /* =========================
-       Markdown path
+       DELETE MARKDOWN
     ========================= */
 
-    const section =
-      article.section ||
-      "documentation";
+    fs.unlinkSync(
+      filePath
+    );
 
-    const category =
-      article.category ||
-      "Uncategorized";
-
-    const fileName =
-      createSafeFileName(
-        article.title
-      );
-
-    const filePath =
-      path.join(
-        getCategoryPath(
-          section,
-          category
-        ),
-        fileName
-      );
+    console.log(
+      "MARKDOWN DELETED:",
+      filePath
+    );
 
     /* =========================
-       Delete Markdown
-    ========================= */
-
-    if (fs.existsSync(filePath)) {
-      fs.unlinkSync(filePath);
-
-      console.log(
-        "MARKDOWN DELETED:",
-        filePath
-      );
-    }
-
-    /* =========================
-       Delete Supabase record
-    ========================= */
-
-    const { error } =
-      await supabase
-        .from("articles")
-        .delete()
-        .eq("id", id);
-
-    if (error) {
-      console.error(
-        "DELETE ARTICLE ERROR:",
-        error
-      );
-
-      return NextResponse.json(
-        { error: error.message },
-        { status: 500 }
-      );
-    }
-
-    /* =========================
-       Sync articles.json
+       SYNC PORTAL DATA
     ========================= */
 
     try {

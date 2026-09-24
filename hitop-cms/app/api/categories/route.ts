@@ -1,40 +1,137 @@
 import { NextResponse } from "next/server";
-import { supabase } from "@/lib/supabase";
+import fs from "fs";
+import path from "path";
+import { COOKIE_NAME, verifySessionToken } from "@/lib/auth";
 
-export async function GET(request: Request) {
-  const { searchParams } = new URL(request.url);
-  const section = searchParams.get("section");
+const projectRoot = path.resolve(process.cwd(), "..");
 
-  let query = supabase
-    .from("categories")
-    .select("id,name,section")
-    .order("name");
+const sectionPaths: Record<string, string> = {
+  documentation: "docs",
+  sop: "sops",
+  troubleshooting: "troubleshooting",
+};
 
-  if (section) {
-    query = query.eq("section", section);
+function getSectionPath(section: string) {
+  const folder = sectionPaths[section];
+
+  if (!folder) {
+    throw new Error("Invalid section.");
   }
 
-  const { data, error } = await query;
+  return path.join(projectRoot, folder);
+}
 
-if (error) {
-  console.error("CATEGORIES SUPABASE ERROR:", error);
+function getCategories(section?: string) {
+  const sections = section
+    ? { [section]: sectionPaths[section] }
+    : sectionPaths;
 
-  return NextResponse.json(
-    {
-      error: error.message,
-      code: error.code,
-      details: error.details,
-      hint: error.hint,
-    },
-    { status: 500 }
+  const categories: {
+    id: string;
+    name: string;
+    section: string;
+  }[] = [];
+
+  for (const [sectionName, folder] of Object.entries(sections)) {
+    if (!folder) continue;
+
+    const sectionPath = path.join(projectRoot, folder);
+
+    if (!fs.existsSync(sectionPath)) {
+      continue;
+    }
+
+    const entries = fs.readdirSync(sectionPath, {
+      withFileTypes: true,
+    });
+
+    for (const entry of entries) {
+      if (!entry.isDirectory()) {
+        continue;
+      }
+
+      if (entry.name.toLowerCase() === "intro") {
+        continue;
+      }
+
+      categories.push({
+        id: `${folder}/${entry.name}`,
+        name: entry.name,
+        section: sectionName,
+      });
+    }
+  }
+
+  return categories.sort((a, b) =>
+    a.name.localeCompare(b.name)
   );
 }
 
-  return NextResponse.json(data || []);
+function getToken(request: Request) {
+  return request.headers
+    .get("cookie")
+    ?.split(";")
+    .find((cookie) =>
+      cookie.trim().startsWith(`${COOKIE_NAME}=`)
+    )
+    ?.split("=")
+    .slice(1)
+    .join("=");
+}
+
+export async function GET(request: Request) {
+  try {
+    const { searchParams } = new URL(request.url);
+    const section = searchParams.get("section") || undefined;
+
+    if (section && !sectionPaths[section]) {
+      return NextResponse.json(
+        { error: "Invalid section." },
+        { status: 400 }
+      );
+    }
+
+    const categories = getCategories(section);
+
+    const id = searchParams.get("id");
+
+    if (id) {
+      const category = categories.find(
+        (item) => item.id === id
+      );
+
+      if (!category) {
+        return NextResponse.json(
+          { error: "Category not found." },
+          { status: 404 }
+        );
+      }
+
+      return NextResponse.json(category);
+    }
+
+    return NextResponse.json(categories);
+  } catch (error) {
+    console.error("GET CATEGORIES ERROR:", error);
+
+    return NextResponse.json(
+      { error: "Failed to load categories." },
+      { status: 500 }
+    );
+  }
 }
 
 export async function POST(request: Request) {
   try {
+    const token = getToken(request);
+
+    if (!(await verifySessionToken(token))) {
+      return NextResponse.json(
+        { error: "Unauthorized" },
+        { status: 401 }
+      );
+    }
+
     const body = await request.json();
 
     const name = String(body.name || "").trim();
@@ -47,44 +144,54 @@ export async function POST(request: Request) {
       );
     }
 
-    if (!section) {
+    if (!section || !sectionPaths[section]) {
       return NextResponse.json(
-        { error: "Section is required." },
+        { error: "Valid section is required." },
         { status: 400 }
       );
     }
 
-    const { data, error } = await supabase
-      .from("categories")
-      .insert({
-        name,
-        section,
-      })
-      .select("id,name,section")
-      .single();
+    const sectionPath = getSectionPath(section);
+    const categoryPath = path.join(sectionPath, name);
 
-    if (error) {
-      console.error("CREATE CATEGORY ERROR:", error);
-
+    if (fs.existsSync(categoryPath)) {
       return NextResponse.json(
-        { error: error.message },
-        { status: 500 }
+        { error: "Category already exists." },
+        { status: 409 }
       );
     }
 
-    return NextResponse.json(data, { status: 201 });
+    fs.mkdirSync(categoryPath, { recursive: true });
+
+    return NextResponse.json(
+      {
+        id: `${sectionPaths[section]}/${name}`,
+        name,
+        section,
+      },
+      { status: 201 }
+    );
   } catch (error) {
     console.error("CREATE CATEGORY ERROR:", error);
 
     return NextResponse.json(
-      { error: "Invalid request." },
-      { status: 400 }
+      { error: "Failed to create category." },
+      { status: 500 }
     );
   }
 }
 
 export async function PUT(request: Request) {
   try {
+    const token = getToken(request);
+
+    if (!(await verifySessionToken(token))) {
+      return NextResponse.json(
+        { error: "Unauthorized" },
+        { status: 401 }
+      );
+    }
+
     const { searchParams } = new URL(request.url);
     const id = searchParams.get("id");
 
@@ -107,45 +214,98 @@ export async function PUT(request: Request) {
       );
     }
 
-    if (!section) {
+    if (!section || !sectionPaths[section]) {
       return NextResponse.json(
-        { error: "Section is required." },
+        { error: "Valid section is required." },
         { status: 400 }
       );
     }
 
-    const { data, error } = await supabase
-      .from("categories")
-      .update({
-        name,
-        section,
-      })
-      .eq("id", id)
-      .select("id,name,section")
-      .single();
+    const oldParts = id.split("/");
 
-    if (error) {
-      console.error("UPDATE CATEGORY ERROR:", error);
-
+    if (oldParts.length !== 2) {
       return NextResponse.json(
-        { error: error.message },
-        { status: 500 }
+        { error: "Invalid category ID." },
+        { status: 400 }
       );
     }
 
-    return NextResponse.json(data);
+    const oldSectionFolder = oldParts[0];
+    const oldName = oldParts[1];
+
+    const oldSection = Object.entries(sectionPaths).find(
+      ([, folder]) => folder === oldSectionFolder
+    )?.[0];
+
+    if (!oldSection) {
+      return NextResponse.json(
+        { error: "Invalid category path." },
+        { status: 400 }
+      );
+    }
+
+    const oldPath = path.join(
+      projectRoot,
+      oldSectionFolder,
+      oldName
+    );
+
+    const newPath = path.join(
+      projectRoot,
+      sectionPaths[section],
+      name
+    );
+
+    if (!fs.existsSync(oldPath)) {
+      return NextResponse.json(
+        { error: "Category not found." },
+        { status: 404 }
+      );
+    }
+
+    if (
+      oldPath !== newPath &&
+      fs.existsSync(newPath)
+    ) {
+      return NextResponse.json(
+        { error: "Target category already exists." },
+        { status: 409 }
+      );
+    }
+
+    fs.mkdirSync(
+      path.dirname(newPath),
+      { recursive: true }
+    );
+
+    fs.renameSync(oldPath, newPath);
+
+    return NextResponse.json({
+      id: `${sectionPaths[section]}/${name}`,
+      name,
+      section,
+    });
   } catch (error) {
     console.error("UPDATE CATEGORY ERROR:", error);
 
     return NextResponse.json(
-      { error: "Invalid request." },
-      { status: 400 }
+      { error: "Failed to update category." },
+      { status: 500 }
     );
   }
 }
 
 export async function DELETE(request: Request) {
   try {
+    const token = getToken(request);
+
+    if (!(await verifySessionToken(token))) {
+      return NextResponse.json(
+        { error: "Unauthorized" },
+        { status: 401 }
+      );
+    }
+
     const { searchParams } = new URL(request.url);
     const id = searchParams.get("id");
 
@@ -156,19 +316,55 @@ export async function DELETE(request: Request) {
       );
     }
 
-    const { error } = await supabase
-      .from("categories")
-      .delete()
-      .eq("id", id);
+    const parts = id.split("/");
 
-    if (error) {
-      console.error("DELETE CATEGORY ERROR:", error);
-
+    if (parts.length !== 2) {
       return NextResponse.json(
-        { error: error.message },
-        { status: 500 }
+        { error: "Invalid category ID." },
+        { status: 400 }
       );
     }
+
+    const folder = parts[0];
+    const name = parts[1];
+
+    const section = Object.entries(sectionPaths).find(
+      ([, value]) => value === folder
+    )?.[0];
+
+    if (!section) {
+      return NextResponse.json(
+        { error: "Invalid category path." },
+        { status: 400 }
+      );
+    }
+
+    const categoryPath = path.join(
+      projectRoot,
+      folder,
+      name
+    );
+
+    if (!fs.existsSync(categoryPath)) {
+      return NextResponse.json(
+        { error: "Category not found." },
+        { status: 404 }
+      );
+    }
+
+    const entries = fs.readdirSync(categoryPath);
+
+    if (entries.length > 0) {
+      return NextResponse.json(
+        {
+          error:
+            "Category is not empty. Move or delete its articles first.",
+        },
+        { status: 409 }
+      );
+    }
+
+    fs.rmdirSync(categoryPath);
 
     return NextResponse.json({
       success: true,
