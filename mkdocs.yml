@@ -1,5 +1,6 @@
 site_name: HITOP
 
+site_url: https://gagan7248.github.io/HITOP/
 
 plugins:
   - search
