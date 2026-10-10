@@ -1,4 +1,4 @@
-name: Deploy MkDocs
+﻿name: Deploy MkDocs
 
 on:
   push:
@@ -17,8 +17,10 @@ jobs:
 
       - uses: actions/setup-python@v5
         with:
-          python-version: 3.x
+          python-version: "3.x"
 
-      - run: pip install mkdocs-material
+      - name: Install dependencies
+        run: pip install -r requirements.txt
 
-      - run: mkdocs gh-deploy --force
+      - name: Deploy to GitHub Pages
+        run: mkdocs gh-deploy --force
