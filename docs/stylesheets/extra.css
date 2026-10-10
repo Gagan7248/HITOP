@@ -433,7 +433,76 @@
   }
 }
 
-/* Hide only the Metadata heading */
-article h2:has(+ ul) {
-  /* No change */
+/* =========================
+   HITOP Mobile Responsive Header
+   ========================= */
+
+@media screen and (max-width: 768px) {
+  .md-header {
+    height: auto;
+    min-height: 56px;
+  }
+
+  .md-header__inner {
+    height: auto;
+    min-height: 56px;
+    flex-wrap: wrap;
+    padding: 8px 12px;
+  }
+
+  .hitop-title {
+    font-size: 19px;
+    margin-right: auto;
+  }
+
+  .hitop-nav {
+    order: 10;
+    flex: 0 0 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-top: 8px;
+  }
+
+  .hitop-nav a {
+    font-size: 13px;
+    padding: 8px;
+  }
+
+  .hitop-nav .support-btn {
+    margin-left: 0;
+  }
+
+  .md-search {
+    margin-left: 8px;
+    max-width: 130px;
+  }
+
+  .article-card__link {
+    flex-direction: column !important;
+    gap: 12px;
+  }
+
+  .article-card__link .article-card__image {
+    flex: none;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .article-card__body {
+    width: 100%;
+  }
+
+  .hitop-hero {
+    padding: 45px 18px;
+  }
+
+  .hitop-hero h1 {
+    font-size: 32px;
+  }
+
+  .hitop-hero p {
+    font-size: 16px;
+  }
 }
+
