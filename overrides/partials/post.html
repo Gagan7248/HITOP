@@ -1,0 +1,30 @@
+﻿<article class="article-card">
+  <a class="article-card__link" href="{{ post.url | url }}">
+    {% set thumbnail = post.meta.thumbnail %}
+    {% if thumbnail %}
+      <img class="article-card__image"
+           src="{{ thumbnail | url }}"
+           alt="{{ post.title }}"
+           loading="lazy">
+    {% endif %}
+
+    <div class="article-card__body">
+      <div class="article-card__meta">
+        <time datetime="{{ post.config.date.created }}">
+          {{ post.config.date.created | date }}
+        </time>
+        {% for category in post.categories %}
+          · <span>{{ category.title }}</span>
+        {% endfor %}
+      </div>
+
+     <h2 class="article-card__title">{{ post.post.title }}</h2>
+
+      {% if post.meta.description %}
+        <p class="article-card__description">{{ post.meta.description }}</p>
+      {% endif %}
+
+      <span class="article-card__read">Read article →</span>
+    </div>
+  </a>
+</article>

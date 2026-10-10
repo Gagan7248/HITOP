@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block header %}
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+
+    <a href="{{ config.extra.homepage | d(nav.homepage.url, true) | url }}"
+       class="md-header__button md-logo"
+       title="{{ config.site_name | e }}">
+      {% include "partials/logo.html" %}
+    </a>
+
+    <div class="hitop-title">HITOP</div>
+
+    <div class="hitop-nav">
+      	<a href="{{ config.extra.homepage | d(nav.homepage.url, true) | url }}">Home</a>   
+	<a href="{{ 'category/sops/' | url }}">SOPs</a>
+	<a href="{{ 'category/documentation/' | url }}">Documentation</a>
+	<a href="{{ 'category/troubleshooting/' | url }}">Troubleshooting</a>
+      <a href="{{ 'about/' | url }}">About Us</a>
+      <a class="support-btn" href="{{ 'support/' | url }}">Get Support</a>
+    </div>
+
+    {% include "partials/palette.html" %}
+
+    {% include "partials/javascripts/palette.html" %}
+
+    {% include "partials/search.html" %}
+
+  </nav>
+</header>
+{% endblock %}
+```

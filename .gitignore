@@ -1,0 +1,8 @@
+site/
+.obsidian/
+blog-backup/
+*.backup
+*.md.backup
+
+docs/index-backup.md
+overrides/partials/*.bak
