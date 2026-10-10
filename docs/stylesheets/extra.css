@@ -818,3 +818,17 @@ body.mobile-menu-active {
   width: 24px;
   height: 24px;
 }
+
+/* Hide custom search button on desktop */
+@media screen and (min-width: 769px) {
+  .md-header__inner > label[for="__search"] {
+    display: none !important;
+  }
+}
+
+/* Show custom search button on mobile */
+@media screen and (max-width: 768px) {
+  .md-header__inner > label[for="__search"] {
+    display: flex !important;
+  }
+}
