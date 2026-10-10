@@ -1,0 +1,40 @@
+Project Folder
+cd C:\Users\HFCS\desktop\hitop
+
+Build Website
+cd C:\Users\HFCS\desktop\hitop
+
+Clean build
+python -m mkdocs build --clean
+
+Start Site on local host
+python -m mkdocs serve
+
+Publish Website on Guthub
+mkdocs gh-deploy --force
+
+MkDocs configuration
+Get-Content .\mkdocs.yml
+
+GitHub Actions deployment workflow
+Get-Content .github\workflows\deploy.yml
+
+Documentation category page
+Get-Content docs\category\documentation.md
+
+GitHub par changes push karna
+git add .
+git commit -m "Update HITOP documentation"
+git push origin main
+
+versions check karna
+python --version
+python -m mkdocs --version
+
+Website URL
+https://gagan7248.github.io/HITOP
+
+Git Repo 
+https://github.com/gagan7248/HITOP.git
+
+
