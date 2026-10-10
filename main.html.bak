@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+{% block header %}
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+
+    <button class="mobile-menu-btn"
+            id="mobile-menu-open"
+            aria-label="Open menu"
+            aria-controls="hitop-mobile-sidebar"
+            aria-expanded="false">
+      ☰
+    </button>
+
+    <a href="{{ config.extra.homepage | d(nav.homepage.url, true) | url }}"
+       class="md-header__button md-logo"
+       title="{{ config.site_name | e }}">
+      {% include "partials/logo.html" %}
+    </a>
+
+    <div class="hitop-title">HITOP</div>
+
+    <div class="hitop-nav">
+      <a href="{{ config.extra.homepage | d(nav.homepage.url, true) | url }}">Home</a>
+      <a href="{{ 'category/sops/' | url }}">SOPs</a>
+      <a href="{{ 'category/documentation/' | url }}">Documentation</a>
+      <a href="{{ 'category/troubleshooting/' | url }}">Troubleshooting</a>
+      <a href="{{ 'about/' | url }}">About Us</a>
+      <a class="support-btn" href="{{ 'support/' | url }}">Get Support</a>
+    </div>
+
+    {% include "partials/palette.html" %}
+    {% include "partials/javascripts/palette.html" %}
+    {% include "partials/search.html" %}
+
+  </nav>
+</header>
+
+<div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
+
+<aside class="hitop-mobile-sidebar"
+       id="hitop-mobile-sidebar"
+       aria-label="Mobile navigation"
+       aria-hidden="true">
+  <div class="mobile-sidebar-header">
+    <strong>HITOP Menu</strong>
+    <button id="mobile-menu-close" aria-label="Close menu">×</button>
+  </div>
+
+  <nav class="mobile-sidebar-links">
+    <a href="{{ config.extra.homepage | d(nav.homepage.url, true) | url }}">Home</a>
+    <a href="{{ 'category/sops/' | url }}">SOPs</a>
+    <a href="{{ 'category/documentation/' | url }}">Documentation</a>
+    <a href="{{ 'category/troubleshooting/' | url }}">Troubleshooting</a>
+    <a href="{{ 'about/' | url }}">About Us</a>
+    <a class="mobile-support-btn" href="{{ 'support/' | url }}">Get Support</a>
+  </nav>
+</aside>
+
+<script>
+(function () {
+  const sidebar = document.getElementById("hitop-mobile-sidebar");
+  const overlay = document.getElementById("mobile-menu-overlay");
+  const openBtn = document.getElementById("mobile-menu-open");
+  const closeBtn = document.getElementById("mobile-menu-close");
+
+  if (!sidebar || !overlay || !openBtn || !closeBtn) return;
+
+  function openMenu() {
+    sidebar.classList.add("is-open");
+    overlay.classList.add("is-visible");
+    sidebar.setAttribute("aria-hidden", "false");
+    openBtn.setAttribute("aria-expanded", "true");
+    document.body.classList.add("mobile-menu-active");
+  }
+
+  function closeMenu() {
+    sidebar.classList.remove("is-open");
+    overlay.classList.remove("is-visible");
+    sidebar.setAttribute("aria-hidden", "true");
+    openBtn.setAttribute("aria-expanded", "false");
+    document.body.classList.remove("mobile-menu-active");
+  }
+
+  openBtn.addEventListener("click", openMenu);
+  closeBtn.addEventListener("click", closeMenu);
+  overlay.addEventListener("click", closeMenu);
+
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape") closeMenu();
+  });
+
+  sidebar.querySelectorAll("a").forEach(function (link) {
+    link.addEventListener("click", closeMenu);
+  });
+})();
+</script>
+{% endblock %}
