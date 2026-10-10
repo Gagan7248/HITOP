@@ -638,3 +638,105 @@ body.mobile-menu-active {
   overflow: hidden;
 }
 
+/* =========================
+   HITOP Professional Footer
+   ========================= */
+
+.hitop-footer {
+  margin-top: 60px;
+  padding: 48px 30px 18px;
+  background: #111827;
+  color: #e5e7eb;
+}
+
+.hitop-footer__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 48px;
+}
+
+.hitop-footer__brand {
+  max-width: 480px;
+}
+
+.hitop-footer__logo {
+  display: inline-block;
+  margin-bottom: 12px;
+  color: #ffffff !important;
+  font-size: 26px;
+  font-weight: 750;
+  text-decoration: none !important;
+  letter-spacing: 0.5px;
+}
+
+.hitop-footer__brand p {
+  margin: 0;
+  color: #cbd5e1;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.hitop-footer__links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 11px;
+}
+
+.hitop-footer__links h3 {
+  margin: 0 0 8px;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.hitop-footer__links a {
+  color: #cbd5e1 !important;
+  font-size: 14px;
+  text-decoration: none !important;
+  transition: color 0.2s ease;
+}
+
+.hitop-footer__links a:hover {
+  color: #ffffff !important;
+  text-decoration: underline !important;
+}
+
+.hitop-footer__bottom {
+  max-width: 1200px;
+  margin: 35px auto 0;
+  padding-top: 18px;
+  border-top: 1px solid #374151;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.hitop-footer__bottom p {
+  margin: 0;
+  color: #9ca3af;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+@media screen and (max-width: 700px) {
+  .hitop-footer {
+    margin-top: 35px;
+    padding: 35px 20px 18px;
+  }
+
+  .hitop-footer__inner {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .hitop-footer__bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+}
+
