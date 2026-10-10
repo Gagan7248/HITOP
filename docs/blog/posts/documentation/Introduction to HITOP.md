@@ -2,6 +2,7 @@
 date: 2026-10-10
 categories:
   - Documentation
+  - Network
 description: An introduction to HITOP, its knowledge base, categories, and purpose.
 thumbnail: images/documentation-guide.svg
 ---
