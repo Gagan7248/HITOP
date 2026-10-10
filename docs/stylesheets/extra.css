@@ -605,6 +605,7 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;
   }
 
   .hitop-nav {
@@ -613,6 +614,7 @@
 
   .md-header__inner {
     flex-wrap: nowrap;
+    gap: 8px;
   }
 
   .hitop-title {
@@ -621,8 +623,16 @@
   }
 
   .md-search {
-    margin-left: 6px;
-    max-width: 110px;
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    flex-shrink: 0;
+    margin-left: 0;
+    max-width: 140px;
+  }
+
+  .md-search__form {
+    max-width: 140px;
   }
 }
 
@@ -762,3 +772,49 @@ body.mobile-menu-active {
   line-height: 1.8;
 }
 
+/* Fix HITOP mobile search visibility */
+@media screen and (max-width: 768px) {
+  .md-header__inner {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 8px;
+  }
+
+  .md-search {
+    display: flex !important;
+    flex: 0 0 40px;
+    width: 40px;
+    max-width: 40px;
+    margin-left: 0;
+    overflow: visible;
+  }
+
+  .md-search__inner {
+    width: 40px;
+  }
+
+  .md-search__icon {
+    display: flex !important;
+  }
+
+  .md-search__form {
+    width: 40px;
+  }
+}
+
+/* HITOP search button */
+.md-header__inner > label[for="__search"] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  color: inherit;
+}
+
+.md-header__inner > label[for="__search"] svg {
+  width: 24px;
+  height: 24px;
+}
