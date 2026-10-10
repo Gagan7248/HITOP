@@ -4,9 +4,8 @@ date: 2026-10-10
 categories:
   - Documentation
 description: A FortiGate firewall is commonly used to secure a network, connect a LAN to the internet, control traffic, and provide services such as NAT, VPN, and intrusion prevention.
-thumbnail: images/documentation-guide.svg
+thumbnail: images/fortigate-basic.svg
 ---
-
 # Basic Configuration of a FortiGate Firewall
 
 A FortiGate firewall is commonly used to secure a network, connect a LAN to the internet, control traffic, and provide services such as NAT, VPN, and intrusion prevention.
