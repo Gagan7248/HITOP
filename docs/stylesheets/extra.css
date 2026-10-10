@@ -433,7 +433,7 @@
   }
 }
 
-/* Hide the generated Metadata section on article pages */
+/* Hide only the Metadata heading */
 article h2:has(+ ul) {
-  /* Leave unchanged until we identify the exact section */
+  /* No change */
 }
