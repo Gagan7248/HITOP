@@ -5,7 +5,6 @@ categories:
 description: An introduction to HITOP, its knowledge base, categories, and purpose.
 thumbnail: images/documentation-guide.svg
 ---
-
 # Introduction to HITOP
 
 ## Overview
