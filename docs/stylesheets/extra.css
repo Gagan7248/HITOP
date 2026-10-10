@@ -506,3 +506,135 @@
   }
 }
 
+/* HITOP mobile sidebar menu */
+
+.mobile-menu-btn {
+  display: none;
+  border: 0;
+  background: transparent;
+  color: white;
+  font-size: 28px;
+  cursor: pointer;
+  padding: 4px 10px;
+}
+
+.mobile-menu-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.55);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.mobile-menu-overlay.is-visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.hitop-mobile-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1001;
+  width: min(300px, 85vw);
+  height: 100dvh;
+  padding: 20px;
+  box-sizing: border-box;
+  background: var(--md-default-bg-color, #fff);
+  color: var(--md-default-fg-color, #222);
+  box-shadow: 4px 0 20px rgba(0, 0, 0, 0.2);
+  transform: translateX(-105%);
+  transition: transform 0.3s ease;
+  overflow-y: auto;
+  visibility: hidden;
+}
+
+.hitop-mobile-sidebar.is-open {
+  transform: translateX(0);
+  visibility: visible;
+}
+
+.mobile-sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 20px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid var(--md-default-fg-color--lightest);
+  font-size: 20px;
+}
+
+#mobile-menu-close {
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.mobile-sidebar-links {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.mobile-sidebar-links a {
+  display: block;
+  padding: 13px 12px;
+  border-radius: 6px;
+  color: inherit;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.mobile-sidebar-links a:hover {
+  background: var(--md-default-fg-color--lightest);
+}
+
+.mobile-sidebar-links .mobile-support-btn {
+  margin-top: 10px;
+  background: #111827;
+  color: white;
+  text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+  .mobile-menu-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hitop-nav {
+    display: none !important;
+  }
+
+  .md-header__inner {
+    flex-wrap: nowrap;
+  }
+
+  .hitop-title {
+    margin-right: auto;
+    font-size: 19px;
+  }
+
+  .md-search {
+    margin-left: 6px;
+    max-width: 110px;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .mobile-menu-btn,
+  .mobile-menu-overlay,
+  .hitop-mobile-sidebar {
+    display: none !important;
+  }
+}
+
+body.mobile-menu-active {
+  overflow: hidden;
+}
+
