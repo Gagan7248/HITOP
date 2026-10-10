@@ -1,13 +1,17 @@
-﻿{% extends "main.html" %}
+﻿
+{% extends "main.html" %}
 
 {% block content %}
   <div class="md-content" data-md-component="content">
     <div class="md-content__inner md-typeset">
-      <div class="article-feed">
-        {% for post in posts %}
-          {% include "partials/post.html" %}
-        {% endfor %}
+      <div class="article-feed">   
+	{% for post in posts | sort(attribute="config.date.created", reverse=true) %}
+  	{% include "partials/post.html" %}
+	{% endfor %}
       </div>
     </div>
   </div>
 {% endblock %}
+
+
+
