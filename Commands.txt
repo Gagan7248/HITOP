@@ -2,7 +2,7 @@ Project Folder
 cd C:\Users\HFCS\desktop\hitop
 
 Build Website
-cd C:\Users\HFCS\desktop\hitop
+python -m mkdocs build
 
 Clean build
 python -m mkdocs build --clean
