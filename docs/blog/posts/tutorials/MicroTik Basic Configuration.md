@@ -1,9 +1,9 @@
 ---
-title: Basic Network Configuration
+title: MicroTik Basic Configuration
 date: 2026-10-12
 categories:
   - Tutorials
-description: Basic Network Configuration
+description: MicroTik Basic Configuration
 thumbnail: images/microtik configuration.svg
 ---
 ---
@@ -29,7 +29,6 @@ thumbnail: images/microtik configuration.svg
 **Main Menu → Interfaces**
 
 ![image.png](attachment:dfc1aa3d-717d-41d3-ba02-57f3b575a161:image.png)
-
 1. Select Interfaces option from Main Menu
 2. Double click on a interface →Set a name for desire interfaces/put a comments
 
@@ -169,3 +168,104 @@ thumbnail: images/microtik configuration.svg
 ![image.png](attachment:d5bff3a6-6a25-4c1d-96d5-a213f12de6f4:image.png)
 
 ---
+### Hotspot Server
+
+**IP→Hotspot**
+
+![image.png](attachment:7f3a2e7d-c27c-42c4-91bf-5c3e43f7035d:image.png)
+
+1. In server Tab Click on the **Hotspot Setup**
+2. Select I**nterface →** Hotspot **Address(LAN IP) with CIDR Value → IP Pool → Certificate** : None→**SMTP Server** : 0.0.0.0→**DNS Server** : 8.8.8.8, 8.2.2.2→**DNS name** : [abcd.com](http://abcd.com).
+3. Create a **Hotspot user and Password**
+4. Next and OK.
+
+---
+
+### Address per MAC
+
+**IP→Hotspot**
+
+![image.png](attachment:96815f22-bd30-4ad2-ba6a-0f1ac0ce5db7:image.png)
+
+1. On the server Tab; double click on the hotspot server
+2. Address per MAC : 1
+3. Apply and ok
+
+---
+---
+
+### Winbox Service
+
+**IP→Services**
+
+![image.png](attachment:1008eea2-36e3-4c67-8185-6155d038f1d5:image.png)
+
+1. **Ensure Winbox** service is running on port number: **8291**
+
+---
+
+### Allow Winbox Through the Firewall
+
+**IP→Firewall**
+
+![image.png](attachment:da47007c-60b7-4218-9064-a73256463cbc:image.png)
+
+1. Chain : Input
+2. Protocol : 6 (TCP)
+3. Src. Port : 8291
+4. Go to Action tab
+
+![image.png](attachment:9c9038de-7f29-4f04-8f67-9315982262da:image.png)
+
+1. Action : Accept
+2. Apply and OK
+
+---
+
+### Access Winbox
+
+![image.png](attachment:97adb57f-a4f4-405e-8b95-07516e8e503f:image.png)
+
+1. Enter Your Public IP address with Port Number
+2. Enter your Mikrotik Login Credentials
+3. Connect…..Done!!!
+
+---
+### Add a list of IP Address to Block
+
+**IP→Firewall**
+
+![image.png](attachment:c5e96e7c-b6cb-4ba2-a6bc-d40fa76e5ffa:image.png)
+
+1. Go to Address Lists Tab
+2. List : _Choose a Name for Block List_
+3. Address : _<Add a ip addres/range of IP Addresses to block in our network>_
+4. Apply and ok
+
+`/ip firewall address-list add list=blocked-attackers address=31.171.152.109 comment="Brute force attacker"`
+
+---
+
+### Adds a firewall rule to **drop any incoming traffic** from IPs listed in `blocked-attackers`
+
+**IP→FIrewall**
+
+![image.png](attachment:772e39f6-379b-4fd5-b20a-e304e5b508e6:63725324-da3d-4edc-b3e6-7c09e696b0cf.png)
+
+1. In Filter Rules Tab→ Click on (+) Button
+2. GO to General Tab
+3. Chain : input
+4. Src Address List : _<choose the list you created to block>_
+5. Click Apply
+
+![image.png](attachment:2c24e56e-79e3-4537-a8f7-65b509fd5165:image.png)
+
+1. Go to action tab
+2. Action: drop
+3. Apply and ok
+
+`/ip firewall filter add chain=input src-address-list=blocked-attackers action=drop comment="Drop brute force attackers"`
+
+---
+
+
