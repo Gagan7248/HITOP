@@ -12,16 +12,6 @@ thumbnail: images/it-pms-management.svg
 
 To establish a formal procedure for the daily management, maintenance, and operational integrity of the Property Management System (PMS), ensuring seamless Front Office operations, system availability, and accurate guest data management.
 
-## Video Tutorial
-
-<iframe
-  width="100%"
-  height="400"
-  src="https://www.youtube.com/embed/VIDEO_ID"
-  title="YouTube Video"
-  frameborder="0"
-  allowfullscreen>
-</iframe>
 ## Scope
 
 This SOP applies to all members of the IT Department responsible for administering, monitoring, securing, maintaining, and troubleshooting the Property Management System (PMS) and its integrated systems.
@@ -32,6 +22,7 @@ This SOP applies to all members of the IT Department responsible for administeri
     
 - **Monitoring:** IT Manager.
     
+
 
 ## Procedure
 
