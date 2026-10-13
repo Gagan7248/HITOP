@@ -4,6 +4,7 @@ site_url: https://gagan7248.github.io/HITOP/
 
 plugins:
   - search
+  - mkdocs-video
   - awesome-pages
   - blog:
       blog_dir: .
