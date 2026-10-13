@@ -46,7 +46,7 @@ Open a browser:
 ```
 https://<FortiGate-IP>
 ```
-
+![alt text](download.jpg)
 Example:
 
 ```
