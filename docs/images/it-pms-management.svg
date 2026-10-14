@@ -1,7 +1,7 @@
 
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
-  <title id="title">IT – PMS Management</title>
-  <desc id="desc">Hotel Property Management System monitoring, integrations, and security.</desc>
+  <title id="title">IT SOPs – Antivirus &amp; USB Management</title>
+  <desc id="desc">Antivirus protection, malware prevention, and secure USB device management.</desc>
 
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
@@ -14,97 +14,98 @@
     </linearGradient>
   </defs>
 
-  <!-- Background -->
   <rect width="1200" height="630" rx="28" fill="url(#bg)"/>
   <circle cx="1040" cy="80" r="190" fill="#38bdf8" opacity=".07"/>
   <circle cx="160" cy="570" r="200" fill="#2dd4bf" opacity=".06"/>
 
-  <!-- Decorative grid -->
-  <g stroke="#b8e6f5" opacity=".08" stroke-width="1">
+  <g stroke="#b8e6f5" opacity=".08">
     <path d="M0 100H1200 M0 200H1200 M0 300H1200 M0 400H1200 M0 500H1200"/>
     <path d="M100 0V630 M200 0V630 M300 0V630 M400 0V630 M500 0V630"/>
   </g>
 
-  <!-- Left text panel -->
+  <!-- Heading -->
   <rect x="64" y="70" width="8" height="110" rx="4" fill="url(#accent)"/>
-  <text x="98" y="105" fill="#5eead4" font-family="Arial, sans-serif"
-        font-size="22" font-weight="700" letter-spacing="4">HOTEL IT OPERATIONS</text>
 
-  <text x="94" y="165" fill="#ffffff" font-family="Arial, sans-serif"
-        font-size="48" font-weight="700">IT – PMS</text>
-  <text x="94" y="222" fill="#ffffff" font-family="Arial, sans-serif"
-        font-size="48" font-weight="700">Management</text>
+  <text x="98" y="105" fill="#5eead4" font-family="Arial,sans-serif"
+        font-size="21" font-weight="700" letter-spacing="3">HOTEL IT OPERATIONS</text>
 
-  <text x="98" y="274" fill="#c4d6e5" font-family="Arial, sans-serif"
-        font-size="21">Monitoring • Maintenance • Security</text>
+  <text x="94" y="170" fill="#ffffff" font-family="Arial,sans-serif"
+        font-size="43" font-weight="700">Antivirus &amp;</text>
+  <text x="94" y="225" fill="#ffffff" font-family="Arial,sans-serif"
+        font-size="43" font-weight="700">USB Management</text>
 
-  <!-- Status panel -->
-  <rect x="94" y="326" width="390" height="66" rx="12"
+  <text x="98" y="275" fill="#c4d6e5" font-family="Arial,sans-serif"
+        font-size="20">Protection • Scanning • Device Control</text>
+
+  <!-- Security status -->
+  <rect x="94" y="326" width="410" height="66" rx="12"
         fill="#102c40" stroke="#28566a"/>
-  <circle cx="124" cy="359" r="9" fill="#2dd4bf"/>
-  <text x="148" y="367" fill="#e0f2fe" font-family="Arial, sans-serif"
-        font-size="19" font-weight="600">SYSTEM HEALTH &amp; UPTIME</text>
+  <circle cx="125" cy="359" r="9" fill="#2dd4bf"/>
+  <text x="149" y="367" fill="#e0f2fe" font-family="Arial,sans-serif"
+        font-size="19" font-weight="600">ENDPOINT SECURITY</text>
 
-  <!-- Main PMS monitor -->
+  <!-- Security dashboard -->
   <rect x="635" y="105" width="475" height="330" rx="22"
         fill="#10253a" stroke="#4b7890" stroke-width="3"/>
   <rect x="655" y="125" width="435" height="48" rx="10" fill="#183d52"/>
+
   <circle cx="677" cy="149" r="5" fill="#fb7185"/>
   <circle cx="695" cy="149" r="5" fill="#fbbf24"/>
   <circle cx="713" cy="149" r="5" fill="#2dd4bf"/>
-  <text x="740" y="156" fill="#e0f2fe" font-family="Arial, sans-serif"
-        font-size="18" font-weight="700">PMS CONTROL CENTER</text>
 
-  <!-- Dashboard cards -->
+  <text x="740" y="156" fill="#e0f2fe" font-family="Arial,sans-serif"
+        font-size="18" font-weight="700">SECURITY CONTROL CENTER</text>
+
+  <!-- Antivirus card -->
   <rect x="674" y="194" width="188" height="95" rx="12"
         fill="#173c50" stroke="#2d6172"/>
-  <text x="692" y="221" fill="#a5c9d9" font-family="Arial, sans-serif"
-        font-size="15">SYSTEM STATUS</text>
-  <text x="692" y="255" fill="#5eead4" font-family="Arial, sans-serif"
-        font-size="24" font-weight="700">OPERATIONAL</text>
-  <path d="M692 269H842" stroke="#2dd4bf" stroke-width="4" stroke-linecap="round"/>
+  <text x="692" y="222" fill="#a5c9d9" font-family="Arial,sans-serif"
+        font-size="15">ANTIVIRUS</text>
+  <path d="M696 249l9 9 17-19" fill="none" stroke="#5eead4"
+        stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="731" y="258" fill="#5eead4" font-family="Arial,sans-serif"
+        font-size="17" font-weight="700">PROTECTED</text>
 
+  <!-- USB control card -->
   <rect x="878" y="194" width="190" height="95" rx="12"
         fill="#173c50" stroke="#2d6172"/>
-  <text x="897" y="221" fill="#a5c9d9" font-family="Arial, sans-serif"
-        font-size="15">DATA &amp; BACKUP</text>
-  <path d="M902 251l12 12 23-27" fill="none" stroke="#5eead4"
-        stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-  <text x="945" y="258" fill="#e0f2fe" font-family="Arial, sans-serif"
-        font-size="17" font-weight="600">VERIFIED</text>
+  <text x="897" y="222" fill="#a5c9d9" font-family="Arial,sans-serif"
+        font-size="15">USB DEVICES</text>
+  <rect x="902" y="239" width="28" height="28" rx="5"
+        fill="#0c293d" stroke="#38bdf8" stroke-width="2"/>
+  <path d="M916 260V246 M910 251l6-5 6 5"
+        fill="none" stroke="#38bdf8" stroke-width="2.5"
+        stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="940" y="258" fill="#e0f2fe" font-family="Arial,sans-serif"
+        font-size="17" font-weight="600">CONTROLLED</text>
 
-  <!-- Integration links -->
-  <path d="M772 289V310H870 M972 289V310H870V327"
-        fill="none" stroke="#38bdf8" stroke-width="2.5" opacity=".9"/>
+  <!-- Connected security controls -->
+  <path d="M768 289V310H870 M973 289V310H870V327"
+        fill="none" stroke="#38bdf8" stroke-width="2.5"/>
 
   <rect x="676" y="327" width="120" height="66" rx="10" fill="#16384d"/>
   <rect x="810" y="327" width="120" height="66" rx="10" fill="#16384d"/>
   <rect x="944" y="327" width="124" height="66" rx="10" fill="#16384d"/>
 
-  <g fill="#e0f2fe" font-family="Arial, sans-serif" font-size="16"
-     font-weight="600" text-anchor="middle">
-    <text x="736" y="355">FRONT</text>
-    <text x="736" y="376">OFFICE</text>
-    <text x="870" y="366">POS</text>
-    <text x="1006" y="355">KEY CARD</text>
-    <text x="1006" y="376">SYSTEM</text>
+  <g fill="#e0f2fe" font-family="Arial,sans-serif"
+     font-size="16" font-weight="600" text-anchor="middle">
+    <text x="736" y="355">MALWARE</text>
+    <text x="736" y="376">SCANS</text>
+    <text x="870" y="366">USB</text>
+    <text x="1006" y="355">THREAT</text>
+    <text x="1006" y="376">MONITORING</text>
   </g>
 
-  <!-- Monitor stand -->
-  <path d="M825 435V457H795V469H950V457H920V435"
-        fill="#42677a"/>
-  <rect x="775" y="469" width="195" height="10" rx="5" fill="#5b8193"/>
-
-  <!-- Security shield -->
-  <path d="M1050 443l62 23v43c0 43-27 70-62 88-35-18-62-45-62-88v-43z"
+  <!-- Shield icon -->
+  <path d="M1020 440l62 23v43c0 43-27 70-62 88-35-18-62-45-62-88v-43z"
         fill="#0c293d" stroke="#2dd4bf" stroke-width="4"/>
-  <path d="M1020 508l20 20 39-43" fill="none" stroke="#5eead4"
+  <path d="M990 505l20 20 39-43" fill="none" stroke="#5eead4"
         stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
 
   <!-- Footer -->
-  <path d="M64 540H1136" stroke="#477084" stroke-width="1" opacity=".65"/>
-  <text x="66" y="578" fill="#9fbccc" font-family="Arial, sans-serif"
-        font-size="17" letter-spacing="2">HITOP  /  STANDARD OPERATING PROCEDURE</text>
-  <text x="1134" y="578" fill="#5eead4" font-family="Arial, sans-serif"
-        font-size="17" font-weight="700" text-anchor="end">IT • PMS</text>
+  <path d="M64 540H1136" stroke="#477084" opacity=".65"/>
+  <text x="66" y="578" fill="#9fbccc" font-family="Arial,sans-serif"
+        font-size="17" letter-spacing="2">HITOP / STANDARD OPERATING PROCEDURE</text>
+  <text x="1134" y="578" fill="#5eead4" font-family="Arial,sans-serif"
+        font-size="17" font-weight="700" text-anchor="end">IT • SECURITY</text>
 </svg>
