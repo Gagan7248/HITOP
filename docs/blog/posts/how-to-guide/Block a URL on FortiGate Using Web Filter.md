@@ -5,6 +5,8 @@ categories:
   - how-to-guide
 description: Learn how to block specific websites and URLs on FortiGate using Web Filter profiles and firewall policies with step-by-step instructions.
 thumbnail: images/block-url-on-fortigate.svg
+Type: Network Security
+Author: Gagan Kumar
 ---
 <div>
 <svg xmlns="http://www.w3.org/2000/svg"
