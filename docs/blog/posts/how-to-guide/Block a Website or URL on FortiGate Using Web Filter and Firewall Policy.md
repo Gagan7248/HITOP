@@ -8,7 +8,7 @@ thumbnail: images/block-url-on-fortigate.svg
 ---
 ## 1. Overview
 
-FortiGate Web Filter allows network administrators to block access to specific websites `www.youtube.com, domains, and URL paths. 
+FortiGate Web Filter allows network administrators to block access to specific websites `www.youtube.com`, domains, and URL paths. 
 
 ## 2. Configuration workflow
 
