@@ -1,5 +1,5 @@
 ---
-date: 2026-10-13
+date: 2026-10-15 22:50:00
 title: IT SOP – PMS Management
 categories:
   - SOPs
