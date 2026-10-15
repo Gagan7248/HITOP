@@ -6,6 +6,7 @@ categories:
 description: Learn how to block specific websites and URLs on FortiGate using Web Filter profiles and firewall policies with step-by-step instructions.
 thumbnail: images/block-url-on-fortigate.png
 ---
+---
 <div>
 <svg xmlns="http://www.w3.org/2000/svg"
      width="800" height="450" viewBox="0 0 1200 630"
@@ -323,7 +324,7 @@ thumbnail: images/block-url-on-fortigate.png
 
 </svg>
 </div>
-
+---
 ## Overview
 
 FortiGate Web Filter allows network administrators to block access to specific websites `www.youtube.com`, domains, and URL paths. 
