@@ -1,5 +1,36 @@
+
 {% extends "base.html" %}
+
+{% block extrahead %}
+  {{ super() }}
+
+  {% if page %}
+    {% set social_title = page.meta.title | default(page.title, true) %}
+    {% set social_description = page.meta.description | default(config.site_description, true) %}
+
+    <meta property="og:site_name" content="{{ config.site_name | e }}">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="{{ social_title | e }}">
+
+    {% if social_description %}
+      <meta property="og:description" content="{{ social_description | e }}">
+      <meta name="twitter:description" content="{{ social_description | e }}">
+    {% endif %}
+
+    <meta property="og:url" content="{{ page.canonical_url }}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ social_title | e }}">
+
+    {% if page.meta.thumbnail %}
+      {% set social_image_path = page.meta.thumbnail.lstrip('/') %}
+      <meta property="og:image" content="{{ config.site_url.rstrip('/') }}/{{ social_image_path }}">
+      <meta name="twitter:image" content="{{ config.site_url.rstrip('/') }}/{{ social_image_path }}">
+    {% endif %}
+  {% endif %}
+{% endblock %}
+
 {% block header %}
+
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
 
