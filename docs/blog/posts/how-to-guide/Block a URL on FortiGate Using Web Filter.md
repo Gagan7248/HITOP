@@ -407,7 +407,7 @@ Policy & Objects → Firewall Policy
 	
 3. Click Create New
 	
-4. Enter a profile name, for example, `Block_Websites`. 
+4. Enter a profile name, for example, `Block_Youtube`. 
     
 5. Locate the Static URL Filter section.
     
@@ -432,12 +432,12 @@ In the Static URL Filter section:
 
 Use the following example configuration:
 
-| Field  | Value         |
-| ------ | ------------- |
-| URL    | `youtube.com` |
-| Type   | Wildcard      |
-| Action | Block         |
-| Status | Enabled       |
+| Field  | Value             |
+| ------ | ----------------- |
+| URL    | `www.youtube.com` |
+| Type   | Wildcard          |
+| Action | Block             |
+| Status | Enabled           |
 
 ![FortiGate URL Blocking|533](../../../images/enable-statis-url.png)
 
@@ -455,7 +455,7 @@ A URL filter will not protect users unless the applicable traffic passes through
     
 5. Enable Web Filter.
     
-6. Select the `Block_Websites` profile created earlier.
+6. Select the `Block_Youtube` profile created earlier.
     
 7. Select `certificate-inspection` under SSL Inspection, as an initial configuration.
     
