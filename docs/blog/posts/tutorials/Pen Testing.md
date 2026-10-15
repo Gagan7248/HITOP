@@ -4,7 +4,7 @@ date: 2026-10-11
 categories:
   - Tutorials
 description: Pen Testing
-thumbnail: images/Pen Testing.svg
+thumbnail: images/Pen Testing.png
 ---
 ## **MODULE 1 - INTRODUCTION**
 

@@ -4,7 +4,7 @@ date: 2026-10-12
 categories:
   - Tutorials
 description: Network Scanning
-thumbnail: images/Network Scanning.svg
+thumbnail: images/Network Scanning.png
 ---
 [https://youtu.be/27zYf9EPhWw?si=GJqzQNKSNa6glxZe](https://youtu.be/27zYf9EPhWw?si=GJqzQNKSNa6glxZe)
 

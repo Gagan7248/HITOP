@@ -4,7 +4,7 @@ date: 2026-10-14
 categories:
   - SOPs
 description: Establishes antivirus protection, malware prevention, secure USB device usage, threat monitoring, and incident response procedures to safeguard resort IT infrastructure.
-thumbnail: images/antivirus-usb-management.svg
+thumbnail: images/antivirus-usb-management.png
 ---
 # IT SOPs – Antivirus & USB Management
 

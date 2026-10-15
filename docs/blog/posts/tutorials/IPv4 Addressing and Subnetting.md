@@ -4,7 +4,7 @@ date: 2026-10-13
 categories:
   - Tutorials
 description: Learn IPv4 addressing, subnet masks, IP address classes, CIDR, subnetting, private and public addresses, reserved ranges, ARP, and ICMP troubleshooting.
-thumbnail: images/ipv4-addressing-subnetting.svg
+thumbnail: images/ipv4-addressing-subnetting.png
 ---
 # Hardware Addressing
 

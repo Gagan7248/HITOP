@@ -4,7 +4,7 @@ date: 2026-10-12
 categories:
   - Tutorials
 description: Linux For Network Engineer
-thumbnail: images/Linux For Network Engineer.svg
+thumbnail: images/Linux For Network Engineer.png
 ---
 **-by** [https://www.routehub.net/](https://www.routehub.net/)
 

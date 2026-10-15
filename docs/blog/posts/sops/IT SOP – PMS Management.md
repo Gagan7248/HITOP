@@ -4,7 +4,7 @@ title: IT SOP – PMS Management
 categories:
   - SOPs
 description: Establishes procedures for maintaining PMS availability, monitoring system health, securing guest data, managing user access, and ensuring reliable hotel operations.
-thumbnail: images/it-pms-management.svg
+thumbnail: images/it-pms-management.png
 ---
 # IT SOP – PMS Management
 

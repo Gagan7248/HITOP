@@ -4,7 +4,7 @@ date: 2026-10-12
 categories:
   - Tutorials
 description: MicroTik Basic Configuration
-thumbnail: images/microtik configuration.svg
+thumbnail: images/microtik configuration.png
 ---
 ---
 

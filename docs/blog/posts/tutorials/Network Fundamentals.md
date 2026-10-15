@@ -4,7 +4,7 @@ date: 2026-10-11
 categories:
   - Tutorials
 description: Learn a complete basics of computer network
-thumbnail: images/basics-of-network.svg
+thumbnail: images/basics-of-network.png
 ---
 ## Network
 

@@ -4,7 +4,7 @@ date: 2026-10-11
 categories:
   - Tutorials
 description: Basic Configuration of a FortiGate Firewall
-thumbnail: images/Basic Configuration of a FortiGate Firewall.svg
+thumbnail: images/Basic Configuration of a FortiGate Firewall.png
 ---
 # 1. Default / Basic Information
 
