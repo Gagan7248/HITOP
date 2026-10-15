@@ -1,6 +1,6 @@
 ---
 title: Basic Configuration of a FortiGate Firewall
-date: 2026-10-10
+date: 2026-10-15 10:00:00
 categories:
   - how-to-guide
 description: A FortiGate firewall is commonly used to secure a network, connect a LAN to the internet, control traffic, and provide services such as NAT, VPN, and intrusion prevention.

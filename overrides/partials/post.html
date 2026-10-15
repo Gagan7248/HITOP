@@ -10,9 +10,9 @@
 
     <div class="article-card__body">
       <div class="article-card__meta">
-        <time datetime="{{ post.config.date.created }}">
-          {{ post.config.date.created | date }}
-        </time>
+ 	<time datetime="{{ post.config.date.created }}">
+  	{{ post.config.date.created | date }}
+	</time>
         {% for category in post.categories %}
           · <span>{{ category.title }}</span>
         {% endfor %}
