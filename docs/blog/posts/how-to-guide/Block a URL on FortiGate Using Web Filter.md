@@ -413,9 +413,6 @@ Policy & Objects → Firewall Policy
     
 6. Enable URL Filter.
 
-***Reference:** Fortinet's FortiOS 7.4.8 Administration Guide. Your interface may differ slightly.*
-Official reference: [Fortinet — Static URL Filter](https://docs.fortinet.com/document/fortigate/7.4.8/administration-guide/371670/static-url-filter) 
-
 ### Add the URL to block
 
 In the Static URL Filter section:
@@ -468,8 +465,6 @@ Use the following example configuration:
 
 ![FortiGate URL Blocking|533](<../../../images/web-filter to-firewall-policy.png>)
 
-Official reference: [Fortinet — Static URL Filter and Firewall Policy](https://docs.fortinet.com/document/fortigate/7.4.8/administration-guide/371670/static-url-filter) 
-
 ## Step 3: Test & Verify
 
 From a client computer connected through the FortiGate:
@@ -481,17 +476,12 @@ From a client computer connected through the FortiGate:
 3. Confirm that access is blocked.
     
 4. Test another website to verify that general Internet access still works.
-    
 
 ### Expected result
 
-**Blocked website**
+**Blocked website-** The browser should display a FortiGate block or replacement page, or the request may fail depending on the inspection and browser configuration.
 
-The browser should display a FortiGate block or replacement page, or the request may fail depending on the inspection and browser configuration.
-
-**Other websites should be run.**
-
-Websites not matched by a blocking rule should remain accessible.
+**Other websites should be run-** Websites not matched by a blocking rule should remain accessible.
 
 ## Check Web Filter logs
 
@@ -509,4 +499,5 @@ If the website is still accessible, check the logs:
 
 ![FortiGate URL Blocking|665](<../../../images/blocked-webfilter-logs.png>)
 
+***Reference:** Fortinet's FortiOS 7.4.8 Administration Guide. Your interface may differ slightly.*
 Official reference: [Fortinet — Static URL Filter and verification](https://docs.fortinet.com/document/fortigate/7.4.8/administration-guide/371670/static-url-filter) 
