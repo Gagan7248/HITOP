@@ -9,6 +9,9 @@ plugins:
       blog_dir: .
       post_dir: blog/posts
 
+markdown_extensions:
+  - md_in_html
+
 theme:
   name: material
   custom_dir: overrides

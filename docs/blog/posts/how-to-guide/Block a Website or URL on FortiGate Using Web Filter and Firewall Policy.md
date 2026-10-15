@@ -12,37 +12,88 @@ FortiGate Web Filter allows network administrators to block access to specific w
 
 ## 2. Configuration workflow
 
-Step 1 — Create the URL filter
+<div>
 
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 600 180"
+     width="100%"
+     role="img"
+     aria-label="FortiGate URL filtering workflow">
+
+  <rect width="600" height="180" rx="12" fill="#f1f5f9"/>
+
+  <rect x="15" y="35" width="165" height="100"
+        rx="10" fill="#fff" stroke="#dc2626" stroke-width="2"/>
+
+  <text x="97" y="65" text-anchor="middle"
+        font-size="15" font-weight="bold" fill="#172554">
+    Step 1
+  </text>
+  <text x="97" y="90" text-anchor="middle"
+        font-size="12" fill="#334155">
+    Create URL Filter 
+  </text>
+
+  <path d="M185 85 H215" stroke="#dc2626" stroke-width="3"/>
+  <polygon points="215,79 225,85 215,91" fill="#dc2626"/>
+
+  <rect x="230" y="35" width="165" height="100"
+        rx="10" fill="#fff" stroke="#dc2626" stroke-width="2"/>
+
+  <text x="312" y="65" text-anchor="middle"
+        font-size="15" font-weight="bold" fill="#172554">
+    Step 2
+  </text>
+  <text x="312" y="88" text-anchor="middle"
+        font-size="12" fill="#334155">
+    Apply Web Filter
+  </text>
+  <text x="312" y="105" text-anchor="middle"
+        font-size="12" fill="#334155">
+    to Firewall Policy
+  </text>
+
+  <path d="M400 85 H430" stroke="#dc2626" stroke-width="3"/>
+  <polygon points="430,79 440,85 430,91" fill="#dc2626"/>
+
+  <rect x="445" y="35" width="140" height="100"
+        rx="10" fill="#fff" stroke="#16a34a" stroke-width="2"/>
+
+  <text x="515" y="65" text-anchor="middle"
+        font-size="15" font-weight="bold" fill="#166534">
+    Step 3
+  </text>
+  <text x="515" y="90" text-anchor="middle"
+        font-size="12" fill="#334155">
+    Test &amp; Verify
+  </text>
+
+</svg>
+
+</div>
+
+**Step 1 — Create the URL filter**  
 Security Profiles → Web Filter
 
-Step 2 — Apply the Web Filter profile
-
+**Step 2 — Apply the Web Filter profile**  
 Policy & Objects → Firewall Policy
 
-Step 3 — Test and verify
-
-Test from a client and inspect Web Filter logs.
-
+**Step 3 — Test and verify**
 ## 3. Step 1: Create a Web Filter profile
 
 1. Log in to the FortiGate administrative GUI.
     
 2. Navigate to Security Profiles → Web Filter.
     
-3. Click Create New, or edit an existing profile.
+3. Click Create New
     
 4. Enter a profile name, for example, `Block_Websites`.
     
 5. Locate the Static URL Filter section.
     
 6. Enable URL Filter.
-    
 
-### Screenshot 1 — Static URL Filter configuration
-
-Reference: Fortinet's FortiOS 7.4.8 Administration Guide. Your interface may differ slightly.
-
+***Reference:** Fortinet's FortiOS 7.4.8 Administration Guide. Your interface may differ slightly.*
 Official reference: [Fortinet — Static URL Filter](https://docs.fortinet.com/document/fortigate/7.4.8/administration-guide/371670/static-url-filter) 
 
 ## 4. Step 2: Add the URL to block
@@ -62,6 +113,7 @@ In the Static URL Filter section:
 6. Save the entry and then save the profile.
     
 
+![FortiGate URL Blocking](../../../images/enable-statis-url.png)
 ### Screenshot 2 — Example of a blocked URL
 
 Use the following example configuration:
