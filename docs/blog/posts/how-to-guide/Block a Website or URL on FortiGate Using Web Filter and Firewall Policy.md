@@ -102,7 +102,7 @@ In the Static URL Filter section:
 
 1. Click Create New.
     
-2. Enter the URL pattern. `www.youtube.com'
+2. Enter the URL pattern. `www.youtube.com`
     
 3. Select the filter type Wildcard.
     
@@ -115,12 +115,12 @@ In the Static URL Filter section:
 
 Use the following example configuration:
 
-| Field  | Value           |
-| ------ | --------------- |
-| URL    | `*facebook.com` |
-| Type   | Wildcard        |
-| Action | Block           |
-| Status | Enabled         |
+| Field  | Value         |
+| ------ | ------------- |
+| URL    | `youtube.com` |
+| Type   | Wildcard      |
+| Action | Block         |
+| Status | Enabled       |
 
 ![FortiGate URL Blocking|533](../../../images/enable-statis-url.png)
 
