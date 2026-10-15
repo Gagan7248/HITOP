@@ -173,7 +173,7 @@ The browser should display a FortiGate block or replacement page, or the request
 
 Websites not matched by a blocking rule should remain accessible.
 
-## 7. Step 5: Check Web Filter logs
+## Check Web Filter logs
 
 If the website is still accessible, check the logs:
 
