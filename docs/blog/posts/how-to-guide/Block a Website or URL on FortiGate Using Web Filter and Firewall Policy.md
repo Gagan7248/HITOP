@@ -102,7 +102,7 @@ In the Static URL Filter section:
 
 1. Click Create New.
     
-2. Enter the URL pattern. (`www.youtube.com)
+2. Enter the URL pattern. `www.youtube.com'
     
 3. Select the filter type Wildcard.
     
