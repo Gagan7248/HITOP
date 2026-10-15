@@ -5,8 +5,6 @@ categories:
   - how-to-guide
 description: Learn how to block specific websites and URLs on FortiGate using Web Filter profiles and firewall policies with step-by-step instructions.
 thumbnail: images/block-url-on-fortigate.png
-Type: Network Security
-Author: Gagan Kumar
 ---
 <div>
 <svg xmlns="http://www.w3.org/2000/svg"
@@ -399,6 +397,8 @@ Security Profiles → Web Filter
 Policy & Objects → Firewall Policy
 
 **Step 3 — Test and verify**
+
+---
 ## Step 1. Create a Web Filter profile
 
 1. Log in to the FortiGate administrative GUI.
@@ -477,6 +477,7 @@ From a client computer connected through the FortiGate:
     
 4. Test another website to verify that general Internet access still works.
 
+---
 ### Expected result
 
 **Blocked website-** The browser should display a FortiGate block or replacement page, or the request may fail depending on the inspection and browser configuration.
