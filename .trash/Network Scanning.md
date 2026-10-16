@@ -10,8 +10,6 @@ thumbnail: images/Network Scanning.png
 
 ---
 
----
-
 ### CHECKING CONNECTIVITY WITH TARGET MACHINE
 
 `Ping -` Check Connectivity with target

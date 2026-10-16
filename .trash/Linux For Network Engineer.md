@@ -6,51 +6,20 @@ categories:
 description: Linux For Network Engineer
 thumbnail: images/Linux For Network Engineer.png
 ---
-**-by** [https://www.routehub.net/](https://www.routehub.net/)
-
-### WHAT YOU WILL LEARN IN THIS COURSE
-
+---
 - **Basics of Linux, file system and Linux commands**
 - **Performing several administrative tasks (such as):**
     - IP Address / Networking
     - Installing Software Packages
     - Viewing running processes
-- Using CRON, etc.
-- **LInstalling and using network services such as:**
+- **Using CRON, etc.**
+- **Installing and using network services such as:**
     - Web Server
     - FTP Server
     - TFTP Server
     - Syslog Server
     - File Server
     - Firewall
-
----
-
-### LINUX OPERATING SYSTEM
-
-A Linux OS (Operating System) is a free and open-source operating system based on the Linux kernel. It is used to manage computer hardware and software, providing a platform to run applications and control devices.
-
-**Key points about Linux:**
-
-- **Kernel:** The core of the OS that manages hardware like CPU, memory, and devices.
-
-![image.png](attachment:1e17e36a-5ccd-4f71-9458-26971553d2f6:image.png)
-
-- Open-source: Its source code is publicly available, so anyone can use, modify, and distribute it.
-- **Distributions (distros):** There are many versions (like Ubuntu, Fedora, Debian, Arch) tailored for different users and purposes.
-- **Command-line & GUI:** Linux supports both graphical interfaces and powerful command-line tools.
-- **Common in servers:** It's widely used in web servers, cloud systems, and embedded devices.
-- Linux isn’t widely used for user desktops, but is typically used by open-source enthusiasts for their primary desktop
-- Support model for Linux OS mainly consists of the Linux user community (e.g. support forums)
-
----
-
-### UBUNTU : USING LINUX OS
-
-In this training we are using Ubuntu 24.04.02
-
-[https://ubuntu.com/download/desktop](https://ubuntu.com/download/desktop)
-
 ---
 
 ### INSTALLING/ENABLING UBUNTU IN WINDOWS (WSL)
