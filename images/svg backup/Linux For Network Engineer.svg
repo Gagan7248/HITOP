@@ -1,0 +1,199 @@
+﻿
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#091426"/>
+      <stop offset="100%" stop-color="#172e49"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#60a5fa"/>
+    </linearGradient>
+    <linearGradient id="orange" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#f97316"/>
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#60a5fa" stroke-opacity=".07"/>
+    </pattern>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1280" height="720" rx="24" fill="url(#bg)"/>
+  <rect width="1280" height="720" rx="24" fill="url(#grid)"/>
+  <circle cx="1010" cy="330" r="255" fill="#2563eb" opacity=".08"/>
+
+  <!-- Top label -->
+  <rect x="72" y="70" width="300" height="46" rx="23"
+        fill="#12334c" stroke="#38bdf8" stroke-opacity=".7"/>
+  <circle cx="97" cy="93" r="6" fill="#38bdf8"/>
+  <text x="116" y="100" font-family="Arial, sans-serif"
+        font-size="18" font-weight="700" letter-spacing="2"
+        fill="#7dd3fc">NETWORKING SERIES</text>
+
+  <!-- Main heading -->
+  <text x="72" y="215" font-family="Arial, sans-serif"
+        font-size="86" font-weight="900" fill="#ffffff">LINUX</text>
+  <text x="72" y="300" font-family="Arial, sans-serif"
+        font-size="57" font-weight="900" fill="url(#accent)">FOR NETWORK</text>
+  <text x="72" y="368" font-family="Arial, sans-serif"
+        font-size="57" font-weight="900" fill="url(#accent)">ENGINEERS</text>
+
+  <rect x="77" y="395" width="130" height="6" rx="3" fill="#38bdf8"/>
+
+  <text x="78" y="446" font-family="Arial, sans-serif"
+        font-size="23" font-weight="700" fill="#e2e8f0">
+    Master the Command Line
+  </text>
+  <text x="78" y="484" font-family="Arial, sans-serif"
+        font-size="20" fill="#a9c4df">
+    Networking • Troubleshooting • Automation
+  </text>
+
+  <!-- Terminal window -->
+  <g transform="translate(76 520)">
+    <rect width="510" height="112" rx="12"
+          fill="#07101b" stroke="#31516b" stroke-width="2"/>
+    <path d="M0 34H510" stroke="#31516b" stroke-width="2"/>
+    <circle cx="20" cy="17" r="5" fill="#fb7185"/>
+    <circle cx="39" cy="17" r="5" fill="#fbbf24"/>
+    <circle cx="58" cy="17" r="5" fill="#4ade80"/>
+
+    <text x="20" y="61" font-family="monospace"
+          font-size="18" fill="#4ade80">$ ip addr show</text>
+    <text x="20" y="85" font-family="monospace"
+          font-size="17" fill="#7dd3fc">$ ping 192.168.1.1</text>
+    <text x="20" y="104" font-family="monospace"
+          font-size="13" fill="#94a3b8">root@network-lab:~#</text>
+  </g>
+
+  <!-- Network diagram connections -->
+  <g fill="none" stroke="#38bdf8" stroke-width="3" opacity=".85">
+    <path d="M970 250L835 175"/>
+    <path d="M1010 250L1145 175"/>
+    <path d="M970 385L835 475"/>
+    <path d="M1010 385L1145 475"/>
+    <path d="M990 235V150"/>
+  </g>
+
+  <!-- Internet cloud -->
+  <g transform="translate(920 85)">
+    <path d="M25 65H105A25 25 0 0 0 105 15
+             A36 36 0 0 0 38 22
+             A23 23 0 0 0 25 65Z"
+          fill="#163d59" stroke="#7dd3fc" stroke-width="3"/>
+    <path d="M52 40H82 M67 26V54" fill="none"
+          stroke="#38bdf8" stroke-width="4" stroke-linecap="round"/>
+  </g>
+
+  <!-- Computer -->
+  <g transform="translate(775 135)" stroke="#7dd3fc" stroke-width="3">
+    <rect width="76" height="53" rx="5" fill="#173750"/>
+    <rect x="7" y="7" width="62" height="37" rx="2" fill="#0c2436"/>
+    <path d="M38 53V64 M23 64H53" fill="none" stroke-linecap="round"/>
+    <path d="M17 19L25 26L17 33 M31 33H49"
+          fill="none" stroke="#4ade80" stroke-width="3"/>
+  </g>
+
+  <!-- Server rack -->
+  <g transform="translate(1110 125)" stroke="#7dd3fc" stroke-width="3">
+    <rect width="70" height="105" rx="7" fill="#173750"/>
+    <g fill="#0b2233">
+      <rect x="9" y="10" width="52" height="23" rx="3"/>
+      <rect x="9" y="40" width="52" height="23" rx="3"/>
+      <rect x="9" y="70" width="52" height="23" rx="3"/>
+    </g>
+    <g fill="#4ade80" stroke="none">
+      <circle cx="17" cy="21" r="3"/>
+      <circle cx="17" cy="51" r="3"/>
+      <circle cx="17" cy="81" r="3"/>
+    </g>
+    <g stroke="#38bdf8" stroke-width="2">
+      <path d="M27 21H52 M27 51H52 M27 81H52"/>
+    </g>
+  </g>
+
+  <!-- Central Linux-inspired penguin illustration -->
+  <g transform="translate(885 235)">
+    <!-- Outer glow circle -->
+    <circle cx="105" cy="105" r="120" fill="#0b2338"
+            stroke="#38bdf8" stroke-opacity=".55" stroke-width="3"/>
+
+    <!-- Penguin body -->
+    <ellipse cx="105" cy="110" rx="67" ry="82"
+             fill="#101820" stroke="#64748b" stroke-width="2"/>
+
+    <!-- Penguin belly -->
+    <ellipse cx="105" cy="130" rx="43" ry="54" fill="#f8fafc"/>
+
+    <!-- Head -->
+    <circle cx="105" cy="58" r="49" fill="#111827"/>
+
+    <!-- Face -->
+    <ellipse cx="86" cy="66" rx="19" ry="23" fill="#ffffff"/>
+    <ellipse cx="124" cy="66" rx="19" ry="23" fill="#ffffff"/>
+    <circle cx="91" cy="67" r="7" fill="#111827"/>
+    <circle cx="119" cy="67" r="7" fill="#111827"/>
+    <circle cx="93" cy="64" r="2.5" fill="#ffffff"/>
+    <circle cx="121" cy="64" r="2.5" fill="#ffffff"/>
+
+    <!-- Beak -->
+    <path d="M91 86L119 86L105 101Z" fill="url(#orange)"/>
+
+    <!-- Feet -->
+    <path d="M67 177Q44 184 37 198Q62 205 88 190Z" fill="#f59e0b"/>
+    <path d="M122 190Q148 205 173 198Q166 184 143 177Z" fill="#f59e0b"/>
+
+    <!-- Flippers -->
+    <path d="M44 94Q15 115 37 155Q48 164 58 144Z" fill="#111827"/>
+    <path d="M166 94Q195 115 173 155Q162 164 152 144Z" fill="#111827"/>
+
+    <!-- Small terminal symbol -->
+    <rect x="70" y="128" width="70" height="28" rx="6"
+          fill="#102c3f" stroke="#38bdf8" stroke-width="2"/>
+    <path d="M82 137L89 143L82 149 M96 149H111"
+          fill="none" stroke="#4ade80" stroke-width="3"
+          stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Router -->
+  <g transform="translate(910 425)" stroke="#7dd3fc" stroke-width="3">
+    <rect width="160" height="66" rx="10" fill="#20394d"/>
+    <path d="M18 17H142" stroke="#405b70" stroke-width="2"/>
+    <g fill="#4ade80" stroke="none" filter="url(#glow)">
+      <circle cx="25" cy="39" r="4"/>
+      <circle cx="39" cy="39" r="4"/>
+      <circle cx="53" cy="39" r="4"/>
+    </g>
+    <g fill="#0a1a28">
+      <rect x="76" y="28" width="17" height="19" rx="2"/>
+      <rect x="100" y="28" width="17" height="19" rx="2"/>
+      <rect x="124" y="28" width="17" height="19" rx="2"/>
+    </g>
+  </g>
+
+  <!-- Network nodes -->
+  <g fill="#38bdf8" filter="url(#glow)">
+    <circle cx="835" cy="175" r="6"/>
+    <circle cx="1145" cy="175" r="6"/>
+    <circle cx="835" cy="475" r="6"/>
+    <circle cx="1145" cy="475" r="6"/>
+    <circle cx="990" cy="150" r="6"/>
+  </g>
+
+  <!-- Footer -->
+  <path d="M72 650H1208" stroke="#94a3b8" stroke-opacity=".25"/>
+  <text x="75" y="688" font-family="Arial, sans-serif"
+        font-size="23" font-weight="800" letter-spacing="3"
+        fill="#38bdf8">HITOP</text>
+  <text x="1205" y="687" text-anchor="end"
+        font-family="Arial, sans-serif" font-size="18"
+        fill="#a9c4df">LEARN • CONFIGURE • TROUBLESHOOT</text>
+</svg>

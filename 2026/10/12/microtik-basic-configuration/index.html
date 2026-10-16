@@ -1,0 +1,1519 @@
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="MicroTik Basic Configuration">
+      
+      
+      
+        <link rel="canonical" href="https://gagan7248.github.io/HITOP/2026/10/12/microtik-basic-configuration/">
+      
+      
+        <link rel="prev" href="../../11/network-fundamentals/">
+      
+      
+        <link rel="next" href="../../14/it-sops---antivirus--usb-management/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>MicroTik Basic Configuration - HITOP</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  
+
+  
+    
+    
+
+    <meta property="og:site_name" content="HITOP">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="MicroTik Basic Configuration">
+
+    
+      <meta property="og:description" content="MicroTik Basic Configuration">
+      <meta name="twitter:description" content="MicroTik Basic Configuration">
+    
+
+    <meta property="og:url" content="https://gagan7248.github.io/HITOP/2026/10/12/microtik-basic-configuration/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="MicroTik Basic Configuration">
+
+    
+      
+      <meta property="og:image" content="https://gagan7248.github.io/HITOP/images/microtik configuration.png">
+      <meta name="twitter:image" content="https://gagan7248.github.io/HITOP/images/microtik configuration.png">
+    
+  
+
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#reset-configuration-optional" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+
+    <button class="mobile-menu-btn"
+            id="mobile-menu-open"
+            aria-label="Open menu"
+            aria-controls="hitop-mobile-sidebar"
+            aria-expanded="false">
+      ☰
+    </button>
+
+    <a href="../../../.."
+       class="md-header__button md-logo"
+       title="HITOP">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+
+    <div class="hitop-title">HITOP</div>
+
+    <div class="hitop-nav">
+      <a href="../../../..">Home</a>
+      <a href="../../../../category/sops/">SOPs</a>
+      <a href="../../../../category/tutorials/">Tutorials</a>
+      <a href="../../../../category/how-to-guide/">How to Guide</a>
+      <a href="../../../../category/troubleshooting/">Troubleshooting</a>
+      <a href="../../../../about/">About Us</a>
+      <a class="support-btn" href="../../../../support/">Get Support</a>
+    </div>
+
+    <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+    <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    <label class="md-header__button md-icon"
+       for="__search"
+       aria-label="Search"
+       title="Search">
+  <svg xmlns="http://www.w3.org/2000/svg"
+       viewBox="0 0 24 24"
+       width="24"
+       height="24">
+    <path fill="currentColor"
+          d="M9.5 3a6.5 6.5 0 1 0 3.95 11.66l.27.27v.79l5 5 1.5-1.5-5-5h-.79l-.27-.27A6.5 6.5 0 0 0 9.5 3zm0 2a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9z"/>
+  </svg>
+</label>
+
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  </nav>
+</header>
+
+<div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
+
+<aside class="hitop-mobile-sidebar"
+       id="hitop-mobile-sidebar"
+       aria-label="Mobile navigation"
+       aria-hidden="true">
+  <div class="mobile-sidebar-header">
+    <strong>HITOP Menu</strong>
+    <button id="mobile-menu-close" aria-label="Close menu">×</button>
+  </div>
+
+  <nav class="mobile-sidebar-links">
+    <a href="../../../..">Home</a>
+    <a href="../../../../category/sops/">SOPs</a>
+    <a href="../../../../category/tutorials/">Tutorials</a>
+    <a href="../../../../category/how-to-guide/">How to Guide</a>
+    <a href="../../../../category/troubleshooting/">Troubleshooting</a>
+    <a href="../../../../about/">About Us</a>
+    <a class="mobile-support-btn" href="../../../../support/">Get Support</a>
+  </nav>
+</aside>
+
+<script>
+(function () {
+  const sidebar = document.getElementById("hitop-mobile-sidebar");
+  const overlay = document.getElementById("mobile-menu-overlay");
+  const openBtn = document.getElementById("mobile-menu-open");
+  const closeBtn = document.getElementById("mobile-menu-close");
+
+  if (!sidebar || !overlay || !openBtn || !closeBtn) return;
+
+  function openMenu() {
+    sidebar.classList.add("is-open");
+    overlay.classList.add("is-visible");
+    sidebar.setAttribute("aria-hidden", "false");
+    openBtn.setAttribute("aria-expanded", "true");
+    document.body.classList.add("mobile-menu-active");
+  }
+
+  function closeMenu() {
+    sidebar.classList.remove("is-open");
+    overlay.classList.remove("is-visible");
+    sidebar.setAttribute("aria-hidden", "true");
+    openBtn.setAttribute("aria-expanded", "false");
+    document.body.classList.remove("mobile-menu-active");
+  }
+
+  openBtn.addEventListener("click", openMenu);
+  closeBtn.addEventListener("click", closeMenu);
+  overlay.addEventListener("click", closeMenu);
+
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape") closeMenu();
+  });
+
+  sidebar.querySelectorAll("a").forEach(function (link) {
+    link.addEventListener("click", closeMenu);
+  });
+})();
+</script>
+
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="HITOP" class="md-nav__button md-logo" aria-label="HITOP" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    HITOP
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Latest Articles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../404/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    404
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../support/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Support
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Category
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Category
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../category/troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Partials
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Partials
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../partials/article-list/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Article list
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Stylesheets
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Stylesheets
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../stylesheets/test%201/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Test Article - HITOP Documentation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Archive
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Archive
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2026/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Categories
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Categories
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../category/sops/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SOPs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../category/tutorials/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutorials
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../category/how-to-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How to Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#reset-configuration-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reset Configuration (Optional)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#set-router-identity-hostname" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Set Router Identity (Hostname)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interface-naming" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        INTERFACE NAMING
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bridge-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BRIDGE INTERFACE
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configure-wan-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CONFIGURE WAN INTERFACE
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configure-lan-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CONFIGURE LAN INTERFACE
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dns-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DNS SERVER
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ip-address-pool" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IP ADDRESS POOL
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dhcp-server-for-lan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DHCP SERVER FOR LAN
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#set-up-nat-masquerade" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Set Up NAT (Masquerade)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configure-default-routes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CONFIGURE DEFAULT ROUTES
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-internet-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TEST INTERNET ACCESS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hotspot-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hotspot Server
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#address-per-mac" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Address per MAC
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ---
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="---">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#winbox-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Winbox Service
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#allow-winbox-through-the-firewall" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Allow Winbox Through the Firewall
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#access-winbox" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Access Winbox
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-a-list-of-ip-address-to-block" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Add a list of IP Address to Block
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adds-a-firewall-rule-to-drop-any-incoming-traffic-from-ips-listed-in-blocked-attackers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Adds a firewall rule to drop any incoming traffic from IPs listed in blocked-attackers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+  <div class="md-content md-content--post" data-md-component="content">
+    <div class="md-sidebar md-sidebar--post" data-md-component="sidebar" data-md-type="navigation">
+      <div class="md-sidebar__scrollwrap">
+        <div class="md-sidebar__inner md-post">
+          <nav class="md-nav md-nav--primary">
+            <div class="md-post__back">
+              <div class="md-nav__title md-nav__container">
+                <a href="../../../.." class="md-nav__link">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+                  <span class="md-ellipsis">
+                    Back to index
+                  </span>
+                </a>
+              </div>
+            </div>
+            
+            <ul class="md-post__meta md-nav__list">
+              <li class="md-nav__item md-nav__item--section">
+                <div class="md-post__title">
+                  <span class="md-ellipsis">
+                    Metadata
+                  </span>
+                </div>
+                <nav class="md-nav">
+                  <ul class="md-nav__list">
+                    <li class="md-nav__item">
+                      <div class="md-nav__link">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"/></svg>
+                        <time datetime="2026-10-12 00:00:00+00:00" class="md-ellipsis">October 12, 2026</time>
+                      </div>
+                    </li>
+                    
+                    
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 3v15h3V3zm3 2 4 13 3-1-4-13zM5 5v13h3V5zM3 19v2h18v-2z"/></svg>
+                          <span class="md-ellipsis">
+                            in
+                            
+                              <a href="../../../../category/tutorials/">Tutorials</a></span>
+                        </div>
+                      </li>
+                    
+                    
+                      
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7z"/></svg>
+                          <span class="md-ellipsis">
+                            
+                              5 min read
+                            
+                          </span>
+                        </div>
+                      </li>
+                    
+                  </ul>
+                </nav>
+              </li>
+            </ul>
+            
+          </nav>
+          
+        </div>
+      </div>
+    </div>
+    <article class="md-content__inner md-typeset">
+      
+        
+  
+
+
+
+
+  <h1>MicroTik Basic Configuration</h1>
+
+<hr />
+<h3 id="reset-configuration-optional">Reset Configuration (Optional)</h3>
+<p><strong>System→Reset Configuration</strong></p>
+<p><code>/system reset-configuration</code></p>
+<hr />
+<h3 id="set-router-identity-hostname"><strong>Set Router Identity (Hostname)</strong></h3>
+<p><strong>System→Identity</strong></p>
+<p><code>/system identity set name=MyRouter</code></p>
+<hr />
+<h3 id="interface-naming"><strong>INTERFACE NAMING</strong></h3>
+<p><strong>Main Menu → Interfaces</strong></p>
+<p><img alt="image.png" src="attachment:dfc1aa3d-717d-41d3-ba02-57f3b575a161:image.png" />
+1. Select Interfaces option from Main Menu
+2. Double click on a interface →Set a name for desire interfaces/put a comments</p>
+<hr />
+<h3 id="bridge-interface">BRIDGE INTERFACE</h3>
+<p><strong>Main Menu →Bridge</strong></p>
+<p><img alt="image.png" src="attachment:ac1621cd-c092-4e96-977c-7c190d54c12d:image.png" /></p>
+<ol>
+<li>Select the bridge option from the Main Menu</li>
+<li>Go to Bridge tab and click on (+) button</li>
+<li>Choose a name for the bridge interface</li>
+<li>Click Apply and ok</li>
+</ol>
+<p><img alt="image.png" src="attachment:81ef0f14-339d-4945-922c-6c37528c1408:image.png" /></p>
+<ol>
+<li>Go to the Port Tab and Click on (+) button</li>
+<li>Select the Interface you want to add to the bridge</li>
+<li>Select the bridge you created</li>
+<li>Apply and Ok</li>
+<li>Repeat same to add more interface to the bridge.</li>
+</ol>
+<hr />
+<h3 id="configure-wan-interface">CONFIGURE WAN INTERFACE</h3>
+<p><strong>IP→Addresses</strong></p>
+<p><img alt="image.png" src="attachment:618e3a7f-8c4a-42d2-8843-ee87694146fe:image.png" /></p>
+<ol>
+<li>Click on (+) Tab</li>
+<li>Enter the WAN IP address with their CIDR Value(Subnet Mask)</li>
+<li>Select the Interface for the WAN</li>
+<li>Apply and ok</li>
+</ol>
+<hr />
+<h3 id="configure-lan-interface">CONFIGURE LAN INTERFACE</h3>
+<p><strong>IP →Addresses</strong></p>
+<p><img alt="image.png" src="attachment:0df16437-1726-4f9d-81c7-0e74a8ea3759:image.png" /></p>
+<ol>
+<li>Add the IP Address to the LAN Interface with (CIDR Value) <strong>Subnet Mask</strong></li>
+<li>Click apply then It will take the the <strong>network</strong> Address automatically</li>
+<li>Select the LAN Interface</li>
+<li>Apply and ok</li>
+</ol>
+<hr />
+<h3 id="dns-server">DNS SERVER</h3>
+<p><strong>IP→ DNS</strong></p>
+<p><img alt="image.png" src="attachment:83107eb0-3cbd-4a42-aeb9-4b626138ac0a:image.png" /></p>
+<ol>
+<li>Add (8.8.8.8) as Primary</li>
+<li>Add 8.2.2.2.2 as Secondary</li>
+<li>Apply and ok</li>
+</ol>
+<hr />
+<h3 id="ip-address-pool">IP ADDRESS POOL</h3>
+<p><strong>IP→ Pool</strong></p>
+<p><img alt="image.png" src="attachment:488d570f-96a0-4fa3-a545-2350b21b34ef:image.png" /></p>
+<ol>
+<li>Add a <strong>Name</strong> for Pool</li>
+<li>Add the IP <strong>Rage</strong> for the Pool..</li>
+<li>Apply and OK.</li>
+</ol>
+<hr />
+<h3 id="dhcp-server-for-lan">DHCP SERVER FOR LAN</h3>
+<p><strong>IP→DHCP Server</strong></p>
+<p><img alt="image.png" src="attachment:89a24744-e49e-45d6-86c8-64c4a67753eb:image.png" /></p>
+<ol>
+<li>In <strong>DHCP Tab</strong> click Plus(+) Button</li>
+<li>Choose a name for <strong>DHCP Server</strong></li>
+<li>Select the <strong>LAN Port &amp; IP Pool Name</strong></li>
+<li>Click <strong>Apply</strong> and <strong>OK</strong></li>
+</ol>
+<p><img alt="image.png" src="attachment:a475ae1e-86f1-4bb3-a6cd-1a7a3610d275:image.png" /></p>
+<ol>
+<li><strong>In Network Tab</strong></li>
+<li>Enter the <strong>DHCP Network</strong> with CIDR Value.</li>
+<li>Enter the <strong>Gateway IP Address (LAN Interface IP Address)</strong></li>
+<li>Click <strong>Apply</strong> and <strong>OK</strong></li>
+</ol>
+<hr />
+<h3 id="set-up-nat-masquerade"><strong>Set Up NAT (Masquerade)</strong></h3>
+<p><strong>IP→Firewall</strong></p>
+<p><img alt="image.png" src="attachment:339d2d00-9a5a-49b0-a25b-e1a7c1197455:image.png" /></p>
+<ol>
+<li>In the NAT Tab and (+) Button</li>
+<li><strong>Chain option: srcnat</strong></li>
+<li><strong>Src. Address: &lt;</strong><em>local network with CIRD Value&gt;</em></li>
+<li>Apply and OK</li>
+</ol>
+<p><img alt="image.png" src="attachment:c3decc76-56da-4b8a-8d73-a7f628773d64:image.png" /></p>
+<ol>
+<li>In Action Tab</li>
+<li><strong>Action : Masquerade</strong></li>
+<li>Apply and OK</li>
+</ol>
+<hr />
+<h3 id="configure-default-routes">CONFIGURE DEFAULT ROUTES</h3>
+<p><strong>IP→Routes</strong></p>
+<p><img alt="image.png" src="attachment:4ef6179d-e7dc-4662-a635-e25172dad1f5:image.png" /></p>
+<ol>
+<li>Click on (+) button</li>
+<li>Dst Address : 0.0.0.0</li>
+<li>Gateway : &lt;<em>default gateway of WAN&gt;</em></li>
+<li>Apply and ok</li>
+</ol>
+<hr />
+<h3 id="test-internet-access">TEST INTERNET ACCESS</h3>
+<p><strong>Terminal</strong></p>
+<p><img alt="image.png" src="attachment:66e1cacf-8650-420d-83c9-e121ba9fb60e:image.png" /></p>
+<ol>
+<li><code>Ping [google.com](&lt;http://google.com&gt;)</code> and <code>8.8.8.8</code> .</li>
+</ol>
+<p><img alt="image.png" src="attachment:d5bff3a6-6a25-4c1d-96d5-a213f12de6f4:image.png" /></p>
+<hr />
+<h3 id="hotspot-server">Hotspot Server</h3>
+<p><strong>IP→Hotspot</strong></p>
+<p><img alt="image.png" src="attachment:7f3a2e7d-c27c-42c4-91bf-5c3e43f7035d:image.png" /></p>
+<ol>
+<li>In server Tab Click on the <strong>Hotspot Setup</strong></li>
+<li>Select I<strong>nterface →</strong> Hotspot <strong>Address(LAN IP) with CIDR Value → IP Pool → Certificate</strong> : None→<strong>SMTP Server</strong> : 0.0.0.0→<strong>DNS Server</strong> : 8.8.8.8, 8.2.2.2→<strong>DNS name</strong> : <a href="http://abcd.com">abcd.com</a>.</li>
+<li>Create a <strong>Hotspot user and Password</strong></li>
+<li>Next and OK.</li>
+</ol>
+<hr />
+<h3 id="address-per-mac">Address per MAC</h3>
+<p><strong>IP→Hotspot</strong></p>
+<p><img alt="image.png" src="attachment:96815f22-bd30-4ad2-ba6a-0f1ac0ce5db7:image.png" /></p>
+<ol>
+<li>On the server Tab; double click on the hotspot server</li>
+<li>Address per MAC : 1</li>
+<li>Apply and ok</li>
+</ol>
+<h2 id="-">---</h2>
+<h3 id="winbox-service">Winbox Service</h3>
+<p><strong>IP→Services</strong></p>
+<p><img alt="image.png" src="attachment:1008eea2-36e3-4c67-8185-6155d038f1d5:image.png" /></p>
+<ol>
+<li><strong>Ensure Winbox</strong> service is running on port number: <strong>8291</strong></li>
+</ol>
+<hr />
+<h3 id="allow-winbox-through-the-firewall">Allow Winbox Through the Firewall</h3>
+<p><strong>IP→Firewall</strong></p>
+<p><img alt="image.png" src="attachment:da47007c-60b7-4218-9064-a73256463cbc:image.png" /></p>
+<ol>
+<li>Chain : Input</li>
+<li>Protocol : 6 (TCP)</li>
+<li>Src. Port : 8291</li>
+<li>Go to Action tab</li>
+</ol>
+<p><img alt="image.png" src="attachment:9c9038de-7f29-4f04-8f67-9315982262da:image.png" /></p>
+<ol>
+<li>Action : Accept</li>
+<li>Apply and OK</li>
+</ol>
+<hr />
+<h3 id="access-winbox">Access Winbox</h3>
+<p><img alt="image.png" src="attachment:97adb57f-a4f4-405e-8b95-07516e8e503f:image.png" /></p>
+<ol>
+<li>Enter Your Public IP address with Port Number</li>
+<li>Enter your Mikrotik Login Credentials</li>
+<li>Connect…..Done!!!</li>
+</ol>
+<hr />
+<h3 id="add-a-list-of-ip-address-to-block">Add a list of IP Address to Block</h3>
+<p><strong>IP→Firewall</strong></p>
+<p><img alt="image.png" src="attachment:c5e96e7c-b6cb-4ba2-a6bc-d40fa76e5ffa:image.png" /></p>
+<ol>
+<li>Go to Address Lists Tab</li>
+<li>List : <em>Choose a Name for Block List</em></li>
+<li>Address : <em><Add a ip addres/range of IP Addresses to block in our network></em></li>
+<li>Apply and ok</li>
+</ol>
+<p><code>/ip firewall address-list add list=blocked-attackers address=31.171.152.109 comment="Brute force attacker"</code></p>
+<hr />
+<h3 id="adds-a-firewall-rule-to-drop-any-incoming-traffic-from-ips-listed-in-blocked-attackers">Adds a firewall rule to <strong>drop any incoming traffic</strong> from IPs listed in <code>blocked-attackers</code></h3>
+<p><strong>IP→FIrewall</strong></p>
+<p><img alt="image.png" src="attachment:772e39f6-379b-4fd5-b20a-e304e5b508e6:63725324-da3d-4edc-b3e6-7c09e696b0cf.png" /></p>
+<ol>
+<li>In Filter Rules Tab→ Click on (+) Button</li>
+<li>GO to General Tab</li>
+<li>Chain : input</li>
+<li>Src Address List : <em><choose the list you created to block></em></li>
+<li>Click Apply</li>
+</ol>
+<p><img alt="image.png" src="attachment:2c24e56e-79e3-4537-a8f7-65b509fd5165:image.png" /></p>
+<ol>
+<li>Go to action tab</li>
+<li>Action: drop</li>
+<li>Apply and ok</li>
+</ol>
+<p><code>/ip firewall filter add chain=input src-address-list=blocked-attackers action=drop comment="Drop brute force attackers"</code></p>
+<hr />
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+  
+
+
+
+      
+    </article>
+  </div>
+
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+<footer class="hitop-footer">
+  <div class="hitop-footer__inner">
+
+    <div class="hitop-footer__brand">
+      <a class="hitop-footer__logo"
+         href="../../../..">
+        HITOP
+      </a>
+      <p>
+        Your knowledge hub for standard operating procedures,
+        documentation and troubleshooting.
+      </p>
+    </div>
+
+    <div class="hitop-footer__links">
+      <h3>Quick Links</h3>
+      <a href="../../../../about/">About Us</a>
+      <a href="../../../../category/how-to-guide/">How to Guide</a>
+      <a href="../../../../category/tutorials/">Tutorials</a>
+      <a href="../../../../category/sops/">SOPs</a>
+      <a href="../../../../category/troubleshooting/">Troubleshooting</a>
+      <a href="../../../../support/">Get Support</a>
+    </div>
+
+  </div>
+
+  <div class="hitop-footer__bottom">
+    <p>© 2026 HITOP. All rights reserved.</p>
+    <p>Built for better documentation and knowledge sharing.</p>
+  </div>
+</footer>
+
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": [], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

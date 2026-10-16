@@ -1,0 +1,1993 @@
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Learn how to block specific websites and URLs on FortiGate using Web Filter profiles and firewall policies with step-by-step instructions.">
+      
+      
+      
+        <link rel="canonical" href="https://gagan7248.github.io/HITOP/2026/10/15/block-a-url-on-fortigate-using-web-filter/">
+      
+      
+        <link rel="prev" href="../../14/it-sops---antivirus--usb-management/">
+      
+      
+        <link rel="next" href="../it-sop--pms-management/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Block a URL on FortiGate Using Web Filter - HITOP</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  
+
+  
+    
+    
+
+    <meta property="og:site_name" content="HITOP">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Block a URL on FortiGate Using Web Filter">
+
+    
+      <meta property="og:description" content="Learn how to block specific websites and URLs on FortiGate using Web Filter profiles and firewall policies with step-by-step instructions.">
+      <meta name="twitter:description" content="Learn how to block specific websites and URLs on FortiGate using Web Filter profiles and firewall policies with step-by-step instructions.">
+    
+
+    <meta property="og:url" content="https://gagan7248.github.io/HITOP/2026/10/15/block-a-url-on-fortigate-using-web-filter/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Block a URL on FortiGate Using Web Filter">
+
+    
+      
+      <meta property="og:image" content="https://gagan7248.github.io/HITOP/images/block-url-on-fortigate.png">
+      <meta name="twitter:image" content="https://gagan7248.github.io/HITOP/images/block-url-on-fortigate.png">
+    
+  
+
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#block-a-url-on-fortigate-using-web-filter" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+
+    <button class="mobile-menu-btn"
+            id="mobile-menu-open"
+            aria-label="Open menu"
+            aria-controls="hitop-mobile-sidebar"
+            aria-expanded="false">
+      ☰
+    </button>
+
+    <a href="../../../.."
+       class="md-header__button md-logo"
+       title="HITOP">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+
+    <div class="hitop-title">HITOP</div>
+
+    <div class="hitop-nav">
+      <a href="../../../..">Home</a>
+      <a href="../../../../category/sops/">SOPs</a>
+      <a href="../../../../category/tutorials/">Tutorials</a>
+      <a href="../../../../category/how-to-guide/">How to Guide</a>
+      <a href="../../../../category/troubleshooting/">Troubleshooting</a>
+      <a href="../../../../about/">About Us</a>
+      <a class="support-btn" href="../../../../support/">Get Support</a>
+    </div>
+
+    <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+    <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    <label class="md-header__button md-icon"
+       for="__search"
+       aria-label="Search"
+       title="Search">
+  <svg xmlns="http://www.w3.org/2000/svg"
+       viewBox="0 0 24 24"
+       width="24"
+       height="24">
+    <path fill="currentColor"
+          d="M9.5 3a6.5 6.5 0 1 0 3.95 11.66l.27.27v.79l5 5 1.5-1.5-5-5h-.79l-.27-.27A6.5 6.5 0 0 0 9.5 3zm0 2a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9z"/>
+  </svg>
+</label>
+
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  </nav>
+</header>
+
+<div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
+
+<aside class="hitop-mobile-sidebar"
+       id="hitop-mobile-sidebar"
+       aria-label="Mobile navigation"
+       aria-hidden="true">
+  <div class="mobile-sidebar-header">
+    <strong>HITOP Menu</strong>
+    <button id="mobile-menu-close" aria-label="Close menu">×</button>
+  </div>
+
+  <nav class="mobile-sidebar-links">
+    <a href="../../../..">Home</a>
+    <a href="../../../../category/sops/">SOPs</a>
+    <a href="../../../../category/tutorials/">Tutorials</a>
+    <a href="../../../../category/how-to-guide/">How to Guide</a>
+    <a href="../../../../category/troubleshooting/">Troubleshooting</a>
+    <a href="../../../../about/">About Us</a>
+    <a class="mobile-support-btn" href="../../../../support/">Get Support</a>
+  </nav>
+</aside>
+
+<script>
+(function () {
+  const sidebar = document.getElementById("hitop-mobile-sidebar");
+  const overlay = document.getElementById("mobile-menu-overlay");
+  const openBtn = document.getElementById("mobile-menu-open");
+  const closeBtn = document.getElementById("mobile-menu-close");
+
+  if (!sidebar || !overlay || !openBtn || !closeBtn) return;
+
+  function openMenu() {
+    sidebar.classList.add("is-open");
+    overlay.classList.add("is-visible");
+    sidebar.setAttribute("aria-hidden", "false");
+    openBtn.setAttribute("aria-expanded", "true");
+    document.body.classList.add("mobile-menu-active");
+  }
+
+  function closeMenu() {
+    sidebar.classList.remove("is-open");
+    overlay.classList.remove("is-visible");
+    sidebar.setAttribute("aria-hidden", "true");
+    openBtn.setAttribute("aria-expanded", "false");
+    document.body.classList.remove("mobile-menu-active");
+  }
+
+  openBtn.addEventListener("click", openMenu);
+  closeBtn.addEventListener("click", closeMenu);
+  overlay.addEventListener("click", closeMenu);
+
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape") closeMenu();
+  });
+
+  sidebar.querySelectorAll("a").forEach(function (link) {
+    link.addEventListener("click", closeMenu);
+  });
+})();
+</script>
+
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="HITOP" class="md-nav__button md-logo" aria-label="HITOP" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    HITOP
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Latest Articles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../404/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    404
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../support/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Support
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Category
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Category
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../category/troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Partials
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Partials
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../partials/article-list/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Article list
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Stylesheets
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Stylesheets
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../stylesheets/test%201/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Test Article - HITOP Documentation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Archive
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Archive
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2026/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Categories
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Categories
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../category/sops/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SOPs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../category/tutorials/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutorials
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../category/how-to-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How to Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration workflow
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-create-a-web-filter-profile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1. Create a Web Filter profile
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 1. Create a Web Filter profile">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#add-the-url-to-block" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Add the URL to block
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-apply-the-web-filter-to-a-firewall-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Apply the Web Filter to a firewall policy
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-test-verify" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Test &amp; Verify
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 3: Test &amp; Verify">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#expected-result" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Expected result
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-web-filter-logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Check Web Filter logs
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+  <div class="md-content md-content--post" data-md-component="content">
+    <div class="md-sidebar md-sidebar--post" data-md-component="sidebar" data-md-type="navigation">
+      <div class="md-sidebar__scrollwrap">
+        <div class="md-sidebar__inner md-post">
+          <nav class="md-nav md-nav--primary">
+            <div class="md-post__back">
+              <div class="md-nav__title md-nav__container">
+                <a href="../../../.." class="md-nav__link">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+                  <span class="md-ellipsis">
+                    Back to index
+                  </span>
+                </a>
+              </div>
+            </div>
+            
+            <ul class="md-post__meta md-nav__list">
+              <li class="md-nav__item md-nav__item--section">
+                <div class="md-post__title">
+                  <span class="md-ellipsis">
+                    Metadata
+                  </span>
+                </div>
+                <nav class="md-nav">
+                  <ul class="md-nav__list">
+                    <li class="md-nav__item">
+                      <div class="md-nav__link">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"/></svg>
+                        <time datetime="2026-10-15 12:30:00+00:00" class="md-ellipsis">October 15, 2026</time>
+                      </div>
+                    </li>
+                    
+                    
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 3v15h3V3zm3 2 4 13 3-1-4-13zM5 5v13h3V5zM3 19v2h18v-2z"/></svg>
+                          <span class="md-ellipsis">
+                            in
+                            
+                              <a href="../../../../category/how-to-guide/">How to Guide</a></span>
+                        </div>
+                      </li>
+                    
+                    
+                      
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7z"/></svg>
+                          <span class="md-ellipsis">
+                            
+                              7 min read
+                            
+                          </span>
+                        </div>
+                      </li>
+                    
+                  </ul>
+                </nav>
+              </li>
+            </ul>
+            
+          </nav>
+          
+        </div>
+      </div>
+    </div>
+    <article class="md-content__inner md-typeset">
+      
+        
+  
+
+
+
+
+<hr />
+<h1 id="block-a-url-on-fortigate-using-web-filter"><strong>Block a URL on FortiGate Using Web Filter</strong></h1>
+<div>
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="800" height="450" viewBox="0 0 1200 630"
+     role="img" aria-labelledby="title desc">
+
+  <title id="title">Block a Website or URL on FortiGate</title>
+  <desc id="desc">FortiGate Web Filter and Firewall Policy blocking unwanted websites.</desc>
+
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f5f9ff"/>
+      <stop offset="100%" stop-color="#dceaff"/>
+    </linearGradient>
+
+    <linearGradient id="device" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#344e6b"/>
+      <stop offset="100%" stop-color="#10243c"/>
+    </linearGradient>
+
+    <linearGradient id="blue" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2388ef"/>
+      <stop offset="100%" stop-color="#0751ad"/>
+    </linearGradient>
+
+    <linearGradient id="red" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ff5265"/>
+      <stop offset="100%" stop-color="#d90f36"/>
+    </linearGradient>
+
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="170%">
+      <feDropShadow dx="0" dy="7" stdDeviation="8"
+                    flood-color="#17365d" flood-opacity=".18"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" rx="20" fill="url(#bg)"/>
+  <circle cx="40" cy="360" r="200" fill="#ffffff" opacity=".25"/>
+  <circle cx="1160" cy="300" r="220" fill="#ffffff" opacity=".28"/>
+
+  <!-- Main heading -->
+  <text x="600" y="63" text-anchor="middle"
+        font-family="Arial, sans-serif" font-size="37"
+        font-weight="700" fill="#102e63">
+    Block a Website or URL on
+  </text>
+
+  <rect x="380" y="79" width="440" height="57" rx="13" fill="url(#red)"/>
+  <text x="600" y="118" text-anchor="middle"
+        font-family="Arial, sans-serif" font-size="39"
+        font-weight="700" fill="#ffffff">FortiGate</text>
+
+  <text x="600" y="170" text-anchor="middle"
+        font-family="Arial, sans-serif" font-size="27"
+        font-weight="700" fill="#173c77">
+    Using Web Filter and Firewall Policy
+  </text>
+
+  <!-- LEFT: Browser / blocked website -->
+  <g filter="url(#shadow)">
+    <rect x="35" y="215" width="340" height="260" rx="15"
+          fill="#ffffff" stroke="#345576" stroke-width="5"/>
+
+    <path d="M35 258 V230 Q35 215 50 215 H360 Q375 215 375 230 V258 Z"
+          fill="#dce9fa"/>
+
+    <circle cx="59" cy="237" r="6" fill="#fa5364"/>
+    <circle cx="79" cy="237" r="6" fill="#ffbd4a"/>
+    <circle cx="99" cy="237" r="6" fill="#37bb80"/>
+
+    <!-- URL bar -->
+    <rect x="53" y="269" width="304" height="35" rx="9"
+          fill="#f0f5fd" stroke="#c8d8ef" stroke-width="2"/>
+
+    <circle cx="72" cy="286" r="7" fill="none"
+            stroke="#315b91" stroke-width="2"/>
+    <path d="M67 286 H77 M72 279 Q67 286 72 293 M72 279 Q77 286 72 293"
+          fill="none" stroke="#315b91" stroke-width="1.5"/>
+
+    <text x="88" y="292" font-family="Arial, sans-serif"
+          font-size="15" font-weight="600" fill="#233d60">
+      blocked-website.com
+    </text>
+
+    <!-- Access denied panel -->
+    <rect x="53" y="318" width="304" height="137" rx="12" fill="#fff0f2"/>
+
+    <circle cx="205" cy="355" r="22" fill="none"
+            stroke="#ed2443" stroke-width="7"/>
+    <path d="M190 340 L220 370" stroke="#ed2443"
+          stroke-width="7" stroke-linecap="round"/>
+
+    <text x="205" y="400" text-anchor="middle"
+          font-family="Arial, sans-serif" font-size="25"
+          font-weight="700" fill="#d7193f">ACCESS DENIED</text>
+
+    <text x="205" y="425" text-anchor="middle"
+          font-family="Arial, sans-serif" font-size="14"
+          fill="#78404a">Blocked by FortiGate Web Filter</text>
+
+    <text x="205" y="443" text-anchor="middle"
+          font-family="Arial, sans-serif" font-size="12"
+          fill="#78404a">Website access restricted</text>
+  </g>
+
+  <!-- Connector from browser to firewall -->
+  <path d="M380 350 H465" fill="none"
+        stroke="#e52645" stroke-width="6"
+        stroke-dasharray="10 9" stroke-linecap="round"/>
+
+  <circle cx="422" cy="350" r="19" fill="#ffffff"
+          stroke="#e52645" stroke-width="4"/>
+  <path d="M414 342 L430 358 M430 342 L414 358"
+        stroke="#e52645" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- CENTER: FortiGate appliance -->
+  <g filter="url(#shadow)">
+
+    <!-- Firewall body -->
+    <path d="M440 340 L465 312 H750 L780 340 V428
+             Q780 441 766 441 H454 Q440 441 440 428 Z"
+          fill="url(#device)"/>
+
+    <!-- Top surface -->
+    <path d="M440 340 L465 312 H750 L780 340 Z"
+          fill="#607c9b"/>
+
+    <path d="M452 339 H766" stroke="#a9bfd8"
+          stroke-width="2" opacity=".7"/>
+
+    <!-- Ventilation slots -->
+    <g fill="#091a2d">
+      <rect x="455" y="359" width="31" height="6" rx="3"/>
+      <rect x="455" y="372" width="31" height="6" rx="3"/>
+      <rect x="455" y="385" width="31" height="6" rx="3"/>
+      <rect x="455" y="398" width="31" height="6" rx="3"/>
+      <rect x="455" y="411" width="31" height="6" rx="3"/>
+    </g>
+
+    <!-- Generic firewall symbol -->
+    <g transform="translate(510 359)" fill="#ff4359">
+      <rect x="0" y="0" width="17" height="13" rx="2"/>
+      <rect x="21" y="0" width="17" height="13" rx="2"/>
+      <rect x="42" y="0" width="17" height="13" rx="2"/>
+      <rect x="0" y="17" width="17" height="13" rx="2"/>
+      <rect x="42" y="17" width="17" height="13" rx="2"/>
+      <rect x="0" y="34" width="17" height="13" rx="2"/>
+      <rect x="21" y="34" width="17" height="13" rx="2"/>
+      <rect x="42" y="34" width="17" height="13" rx="2"/>
+    </g>
+
+    <text x="585" y="385" font-family="Arial, sans-serif"
+          font-size="25" font-weight="700" fill="#ffffff">FortiGate</text>
+
+    <text x="585" y="407" font-family="Arial, sans-serif"
+          font-size="12" font-weight="600" fill="#b9d4f5">
+      NEXT-GENERATION FIREWALL
+    </text>
+
+    <!-- Status lights -->
+    <circle cx="735" cy="369" r="5" fill="#4be19a"/>
+    <circle cx="735" cy="385" r="5" fill="#4be19a"/>
+    <circle cx="735" cy="401" r="5" fill="#ffcb55"/>
+  </g>
+
+  <!-- Web Filter label -->
+  <g filter="url(#shadow)">
+    <rect x="420" y="207" width="166" height="79" rx="13" fill="url(#blue)"/>
+
+    <!-- Globe icon -->
+    <circle cx="452" cy="235" r="15" fill="none"
+            stroke="#ffffff" stroke-width="2.5"/>
+    <path d="M437 235 H467 M452 220 Q441 235 452 250
+             M452 220 Q463 235 452 250"
+          fill="none" stroke="#ffffff" stroke-width="2"/>
+
+    <text x="503" y="241" text-anchor="middle"
+          font-family="Arial, sans-serif" font-size="18"
+          font-weight="700" fill="#ffffff">WEB FILTER</text>
+
+    <text x="503" y="263" text-anchor="middle"
+          font-family="Arial, sans-serif" font-size="12"
+          fill="#e7f2ff">URL Filtering</text>
+  </g>
+
+  <!-- Firewall Policy label -->
+  <g filter="url(#shadow)">
+    <rect x="610" y="207" width="185" height="79" rx="13" fill="#6845cb"/>
+
+    <!-- Policy document icon -->
+    <path d="M629 222 H647 L656 231 V258 H629 Z"
+          fill="none" stroke="#ffffff" stroke-width="2.5"
+          stroke-linejoin="round"/>
+    <path d="M647 222 V231 H656 M635 239 H649 M635 246 H649 M635 253 H644"
+          fill="none" stroke="#ffffff" stroke-width="2"/>
+
+    <text x="718" y="241" text-anchor="middle"
+          font-family="Arial, sans-serif" font-size="16"
+          font-weight="700" fill="#ffffff">FIREWALL</text>
+
+    <text x="718" y="261" text-anchor="middle"
+          font-family="Arial, sans-serif" font-size="16"
+          font-weight="700" fill="#ffffff">POLICY</text>
+  </g>
+
+  <!-- Policy arrows -->
+  <path d="M500 286 V300" stroke="#1680df"
+        stroke-width="4" stroke-linecap="round"/>
+  <path d="M491 294 L500 304 L509 294"
+        fill="none" stroke="#1680df" stroke-width="4"
+        stroke-linecap="round" stroke-linejoin="round"/>
+
+  <path d="M703 286 V300" stroke="#6845cb"
+        stroke-width="4" stroke-linecap="round"/>
+  <path d="M694 294 L703 304 L712 294"
+        fill="none" stroke="#6845cb" stroke-width="4"
+        stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Connector to blocked destination -->
+  <path d="M785 350 H845" fill="none"
+        stroke="#e52645" stroke-width="6"
+        stroke-dasharray="10 9" stroke-linecap="round"/>
+
+  <circle cx="815" cy="350" r="18" fill="#ffffff"
+          stroke="#e52645" stroke-width="4"/>
+  <path d="M807 342 L823 358 M823 342 L807 358"
+        stroke="#e52645" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- RIGHT: blocked destination -->
+  <g filter="url(#shadow)">
+    <rect x="855" y="242" width="302" height="190" rx="15"
+          fill="#ffffff" stroke="#ed4058" stroke-width="4"/>
+
+    <path d="M855 257 Q855 242 870 242 H1142 Q1157 242 1157 257 V271 H855 Z"
+          fill="#dce8f7"/>
+
+    <circle cx="875" cy="257" r="5" fill="#fa5364"/>
+    <circle cx="893" cy="257" r="5" fill="#ffbd4a"/>
+    <circle cx="911" cy="257" r="5" fill="#37bb80"/>
+
+    <!-- Large blocked icon -->
+    <circle cx="1006" cy="328" r="42" fill="none"
+            stroke="#ed2443" stroke-width="11"/>
+    <path d="M977 299 L1035 357" stroke="#ed2443"
+          stroke-width="11" stroke-linecap="round"/>
+
+    <rect x="855" y="384" width="302" height="48" rx="0"
+          fill="url(#red)"/>
+
+    <text x="1006" y="414" text-anchor="middle"
+          font-family="Arial, sans-serif" font-size="21"
+          font-weight="700" fill="#ffffff">URL BLOCKED</text>
+  </g>
+
+  <!-- Bottom information strip -->
+  <rect x="25" y="485" width="1150" height="119" rx="17"
+        fill="#ffffff" stroke="#c6d8f2" stroke-width="2"/>
+
+  <!-- Item 1 -->
+  <g transform="translate(62 512)">
+    <path d="M25 0 L48 9 V29 Q48 47 25 59 Q2 47 2 29 V9 Z"
+          fill="none" stroke="#1c579e" stroke-width="4"/>
+    <path d="M13 29 L22 38 L38 20" fill="none"
+          stroke="#1c579e" stroke-width="4"
+          stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <text x="128" y="539" font-family="Arial, sans-serif"
+        font-size="17" font-weight="700" fill="#163c76">SECURE</text>
+  <text x="128" y="561" font-family="Arial, sans-serif"
+        font-size="17" font-weight="700" fill="#163c76">WEB ACCESS</text>
+
+  <path d="M294 505 V584" stroke="#cfddf0" stroke-width="2"/>
+
+  <!-- Item 2 -->
+  <g transform="translate(323 519)" fill="none"
+     stroke="#1c579e" stroke-width="3">
+    <circle cx="27" cy="27" r="24"/>
+    <path d="M3 27 H51 M27 3 Q9 27 27 51 M27 3 Q45 27 27 51"/>
+  </g>
+
+  <text x="383" y="539" font-family="Arial, sans-serif"
+        font-size="17" font-weight="700" fill="#163c76">URL</text>
+  <text x="383" y="561" font-family="Arial, sans-serif"
+        font-size="17" font-weight="700" fill="#163c76">CONTROL</text>
+
+  <path d="M535 505 V584" stroke="#cfddf0" stroke-width="2"/>
+
+  <!-- Item 3 -->
+  <g transform="translate(565 520)" fill="none"
+     stroke="#1c579e" stroke-width="4" stroke-linejoin="round">
+    <path d="M0 10 L22 0 L44 10 V35 L22 47 L0 35 Z"/>
+    <path d="M13 24 L20 31 L33 17" stroke-linecap="round"/>
+  </g>
+
+  <text x="622" y="539" font-family="Arial, sans-serif"
+        font-size="17" font-weight="700" fill="#163c76">POLICY</text>
+  <text x="622" y="561" font-family="Arial, sans-serif"
+        font-size="17" font-weight="700" fill="#163c76">ENFORCEMENT</text>
+
+  <path d="M817 505 V584" stroke="#cfddf0" stroke-width="2"/>
+
+  <!-- Item 4 -->
+  <g transform="translate(848 520)" fill="none"
+     stroke="#1c579e" stroke-width="4" stroke-linejoin="round">
+    <path d="M23 0 L46 9 V27 Q46 43 23 54 Q0 43 0 27 V9 Z"/>
+    <rect x="15" y="23" width="16" height="13" rx="3"/>
+    <path d="M19 23 V18 Q23 10 27 18 V23"/>
+  </g>
+
+  <text x="910" y="539" font-family="Arial, sans-serif"
+        font-size="17" font-weight="700" fill="#163c76">NETWORK</text>
+  <text x="910" y="561" font-family="Arial, sans-serif"
+        font-size="17" font-weight="700" fill="#163c76">PROTECTION</text>
+
+</svg>
+</div>
+<hr />
+<h2 id="overview">Overview</h2>
+<p>FortiGate Web Filter allows network administrators to block access to specific websites <code>www.youtube.com</code>, domains, and URL paths. </p>
+<h2 id="configuration-workflow">Configuration workflow</h2>
+<div>
+
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 600 180"
+     width="100%"
+     role="img"
+     aria-label="FortiGate URL filtering workflow">
+
+  <rect width="600" height="180" rx="12" fill="#f1f5f9"/>
+
+  <rect x="15" y="35" width="165" height="100"
+        rx="10" fill="#fff" stroke="#dc2626" stroke-width="2"/>
+
+  <text x="97" y="65" text-anchor="middle"
+        font-size="15" font-weight="bold" fill="#172554">
+    Step 1
+  </text>
+  <text x="97" y="90" text-anchor="middle"
+        font-size="12" fill="#334155">
+    Create URL Filter Profile
+  </text>
+
+  <path d="M185 85 H215" stroke="#dc2626" stroke-width="3"/>
+  <polygon points="215,79 225,85 215,91" fill="#dc2626"/>
+
+  <rect x="230" y="35" width="165" height="100"
+        rx="10" fill="#fff" stroke="#dc2626" stroke-width="2"/>
+
+  <text x="312" y="65" text-anchor="middle"
+        font-size="15" font-weight="bold" fill="#172554">
+    Step 2
+  </text>
+  <text x="312" y="88" text-anchor="middle"
+        font-size="12" fill="#334155">
+    Apply Web Filter Profile
+  </text>
+  <text x="312" y="105" text-anchor="middle"
+        font-size="12" fill="#334155">
+    to Firewall Policy
+  </text>
+
+  <path d="M400 85 H430" stroke="#dc2626" stroke-width="3"/>
+  <polygon points="430,79 440,85 430,91" fill="#dc2626"/>
+
+  <rect x="445" y="35" width="140" height="100"
+        rx="10" fill="#fff" stroke="#16a34a" stroke-width="2"/>
+
+  <text x="515" y="65" text-anchor="middle"
+        font-size="15" font-weight="bold" fill="#166534">
+    Step 3
+  </text>
+  <text x="515" y="90" text-anchor="middle"
+        font-size="12" fill="#334155">
+    Test &amp; Verify
+  </text>
+
+</svg>
+
+</div>
+
+<p><strong>Step 1 — Create the URL filter</strong><br />
+Security Profiles → Web Filter</p>
+<p><strong>Step 2 — Apply the Web Filter profile</strong><br />
+Policy &amp; Objects → Firewall Policy</p>
+<p><strong>Step 3 — Test and verify</strong></p>
+<hr />
+<h2 id="step-1-create-a-web-filter-profile">Step 1. Create a Web Filter profile</h2>
+<ol>
+<li>
+<p>Log in to the FortiGate administrative GUI.</p>
+</li>
+<li>
+<p>Navigate to Security Profiles → Web Filter.</p>
+</li>
+<li>
+<p>Click Create New</p>
+</li>
+<li>
+<p>Enter a profile name, for example, <code>Block_Youtube</code>. </p>
+</li>
+<li>
+<p>Locate the Static URL Filter section.</p>
+</li>
+<li>
+<p>Enable URL Filter.</p>
+</li>
+</ol>
+<h3 id="add-the-url-to-block">Add the URL to block</h3>
+<p>In the Static URL Filter section:</p>
+<ol>
+<li>
+<p>Click Create New.</p>
+</li>
+<li>
+<p>Enter the URL pattern. <code>www.youtube.com</code></p>
+</li>
+<li>
+<p>Select the filter type Wildcard.</p>
+</li>
+<li>
+<p>Set the action to Block.</p>
+</li>
+<li>
+<p>Set the status Enabled.</p>
+</li>
+<li>
+<p>Save the entry and then save the profile.</p>
+</li>
+</ol>
+<p>Use the following example configuration:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>URL</td>
+<td><code>www.youtube.com</code></td>
+</tr>
+<tr>
+<td>Type</td>
+<td>Wildcard</td>
+</tr>
+<tr>
+<td>Action</td>
+<td>Block</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Enabled</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="FortiGate URL Blocking|533" src="../../../../images/enable-statis-url.png" /></p>
+<h2 id="step-2-apply-the-web-filter-to-a-firewall-policy">Step 2: Apply the Web Filter to a firewall policy</h2>
+<p>A URL filter will not protect users unless the applicable traffic passes through a firewall policy with the Web Filter profile enabled.</p>
+<ol>
+<li>
+<p>Go to Policy &amp; Objects → Firewall Policy.</p>
+</li>
+<li>
+<p>Find the policy that allows LAN users to access the Internet (LAN-to-WAN).</p>
+</li>
+<li>
+<p>Click Edit.</p>
+</li>
+<li>
+<p>Locate the Security Profiles section.</p>
+</li>
+<li>
+<p>Enable Web Filter.</p>
+</li>
+<li>
+<p>Select the <code>Block_Youtube</code> profile created earlier.</p>
+</li>
+<li>
+<p>Select <code>certificate-inspection</code> under SSL Inspection, as an initial configuration.</p>
+</li>
+<li>
+<p>Click OK to save.</p>
+</li>
+</ol>
+<p>Use the following example configuration:</p>
+<p><img alt="FortiGate URL Blocking|533" src="../../../../images/web-filter%20to-firewall-policy.png" /></p>
+<h2 id="step-3-test-verify">Step 3: Test &amp; Verify</h2>
+<p>From a client computer connected through the FortiGate:</p>
+<ol>
+<li>
+<p>Open a browser.</p>
+</li>
+<li>
+<p>Navigate to <code>https://www.youtube.com</code>.</p>
+</li>
+<li>
+<p>Confirm that access is blocked.</p>
+</li>
+<li>
+<p>Test another website to verify that general Internet access still works.</p>
+</li>
+</ol>
+<hr />
+<h3 id="expected-result">Expected result</h3>
+<p><strong>Blocked website-</strong> The browser should display a FortiGate block or replacement page, or the request may fail depending on the inspection and browser configuration.</p>
+<p><strong>Other websites should be run-</strong> Websites not matched by a blocking rule should remain accessible.</p>
+<h2 id="check-web-filter-logs">Check Web Filter logs</h2>
+<p>If the website is still accessible, check the logs:</p>
+<ol>
+<li>
+<p>Navigate to Log &amp; Report → Security Events.</p>
+</li>
+<li>
+<p>Open the Web Filter events.</p>
+</li>
+<li>
+<p>Filter for the client's source IP address or the destination hostname.</p>
+</li>
+<li>
+<p>Review the action, matched URL, profile, and policy ID.</p>
+</li>
+<li>
+<p>Look for an entry with an action such as <code>blocked</code> and a message indicating that the URL matched the local URL filter.</p>
+</li>
+</ol>
+<p><img alt="FortiGate URL Blocking|665" src="../../../../images/blocked-webfilter-logs.png" /></p>
+<p><em><strong>Reference:</strong> Fortinet's FortiOS 7.4.8 Administration Guide. Your interface may differ slightly.</em>
+Official reference: <a href="https://docs.fortinet.com/document/fortigate/7.4.8/administration-guide/371670/static-url-filter">Fortinet — Static URL Filter and verification</a> </p>
+<hr style="border: none; height: 3px; background-color: #333;">
+<h1 id="block-a-url-on-fortigate-using-cli"><strong>Block a URL on FortiGate Using CLI</strong></h1>
+<h2 id="overview_1">Overview</h2>
+<p>FortiGate firewalls allow administrators to block specific websites using the Web Filter feature. In addition to the graphical user interface (GUI), this configuration can be performed through the Command Line Interface (CLI).</p>
+<p>In this guide, we will configure a Static URL Filter to block YouTube, create a Web Filter profile, and apply the profile to an existing LAN-to-WAN firewall policy.</p>
+<h2 id="objective">Objective</h2>
+<ul>
+<li>
+<p>Create a Static URL Filter using CLI.</p>
+</li>
+<li>
+<p>Configure a URL-blocking rule.</p>
+</li>
+<li>
+<p>Create a Web Filter profile.</p>
+</li>
+<li>
+<p>Apply the profile to a firewall policy.</p>
+</li>
+<li>
+<p>Verify that the website is blocked.</p>
+</li>
+</ul>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>Before starting, ensure that:</p>
+<ul>
+<li>
+<p>You have administrative access to the FortiGate firewall.</p>
+</li>
+<li>
+<p>You can access the FortiGate CLI through the GUI console, SSH, or a console connection.</p>
+</li>
+<li>
+<p>A LAN-to-WAN firewall policy already exists.</p>
+</li>
+<li>
+<p>You have identified the firewall policy ID used for Internet access.</p>
+</li>
+</ul>
+<p><strong>Example configuration:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Website to block</td>
+<td><code>youtube.com</code></td>
+</tr>
+<tr>
+<td>URL Filter Table ID</td>
+<td><code>10</code></td>
+</tr>
+<tr>
+<td>URL Filter Table Name</td>
+<td><code>Block_Youtube_List</code></td>
+</tr>
+<tr>
+<td>Web Filter Profile</td>
+<td><code>Block_Youtube</code></td>
+</tr>
+<tr>
+<td>Example Firewall Policy ID</td>
+<td><code>1</code></td>
+</tr>
+</tbody>
+</table>
+<p><em>Note: Policy ID</em> <code>_1_</code> <em>is only an example. Use the actual ID of your Internet-access policy.</em></p>
+<h2 id="step-1-access-the-fortigate-cli">Step 1: Access the FortiGate CLI</h2>
+<p>Log in to the FortiGate firewall using SSH, a console connection, or the CLI Console available in the web interface.</p>
+<p>Once logged in, you can configure the Web Filter settings using CLI commands.</p>
+<h2 id="step-2-create-a-static-url-filter">Step 2: Create a Static URL Filter</h2>
+<p>First, create a URL filter table and add a rule to block YouTube.</p>
+<pre><code>config webfilter urlfilter
+    edit 10
+        set name &quot;Block_Youtube_List&quot;
+        config entries
+            edit 1
+                set url &quot;*youtube.com&quot;
+                set type wildcard
+                set action block
+                set status enable
+            next
+        end
+    next
+end
+</code></pre>
+<h3 id="explanation">Explanation</h3>
+<ul>
+<li>
+<p><code>config webfilter urlfilter</code> — Enters the URL filter configuration.</p>
+</li>
+<li>
+<p><code>edit 10</code> — Creates or edits URL filter table ID 10.</p>
+</li>
+<li>
+<p><code>set name "Block_Youtube_List"</code> — Assigns a name to the URL filter table.</p>
+</li>
+<li>
+<p><code>set url "*youtube.com"</code> — Defines the URL pattern to match.</p>
+</li>
+<li>
+<p><code>set type wildcard</code> — Uses wildcard matching.</p>
+</li>
+<li>
+<p><code>set action block</code> — Blocks matching URLs.</p>
+</li>
+<li>
+<p><code>set status enable</code> — Enables the URL filter entry.</p>
+</li>
+</ul>
+<p>The wildcard pattern is intended to match URLs containing the specified domain pattern. Validate the matching behavior on your FortiOS version, and add any additional domain patterns required for your blocking objective.</p>
+<h2 id="step-3-create-a-web-filter-profile">Step 3: Create a Web Filter Profile</h2>
+<p>Next, create a Web Filter profile and associate it with the URL filter table created in the previous step.</p>
+<pre><code>config webfilter profile
+    edit &quot;Block_Youtube&quot;
+        config web
+            set urlfilter-table 10
+        end
+    next
+end
+</code></pre>
+<h3 id="explanation_1">Explanation</h3>
+<ul>
+<li>
+<p><code>config webfilter profile</code> — Enters Web Filter profile configuration.</p>
+</li>
+<li>
+<p><code>edit "Block_Youtube"</code> — Creates or edits the profile.</p>
+</li>
+<li>
+<p><code>set urlfilter-table 10</code> — Associates URL filter table ID 10 with the profile.</p>
+</li>
+</ul>
+<p>The profile now references the URL filter rules configured in Step 2.</p>
+<h2 id="step-4-identify-the-firewall-policy-id">Step 4: Identify the Firewall Policy ID</h2>
+<p>Before applying the profile, identify the existing firewall policy that allows users to access the Internet.</p>
+<p>Run:</p>
+<pre><code>show firewall policy
+</code></pre>
+<p>Review the output and identify the relevant LAN-to-WAN policy.</p>
+<p>For this example, we will use policy ID <code>1</code>. Your actual policy ID may be different.</p>
+<p><strong>Important:</strong> Do not create a new policy or modify unrelated policy settings unless required by your network design.</p>
+<h2 id="step-5-apply-the-web-filter-profile-to-the-firewall-policy">Step 5: Apply the Web Filter Profile to the Firewall Policy</h2>
+<p>Apply the profile to the existing Internet-access policy.</p>
+<pre><code>config firewall policy
+    edit 1
+        set utm-status enable
+        set webfilter-profile &quot;Block_Youtube&quot;
+    next
+end
+</code></pre>
+<p>Replace <code>1</code> with the actual firewall policy ID identified in Step 4.</p>
+<h3 id="explanation_2">Explanation</h3>
+<ul>
+<li>
+<p><code>set utm-status enable</code> — Enables security profile inspection on the policy.</p>
+</li>
+<li>
+<p><code>set webfilter-profile "Block_Youtube"</code> — Applies the Web Filter profile to the policy.</p>
+</li>
+<li>
+<p><code>next</code> — Saves the changes to the current policy entry.</p>
+</li>
+<li>
+<p><code>end</code> — Exits the configuration context.</p>
+</li>
+</ul>
+<p><strong>Important:</strong> If the policy uses a Security Profile Group or other centralized security-profile configuration, check the existing configuration before applying an individual Web Filter profile. Avoid unintentionally changing other security settings.</p>
+<h2 id="step-6-verify-the-configuration">Step 6: Verify the Configuration</h2>
+<p>After applying the configuration, verify that the URL filter table, Web Filter profile, and firewall policy contain the expected settings.</p>
+<h3 id="verify-the-url-filter-table">Verify the URL Filter Table</h3>
+<pre><code>config webfilter urlfilter
+    edit 10
+        show
+    next
+end
+</code></pre>
+<p>Confirm that the URL pattern is correct and the entry is enabled.</p>
+<h3 id="verify-the-web-filter-profile">Verify the Web Filter Profile</h3>
+<pre><code>config webfilter profile
+    edit &quot;Block_Youtube&quot;
+        show
+    next
+end
+</code></pre>
+<p>Confirm that URL filter table ID <code>10</code> is associated with the profile.</p>
+<h3 id="verify-the-firewall-policy">Verify the Firewall Policy</h3>
+<pre><code>show firewall policy
+</code></pre>
+<p>Confirm that the relevant Internet-access policy has Web Filter inspection enabled and references the intended profile.</p>
+<h2 id="step-7-test-the-configuration">Step 7: Test the Configuration</h2>
+<p>After verification, test the configuration from a client connected to the LAN.</p>
+<ol>
+<li>
+<p>Open a web browser on the client PC.</p>
+</li>
+<li>
+<p>Try accessing <code>https://www.youtube.com</code>.</p>
+</li>
+<li>
+<p>Confirm whether access is blocked.</p>
+</li>
+<li>
+<p>Test another permitted website to ensure normal Internet access still works.</p>
+</li>
+<li>
+<p>Review the FortiGate Web Filter logs, if available, to identify the matching URL and the action taken.</p>
+</li>
+</ol>
+<p>If YouTube remains accessible, do not assume the URL filter is configured incorrectly immediately. Check the traffic path, policy matching, inspection settings, and domain matching behavior.</p>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<table>
+<thead>
+<tr>
+<th>Issue</th>
+<th>What to check</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Website is still accessible</td>
+<td>Verify the matching firewall policy and its Web Filter profile.</td>
+</tr>
+<tr>
+<td>URL filter rule is not working</td>
+<td>Confirm the URL pattern, filter type, and entry status.</td>
+</tr>
+<tr>
+<td>Other websites are also blocked</td>
+<td>Review the URL pattern and any other rules in the filter table.</td>
+</tr>
+<tr>
+<td>Web Filter logs are missing</td>
+<td>Verify logging settings and check the appropriate log view.</td>
+</tr>
+<tr>
+<td>HTTPS traffic is not filtered as expected</td>
+<td>Review the SSL inspection profile and the visibility available for encrypted traffic.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="important-notes">Important Notes</h2>
+<ul>
+<li>
+<p>The Web Filter profile must be applied to the firewall policy handling the client's traffic.</p>
+</li>
+<li>
+<p>URL matching behavior can vary according to the pattern and FortiOS version.</p>
+</li>
+<li>
+<p>HTTPS inspection capabilities depend on the SSL inspection configuration.</p>
+</li>
+<li>
+<p>Some applications use additional domains, content delivery networks, or alternate endpoints. Blocking one domain may not block every part of an application.</p>
+</li>
+<li>
+<p>Test changes in a controlled environment before applying them to production networks.</p>
+</li>
+</ul>
+<h2 id="conclusion">Conclusion</h2>
+<p>Blocking a website on FortiGate using CLI involves three main tasks: configuring a Static URL Filter, associating it with a Web Filter profile, and applying that profile to the appropriate firewall policy.</p>
+<p>Using CLI allows administrators to configure and verify these settings efficiently without navigating through the graphical interface.</p>
+<p><strong>Related Guide:</strong> <a href="https://chatgpt.com/block-a-url-on-fortigate-using-web-filter.md">Block a URL on FortiGate Using Web Filter (GUI)</a></p>
+<p><strong>Official Documentation:</strong> <a href="https://docs.fortinet.com/">Fortinet Documentation</a></p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+  
+
+
+
+      
+    </article>
+  </div>
+
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+<footer class="hitop-footer">
+  <div class="hitop-footer__inner">
+
+    <div class="hitop-footer__brand">
+      <a class="hitop-footer__logo"
+         href="../../../..">
+        HITOP
+      </a>
+      <p>
+        Your knowledge hub for standard operating procedures,
+        documentation and troubleshooting.
+      </p>
+    </div>
+
+    <div class="hitop-footer__links">
+      <h3>Quick Links</h3>
+      <a href="../../../../about/">About Us</a>
+      <a href="../../../../category/how-to-guide/">How to Guide</a>
+      <a href="../../../../category/tutorials/">Tutorials</a>
+      <a href="../../../../category/sops/">SOPs</a>
+      <a href="../../../../category/troubleshooting/">Troubleshooting</a>
+      <a href="../../../../support/">Get Support</a>
+    </div>
+
+  </div>
+
+  <div class="hitop-footer__bottom">
+    <p>© 2026 HITOP. All rights reserved.</p>
+    <p>Built for better documentation and knowledge sharing.</p>
+  </div>
+</footer>
+
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": [], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
