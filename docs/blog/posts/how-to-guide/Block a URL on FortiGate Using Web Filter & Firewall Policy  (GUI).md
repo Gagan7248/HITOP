@@ -1,5 +1,5 @@
 ---
-title: Block a URL on FortiGate Using Web Filter
+title: Block a URL on FortiGate Using Web Filter & Firewall Policy
 date: 2026-10-15 12:30:00
 categories:
   - how-to-guide
@@ -7,7 +7,7 @@ description: Learn how to block specific websites and URLs on FortiGate using We
 thumbnail: images/block-url-on-fortigate.png
 ---
 ---
-# **Block a URL on FortiGate Using Web Filter**
+# **Block a URL on FortiGate Using Web Filter & Firewall Policy**
 
 ## Overview
 
