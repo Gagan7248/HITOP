@@ -405,63 +405,57 @@ Policy & Objects → Firewall Policy
 
 1. Log in to the FortiGate administrative GUI.
 	
-2. Navigate to Security Profiles → Web Filter.
+2. Navigate to **Security Profiles → Web Filter**.
 	
-3. Click Create New
+3. Click Create **New**
 	
-4. Enter a profile name, for example, `Block_Youtube`. 
+4. Enter a **profile name**, for example, `Block_Social_Media`. 
     
-5. Locate the Static URL Filter section.
+5. Locate the **Static URL Filter** section.
     
-6. Enable URL Filter.
+6. Enable **URL Filter**.
 
 ### Add the URL to block
 
 In the Static URL Filter section:
 
-1. Click Create New.
+1. Click Create **New**.
     
-2. Enter the URL pattern. `www.youtube.com`
+2. Enter the URL pattern. `www.youtube.com, www.facebook.com, www.instagram.com`
     
-3. Select the filter type Wildcard.
+3. Select the filter type **Wildcard**.
     
-4. Set the action to Block.
+4. Set the action to **Block**.
     
-5. Set the status Enabled.
+5. Set the status **Enabled**.
     
-6. Save the entry and then save the profile.
+6. **Save** the entry and then save the profile.
 
 
 Use the following example configuration:
 
-| Field  | Value             |
-| ------ | ----------------- |
-| URL    | `www.youtube.com` |
-| Type   | Wildcard          |
-| Action | Block             |
-| Status | Enabled           |
-
-![FortiGate URL Blocking|533](../../../images/enable-statis-url.png)
+Screenshot: 
+![FortiGate URL Blocking|533](../../../images/enable-static-url.png)
 
 ## Step 2: Apply the Web Filter to a firewall policy
 
 A URL filter will not protect users unless the applicable traffic passes through a firewall policy with the Web Filter profile enabled.
 
-1. Go to Policy & Objects → Firewall Policy.
+1. Go to **Policy & Objects → Firewall Policy.**
     
-2. Find the policy that allows LAN users to access the Internet (LAN-to-WAN).
+2. Find the policy that allows LAN users to access the Internet (**LAN-to-WAN**).
     
-3. Click Edit.
+3. Click **Edit**.
     
-4. Locate the Security Profiles section.
+4. Locate the **Security Profiles** section.
     
-5. Enable Web Filter.
+5. Enable **Web Filter**.
     
 6. Select the `Block_Youtube` profile created earlier.
     
 7. Select `certificate-inspection` under SSL Inspection, as an initial configuration.
     
-8. Click OK to save.
+8. Click OK to **save**.
 
 Use the following example configuration:
 
@@ -469,13 +463,13 @@ Use the following example configuration:
 
 ## Step 3: Test & Verify
 
-From a client computer connected through the FortiGate:
+From any client computer connected through the FortiGate:
 
 1. Open a browser.
     
 2. Navigate to `https://www.youtube.com`.
     
-3. Confirm that access is blocked.
+3. Confirm that access is **blocked**.
     
 4. Test another website to verify that general Internet access still works.
 
@@ -488,265 +482,207 @@ From a client computer connected through the FortiGate:
 
 ## Check Web Filter logs
 
-If the website is still accessible, check the logs:
+If the website is still accessible, check the **logs**:
 
-1. Navigate to Log & Report → Security Events.
+1. Navigate to **Log & Report → Security Events.**
     
-2. Open the Web Filter events.
+2. Open the **Web Filter events**.
     
-3. Filter for the client's source IP address or the destination hostname.
+3. Filter for the **client's source IP address** or the **destination hostname**.
     
-4. Review the action, matched URL, profile, and policy ID.
+4. Review the action, **matched URL**, **profile**, and **policy ID**.
 	
 5. Look for an entry with an action such as `blocked` and a message indicating that the URL matched the local URL filter.
 
 ![FortiGate URL Blocking|665](<../../../images/blocked-webfilter-logs.png>)
 
-***Reference:** Fortinet's FortiOS 7.4.8 Administration Guide. Your interface may differ slightly.*
-Official reference: [Fortinet — Static URL Filter and verification](https://docs.fortinet.com/document/fortigate/7.4.8/administration-guide/371670/static-url-filter) 
+
 
 <hr style="border: none; height: 3px; background-color: #333;">
-# **Block a URL on FortiGate Using CLI**
+# **Using CLI**
 
 ## Overview
 
-FortiGate firewalls allow administrators to block specific websites using the Web Filter feature. In addition to the graphical user interface (GUI), this configuration can be performed through the Command Line Interface (CLI).
+FortiGate firewalls also allow administrators to block Web Filter feature and firewall policies using  graphical user interface (GUI) as well as Command Line Interface (CLI).
 
-In this guide, we will configure a Static URL Filter to block YouTube, create a Web Filter profile, and apply the profile to an existing LAN-to-WAN firewall policy.
+## Step 1: Create the URL filter list
 
-## Objective
+1. Log in to the FortiGate firewall using **SSH**, a **console connection**, or the **CLI Console** available in the web interface.
 
-- Create a Static URL Filter using CLI.
-    
-- Configure a URL-blocking rule.
-    
-- Create a Web Filter profile.
-    
-- Apply the profile to a firewall policy.
-    
-- Verify that the website is blocked.
-
-## Prerequisites
-
-Before starting, ensure that:
-
-- You have administrative access to the FortiGate firewall.
-    
-- You can access the FortiGate CLI through the GUI console, SSH, or a console connection.
-    
-- A LAN-to-WAN firewall policy already exists.
-    
-- You have identified the firewall policy ID used for Internet access.
-    
-
-**Example configuration:**
-
-|Parameter|Value|
-|---|---|
-|Website to block|`youtube.com`|
-|URL Filter Table ID|`10`|
-|URL Filter Table Name|`Block_Youtube_List`|
-|Web Filter Profile|`Block_Youtube`|
-|Example Firewall Policy ID|`1`|
-
-_Note: Policy ID_ `_1_` _is only an example. Use the actual ID of your Internet-access policy._
-
-## Step 1: Access the FortiGate CLI
-
-Log in to the FortiGate firewall using SSH, a console connection, or the CLI Console available in the web interface.
-
-Once logged in, you can configure the Web Filter settings using CLI commands.
-
-## Step 2: Create a Static URL Filter
-
-First, create a URL filter table and add a rule to block YouTube.
+2. First, create a URL filter table and add a rule to block social media sites.
 
 ```
-config webfilter urlfilter
-    edit 10
-        set name "Block_Youtube_List"
-        config entries
+config webfilter profile
+    edit "Block-Social-Media"
+        config ftgd-wf
+        end
+        config web
+            set urlfilter-table enable
+        end
+        config urlfilter
             edit 1
-                set url "*youtube.com"
-                set type wildcard
+                set name "Social-Media-URLs"
+                set comment "Block YouTube Facebook Instagram"
                 set action block
                 set status enable
+                config entries
+                    edit 1
+                        set url "*youtube.com"
+                        set type wildcard
+                        set action block
+                    next
+                    edit 2
+                        set url "*facebook.com"
+                        set type wildcard
+                        set action block
+                    next
+                    edit 3
+                        set url "*instagram.com"
+                        set type wildcard
+                        set action block
+                    next
+                end
             next
         end
     next
 end
 ```
 
-### Explanation
+| CLI Command                    | Explanation                             |
+| ------------------------------ | --------------------------------------- |
+| `config webfilter urlfilter`   | Enter Static URL Filter configuration   |
+| `edit 1`                       | Select or create URL filter list ID 1   |
+| `set name "Social-Media-URLs"` | Set the filter list name                |
+| `config entries`               | Enter URL entries configuration         |
+| `edit 1` / `edit 2` / `edit 3` | Create or select individual URL entries |
+| `set url "*youtube.com"`       | Define the YouTube URL pattern          |
+| `set url "*facebook.com"`      | Define the Facebook URL pattern         |
+| `set url "*instagram.com"`     | Define the Instagram URL pattern        |
+| `set type wildcard`            | Use wildcard URL matching               |
+| `set action block`             | Block matching URLs                     |
+| `set status enable`            | Enable the URL filter entry             |
+| `next`                         | Finish the current entry                |
+| `end`                          | Exit the current configuration section  |
 
-- `config webfilter urlfilter` — Enters the URL filter configuration.
-    
-- `edit 10` — Creates or edits URL filter table ID 10.
-    
-- `set name "Block_Youtube_List"` — Assigns a name to the URL filter table.
-    
-- `set url "*youtube.com"` — Defines the URL pattern to match.
-    
-- `set type wildcard` — Uses wildcard matching.
-    
-- `set action block` — Blocks matching URLs.
-    
-- `set status enable` — Enables the URL filter entry.
-    
-
-The wildcard pattern is intended to match URLs containing the specified domain pattern. Validate the matching behavior on your FortiOS version, and add any additional domain patterns required for your blocking objective.
-
-## Step 3: Create a Web Filter Profile
-
-Next, create a Web Filter profile and associate it with the URL filter table created in the previous step.
+## Step 2: Create the Web Filter profile and attach the URL list
 
 ```
 config webfilter profile
-    edit "Block_Youtube"
+    edit "Block-Social-Media"
         config web
-            set urlfilter-table 10
+            set urlfilter-table 1
         end
     next
 end
 ```
 
-### Explanation
+***Note:** The number `1` refers to the URL filter list created in Step 2*
 
-- `config webfilter profile` — Enters Web Filter profile configuration.
-    
-- `edit "Block_Youtube"` — Creates or edits the profile.
-    
-- `set urlfilter-table 10` — Associates URL filter table ID 10 with the profile.
-    
+| CLI Command                 | Explanation                                     |
+| --------------------------- | ----------------------------------------------- |
+| `config webfilter profile`  | Enter Web Filter profile configuration mode     |
+| `edit "Block-Social-Media"` | Create or edit the Web Filter profile           |
+| `config web`                | Enter Web Filter settings                       |
+| `set urlfilter-table 1`     | Associate URL filter list ID 1 with the profile |
+| `end`                       | Exit Web Filter settings                        |
 
-The profile now references the URL filter rules configured in Step 2.
+## Step 3: Apply the profile to an existing firewall policy
 
-## Step 4: Identify the Firewall Policy ID
+First, identify your LAN-to-WAN policy ID:
 
-Before applying the profile, identify the existing firewall policy that allows users to access the Internet.
+``show firewall policy``
 
-Run:
-
-```
-show firewall policy
-```
-
-Review the output and identify the relevant LAN-to-WAN policy.
-
-For this example, we will use policy ID `1`. Your actual policy ID may be different.
-
-**Important:** Do not create a new policy or modify unrelated policy settings unless required by your network design.
-
-## Step 5: Apply the Web Filter Profile to the Firewall Policy
-
-Apply the profile to the existing Internet-access policy.
+Suppose your existing policy ID is `5`. Apply the profile without recreating the policy:
 
 ```
 config firewall policy
-    edit 1
+    edit 5
         set utm-status enable
-        set webfilter-profile "Block_Youtube"
+        set webfilter-profile "Block-Social-Media"
+        set ssl-ssh-profile "certificate-inspection"
     next
 end
 ```
 
-Replace `1` with the actual firewall policy ID identified in Step 4.
+Replace `5` with your actual policy ID. The SSL inspection setting above enables certificate inspection; do not overwrite an existing, more suitable inspection profile without checking its requirements.
 
-### Explanation
+If you have multiple LAN-to-WAN policies, repeat Step 4 for each policy that should block these sites.
 
-- `set utm-status enable` — Enables security profile inspection on the policy.
-    
-- `set webfilter-profile "Block_Youtube"` — Applies the Web Filter profile to the policy.
-    
-- `next` — Saves the changes to the current policy entry.
-    
-- `end` — Exits the configuration context.
-    
+| CLI Command                                    | Explanation                                         |
+| ---------------------------------------------- | --------------------------------------------------- |
+| `config firewall policy`                       | Enter firewall policy configuration mode            |
+| `edit 5`                                       | Select firewall policy ID 5                         |
+| `set utm-status enable`                        | Enable UTM security inspection features             |
+| `set webfilter-profile "Block-Social-Media"`   | Apply the Web Filter profile to the firewall policy |
+| `set ssl-ssh-profile "certificate-inspection"` | Apply the SSL/SSH inspection profile                |
 
-**Important:** If the policy uses a Security Profile Group or other centralized security-profile configuration, check the existing configuration before applying an individual Web Filter profile. Avoid unintentionally changing other security settings.
-
-## Step 6: Verify the Configuration
-
-After applying the configuration, verify that the URL filter table, Web Filter profile, and firewall policy contain the expected settings.
-
-### Verify the URL Filter Table
+## Step 4: Verify the configuration
 
 ```
-config webfilter urlfilter
-    edit 10
-        show
-    next
-end
+show webfilter urlfilter
+show webfilter profile "Block-Social-Media"
+show firewall policy 5
 ```
 
-Confirm that the URL pattern is correct and the entry is enabled.
+| CLI Command                                   | Explanation                                                  |
+| --------------------------------------------- | ------------------------------------------------------------ |
+| `show webfilter urlfilter`                    | Display configured Static URL Filter lists and their entries |
+| `show webfilter profile "Block-Social-Media"` | Display the Web Filter profile configuration                 |
+| `show firewall policy 5`                      | Display the configuration of firewall policy ID 5            |
 
-### Verify the Web Filter Profile
+Test YouTube, Facebook, and Instagram from a client whose traffic passes through the configured policy.
 
-```
-config webfilter profile
-    edit "Block_Youtube"
-        show
-    next
-end
-```
+Note: HTTPS, QUIC/HTTP3, alternate domains, and application-specific endpoints can affect blocking coverage. For more comprehensive blocking, you may need appropriate SSL inspection, QUIC control, and FortiGuard application or category filtering.
 
-Confirm that URL filter table ID `10` is associated with the profile.
 
-### Verify the Firewall Policy
+***Official Reference:** Fortinet's FortiOS 7.4.8 Administration Guide. Your interface may differ slightly.*
+Reference Source: [Fortinet — Static URL Filter and verification](https://docs.fortinet.com/document/fortigate/7.4.8/administration-guide/371670/static-url-filter) 
 
-```
-show firewall policy
-```
+### Important Consideration: 
 
-Confirm that the relevant Internet-access policy has Web Filter inspection enabled and references the intended profile.
+1. The Web Filter profile must be applied to the firewall policy handling the client's traffic.
+2. URL matching behavior can vary according to the pattern and FortiOS version.
+3. HTTPS inspection capabilities depend on the SSL inspection configuration.
+4. Some applications use additional domains, content delivery networks, or alternate endpoints. Blocking one domain may not block every part of an application.
+5. Test changes in a controlled environment before applying them to production networks.
 
-## Step 7: Test the Configuration
-
-After verification, test the configuration from a client connected to the LAN.
-
-1. Open a web browser on the client PC.
+- **Correct Policy ID:** Verify the correct LAN-to-WAN firewall policy ID before applying the Web Filter profile.
     
-2. Try accessing `https://www.youtube.com`.
+- **Profile Association:** Ensure the Static URL Filter list is linked to the correct Web Filter profile and the profile is applied to the required firewall policies.
     
-3. Confirm whether access is blocked.
+- **HTTPS Inspection:** HTTPS traffic may require appropriate SSL inspection for effective URL filtering.
     
-4. Test another permitted website to ensure normal Internet access still works.
+- **Wildcard Matching:** Use wildcard patterns carefully, such as `*facebook.com`, to match the intended domains.
     
-5. Review the FortiGate Web Filter logs, if available, to identify the matching URL and the action taken.
+- **Additional Domains:** Blocking only `youtube.com`, `facebook.com`, and `instagram.com` may not block every related domain or application endpoint.
     
-
-If YouTube remains accessible, do not assume the URL filter is configured incorrectly immediately. Check the traffic path, policy matching, inspection settings, and domain matching behavior.
-
-## Troubleshooting
-
-|Issue|What to check|
-|---|---|
-|Website is still accessible|Verify the matching firewall policy and its Web Filter profile.|
-|URL filter rule is not working|Confirm the URL pattern, filter type, and entry status.|
-|Other websites are also blocked|Review the URL pattern and any other rules in the filter table.|
-|Web Filter logs are missing|Verify logging settings and check the appropriate log view.|
-|HTTPS traffic is not filtered as expected|Review the SSL inspection profile and the visibility available for encrypted traffic.|
-
-## Important Notes
-
-- The Web Filter profile must be applied to the firewall policy handling the client's traffic.
+- **QUIC and HTTP/3:** These protocols may affect filtering behavior. Test and configure QUIC handling if required.
     
-- URL matching behavior can vary according to the pattern and FortiOS version.
+- **Existing Configuration:** Check existing security profiles before modifying a firewall policy to avoid overwriting required settings.
     
-- HTTPS inspection capabilities depend on the SSL inspection configuration.
+- **Testing:** Test all three websites from a client whose traffic passes through the configured firewall policy.
     
-- Some applications use additional domains, content delivery networks, or alternate endpoints. Blocking one domain may not block every part of an application.
+- **Verification:** Use `show webfilter urlfilter`, `show webfilter profile "Block-Social-Media"`, and `show firewall policy 5` to verify the configuration.
     
-- Test changes in a controlled environment before applying them to production networks.
-    
+- **FortiOS Version:** Confirm that the CLI commands and supported settings match your FortiGate FortiOS version.
 
 ## Conclusion
 
 Blocking a website on FortiGate using CLI involves three main tasks: configuring a Static URL Filter, associating it with a Web Filter profile, and applying that profile to the appropriate firewall policy.
 
-Using CLI allows administrators to configure and verify these settings efficiently without navigating through the graphical interface.
 
-**Related Guide:** [Block a URL on FortiGate Using Web Filter (GUI)](https://chatgpt.com/block-a-url-on-fortigate-using-web-filter.md)
 
-**Official Documentation:** [Fortinet Documentation](https://docs.fortinet.com/)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
