@@ -8,329 +8,12 @@ thumbnail: images/block-url-on-fortigate.png
 ---
 ---
 # **Block a URL on FortiGate Using Web Filter**
-<div>
-<svg xmlns="http://www.w3.org/2000/svg"
-     width="800" height="450" viewBox="0 0 1200 630"
-     role="img" aria-labelledby="title desc">
 
-  <title id="title">Block a Website or URL on FortiGate</title>
-  <desc id="desc">FortiGate Web Filter and Firewall Policy blocking unwanted websites.</desc>
-
-  <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#f5f9ff"/>
-      <stop offset="100%" stop-color="#dceaff"/>
-    </linearGradient>
-
-    <linearGradient id="device" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#344e6b"/>
-      <stop offset="100%" stop-color="#10243c"/>
-    </linearGradient>
-
-    <linearGradient id="blue" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#2388ef"/>
-      <stop offset="100%" stop-color="#0751ad"/>
-    </linearGradient>
-
-    <linearGradient id="red" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#ff5265"/>
-      <stop offset="100%" stop-color="#d90f36"/>
-    </linearGradient>
-
-    <filter id="shadow" x="-30%" y="-30%" width="160%" height="170%">
-      <feDropShadow dx="0" dy="7" stdDeviation="8"
-                    flood-color="#17365d" flood-opacity=".18"/>
-    </filter>
-  </defs>
-
-  <!-- Background -->
-  <rect width="1200" height="630" rx="20" fill="url(#bg)"/>
-  <circle cx="40" cy="360" r="200" fill="#ffffff" opacity=".25"/>
-  <circle cx="1160" cy="300" r="220" fill="#ffffff" opacity=".28"/>
-
-  <!-- Main heading -->
-  <text x="600" y="63" text-anchor="middle"
-        font-family="Arial, sans-serif" font-size="37"
-        font-weight="700" fill="#102e63">
-    Block a Website or URL on
-  </text>
-
-  <rect x="380" y="79" width="440" height="57" rx="13" fill="url(#red)"/>
-  <text x="600" y="118" text-anchor="middle"
-        font-family="Arial, sans-serif" font-size="39"
-        font-weight="700" fill="#ffffff">FortiGate</text>
-
-  <text x="600" y="170" text-anchor="middle"
-        font-family="Arial, sans-serif" font-size="27"
-        font-weight="700" fill="#173c77">
-    Using Web Filter and Firewall Policy
-  </text>
-
-  <!-- LEFT: Browser / blocked website -->
-  <g filter="url(#shadow)">
-    <rect x="35" y="215" width="340" height="260" rx="15"
-          fill="#ffffff" stroke="#345576" stroke-width="5"/>
-
-    <path d="M35 258 V230 Q35 215 50 215 H360 Q375 215 375 230 V258 Z"
-          fill="#dce9fa"/>
-
-    <circle cx="59" cy="237" r="6" fill="#fa5364"/>
-    <circle cx="79" cy="237" r="6" fill="#ffbd4a"/>
-    <circle cx="99" cy="237" r="6" fill="#37bb80"/>
-
-    <!-- URL bar -->
-    <rect x="53" y="269" width="304" height="35" rx="9"
-          fill="#f0f5fd" stroke="#c8d8ef" stroke-width="2"/>
-
-    <circle cx="72" cy="286" r="7" fill="none"
-            stroke="#315b91" stroke-width="2"/>
-    <path d="M67 286 H77 M72 279 Q67 286 72 293 M72 279 Q77 286 72 293"
-          fill="none" stroke="#315b91" stroke-width="1.5"/>
-
-    <text x="88" y="292" font-family="Arial, sans-serif"
-          font-size="15" font-weight="600" fill="#233d60">
-      blocked-website.com
-    </text>
-
-    <!-- Access denied panel -->
-    <rect x="53" y="318" width="304" height="137" rx="12" fill="#fff0f2"/>
-
-    <circle cx="205" cy="355" r="22" fill="none"
-            stroke="#ed2443" stroke-width="7"/>
-    <path d="M190 340 L220 370" stroke="#ed2443"
-          stroke-width="7" stroke-linecap="round"/>
-
-    <text x="205" y="400" text-anchor="middle"
-          font-family="Arial, sans-serif" font-size="25"
-          font-weight="700" fill="#d7193f">ACCESS DENIED</text>
-
-    <text x="205" y="425" text-anchor="middle"
-          font-family="Arial, sans-serif" font-size="14"
-          fill="#78404a">Blocked by FortiGate Web Filter</text>
-
-    <text x="205" y="443" text-anchor="middle"
-          font-family="Arial, sans-serif" font-size="12"
-          fill="#78404a">Website access restricted</text>
-  </g>
-
-  <!-- Connector from browser to firewall -->
-  <path d="M380 350 H465" fill="none"
-        stroke="#e52645" stroke-width="6"
-        stroke-dasharray="10 9" stroke-linecap="round"/>
-
-  <circle cx="422" cy="350" r="19" fill="#ffffff"
-          stroke="#e52645" stroke-width="4"/>
-  <path d="M414 342 L430 358 M430 342 L414 358"
-        stroke="#e52645" stroke-width="4" stroke-linecap="round"/>
-
-  <!-- CENTER: FortiGate appliance -->
-  <g filter="url(#shadow)">
-
-    <!-- Firewall body -->
-    <path d="M440 340 L465 312 H750 L780 340 V428
-             Q780 441 766 441 H454 Q440 441 440 428 Z"
-          fill="url(#device)"/>
-
-    <!-- Top surface -->
-    <path d="M440 340 L465 312 H750 L780 340 Z"
-          fill="#607c9b"/>
-
-    <path d="M452 339 H766" stroke="#a9bfd8"
-          stroke-width="2" opacity=".7"/>
-
-    <!-- Ventilation slots -->
-    <g fill="#091a2d">
-      <rect x="455" y="359" width="31" height="6" rx="3"/>
-      <rect x="455" y="372" width="31" height="6" rx="3"/>
-      <rect x="455" y="385" width="31" height="6" rx="3"/>
-      <rect x="455" y="398" width="31" height="6" rx="3"/>
-      <rect x="455" y="411" width="31" height="6" rx="3"/>
-    </g>
-
-    <!-- Generic firewall symbol -->
-    <g transform="translate(510 359)" fill="#ff4359">
-      <rect x="0" y="0" width="17" height="13" rx="2"/>
-      <rect x="21" y="0" width="17" height="13" rx="2"/>
-      <rect x="42" y="0" width="17" height="13" rx="2"/>
-      <rect x="0" y="17" width="17" height="13" rx="2"/>
-      <rect x="42" y="17" width="17" height="13" rx="2"/>
-      <rect x="0" y="34" width="17" height="13" rx="2"/>
-      <rect x="21" y="34" width="17" height="13" rx="2"/>
-      <rect x="42" y="34" width="17" height="13" rx="2"/>
-    </g>
-
-    <text x="585" y="385" font-family="Arial, sans-serif"
-          font-size="25" font-weight="700" fill="#ffffff">FortiGate</text>
-
-    <text x="585" y="407" font-family="Arial, sans-serif"
-          font-size="12" font-weight="600" fill="#b9d4f5">
-      NEXT-GENERATION FIREWALL
-    </text>
-
-    <!-- Status lights -->
-    <circle cx="735" cy="369" r="5" fill="#4be19a"/>
-    <circle cx="735" cy="385" r="5" fill="#4be19a"/>
-    <circle cx="735" cy="401" r="5" fill="#ffcb55"/>
-  </g>
-
-  <!-- Web Filter label -->
-  <g filter="url(#shadow)">
-    <rect x="420" y="207" width="166" height="79" rx="13" fill="url(#blue)"/>
-
-    <!-- Globe icon -->
-    <circle cx="452" cy="235" r="15" fill="none"
-            stroke="#ffffff" stroke-width="2.5"/>
-    <path d="M437 235 H467 M452 220 Q441 235 452 250
-             M452 220 Q463 235 452 250"
-          fill="none" stroke="#ffffff" stroke-width="2"/>
-
-    <text x="503" y="241" text-anchor="middle"
-          font-family="Arial, sans-serif" font-size="18"
-          font-weight="700" fill="#ffffff">WEB FILTER</text>
-
-    <text x="503" y="263" text-anchor="middle"
-          font-family="Arial, sans-serif" font-size="12"
-          fill="#e7f2ff">URL Filtering</text>
-  </g>
-
-  <!-- Firewall Policy label -->
-  <g filter="url(#shadow)">
-    <rect x="610" y="207" width="185" height="79" rx="13" fill="#6845cb"/>
-
-    <!-- Policy document icon -->
-    <path d="M629 222 H647 L656 231 V258 H629 Z"
-          fill="none" stroke="#ffffff" stroke-width="2.5"
-          stroke-linejoin="round"/>
-    <path d="M647 222 V231 H656 M635 239 H649 M635 246 H649 M635 253 H644"
-          fill="none" stroke="#ffffff" stroke-width="2"/>
-
-    <text x="718" y="241" text-anchor="middle"
-          font-family="Arial, sans-serif" font-size="16"
-          font-weight="700" fill="#ffffff">FIREWALL</text>
-
-    <text x="718" y="261" text-anchor="middle"
-          font-family="Arial, sans-serif" font-size="16"
-          font-weight="700" fill="#ffffff">POLICY</text>
-  </g>
-
-  <!-- Policy arrows -->
-  <path d="M500 286 V300" stroke="#1680df"
-        stroke-width="4" stroke-linecap="round"/>
-  <path d="M491 294 L500 304 L509 294"
-        fill="none" stroke="#1680df" stroke-width="4"
-        stroke-linecap="round" stroke-linejoin="round"/>
-
-  <path d="M703 286 V300" stroke="#6845cb"
-        stroke-width="4" stroke-linecap="round"/>
-  <path d="M694 294 L703 304 L712 294"
-        fill="none" stroke="#6845cb" stroke-width="4"
-        stroke-linecap="round" stroke-linejoin="round"/>
-
-  <!-- Connector to blocked destination -->
-  <path d="M785 350 H845" fill="none"
-        stroke="#e52645" stroke-width="6"
-        stroke-dasharray="10 9" stroke-linecap="round"/>
-
-  <circle cx="815" cy="350" r="18" fill="#ffffff"
-          stroke="#e52645" stroke-width="4"/>
-  <path d="M807 342 L823 358 M823 342 L807 358"
-        stroke="#e52645" stroke-width="4" stroke-linecap="round"/>
-
-  <!-- RIGHT: blocked destination -->
-  <g filter="url(#shadow)">
-    <rect x="855" y="242" width="302" height="190" rx="15"
-          fill="#ffffff" stroke="#ed4058" stroke-width="4"/>
-
-    <path d="M855 257 Q855 242 870 242 H1142 Q1157 242 1157 257 V271 H855 Z"
-          fill="#dce8f7"/>
-
-    <circle cx="875" cy="257" r="5" fill="#fa5364"/>
-    <circle cx="893" cy="257" r="5" fill="#ffbd4a"/>
-    <circle cx="911" cy="257" r="5" fill="#37bb80"/>
-
-    <!-- Large blocked icon -->
-    <circle cx="1006" cy="328" r="42" fill="none"
-            stroke="#ed2443" stroke-width="11"/>
-    <path d="M977 299 L1035 357" stroke="#ed2443"
-          stroke-width="11" stroke-linecap="round"/>
-
-    <rect x="855" y="384" width="302" height="48" rx="0"
-          fill="url(#red)"/>
-
-    <text x="1006" y="414" text-anchor="middle"
-          font-family="Arial, sans-serif" font-size="21"
-          font-weight="700" fill="#ffffff">URL BLOCKED</text>
-  </g>
-
-  <!-- Bottom information strip -->
-  <rect x="25" y="485" width="1150" height="119" rx="17"
-        fill="#ffffff" stroke="#c6d8f2" stroke-width="2"/>
-
-  <!-- Item 1 -->
-  <g transform="translate(62 512)">
-    <path d="M25 0 L48 9 V29 Q48 47 25 59 Q2 47 2 29 V9 Z"
-          fill="none" stroke="#1c579e" stroke-width="4"/>
-    <path d="M13 29 L22 38 L38 20" fill="none"
-          stroke="#1c579e" stroke-width="4"
-          stroke-linecap="round" stroke-linejoin="round"/>
-  </g>
-
-  <text x="128" y="539" font-family="Arial, sans-serif"
-        font-size="17" font-weight="700" fill="#163c76">SECURE</text>
-  <text x="128" y="561" font-family="Arial, sans-serif"
-        font-size="17" font-weight="700" fill="#163c76">WEB ACCESS</text>
-
-  <path d="M294 505 V584" stroke="#cfddf0" stroke-width="2"/>
-
-  <!-- Item 2 -->
-  <g transform="translate(323 519)" fill="none"
-     stroke="#1c579e" stroke-width="3">
-    <circle cx="27" cy="27" r="24"/>
-    <path d="M3 27 H51 M27 3 Q9 27 27 51 M27 3 Q45 27 27 51"/>
-  </g>
-
-  <text x="383" y="539" font-family="Arial, sans-serif"
-        font-size="17" font-weight="700" fill="#163c76">URL</text>
-  <text x="383" y="561" font-family="Arial, sans-serif"
-        font-size="17" font-weight="700" fill="#163c76">CONTROL</text>
-
-  <path d="M535 505 V584" stroke="#cfddf0" stroke-width="2"/>
-
-  <!-- Item 3 -->
-  <g transform="translate(565 520)" fill="none"
-     stroke="#1c579e" stroke-width="4" stroke-linejoin="round">
-    <path d="M0 10 L22 0 L44 10 V35 L22 47 L0 35 Z"/>
-    <path d="M13 24 L20 31 L33 17" stroke-linecap="round"/>
-  </g>
-
-  <text x="622" y="539" font-family="Arial, sans-serif"
-        font-size="17" font-weight="700" fill="#163c76">POLICY</text>
-  <text x="622" y="561" font-family="Arial, sans-serif"
-        font-size="17" font-weight="700" fill="#163c76">ENFORCEMENT</text>
-
-  <path d="M817 505 V584" stroke="#cfddf0" stroke-width="2"/>
-
-  <!-- Item 4 -->
-  <g transform="translate(848 520)" fill="none"
-     stroke="#1c579e" stroke-width="4" stroke-linejoin="round">
-    <path d="M23 0 L46 9 V27 Q46 43 23 54 Q0 43 0 27 V9 Z"/>
-    <rect x="15" y="23" width="16" height="13" rx="3"/>
-    <path d="M19 23 V18 Q23 10 27 18 V23"/>
-  </g>
-
-  <text x="910" y="539" font-family="Arial, sans-serif"
-        font-size="17" font-weight="700" fill="#163c76">NETWORK</text>
-  <text x="910" y="561" font-family="Arial, sans-serif"
-        font-size="17" font-weight="700" fill="#163c76">PROTECTION</text>
-
-</svg>
-</div>
----
 ## Overview
 
-FortiGate Web Filter allows network administrators to block access to specific websites `www.youtube.com`, domains, and URL paths. 
+FortiGate Web Filter allows network administrators to block access to specific websites like: `www.youtube.com, www.facebook.com, www.instagram.com`, domains, and URL paths. 
 
-## Configuration workflow
+### Configuration workflow
 
 <div>
 
@@ -432,9 +115,8 @@ In the Static URL Filter section:
 6. **Save** the entry and then save the profile.
 
 
-Use the following example configuration:
+Use the following example configuration: (Screenshot):
 
-Screenshot: 
 ![FortiGate URL Blocking|533](../../../images/enable-static-url.png)
 
 ## Step 2: Apply the Web Filter to a firewall policy
@@ -457,7 +139,7 @@ A URL filter will not protect users unless the applicable traffic passes through
     
 8. Click OK to **save**.
 
-Use the following example configuration:
+Use the following example configuration: (Screenshot):
 
 ![FortiGate URL Blocking|533](<../../../images/web-filter to-firewall-policy.png>)
 
@@ -493,6 +175,8 @@ If the website is still accessible, check the **logs**:
 4. Review the action, **matched URL**, **profile**, and **policy ID**.
 	
 5. Look for an entry with an action such as `blocked` and a message indicating that the URL matched the local URL filter.
+
+Use the following example configuration: (Screenshot):
 
 ![FortiGate URL Blocking|665](<../../../images/blocked-webfilter-logs.png>)
 
@@ -640,38 +324,266 @@ Reference Source: [Fortinet — Static URL Filter and verification](https://docs
 
 ### Important Consideration: 
 
-1. The Web Filter profile must be applied to the firewall policy handling the client's traffic.
-2. URL matching behavior can vary according to the pattern and FortiOS version.
-3. HTTPS inspection capabilities depend on the SSL inspection configuration.
-4. Some applications use additional domains, content delivery networks, or alternate endpoints. Blocking one domain may not block every part of an application.
-5. Test changes in a controlled environment before applying them to production networks.
-
-- **Correct Policy ID:** Verify the correct LAN-to-WAN firewall policy ID before applying the Web Filter profile.
+1. **Correct Policy ID:** Verify that you are modifying the correct LAN-to-WAN firewall policy handling the client's traffic.
     
-- **Profile Association:** Ensure the Static URL Filter list is linked to the correct Web Filter profile and the profile is applied to the required firewall policies.
+2. **Profile Association:** Ensure the Static URL Filter list is linked to the intended Web Filter profile and that the profile is applied to the relevant firewall policies.
     
-- **HTTPS Inspection:** HTTPS traffic may require appropriate SSL inspection for effective URL filtering.
+3. **Wildcard Matching:** Configure URL patterns carefully, such as `*facebook.com`, because matching behavior may vary with the pattern and FortiOS version.
     
-- **Wildcard Matching:** Use wildcard patterns carefully, such as `*facebook.com`, to match the intended domains.
+4. **HTTPS Inspection:** URL filtering capabilities depend on the SSL inspection profile and the visibility available for encrypted traffic.
     
-- **Additional Domains:** Blocking only `youtube.com`, `facebook.com`, and `instagram.com` may not block every related domain or application endpoint.
+5. **Additional Domains:** Applications may use additional domains, content delivery networks (CDNs), and alternate endpoints. Blocking one domain may not block the entire application.
     
-- **QUIC and HTTP/3:** These protocols may affect filtering behavior. Test and configure QUIC handling if required.
+6. **QUIC and HTTP/3:** These protocols can affect filtering behavior. Review QUIC handling if blocking is incomplete.
     
-- **Existing Configuration:** Check existing security profiles before modifying a firewall policy to avoid overwriting required settings.
+7. **Existing Configuration:** Review existing firewall and security profiles before making changes to avoid overwriting required settings.
+      
+8. **FortiOS Compatibility:** Confirm command syntax and supported features for your FortiGate FortiOS version.
     
-- **Testing:** Test all three websites from a client whose traffic passes through the configured firewall policy.
-    
-- **Verification:** Use `show webfilter urlfilter`, `show webfilter profile "Block-Social-Media"`, and `show firewall policy 5` to verify the configuration.
-    
-- **FortiOS Version:** Confirm that the CLI commands and supported settings match your FortiGate FortiOS version.
+9. **Production Deployment:** Test changes in a controlled environment before applying them to production networks.
 
 ## Conclusion
 
 Blocking a website on FortiGate using CLI involves three main tasks: configuring a Static URL Filter, associating it with a Web Filter profile, and applying that profile to the appropriate firewall policy.
 
 
+<div>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1500" viewBox="0 0 1200 1500">
+  <defs>
+    <linearGradient id="navy" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#123d69"/>
+      <stop offset="1" stop-color="#0877b9"/>
+    </linearGradient>
+    <linearGradient id="blue" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#eaf5ff"/>
+      <stop offset="1" stop-color="#fff"/>
+    </linearGradient>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0 0 L8 3 L0 6Z" fill="#1682d4"/>
+    </marker>
+    <marker id="redArrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0 0 L8 3 L0 6Z" fill="#dc3545"/>
+    </marker>
+    <style>
+      text{font-family:Arial,Helvetica,sans-serif;fill:#163452}
+      .heading{font-size:25px;font-weight:bold;fill:white}
+      .subheading{font-size:19px;font-weight:bold}
+      .body{font-size:16px}
+      .small{font-size:14px}
+      .mono{font-family:Consolas,monospace;font-size:13px;fill:#15365c}
+      .panel{fill:white;stroke:#c7d9e9;stroke-width:1.5}
+      .line{stroke:#1682d4;stroke-width:3;fill:none;marker-end:url(#arrow)}
+    </style>
+  </defs>
 
+  <rect width="1200" height="1500" fill="#f4f8fc"/>
+
+  <!-- Header -->
+  <rect width="1200" height="100" fill="url(#navy)"/>
+  <g transform="translate(30 25)">
+    <rect width="52" height="48" rx="9" fill="#fff"/>
+    <path d="M11 12H41 M11 21H41 M11 30H41 M11 39H41"
+          stroke="#0877b9" stroke-width="5"/>
+    <path d="M20 8V43 M32 8V43" stroke="#0877b9" stroke-width="3"/>
+  </g>
+  <text x="100" y="45" font-size="27" font-weight="bold" fill="white">FORTIGATE</text>
+  <text x="100" y="73" font-size="16" fill="#d7edff">WEB FILTER CONFIGURATION GUIDE</text>
+  <text x="1165" y="43" font-size="17" text-anchor="end" fill="white">HITOP | NETWORK SECURITY</text>
+  <text x="1165" y="72" font-size="15" text-anchor="end" fill="#d7edff">CLI • URL FILTER • FIREWALL POLICY</text>
+
+  <!-- Network overview -->
+  <rect x="25" y="120" width="1150" height="245" rx="15" class="panel"/>
+  <text x="50" y="157" class="subheading">01 — NETWORK TRAFFIC OVERVIEW</text>
+
+  <!-- Client -->
+  <rect x="50" y="185" width="205" height="135" rx="12" fill="#eaf5ff" stroke="#8fc5ef"/>
+  <g transform="translate(118 205)" stroke="#22577b" stroke-width="3" fill="#d5e9f9">
+    <rect x="0" y="0" width="70" height="44" rx="4"/>
+    <path d="M-7 49H77L68 57H2Z" fill="#a4c9e8"/>
+  </g>
+  <text x="152" y="285" text-anchor="middle" class="subheading">LAN Clients</text>
+  <text x="152" y="306" text-anchor="middle" class="small">PCs • Laptops • Users</text>
+
+  <path d="M255 250H335" class="line"/>
+
+  <!-- Firewall -->
+  <rect x="350" y="185" width="300" height="135" rx="12" fill="#fff5e7" stroke="#f3b65d"/>
+  <g transform="translate(440 207)">
+    <rect width="120" height="52" rx="5" fill="#e6edf4" stroke="#244f71" stroke-width="2"/>
+    <path d="M0 17H120 M0 35H120 M40 0V17 M80 0V17 M20 17V35 M60 17V35 M100 17V35"
+          stroke="#244f71" stroke-width="2"/>
+    <rect x="12" y="40" width="10" height="5" fill="#21a366"/>
+    <rect x="29" y="40" width="10" height="5" fill="#21a366"/>
+    <rect x="46" y="40" width="10" height="5" fill="#e6a23c"/>
+  </g>
+  <text x="500" y="284" text-anchor="middle" class="subheading">FortiGate Firewall</text>
+  <text x="500" y="305" text-anchor="middle" class="small">Web Filter + Security Inspection</text>
+
+  <path d="M650 250H730" class="line"/>
+
+  <!-- Internet -->
+  <circle cx="790" cy="245" r="48" fill="#e7f3ff" stroke="#1682d4" stroke-width="2"/>
+  <circle cx="790" cy="245" r="29" fill="none" stroke="#1682d4" stroke-width="2"/>
+  <ellipse cx="790" cy="245" rx="13" ry="29" fill="none" stroke="#1682d4" stroke-width="2"/>
+  <path d="M762 235H818 M762 255H818" stroke="#1682d4" stroke-width="2"/>
+  <text x="790" y="313" text-anchor="middle" class="subheading">Internet</text>
+
+  <path d="M840 245H885" stroke="#dc3545" stroke-width="3" stroke-dasharray="7 5" fill="none" marker-end="url(#redArrow)"/>
+
+  <!-- Blocked sites -->
+  <rect x="890" y="185" width="255" height="135" rx="12" fill="#fff0f1" stroke="#ed9da5"/>
+  <circle cx="920" cy="215" r="13" fill="#dc3545"/>
+  <path d="M914 209L926 221 M926 209L914 221" stroke="white" stroke-width="2.5"/>
+  <text x="943" y="221" font-size="17" font-weight="bold" fill="#c62838">ACCESS BLOCKED</text>
+  <text x="915" y="253" class="body">YouTube</text>
+  <text x="915" y="278" class="body">Facebook</text>
+  <text x="915" y="303" class="body">Instagram</text>
+  <text x="50" y="347" class="small" fill="#647b91">Illustrative flow: actual blocking depends on policy matching and effective URL inspection.</text>
+
+  <!-- Configuration steps -->
+  <text x="35" y="415" font-size="25" font-weight="bold">02 — CONFIGURATION WORKFLOW</text>
+
+  <!-- Step 1 -->
+  <rect x="30" y="440" width="555" height="280" rx="12" class="panel"/>
+  <rect x="30" y="440" width="555" height="48" rx="12" fill="#dceeff"/>
+  <path d="M30 476V488H585V476" fill="#dceeff"/>
+  <circle cx="58" cy="464" r="17" fill="#0877b9"/>
+  <text x="58" y="471" text-anchor="middle" font-size="20" font-weight="bold" fill="white">1</text>
+  <text x="85" y="471" class="subheading">Create Static URL Filter List</text>
+  <text x="50" y="514" class="small" font-weight="bold">CLI — URL FILTER LIST (ID 1)</text>
+  <rect x="48" y="525" width="519" height="174" rx="7" fill="#f1f5f9"/>
+  <text x="63" y="549" class="mono">config webfilter urlfilter</text>
+  <text x="63" y="569" class="mono">  edit 1</text>
+  <text x="63" y="589" class="mono">    set name "Social-Media-URLs"</text>
+  <text x="63" y="609" class="mono">    config entries</text>
+  <text x="63" y="629" class="mono">      edit 1</text>
+  <text x="63" y="649" class="mono">        set url "*youtube.com"</text>
+  <text x="63" y="669" class="mono">        set type wildcard</text>
+  <text x="63" y="689" class="mono">        set action block</text>
+  <text x="330" y="629" class="mono">Add Facebook and Instagram</text>
+  <text x="330" y="649" class="mono">as separate entries.</text>
+  <text x="330" y="680" class="mono">Enable each entry.</text>
+
+  <!-- Step 2 -->
+  <rect x="615" y="440" width="555" height="280" rx="12" class="panel"/>
+  <rect x="615" y="440" width="555" height="48" rx="12" fill="#dcf7e8"/>
+  <path d="M615 476V488H1170V476" fill="#dcf7e8"/>
+  <circle cx="643" cy="464" r="17" fill="#188755"/>
+  <text x="643" y="471" text-anchor="middle" font-size="20" font-weight="bold" fill="white">2</text>
+  <text x="670" y="471" class="subheading">Create Web Filter Profile</text>
+  <text x="635" y="514" class="small" font-weight="bold">CLI — PROFILE CONFIGURATION</text>
+  <rect x="633" y="525" width="519" height="174" rx="7" fill="#f1f5f9"/>
+  <text x="648" y="551" class="mono">config webfilter profile</text>
+  <text x="648" y="573" class="mono">  edit "Block-Social-Media"</text>
+  <text x="648" y="595" class="mono">    config web</text>
+  <text x="648" y="617" class="mono">      set urlfilter-table 1</text>
+  <text x="648" y="639" class="mono">    end</text>
+  <text x="648" y="661" class="mono">  next</text>
+  <text x="648" y="683" class="mono">end</text>
+  <text x="870" y="577" class="small">References URL filter list ID 1.</text>
+  <text x="870" y="604" class="small">Confirm the command syntax</text>
+  <text x="870" y="625" class="small">for your FortiOS version.</text>
+
+  <!-- Step 3 -->
+  <rect x="30" y="740" width="555" height="260" rx="12" class="panel"/>
+  <rect x="30" y="740" width="555" height="48" rx="12" fill="#ffebd9"/>
+  <path d="M30 776V788H585V776" fill="#ffebd9"/>
+  <circle cx="58" cy="764" r="17" fill="#df6b16"/>
+  <text x="58" y="771" text-anchor="middle" font-size="20" font-weight="bold" fill="white">3</text>
+  <text x="85" y="771" class="subheading">Apply to Firewall Policy</text>
+  <text x="50" y="815" class="small" font-weight="bold">CLI — EXAMPLE POLICY ID 5</text>
+  <rect x="48" y="828" width="519" height="151" rx="7" fill="#f1f5f9"/>
+  <text x="63" y="853" class="mono">config firewall policy</text>
+  <text x="63" y="875" class="mono">  edit 5</text>
+  <text x="63" y="897" class="mono">    set utm-status enable</text>
+  <text x="63" y="919" class="mono">    set webfilter-profile "Block-Social-Media"</text>
+  <text x="63" y="941" class="mono">    set ssl-ssh-profile "certificate-inspection"</text>
+  <text x="63" y="963" class="mono">  next</text>
+  <text x="350" y="963" class="mono">end</text>
+
+  <!-- Step 4 -->
+  <rect x="615" y="740" width="555" height="260" rx="12" class="panel"/>
+  <rect x="615" y="740" width="555" height="48" rx="12" fill="#e9e2ff"/>
+  <path d="M615 776V788H1170V776" fill="#e9e2ff"/>
+  <circle cx="643" cy="764" r="17" fill="#7044bd"/>
+  <text x="643" y="771" text-anchor="middle" font-size="20" font-weight="bold" fill="white">4</text>
+  <text x="670" y="771" class="subheading">Verify Configuration</text>
+  <text x="635" y="815" class="small" font-weight="bold">CLI — SHOW COMMANDS</text>
+  <rect x="633" y="828" width="519" height="151" rx="7" fill="#f1f5f9"/>
+  <text x="648" y="856" class="mono">show webfilter urlfilter</text>
+  <text x="648" y="882" class="mono">show webfilter profile "Block-Social-Media"</text>
+  <text x="648" y="908" class="mono">show firewall policy 5</text>
+  <text x="648" y="944" class="small">Test from a client whose traffic matches</text>
+  <text x="648" y="965" class="small">the policy. Confirm the sites are blocked.</text>
+
+  <!-- Traffic flow -->
+  <rect x="30" y="1020" width="1140" height="195" rx="12" class="panel"/>
+  <rect x="30" y="1020" width="1140" height="45" rx="12" fill="url(#navy)"/>
+  <path d="M30 1052V1065H1170V1052" fill="url(#navy)"/>
+  <text x="52" y="1050" class="heading">03 — HOW THE FILTER WORKS</text>
+
+  <rect x="55" y="1090" width="195" height="83" rx="10" fill="#eaf5ff" stroke="#8fc5ef"/>
+  <text x="152" y="1120" text-anchor="middle" class="subheading">User Request</text>
+  <text x="152" y="1145" text-anchor="middle" class="small">Opens a social site</text>
+
+  <path d="M250 1131H292" class="line"/>
+
+  <rect x="300" y="1090" width="225" height="83" rx="10" fill="#fff3dc" stroke="#edc16b"/>
+  <text x="412" y="1120" text-anchor="middle" class="subheading">Firewall Policy</text>
+  <text x="412" y="1145" text-anchor="middle" class="small">Traffic matches policy</text>
+
+  <path d="M525 1131H567" class="line"/>
+
+  <rect x="575" y="1090" width="225" height="83" rx="10" fill="#e1f8eb" stroke="#82d2a4"/>
+  <text x="687" y="1120" text-anchor="middle" class="subheading">Web Filter</text>
+  <text x="687" y="1145" text-anchor="middle" class="small">Checks URL rules</text>
+
+  <path d="M800 1131H842" stroke="#dc3545" stroke-width="3" fill="none" marker-end="url(#redArrow)"/>
+
+  <rect x="850" y="1090" width="285" height="83" rx="10" fill="#fff0f1" stroke="#ed9da5"/>
+  <text x="992" y="1120" text-anchor="middle" font-size="19" font-weight="bold" fill="#c62838">Matching URL</text>
+  <text x="992" y="1145" text-anchor="middle" class="small">Block action denies access</text>
+
+  <text x="55" y="1197" class="small" fill="#647b91">Non-matching traffic follows the other applicable firewall and security rules.</text>
+
+  <!-- Considerations -->
+  <rect x="30" y="1235" width="1140" height="220" rx="12" fill="#fff8e6" stroke="#efc45e" stroke-width="1.5"/>
+  <text x="55" y="1273" font-size="24" font-weight="bold" fill="#8a4b00">IMPORTANT CONSIDERATIONS</text>
+
+  <g class="body">
+    <circle cx="65" cy="1308" r="12" fill="#e4a11b"/>
+    <text x="65" y="1314" text-anchor="middle" font-size="15" font-weight="bold" fill="white">1</text>
+    <text x="87" y="1314">Confirm the correct LAN-to-WAN policy ID.</text>
+
+    <circle cx="65" cy="1342" r="12" fill="#e4a11b"/>
+    <text x="65" y="1348" text-anchor="middle" font-size="15" font-weight="bold" fill="white">2</text>
+    <text x="87" y="1348">Check URL list and profile association.</text>
+
+    <circle cx="65" cy="1376" r="12" fill="#e4a11b"/>
+    <text x="65" y="1382" text-anchor="middle" font-size="15" font-weight="bold" fill="white">3</text>
+    <text x="87" y="1382">Review HTTPS inspection and QUIC/HTTP3 handling.</text>
+
+    <circle cx="65" cy="1410" r="12" fill="#e4a11b"/>
+    <text x="65" y="1416" text-anchor="middle" font-size="15" font-weight="bold" fill="white">4</text>
+    <text x="87" y="1416">Related domains may require additional filtering.</text>
+
+    <circle cx="650" cy="1308" r="12" fill="#e4a11b"/>
+    <text x="650" y="1314" text-anchor="middle" font-size="15" font-weight="bold" fill="white">5</text>
+    <text x="672" y="1314">Preserve existing security settings.</text>
+
+    <circle cx="650" cy="1342" r="12" fill="#e4a11b"/>
+    <text x="650" y="1348" text-anchor="middle" font-size="15" font-weight="bold" fill="white">6</text>
+    <text x="672" y="1348">Test from a client after applying changes.</text>
+
+    <circle cx="650" cy="1376" r="12" fill="#e4a11b"/>
+    <text x="650" y="1382" text-anchor="middle" font-size="15" font-weight="bold" fill="white">7</text>
+    <text x="672" y="1382">Check syntax against your FortiOS version.</text>
+  </g>
+
+  <text x="600" y="1483" text-anchor="middle" font-size="13" fill="#647b91">HITOP • HOTEL IT OPERATING PROCEDURE • FORTIGATE WEB FILTERING</text>
+</svg>
+
+</div>
 
 
 
