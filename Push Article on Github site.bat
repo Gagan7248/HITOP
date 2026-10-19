@@ -9,18 +9,18 @@ echo     HITOP GitHub Update
 echo ==============================
 echo.
 
-echo [1/4] MkDocs clean build chal raha hai...
+echo [1/4] Building Mkdocs...
 mkdocs build --clean
 
 if errorlevel 1 (
     echo.
-    echo MkDocs build fail hua. Error check karein.
+    echo MKdocs building Failed. Please check the error.
     pause
     exit /b 1
 )
 
 echo.
-echo MkDocs build successfully complete hua.
+echo MkDocs builded successfully.
 echo.
 
 git status
@@ -30,40 +30,40 @@ set /p msg=Commit message likhein (Enter = Update documentation):
 if "%msg%"=="" set "msg=Update documentation"
 
 echo.
-echo [2/4] Git add chal raha hai...
+echo [2/4] Running Github add...
 git add .
 
 if errorlevel 1 (
     echo.
-    echo Git add fail hua.
+    echo Git add failed.
     pause
     exit /b 1
 )
 
 echo.
-echo [3/4] Git commit chal raha hai...
+echo [3/4] Running Git commit...
 git commit -m "%msg%"
 
 if errorlevel 1 (
     echo.
-    echo Commit nahi hua. Changes ya Git status check karein.
+    echo Commit not success, please check Git status.
     pause
     exit /b 1
 )
 
 echo.
-echo [4/4] GitHub par push ho raha hai...
+echo [4/4] Pushing on Github...
 git push origin main
 
 if errorlevel 1 (
     echo.
-    echo Push fail hua. Error check karein.
+    echo Pushing failed, please check error...
     pause
     exit /b 1
 )
 
 echo.
-echo Successfully GitHub par push ho gaya!
-echo GitHub Actions website ko automatically deploy karega.
+echo Pushed Successfully
+echo GitHub actions will deploy website automatically.
 pause
 ```
