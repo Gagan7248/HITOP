@@ -6,60 +6,196 @@ categories:
 description: Learn a complete basics of computer network
 thumbnail: images/basics-of-network.png
 ---
-## Network
+# Network
 
-A computer network connects two or more devices together to share a nearly limitless range of information and services, including: Documents, Email and messaging, Websites, Databases, Music, Printers and faxes, Telephony and video conferencing.
+A computer network is a group of components or other devices connected together to communicate, exchange data, and share resources such as files, printers, applications, and an internet connection.
 
-## Network Types
+**Example:** Computers connected to the same Wi-Fi network in an office can share files and access a common printer.
 
-1. **LAN(Local Area Network)** - A high-speed network confined to a small geographic area (e.g., office, building) using Ethernet (IEEE 802.3) or Wi-Fi (IEEE 802.11) for data transmission. Typically managed by a single organization.
-2. WAN(Wide area Network) -A geographically distributed network that interconnects LANs over large distances using leased lines (e.g., MPLS, Metro Ethernet) or public networks (e.g., Internet with VPN tunneling). Security mechanisms such as IPSec or SSL/TLS are often implemented.
-3. MAN- A network that spans a city or campus area, often owned by ISPs or large enterprises. Uses technologies like Ethernet MAN, DWDM, or microwave transmission.
-4. **Personal Area Network (PAN): -** A short-range network used for personal devices (e.g., smartphones, wearables) using Bluetooth, ZigBee, or USB interconnects.
-5. **Virtual Private Network (VPN): -** A secure overlay network built over a public infrastructure (usually the Internet), providing encrypted tunnels (e.g., IPSec, SSL-VPN) for secure remote access.
+## Importance of network
 
----
+- Easy sharing of file & information
+- Sharing of expensive device like Servers, Printers
 
-## Network Topology
+## Network components
 
-**Network topology** refers to the **physical** or **logical layout** of a computer network, defining how nodes (e.g., computers, switches, routers) and links (communication channels) are arranged and interconnected. It influences **network performance**, **fault tolerance**, **scalability**, and **security architecture**.
+- **End Devices:**  Computers, servers, printers, and smartphones.
+- **Network devices:** Hub, Modem, Switch, Router, Repeater, Network Interface Card (NIC), Bridge, Wi-Fi Access Point, Firewall.
+- **Transmission media:** Ethernet cables, fiber-optic cables, and Wireless.
+- **Protocols:** TCP/IP, HTTP, FTP, DNS, SMTP and Telnet.
 
-- **Physical topology** describes the actual physical connections (e.g., cables, hardware).
-- **Logical topology** represents the data flow paths and protocols used, regardless of physical arrangement.
+![[Pasted image 20261019175107.png|372]]
+
+# Network Topology
+
+Network topology is the physical or logical arrangement of computers, network devices, and communication links within a computer network.
+
+In simple words, network topology describes how network devices are connected to each other and how data travels between them.
 
 ### Types of Network Topology
 
-1. **Bus Topology** - All nodes are connected to a single backbone cable. Simple but prone to collisions and not fault-tolerant. Rarely used in modern networks.
-2. **Star Topology -** All nodes connect to a central switch or hub. Common in Ethernet LANs due to ease of management and isolation of failures.
-3. **Ring Topology-** Devices form a closed loop. Each node acts as a repeater. Token Ring (IEEE 802.5) is a classical example, though now obsolete.
-4. **Mesh Topology** - Every node connects to every other node, offering high redundancy and fault tolerance. Common in backbone networks and wireless mesh networks.
-5. **Hybrid Topology** - Combines multiple topologies (e.g., star-bus or star-ring) to leverage advantages of each, often used in complex enterprise environments.
-6. **Tree Topology -** A hierarchical topology resembling a tree structure. Scalable and commonly used in large-scale LANs with multiple subnetworks.
+#### 1. Star Topology
 
----
+All devices connect to a central switch or hub.
 
-## Communication Medium
+1. Easy to manage and troubleshoot.
+2. A central device failure can affect the entire network.
 
-A communication medium is the physical or logical pathway through which data is transmitted between devices in a network. It can be **guided** (wired) or **unguided** (wireless), and it plays a critical role in determining **bandwidth**, **latency**, **signal integrity**, and **vulnerability to interception or interference**.
+![[Pasted image 20261019175609.png|194]]
 
-### **Types:**
 
-1. **Guided Media (Wired/Bounded):**
+**Example:** Office LAN.
+#### 2. Bus Topology
 
-Data signals are confined within a physical path.
+All devices share one main backbone cable.
 
-- **Twisted Pair Cable (UTP/STP):**
-    - Common in Ethernet networks (Cat5e, Cat6).
-    - Susceptible to EMI; STP offers shielding.
-- **Coaxial Cable:**
-    - Used in broadband Internet and legacy systems.
-    - Better shielding than twisted pair.
-- **Fiber Optic Cable:**
-    - Transmits data as light pulses.
-    - High bandwidth, long distance, and immune to EMI.
-    - Harder to tap (more secure), but not immune to physical tampering.
+- Uses less cable.
+- A backbone failure can disrupt the network.
 
-2. **Unguided Media (Wireless/Unbounded):**
+
+![[Pasted image 20261019175911.png|247]]
+
+
+**Example:** Older Ethernet networks.
+
+#### 3. Ring Topology
+
+1. Each device connects to two neighboring devices, forming a loop.
+
+2. Data can travel around the ring.
+- A single link failure may disrupt a basic, unprotected ring.
+
+![[Pasted image 20261019180041.png|219]]
+
+**Example:** Some legacy ring networks.
+
+#### 4. Mesh Topology
+
+Devices have multiple interconnections. In a full mesh, every device connects directly to every other device.
+
+1. High redundancy and reliability.
+2. Expensive and complex to implement.
+
+![[Pasted image 20261019180935.png|226]]
+
+**Example:** Redundant WAN connections.
+
+#### 5. Tree Topology
+
+Devices are arranged in a hierarchical structure with branches.
+
+1. Easy to expand and organize.
+2. Failure of an upper-level device can affect its branches.
+
+![[Pasted image 20261019181126.png|280]]
+
+**Example:** Enterprise campus network.
+
+#### 6. Hybrid Topology
+
+Combines two or more different topologies.
+
+1. Flexible and scalable.
+2. Design and troubleshooting can be more complex.
+
+![[Pasted image 20261019181257.png|325]]
+
+**Example:** A company combining star LANs with a redundant backbone.
+
+### Physical Topology 
+
+Physical topology refers to the actual physical arrangement of network devices, cables, ports, and other hardware components in a network.
+
+In simple words, it describes how devices are physically connected to each other.
+
+### Logical Topology
+
+Logical topology refers to how data flows between devices across a network, regardless of the physical arrangement of the devices and cables.
+
+In simple words, it describes how devices communicate and how data travels through the network.
+
+## Network Types
+
+### 1. LAN(Local Area Network)
+A high-speed network confined to a small geographic area (e.g., office, building) using Ethernet (IEEE 802.3) or Wi-Fi (IEEE 802.11) for data transmission. Typically managed by a single organization.
+
+### 2. WAN(Wide area Network)
+A geographically distributed network that interconnects LANs over large distances using leased lines (e.g., MPLS, Metro Ethernet) or public networks (e.g., Internet with VPN tunneling). Security mechanisms such as IPSec or SSL/TLS are often implemented.
+
+### 3. MAN(Metropolitan Area Network)
+A network that spans a city or campus area, often owned by ISPs or large enterprises. Uses technologies like Ethernet MAN, DWDM, or microwave transmission.
+
+### 4. Personal Area Network (PAN) 
+A short-range network used for personal devices (e.g., smartphones, wearables) using Bluetooth, ZigBee, or USB interconnects.
+
+### 5. Virtual Private Network (VPN)
+A secure overlay network built over a public infrastructure (usually the Internet), providing encrypted tunnels (e.g., IPSec, SSL-VPN) for secure remote access.
+
+## Communication Media
+
+Communication media is the physical path or wireless medium through which data travels from one network device to another.
+
+In simple words, communication media is the medium that carries data between devices in a network.
+
+**Example** Connection of a computer to a switch using an Ethernet cable, the cable acts as the communication medium.
+
+### Types of Communication Media
+
+Communication media is divided into two main categories.
+
+#### 1. Guided Media (Wired)
+
+Data travels through a physical cable.
+
+**Examples:** Twisted-pair cable, coaxial cable, fiber-optic cable.
+
+#### 2. Unguided Media (Wireless)
+
+Data travels through electromagnetic waves without a physical cable.
+
+Examples: Wi-Fi, Bluetooth, cellular radio, satellite communication.
+
+
+# Guided Media (Wired Communication)
+
+##### A. Twisted Pair Cable (UTP/STP)
+
+A cable containing pairs of insulated copper wires twisted together to reduce electromagnetic interference.
+
+- **UTP:** Unshielded Twisted Pair
+- **STP:** Shielded Twisted Pair
+- Common categories: Cat5e, Cat6, Cat6A
+- Common Ethernet channel length: up to 100 metres, depending on the standard and installation.
+
+![[Pasted image 20261019183731.png|318]]
+
+##### B. Coaxial Cable
+
+A cable with a central conductor, insulation, metallic shielding, and an outer jacket.
+
+- Good shielding against interference.
+- Used in cable television and some broadband access networks.
+- Less common for modern Ethernet LAN connections.
+
+![[Pasted image 20261019184118.png|405]]
+
+
+##### C. Fiber-Optic Cable
+
+Transmits data using light pulses through glass or plastic fibers.
+
+- Single-mode fiber (SMF): Common for long-distance links.
+- Multimode fiber (MMF): Common for shorter links, such as within buildings and data centers.
+- High bandwidth and immunity to electromagnetic interference.
+
+![[Pasted image 20261019184231.png|293]]
+
+#### 2. Unguided Media (Wireless Communication)
+
+
+
+
+___
 
 Data is transmitted through the air or vacuum using electromagnetic waves.
 
