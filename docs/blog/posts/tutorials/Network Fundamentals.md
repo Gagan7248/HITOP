@@ -16,24 +16,19 @@ A computer network is a group of components or other devices connected together 
 
 ![Network Devices |336](<../../../images/network-devices.png>)
 
-## Importance of network
+### Importance of network
 
 - Easy sharing of files & information
 - Sharing of expensive device like Servers, Printers
 
-## Network components
+### Network components
 
 - **End Devices:**  Computers, servers, printers, and smartphones.
 - **Network devices:** Hub, Modem, Switch, Router, Repeater, Network Interface Card (NIC), Bridge, Wi-Fi Access Point, Firewall.
 - **Transmission media:** Ethernet cables, fiber-optic cables, and Wireless.
 - **Protocols:** TCP/IP, HTTP, FTP, DNS, SMTP and Telnet.
 
-[![Alt Text](image_url)](https://target-website.com)
-
-
-
-
-# Network Topology
+## Network Topology
 
 Network topology is the physical or logical arrangement of computers, network devices, and communication links within a computer network.
 
