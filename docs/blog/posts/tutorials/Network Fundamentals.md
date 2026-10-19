@@ -8,7 +8,7 @@ thumbnail: images/basics-of-network.png
 ---
 # Network Fundamentals
 
-## What is Network?
+## What is Computer Network?
 
 A computer network is a group of components or other devices connected together to communicate, exchange data, and share resources such as files, printers, applications, and an internet connection.
 
