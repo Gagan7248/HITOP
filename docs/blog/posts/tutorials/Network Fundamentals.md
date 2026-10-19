@@ -14,6 +14,8 @@ A computer network is a group of components or other devices connected together 
 
 **Example:** Computers connected to the same Wi-Fi network in an office can share files and access a common printer.
 
+![Network Devices |336](<../../../images/network-devices.png>)
+
 ## Importance of network
 
 - Easy sharing of files & information
@@ -26,7 +28,10 @@ A computer network is a group of components or other devices connected together 
 - **Transmission media:** Ethernet cables, fiber-optic cables, and Wireless.
 - **Protocols:** TCP/IP, HTTP, FTP, DNS, SMTP and Telnet.
 
-![[Pasted image 20261019175107.png|372]]
+[![Alt Text](image_url)](https://target-website.com)
+
+
+
 
 # Network Topology
 
