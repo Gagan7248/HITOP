@@ -14,7 +14,7 @@ A computer network is a group of components or other devices connected together 
 
 **Example:** Computers connected to the same Wi-Fi network in an office can share files and access a common printer.
 
-![Network Devices |336](<../../../images/network-devices.png>)
+![Network Devices|337](<../../../images/network-devices.png>)
 
 ### Importance of network
 
