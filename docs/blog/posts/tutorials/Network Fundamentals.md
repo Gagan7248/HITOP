@@ -6,7 +6,9 @@ categories:
 description: Learn a complete basics of computer network
 thumbnail: images/basics-of-network.png
 ---
-# Network
+# Network Fundamentals
+
+## What is Network?
 
 A computer network is a group of components or other devices connected together to communicate, exchange data, and share resources such as files, printers, applications, and an internet connection.
 
@@ -14,7 +16,7 @@ A computer network is a group of components or other devices connected together 
 
 ## Importance of network
 
-- Easy sharing of file & information
+- Easy sharing of files & information
 - Sharing of expensive device like Servers, Printers
 
 ## Network components
