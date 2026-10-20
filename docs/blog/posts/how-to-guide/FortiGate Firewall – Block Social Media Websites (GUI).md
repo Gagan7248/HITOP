@@ -1,6 +1,6 @@
 ---
 title: FortiGate Firewall – Block Social Media Websites (GUI)
-date: 2026-10-15 12:30:00
+date: 2026-10-20 12:30:00
 categories:
   - how-to-guide
 description: Learn how to block specific websites and URLs on FortiGate using Web Filter profiles and firewall policies with step-by-step instructions.
@@ -169,14 +169,14 @@ Use the following example configuration: (Screenshot):
 
 ![FortiGate URL Blocking|665](<../../../images/blocked-webfilter-logs.png>)
 
+---
+## Using CLI
 
-# Using CLI
-
-## Overview
+### Overview
 
 FortiGate firewalls also allow administrators to block Web Filter feature and firewall policies using  graphical user interface (GUI) as well as Command Line Interface (CLI).
 
-## Step 1: Create the URL Filter Table
+### Step 1: Create the URL Filter Table
 
 1. Log in to the FortiGate firewall using **SSH**, a **console connection**, or the **CLI Console** available in the web interface.
 
@@ -209,7 +209,7 @@ end
 
 **Purpose:** Creates a URL Filter table containing the websites to be blocked.
 
-## Step 2: Configure the Web Filter Profile
+### Step 2: Configure the Web Filter Profile
 
 ```shell
 config webfilter profile
@@ -223,7 +223,7 @@ end
 
 **Purpose:** Links URL Filter table ID `1` to the `Block-Social-Media` profile.
 
-## Step 3: Apply the Profile to the Firewall Policy
+### Step 3: Apply the Profile to the Firewall Policy
 
 First, identify the firewall policy used for internet access:
 
@@ -247,27 +247,27 @@ end
 ***Important:** Modify the correct internet access policy to avoid affecting other network traffic.*
 
 
-## Step 4: Verify the Configuration
+### Step 4: Verify the Configuration
 
-### Check the URL Filter table:
+#### Check the URL Filter table:
 
 ```shell
 show webfilter urlfilter
 ```
 
-### Check the Web Filter profile:
+#### Check the Web Filter profile:
 
 ```shell
 show webfilter profile "Block-Social-Media"
 ```
 
-### Check the firewall policy:
+#### Check the firewall policy:
 
 ```shell
 show firewall policy
 ```
 
-### Confirm that the correct policy has the following settings:
+#### Confirm that the correct policy has the following settings:
 
 ```shell
 set utm-status enable
@@ -311,7 +311,7 @@ If YouTube videos still play after applying the configuration, check HTTPS inspe
 
 ***Official Reference:** Fortinet's FortiOS 7.4.8 Administration Guide. Your interface may differ slightly.*
 Reference Source: [Fortinet — Static URL Filter and verification](https://docs.fortinet.com/document/fortigate/7.4.8/administration-guide/371670/static-url-filter) 
-## Conclusion
+### Conclusion
 
 Blocking a website on FortiGate using CLI involves three main tasks: configuring a Static URL Filter, associating it with a Web Filter profile, and applying that profile to the appropriate firewall policy.
 
