@@ -18,8 +18,6 @@ A computer network is a group of components or other devices connected together 
 - Easy sharing of files & information
 - Sharing of expensive device like Servers, Printers
 
-![FortiGate URL Blocking|356](../../../images/network-devices.png)
-
 ### Network components
 
 - **End Devices:**  Computers, servers, printers, and smartphones.
@@ -27,6 +25,7 @@ A computer network is a group of components or other devices connected together 
 - **Transmission media:** Ethernet cables, fiber-optic cables, and Wireless.
 - **Protocols:** TCP/IP, HTTP, FTP, DNS, SMTP and Telnet.
 
+![FortiGate URL Blocking|356](../../../images/network-devices.png)
 ## Network Topology
 
 Network topology is the physical or logical arrangement of computers, network devices, and communication links within a computer network.
