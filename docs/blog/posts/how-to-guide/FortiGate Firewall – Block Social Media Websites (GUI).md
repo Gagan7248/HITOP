@@ -249,25 +249,25 @@ end
 
 ### Step 4: Verify the Configuration
 
-#### Check the URL Filter table:
+ **Check the URL Filter table:**
 
 ```shell
 show webfilter urlfilter
 ```
 
-#### Check the Web Filter profile:
+**Check the Web Filter profile:**
 
 ```shell
 show webfilter profile "Block-Social-Media"
 ```
 
-#### Check the firewall policy:
+**Check the firewall policy:**
 
 ```shell
 show firewall policy
 ```
 
-#### Confirm that the correct policy has the following settings:
+**Confirm that the correct policy has the following settings:**
 
 ```shell
 set utm-status enable
