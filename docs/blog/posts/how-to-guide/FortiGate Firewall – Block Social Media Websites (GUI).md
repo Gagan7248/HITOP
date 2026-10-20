@@ -172,7 +172,7 @@ Use the following example configuration: (Screenshot):
 
 
 <hr style="border: none; height: 3px; background-color: #333;">
-# **Using CLI**
+# Using CLI
 
 ## Overview
 
