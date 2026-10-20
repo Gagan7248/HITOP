@@ -1,12 +1,12 @@
 ---
-title: Network Fundamentals
+title: Fundamentals of Computer Networks
 date: 2026-10-11
 categories:
   - Tutorials
 description: Learn a complete basics of computer network
 thumbnail: images/basics-of-network.png
 ---
-# Network Fundamentals
+# Fundamentals of Computer Networks
 
 ## What is Computer Network?
 
