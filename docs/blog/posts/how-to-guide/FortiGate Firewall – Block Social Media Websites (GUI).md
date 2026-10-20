@@ -170,7 +170,6 @@ Use the following example configuration: (Screenshot):
 ![FortiGate URL Blocking|665](<../../../images/blocked-webfilter-logs.png>)
 
 
----
 # Using CLI
 
 ## Overview
