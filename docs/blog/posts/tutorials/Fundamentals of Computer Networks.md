@@ -13,12 +13,12 @@ thumbnail: images/basics-of-network.png
 A computer network is a group of components or other devices connected together to communicate, exchange data, and share resources such as files, printers, applications, and an internet connection.
 
 **Example:** Computers connected to the same Wi-Fi network in an office can share files and access a common printer.
-
-![Network Devices|255](../../../images/network-devices.png)
 ### Importance of network
 
 - Easy sharing of files & information
 - Sharing of expensive device like Servers, Printers
+
+![FortiGate URL Blocking|356](../../../images/network-devices.png)
 
 ### Network components
 
