@@ -42,11 +42,8 @@ All devices connect to a central switch or hub.
 1. Easy to manage and troubleshoot.
 2. A central device failure can affect the entire network.
 
-![Star Topology|533](<../../../images/star-topology.jg>)
+<img src="../../../images/star-topology.jpg" alt="Star Topology" width="533">
 
-<div>
-<img src="images/star-topology.jpg" width="300" height="200" alt="Description">
-</div>
 
 **Example:** Office LAN.
 #### 2. Bus Topology
