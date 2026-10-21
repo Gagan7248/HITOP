@@ -45,7 +45,7 @@ All devices connect to a central switch or hub.
 ![Star Topology|533](<../../../images/star-topology.jg>)
 
 <div>
-<img src="docs/images/star-topology.jpg" width="300" height="200" alt="Description">
+<img src="images/star-topology.jpg" width="300" height="200" alt="Description">
 </div>
 
 **Example:** Office LAN.
