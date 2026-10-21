@@ -25,8 +25,6 @@ A computer network is a group of components or other devices connected together 
 - **Transmission media:** Ethernet cables, fiber-optic cables, and Wireless.
 - **Protocols:** TCP/IP, HTTP, FTP, DNS, SMTP and Telnet.
 
-sample text
-
 
 ![Network Devices|533](<../../../images/network-devices.jpg>)
 ## Network Topology
@@ -44,7 +42,7 @@ All devices connect to a central switch or hub.
 1. Easy to manage and troubleshoot.
 2. A central device failure can affect the entire network.
 
-![[Pasted image 20261019175609.png|194]]
+![Star Topology|533](<../../../images/star-topology.jpg>)
 
 
 **Example:** Office LAN.
