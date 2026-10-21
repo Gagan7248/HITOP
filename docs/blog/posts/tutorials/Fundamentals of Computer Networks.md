@@ -26,8 +26,7 @@ A computer network is a group of components or other devices connected together 
 - **Protocols:** TCP/IP, HTTP, FTP, DNS, SMTP and Telnet.
 
 
-Test Text
-
+![Network Devices|533](<../../../images/web-filter to-firewall-policy.png>)
 ## Network Topology
 
 Network topology is the physical or logical arrangement of computers, network devices, and communication links within a computer network.
