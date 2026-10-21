@@ -1,0 +1,3112 @@
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Learn a complete basics of computer network">
+      
+      
+      
+        <link rel="canonical" href="https://gagan7248.github.io/HITOP/2026/10/11/fundamentals-of-computer-networks/">
+      
+      
+        <link rel="prev" href="../pen-testing/">
+      
+      
+        <link rel="next" href="../../12/microtik-basic-configuration/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Fundamentals of Computer Networks - HITOP</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  
+
+  
+    
+    
+
+    <meta property="og:site_name" content="HITOP">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Fundamentals of Computer Networks">
+
+    
+      <meta property="og:description" content="Learn a complete basics of computer network">
+      <meta name="twitter:description" content="Learn a complete basics of computer network">
+    
+
+    <meta property="og:url" content="https://gagan7248.github.io/HITOP/2026/10/11/fundamentals-of-computer-networks/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Fundamentals of Computer Networks">
+
+    
+      
+      <meta property="og:image" content="https://gagan7248.github.io/HITOP/images/basics-of-network.png">
+      <meta name="twitter:image" content="https://gagan7248.github.io/HITOP/images/basics-of-network.png">
+    
+  
+
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#fundamentals-of-computer-networks" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+
+    <button class="mobile-menu-btn"
+            id="mobile-menu-open"
+            aria-label="Open menu"
+            aria-controls="hitop-mobile-sidebar"
+            aria-expanded="false">
+      ☰
+    </button>
+
+    <a href="../../../.."
+       class="md-header__button md-logo"
+       title="HITOP">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+
+    <div class="hitop-title">HITOP</div>
+
+    <div class="hitop-nav">
+      <a href="../../../..">Home</a>
+      <a href="../../../../category/sops/">SOPs</a>
+      <a href="../../../../category/tutorials/">Tutorials</a>
+      <a href="../../../../category/how-to-guide/">How to Guide</a>
+      <a href="../../../../category/troubleshooting/">Troubleshooting</a>
+      <a href="../../../../about/">About Us</a>
+      <a class="support-btn" href="../../../../support/">Get Support</a>
+    </div>
+
+    <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+    <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    <label class="md-header__button md-icon"
+       for="__search"
+       aria-label="Search"
+       title="Search">
+  <svg xmlns="http://www.w3.org/2000/svg"
+       viewBox="0 0 24 24"
+       width="24"
+       height="24">
+    <path fill="currentColor"
+          d="M9.5 3a6.5 6.5 0 1 0 3.95 11.66l.27.27v.79l5 5 1.5-1.5-5-5h-.79l-.27-.27A6.5 6.5 0 0 0 9.5 3zm0 2a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9z"/>
+  </svg>
+</label>
+
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  </nav>
+</header>
+
+<div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
+
+<aside class="hitop-mobile-sidebar"
+       id="hitop-mobile-sidebar"
+       aria-label="Mobile navigation"
+       aria-hidden="true">
+  <div class="mobile-sidebar-header">
+    <strong>HITOP Menu</strong>
+    <button id="mobile-menu-close" aria-label="Close menu">×</button>
+  </div>
+
+  <nav class="mobile-sidebar-links">
+    <a href="../../../..">Home</a>
+    <a href="../../../../category/sops/">SOPs</a>
+    <a href="../../../../category/tutorials/">Tutorials</a>
+    <a href="../../../../category/how-to-guide/">How to Guide</a>
+    <a href="../../../../category/troubleshooting/">Troubleshooting</a>
+    <a href="../../../../about/">About Us</a>
+    <a class="mobile-support-btn" href="../../../../support/">Get Support</a>
+  </nav>
+</aside>
+
+<script>
+(function () {
+  const sidebar = document.getElementById("hitop-mobile-sidebar");
+  const overlay = document.getElementById("mobile-menu-overlay");
+  const openBtn = document.getElementById("mobile-menu-open");
+  const closeBtn = document.getElementById("mobile-menu-close");
+
+  if (!sidebar || !overlay || !openBtn || !closeBtn) return;
+
+  function openMenu() {
+    sidebar.classList.add("is-open");
+    overlay.classList.add("is-visible");
+    sidebar.setAttribute("aria-hidden", "false");
+    openBtn.setAttribute("aria-expanded", "true");
+    document.body.classList.add("mobile-menu-active");
+  }
+
+  function closeMenu() {
+    sidebar.classList.remove("is-open");
+    overlay.classList.remove("is-visible");
+    sidebar.setAttribute("aria-hidden", "true");
+    openBtn.setAttribute("aria-expanded", "false");
+    document.body.classList.remove("mobile-menu-active");
+  }
+
+  openBtn.addEventListener("click", openMenu);
+  closeBtn.addEventListener("click", closeMenu);
+  overlay.addEventListener("click", closeMenu);
+
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape") closeMenu();
+  });
+
+  sidebar.querySelectorAll("a").forEach(function (link) {
+    link.addEventListener("click", closeMenu);
+  });
+})();
+</script>
+
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="HITOP" class="md-nav__button md-logo" aria-label="HITOP" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    HITOP
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Latest Articles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../404/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    404
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../support/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Support
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Category
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Category
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../category/troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Partials
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Partials
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../partials/article-list/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Article list
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Stylesheets
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Stylesheets
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../stylesheets/test%201/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Test Article - HITOP Documentation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Archive
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Archive
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2026/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Categories
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Categories
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../category/sops/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SOPs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../category/tutorials/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutorials
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../category/how-to-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How to Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-computer-network" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is Computer Network?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What is Computer Network?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#importance-of-network" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Importance of network
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#network-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Network components
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#network-topology" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Network Topology
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Network Topology">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#types-of-network-topology" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Types of Network Topology
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Types of Network Topology">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-star-topology" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Star Topology
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-bus-topology" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Bus Topology
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-ring-topology" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Ring Topology
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-mesh-topology" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Mesh Topology
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-tree-topology" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Tree Topology
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-hybrid-topology" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Hybrid Topology
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#physical-topology" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Physical Topology
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logical-topology" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Logical Topology
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#network-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Network Types
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Network Types">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-lanlocal-area-network" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. LAN(Local Area Network)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-wanwide-area-network" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. WAN(Wide area Network)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-manmetropolitan-area-network" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. MAN(Metropolitan Area Network)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-personal-area-network-pan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Personal Area Network (PAN)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-virtual-private-network-vpn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Virtual Private Network (VPN)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#communication-media" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Communication Media
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Communication Media">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#types-of-communication-media" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Types of Communication Media
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Types of Communication Media">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-guided-media-wired" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Guided Media (Wired)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-unguided-media-wireless" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Unguided Media (Wireless)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+  <div class="md-content md-content--post" data-md-component="content">
+    <div class="md-sidebar md-sidebar--post" data-md-component="sidebar" data-md-type="navigation">
+      <div class="md-sidebar__scrollwrap">
+        <div class="md-sidebar__inner md-post">
+          <nav class="md-nav md-nav--primary">
+            <div class="md-post__back">
+              <div class="md-nav__title md-nav__container">
+                <a href="../../../.." class="md-nav__link">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+                  <span class="md-ellipsis">
+                    Back to index
+                  </span>
+                </a>
+              </div>
+            </div>
+            
+            <ul class="md-post__meta md-nav__list">
+              <li class="md-nav__item md-nav__item--section">
+                <div class="md-post__title">
+                  <span class="md-ellipsis">
+                    Metadata
+                  </span>
+                </div>
+                <nav class="md-nav">
+                  <ul class="md-nav__list">
+                    <li class="md-nav__item">
+                      <div class="md-nav__link">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"/></svg>
+                        <time datetime="2026-10-11 00:00:00+00:00" class="md-ellipsis">October 11, 2026</time>
+                      </div>
+                    </li>
+                    
+                    
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 3v15h3V3zm3 2 4 13 3-1-4-13zM5 5v13h3V5zM3 19v2h18v-2z"/></svg>
+                          <span class="md-ellipsis">
+                            in
+                            
+                              <a href="../../../../category/tutorials/">Tutorials</a></span>
+                        </div>
+                      </li>
+                    
+                    
+                      
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7z"/></svg>
+                          <span class="md-ellipsis">
+                            
+                              36 min read
+                            
+                          </span>
+                        </div>
+                      </li>
+                    
+                  </ul>
+                </nav>
+              </li>
+            </ul>
+            
+          </nav>
+          
+        </div>
+      </div>
+    </div>
+    <article class="md-content__inner md-typeset">
+      
+        
+  
+
+
+
+
+<h1 id="fundamentals-of-computer-networks">Fundamentals of Computer Networks</h1>
+<h2 id="what-is-computer-network">What is Computer Network?</h2>
+<p>A computer network is a group of components or other devices connected together to communicate, exchange data, and share resources such as files, printers, applications, and an internet connection.</p>
+<p><strong>Example:</strong> Computers connected to the same Wi-Fi network in an office can share files and access a common printer.</p>
+<h3 id="importance-of-network">Importance of network</h3>
+<ul>
+<li>Easy sharing of files &amp; information</li>
+<li>Sharing of expensive device like Servers, Printers</li>
+</ul>
+<h3 id="network-components">Network components</h3>
+<ul>
+<li><strong>End Devices:</strong>  Computers, servers, printers, and smartphones.</li>
+<li><strong>Network devices:</strong> Hub, Modem, Switch, Router, Repeater, Network Interface Card (NIC), Bridge, Wi-Fi Access Point, Firewall.</li>
+<li><strong>Transmission media:</strong> Ethernet cables, fiber-optic cables, and Wireless.</li>
+<li><strong>Protocols:</strong> TCP/IP, HTTP, FTP, DNS, SMTP and Telnet.</li>
+</ul>
+<p><img alt="Network Devices|533" src="../../../../images/network-devices.jpg" /></p>
+<h2 id="network-topology">Network Topology</h2>
+<p>Network topology is the physical or logical arrangement of computers, network devices, and communication links within a computer network.</p>
+<p>In simple words, network topology describes how network devices are connected to each other and how data travels between them.</p>
+<h3 id="types-of-network-topology">Types of Network Topology</h3>
+<h4 id="1-star-topology">1. Star Topology</h4>
+<p>All devices connect to a central switch or hub.</p>
+<ol>
+<li>Easy to manage and troubleshoot.</li>
+<li>A central device failure can affect the entire network.</li>
+</ol>
+<p><img src="../../../images/star-topology.jpg" alt="Star Topology" width="533"></p>
+<p><strong>Example:</strong> Office LAN.</p>
+<h4 id="2-bus-topology">2. Bus Topology</h4>
+<p>All devices share one main backbone cable.</p>
+<ul>
+<li>Uses less cable.</li>
+<li>A backbone failure can disrupt the network.</li>
+</ul>
+<p>![[Pasted image 20261019175911.png|247]]</p>
+<p><strong>Example:</strong> Older Ethernet networks.</p>
+<h4 id="3-ring-topology">3. Ring Topology</h4>
+<ol>
+<li>
+<p>Each device connects to two neighboring devices, forming a loop.</p>
+</li>
+<li>
+<p>Data can travel around the ring.</p>
+</li>
+<li>A single link failure may disrupt a basic, unprotected ring.</li>
+</ol>
+<p>![[Pasted image 20261019180041.png|219]]</p>
+<p><strong>Example:</strong> Some legacy ring networks.</p>
+<h4 id="4-mesh-topology">4. Mesh Topology</h4>
+<p>Devices have multiple interconnections. In a full mesh, every device connects directly to every other device.</p>
+<ol>
+<li>High redundancy and reliability.</li>
+<li>Expensive and complex to implement.</li>
+</ol>
+<p>![[Pasted image 20261019180935.png|226]]</p>
+<p><strong>Example:</strong> Redundant WAN connections.</p>
+<h4 id="5-tree-topology">5. Tree Topology</h4>
+<p>Devices are arranged in a hierarchical structure with branches.</p>
+<ol>
+<li>Easy to expand and organize.</li>
+<li>Failure of an upper-level device can affect its branches.</li>
+</ol>
+<p>![[Pasted image 20261019181126.png|280]]</p>
+<p><strong>Example:</strong> Enterprise campus network.</p>
+<h4 id="6-hybrid-topology">6. Hybrid Topology</h4>
+<p>Combines two or more different topologies.</p>
+<ol>
+<li>Flexible and scalable.</li>
+<li>Design and troubleshooting can be more complex.</li>
+</ol>
+<p>![[Pasted image 20261019181257.png|325]]</p>
+<p><strong>Example:</strong> A company combining star LANs with a redundant backbone.</p>
+<h3 id="physical-topology">Physical Topology</h3>
+<p>Physical topology refers to the actual physical arrangement of network devices, cables, ports, and other hardware components in a network.</p>
+<p>In simple words, it describes how devices are physically connected to each other.</p>
+<h3 id="logical-topology">Logical Topology</h3>
+<p>Logical topology refers to how data flows between devices across a network, regardless of the physical arrangement of the devices and cables.</p>
+<p>In simple words, it describes how devices communicate and how data travels through the network.</p>
+<h2 id="network-types">Network Types</h2>
+<h3 id="1-lanlocal-area-network">1. LAN(Local Area Network)</h3>
+<p>A high-speed network confined to a small geographic area (e.g., office, building) using Ethernet (IEEE 802.3) or Wi-Fi (IEEE 802.11) for data transmission. Typically managed by a single organization.</p>
+<h3 id="2-wanwide-area-network">2. WAN(Wide area Network)</h3>
+<p>A geographically distributed network that interconnects LANs over large distances using leased lines (e.g., MPLS, Metro Ethernet) or public networks (e.g., Internet with VPN tunneling). Security mechanisms such as IPSec or SSL/TLS are often implemented.</p>
+<h3 id="3-manmetropolitan-area-network">3. MAN(Metropolitan Area Network)</h3>
+<p>A network that spans a city or campus area, often owned by ISPs or large enterprises. Uses technologies like Ethernet MAN, DWDM, or microwave transmission.</p>
+<h3 id="4-personal-area-network-pan">4. Personal Area Network (PAN)</h3>
+<p>A short-range network used for personal devices (e.g., smartphones, wearables) using Bluetooth, ZigBee, or USB interconnects.</p>
+<h3 id="5-virtual-private-network-vpn">5. Virtual Private Network (VPN)</h3>
+<p>A secure overlay network built over a public infrastructure (usually the Internet), providing encrypted tunnels (e.g., IPSec, SSL-VPN) for secure remote access.</p>
+<h2 id="communication-media">Communication Media</h2>
+<p>Communication media is the physical path or wireless medium through which data travels from one network device to another.</p>
+<p>In simple words, communication media is the medium that carries data between devices in a network.</p>
+<p><strong>Example</strong> Connection of a computer to a switch using an Ethernet cable, the cable acts as the communication medium.</p>
+<h3 id="types-of-communication-media">Types of Communication Media</h3>
+<p>Communication media is divided into two main categories.</p>
+<h4 id="1-guided-media-wired">1. Guided Media (Wired)</h4>
+<p>Data travels through a physical cable.</p>
+<p><strong>Examples:</strong> Twisted-pair cable, coaxial cable, fiber-optic cable.</p>
+<h4 id="2-unguided-media-wireless">2. Unguided Media (Wireless)</h4>
+<p>Data travels through electromagnetic waves without a physical cable.</p>
+<p>Examples: Wi-Fi, Bluetooth, cellular radio, satellite communication.</p>
+<h1 id="guided-media-wired-communication">Guided Media (Wired Communication)</h1>
+<h5 id="a-twisted-pair-cable-utpstp">A. Twisted Pair Cable (UTP/STP)</h5>
+<p>A cable containing pairs of insulated copper wires twisted together to reduce electromagnetic interference.</p>
+<ul>
+<li><strong>UTP:</strong> Unshielded Twisted Pair</li>
+<li><strong>STP:</strong> Shielded Twisted Pair</li>
+<li>Common categories: Cat5e, Cat6, Cat6A</li>
+<li>Common Ethernet channel length: up to 100 metres, depending on the standard and installation.</li>
+</ul>
+<p>![[Pasted image 20261019183731.png|318]]</p>
+<h5 id="b-coaxial-cable">B. Coaxial Cable</h5>
+<p>A cable with a central conductor, insulation, metallic shielding, and an outer jacket.</p>
+<ul>
+<li>Good shielding against interference.</li>
+<li>Used in cable television and some broadband access networks.</li>
+<li>Less common for modern Ethernet LAN connections.</li>
+</ul>
+<p>![[Pasted image 20261019184118.png|405]]</p>
+<h5 id="c-fiber-optic-cable">C. Fiber-Optic Cable</h5>
+<p>Transmits data using light pulses through glass or plastic fibers.</p>
+<ul>
+<li>Single-mode fiber (SMF): Common for long-distance links.</li>
+<li>Multimode fiber (MMF): Common for shorter links, such as within buildings and data centers.</li>
+<li>High bandwidth and immunity to electromagnetic interference.</li>
+</ul>
+<p>![[Pasted image 20261019184231.png|293]]</p>
+<h4 id="2-unguided-media-wireless-communication">2. Unguided Media (Wireless Communication)</h4>
+<hr />
+<p>Data is transmitted through the air or vacuum using electromagnetic waves.</p>
+<ul>
+<li><strong>Radio Waves (Wi-Fi, LTE):</strong><ul>
+<li>Omni-directional, subject to interference and eavesdropping.</li>
+<li>Requires encryption (e.g., WPA3, IPSec) for secure communication.</li>
+</ul>
+</li>
+<li><strong>Microwave Transmission:</strong><ul>
+<li>Line-of-sight; used in point-to-point communication.</li>
+<li>Prone to weather-related attenuation.</li>
+</ul>
+</li>
+<li><strong>Infrared:</strong><ul>
+<li>Short-range, line-of-sight.</li>
+<li>Common in remote controls and some sensor networks.</li>
+</ul>
+</li>
+<li><strong>Satellite Communication:</strong><ul>
+<li>Long-distance, global coverage.</li>
+<li>High latency, vulnerable to interception and weather.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h1 id="osi-reference-model">OSI Reference Model</h1>
+<p>The <strong>OSI (Open Systems Interconnection) Model</strong> is a <strong>conceptual framework</strong> developed by the ISO (International Organization for Standardization) that standardizes the functions of a telecommunication or computing system into <strong>seven abstract layers</strong>. It facilitates <strong>interoperability</strong>, <strong>troubleshooting</strong>, and <strong>security implementation</strong> across diverse systems and protocols by providing a common language and structure for network communication.</p>
+<p><strong>1. Physical Layer:</strong> Deals with the physical connection and transmission of raw binary data over a medium. Includes cables, switches, and network interface cards.</p>
+<ol>
+<li>Data Link Layer: Manages node-to-node data transfer, error detection, and correction. Includes MAC addresses and switches.</li>
+</ol>
+<p><strong>3. Network Layer:</strong> Handles logical addressing and routing of data packets between networks. Includes IP addresses and routers.</p>
+<p><strong>4. Transport Layer: Ensures reliable data transfer with error checking and flow control. Includes TCP and UDP protocols.</strong></p>
+<p><strong>5. Session Layer:</strong> Manages sessions or connections between applications. Controls dialogues and data exchange.</p>
+<p><strong>6. Presentation Layer:</strong> Translates data between the application layer and the network format. Handles encryption, decryption, and data compression.</p>
+<p><strong>7.Application Layer:</strong> <strong>Provides network services directly to end-user applications. Includes protocols like HTTP, FTP, and SMTP.</strong></p>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>Name</th>
+<th>Function</th>
+<th>Examples</th>
+<th>Security Focus</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>7</strong></td>
+<td>Application</td>
+<td>Interface for user applications</td>
+<td>HTTP, FTP, SMTP, DNS</td>
+<td>Input validation, authentication, app-layer firewalls</td>
+</tr>
+<tr>
+<td><strong>6</strong></td>
+<td>Presentation</td>
+<td>Data formatting, encryption/decryption, compression</td>
+<td>SSL/TLS, JPEG, ASCII, EBCDIC</td>
+<td>Data encryption, encoding</td>
+</tr>
+<tr>
+<td><strong>5</strong></td>
+<td>Session</td>
+<td>Establishes, manages, and terminates sessions</td>
+<td>NetBIOS, RPC</td>
+<td>Session tokens, timeout policies</td>
+</tr>
+<tr>
+<td><strong>4</strong></td>
+<td>Transport</td>
+<td>Reliable delivery, segmentation, flow control</td>
+<td>TCP, UDP</td>
+<td>Port filtering, session hijacking protection</td>
+</tr>
+<tr>
+<td><strong>3</strong></td>
+<td>Network</td>
+<td>Logical addressing and routing</td>
+<td>IP, ICMP, OSPF</td>
+<td>IP filtering, packet inspection, VPN tunneling</td>
+</tr>
+<tr>
+<td><strong>2</strong></td>
+<td>Data Link</td>
+<td>Physical addressing (MAC), frame formatting</td>
+<td>Ethernet, PPP, ARP</td>
+<td>MAC filtering, VLANs, ARP spoofing prevention</td>
+</tr>
+<tr>
+<td><strong>1</strong></td>
+<td>Physical</td>
+<td>Transmission of raw bits over media</td>
+<td>Cables, hubs, modems</td>
+<td>Physical security, tap detection</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="ip-addressing">IP Addressing</h1>
+<p><strong>IP Address:</strong> An <strong>IP address (Internet Protocol address)</strong> is a <strong>unique numerical identifier</strong> assigned to each device on a network that uses the <strong>Internet Protocol for communication</strong>.</p>
+<p>It serves two critical purposes: <strong>identification</strong> (who the device is) and <strong>location addressing</strong> (where the device is in the network).</p>
+<h2 id="types-of-ip-addresses"><strong>Types of IP Addresses</strong></h2>
+<ol>
+<li><strong>IPv4 (32-bit) :</strong></li>
+</ol>
+<p><strong>Address Length</strong>: 32 bits</p>
+<p><strong>Address Format</strong>: Dotted decimal (e.g., <code>192.168.0.1</code>)</p>
+<p><strong>Total Addresses</strong>: ~4.3 billion (2³²)</p>
+<p><strong>Header Complexity</strong>: Simpler, fewer fields</p>
+<p><strong>Example Address</strong>: <code>192.0.2.1</code></p>
+<p><strong>Deployment</strong>: Widely used, but address exhaustion is an issue</p>
+<p><strong>Security</strong>: Relies on additional protocols (e.g., IPSec optional)</p>
+<p><strong>NAT (Network Address Translation)</strong>: Commonly used to extend address space</p>
+<p><strong>2. IPv6 (128-bit)</strong></p>
+<p><strong>Address Length</strong>: 128 bits</p>
+<p><strong>Address Format</strong>: Hexadecimal, colon-separated (e.g., <code>2001:0db8:85a3::8a2e:0370:7334</code>)</p>
+<p><strong>Total Addresses</strong>: ~3.4×10³⁸ (2¹²⁸) — virtually unlimited</p>
+<p><strong>Header Complexity</strong>: More complex, but designed to be more efficient</p>
+<p><strong>Example Address</strong>: <code>2001:0db8:0000:0000:0000:ff00:0042:8329</code></p>
+<p><strong>Deployment</strong>: Increasing adoption; solves address exhaustion</p>
+<p><strong>Security</strong>: IPSec support is mandatory</p>
+<p><strong>NAT</strong>: Typically not needed; end-to-end connectivity is preferred</p>
+<h2 id="5-classes-of-ipv4-address"><strong>5 Classes of IPv4 Address</strong></h2>
+<p>Class A : 1-126</p>
+<p>Class B : 128-191</p>
+<p>Class C : 192 – 223</p>
+<p>Class D : 224 – 239 (Multicast)</p>
+<p>Class E : 240 –255 (R&amp;D)</p>
+<p><strong>Class A</strong>:</p>
+<p>Range : 1.0.0.0 to 126.255.255.255</p>
+<p>Default Subnet Mask: 255.0.0.0</p>
+<p>CIDR Notation : /8</p>
+<p>Octets : N.H.H.H</p>
+<p>Network Bits : 8</p>
+<p>Host Bits : 24</p>
+<p>Available Address : 1,62,77,216</p>
+<p><strong>Class B</strong>:</p>
+<p>Range : 128.0.0.0 to 191.255.255.255</p>
+<p>Default Subnet Mask: 255.255.0.0</p>
+<p>CIDR Notation : /16</p>
+<p>Octets : N.N.H.H</p>
+<p>Network Bits : 16</p>
+<p>Host Bits : 16</p>
+<p>Available Address : 65,361</p>
+<p><strong>Class C</strong>:</p>
+<p>Range : 192.0.0.0 to 223.255.255.255</p>
+<p>Default Subnet Mask: 255.255.255.0</p>
+<p>CIDR Notation : /24</p>
+<p>Octets : N.N.N.H</p>
+<p>Network Bits : 24</p>
+<p>Host Bits : 8</p>
+<p>Available Address : 256</p>
+<p><strong>Class D</strong>: 224.0.0.0 to 239.255.255.255 (Multicast)</p>
+<p><strong>Class E</strong>: 240.0.0.0 to 255.255.255.255 (Reserved for future use, research)</p>
+<h2 id="public-private-ip-range">Public &amp; Private IP Range</h2>
+<p><strong>Public IP Address :</strong> A public IP address is a globally unique IP address assigned to a device that needs to be accessible over the internet. Public IP addresses are assigned by Internet Assigned Numbers Authority (IANA) and regional Internet registries (RIRs) like ARIN, RIPE NCC, APNIC, LACNIC, and AFRINIC.</p>
+<p><strong>Usage</strong>: Typically used for servers, websites, and any other devices that need to be reachable from the internet.</p>
+<p><strong>Private IP Address</strong>: A private IP address used within a private network, such as a home or corporate network. These addresses are not routable on the global internet and are used for internal communication within a local network. Private IP addresses typically connect to the internet through a Network Address Translation (NAT) device, which maps the private IP addresses to a public IP address.</p>
+<p><strong>Usage</strong>: Used for devices within a private network to communicate with each other without using public IP addresses.</p>
+<p><strong>Range:</strong></p>
+<ul>
+<li><strong>Class A</strong>: 10.0.0.0 to 10.255.255.255 (1 NETWORK)</li>
+<li><strong>Class B</strong>: 172.16.0.0 to 172.31.255.255 (16 NETWORKS)</li>
+<li><strong>Class C</strong>: 192.168.0.0 to 192.168.255.255 (256 NETWORKS)</li>
+</ul>
+<h3 id="identity-the-network-host-part-in-ip-address"><strong>Identity the Network &amp; Host Part in IP Address :</strong></h3>
+<p><strong>Solution :</strong> Find the class the address and the  divide the Network and Host Part according to Class:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Address</strong></th>
+<th><strong>Class</strong></th>
+<th><strong>N</strong></th>
+<th><strong>H</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10.250.1.1</td>
+<td>A</td>
+<td>10</td>
+<td>250.1.1</td>
+</tr>
+<tr>
+<td>192.14.2.0</td>
+<td>C</td>
+<td>192.14.2</td>
+<td>0</td>
+</tr>
+<tr>
+<td>177.100.18.4</td>
+<td>B</td>
+<td>177.100</td>
+<td>18.4</td>
+</tr>
+<tr>
+<td>192.168.5.4</td>
+<td>C</td>
+<td>192.168.5</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+<h3 id="how-ip-address-are-values-denoted-into-classes"><strong>How IP address are values denoted into classes:</strong></h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><strong>27</strong></th>
+<th><strong>26</strong></th>
+<th><strong>25</strong></th>
+<th><strong>24</strong></th>
+<th><strong>23</strong></th>
+<th><strong>22</strong></th>
+<th><strong>21</strong></th>
+<th><strong>20</strong></th>
+<th><strong>Obtained Range</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td><strong>128</strong></td>
+<td><strong>64</strong></td>
+<td><strong>32</strong></td>
+<td><strong>16</strong></td>
+<td><strong>8</strong></td>
+<td><strong>4</strong></td>
+<td><strong>2</strong></td>
+<td><strong>1</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Class A</strong></td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td><strong>0-127</strong></td>
+</tr>
+<tr>
+<td><strong>Class B</strong></td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td><strong>128-191</strong></td>
+</tr>
+<tr>
+<td><strong>Class C</strong></td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td><strong>192-223</strong></td>
+</tr>
+<tr>
+<td><strong>Class D</strong></td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td><strong>224 - 239</strong></td>
+</tr>
+<tr>
+<td><strong>Class E</strong></td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td><strong>240 - 255</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="decimal-to-binary-conversion-binary-to-decimal-conversion"><strong>Decimal to Binary Conversion &amp; Binary to Decimal Conversion</strong></h3>
+<table>
+<thead>
+<tr>
+<th><strong>128</strong></th>
+<th><strong>64</strong></th>
+<th><strong>32</strong></th>
+<th><strong>16</strong></th>
+<th><strong>8</strong></th>
+<th><strong>4</strong></th>
+<th><strong>2</strong></th>
+<th><strong>1</strong></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td><strong>255</strong></td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td><strong>109</strong></td>
+</tr>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td><strong>34</strong></td>
+</tr>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td><strong>55</strong></td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td><strong>68</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="converting-a-cird-notation-or-slash-value-to-subnet-mast-follow-the-steps-given-below"><strong>Converting a CIRD Notation or Slash value to Subnet mast follow the steps given below :</strong></h3>
+<p>Divide the Slash value from 8</p>
+<p>Find how many time 8 dividing the slash value completely.</p>
+<p>1 bit left – 128</p>
+<p>2 bits left – 192</p>
+<p>3 bits left – 224</p>
+<p>4 bits left – 240</p>
+<p>5 bits left – 248</p>
+<p>6 bits left – 252</p>
+<p>7 bits left – 254</p>
+<h3 id="q-find-the-subnet-masks-of-the-following-cidr-values-9-10-22-30-27"><strong>Q.)</strong> Find the Subnet masks of the following CIDR Values : /9, /10, /22, /30, /27.</h3>
+<p><strong>Ans</strong>.</p>
+<p>/9 - 255.128.0.0</p>
+<p>/10 - 255.255.252.0</p>
+<p>/30  255.255.255.252</p>
+<p>/27 - 255.255.255.224</p>
+<table>
+<thead>
+<tr>
+<th><strong>Power of 2</strong></th>
+<th><strong>Value</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>20</td>
+<td>1</td>
+</tr>
+<tr>
+<td>21</td>
+<td>2</td>
+</tr>
+<tr>
+<td>22</td>
+<td>4</td>
+</tr>
+<tr>
+<td>23</td>
+<td>8</td>
+</tr>
+<tr>
+<td>24</td>
+<td>16</td>
+</tr>
+<tr>
+<td>25</td>
+<td>32</td>
+</tr>
+<tr>
+<td>26</td>
+<td>64</td>
+</tr>
+<tr>
+<td>27</td>
+<td>128</td>
+</tr>
+<tr>
+<td>28</td>
+<td>256</td>
+</tr>
+<tr>
+<td>29</td>
+<td>512</td>
+</tr>
+<tr>
+<td>210</td>
+<td>1,024</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="class-c-subnetting">Class C Subnetting</h1>
+<p><strong>Q.) Required hosts – 40</strong></p>
+<p>Ans.)</p>
+<p><strong>If we take Class C network 192.168.10.0/24 for these required host.</strong></p>
+<p>Total addresses in this network : 256</p>
+<p>Total Usable host : 254</p>
+<p>Required host 40</p>
+<p>Wastage of IP : 254-40 = 214</p>
+<p><strong>Note:</strong> We are getting the maximum number of IP addresses, that's why we are doing the subnetting to avoid the wastage of IP addresses.</p>
+<p>So follow the following steps</p>
+<p><strong>Step 1</strong>.Check Required Hosts covering in which block :</p>
+<table>
+<thead>
+<tr>
+<th>20</th>
+<th>1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>21</td>
+<td>2</td>
+</tr>
+<tr>
+<td>22</td>
+<td>4</td>
+</tr>
+<tr>
+<td>23</td>
+<td>8</td>
+</tr>
+<tr>
+<td>24</td>
+<td>16</td>
+</tr>
+<tr>
+<td>25</td>
+<td>32</td>
+</tr>
+<tr>
+<td>26</td>
+<td>64.</td>
+</tr>
+<tr>
+<td>27</td>
+<td>128</td>
+</tr>
+</tbody>
+</table>
+<p>40 is covering in block of 26</p>
+<p>That means value of H will be =6</p>
+<p>2H –2  = 40</p>
+<p>26 - 2 = 40</p>
+<p>64 –2 = 40</p>
+<p>62=40</p>
+<p><strong>Step 2 : find the Converted n/w Bits by its formula.</strong></p>
+<p><strong>Converted n/w Bits</strong> = Total host bits of this class of IP – required host bits.</p>
+<p>N = 8-6</p>
+<p>N =2</p>
+<p><strong>Step 3: Find the total network bits by its formula.</strong></p>
+<p><strong>Total n/w bits = Total n/w bits of this class of IP + converted n/w bits</strong></p>
+<p><strong>=24+2</strong></p>
+<p><strong>=26</strong></p>
+<p><strong>255.255.255.X+X+X+X+X+X+X+X</strong></p>
+<p><strong>255.255.255.128+64+0+0+0+0+0+0</strong></p>
+<p><strong>255.255.255.192</strong></p>
+<p><strong>Step 4: Convert the CIDR notation value to Subnet Mask.</strong></p>
+<p><strong>/26 - 255.255.255.192</strong></p>
+<p><strong>Now, we have the following network :-</strong></p>
+<p>Subnet: 192.168.10.0/26</p>
+<p>Subnet Mask : 255.255.255.192</p>
+<p>Total IP Addresses: 64</p>
+<p>Total Usable Address : 62</p>
+<p>Wastage Addresses : 62-40 = 22</p>
+<p>First usable Address : 192.168.10.1</p>
+<p>Last Usable Address : 192.168.10.62</p>
+<p>Network Address : 192.168.10.0</p>
+<p>Broadcast Address : 192.168.10.63</p>
+<p><strong>Q.) Finding the subnetwork and block size after subnetting :</strong></p>
+<p><strong>Subnetworks = 2N</strong></p>
+<p><strong>=22</strong></p>
+<p><strong>=4</strong></p>
+<p><strong>Now we can create 4 subnetworks of a  large network.</strong></p>
+<p><strong>Block size = 2H</strong></p>
+<p><strong>= 26</strong></p>
+<p><strong>=64</strong></p>
+<p><strong>1.) First Network :</strong></p>
+<p>Subnet: 192.168.10.0/26</p>
+<p>Subnet Mask : 255.255.255.192</p>
+<p>Total IP Addresses: 64</p>
+<p>Total Usable Address : 62</p>
+<p>First usable Address : 192.168.10.1</p>
+<p>Last Usable Address : 192.168.10.62</p>
+<p>Network Address : 192.168.10.0</p>
+<p>Broadcast Address : 192.168.10.63</p>
+<p><strong>2.) Second Network :</strong></p>
+<p>Subnet: 192.168.10.64/26</p>
+<p>Subnet Mask : 255.255.255.192</p>
+<p>Total IP Addresses: 64</p>
+<p>Total Usable Address : 62</p>
+<p>First usable Address : 192.168.10.65</p>
+<p>Last Usable Address : 192.168.10.126</p>
+<p>Network Address : 192.168.10.64</p>
+<p>Broadcast Address : 192.168.10.127</p>
+<p><strong>3.) Third Network</strong></p>
+<p>Subnet: 192.168.10.128/26</p>
+<p>Subnet Mask : 255.255.255.192</p>
+<p>Total IP Addresses: 64</p>
+<p>Total Usable Address : 62</p>
+<p>First usable Address : 192.168.10.129</p>
+<p>Last Usable Address : 192.168.10.190</p>
+<p>Network Address : 192.168.10.128</p>
+<p>Broadcast Address : 192.168.10.191</p>
+<p><strong>4.) Fourth Network :</strong></p>
+<p>Subnet: 192.168.10.192/26</p>
+<p>Subnet Mask : 255.255.255.192</p>
+<p>Total IP Addresses: 64</p>
+<p>Total Usable Address : 62</p>
+<p>First usable Address : 192.168.10.193</p>
+<p>Last Usable Address : 192.168.10.254</p>
+<p>Network Address : 192.168.10.192</p>
+<p>Broadcast Address : 192.168.10.255</p>
+<hr />
+<h1 id="class-b-subnetting"><strong>Class B Subnetting</strong></h1>
+<p><strong>1. Required Hosts – 700</strong></p>
+<p><strong>Step 1 :</strong> Find required host value in power of 2.</p>
+<p>210  = 1024</p>
+<p>H = 10</p>
+<p>2H -2  = 700</p>
+<p>210 - 2 =  700</p>
+<p>1024 - 2 = 700</p>
+<p><strong>Step 2 : Find the converted network bits.</strong></p>
+<p><strong>Converted network bits(N)</strong>  =     Total host bits of this class – required host bits</p>
+<p>N     =    16-10</p>
+<p>N     =    6</p>
+<p><strong>Step 3: Find the total network bits.</strong></p>
+<p><strong>Total n/w bits   =   Total n/w bits of this class of IP + converted n/w bits</strong></p>
+<p><strong>=   16 + 6</strong></p>
+<p><strong>=   22</strong></p>
+<p><strong>CIDR Value = /22</strong></p>
+<p><strong>Step 4: Convert the CIDR notation value to Subnet Mask.</strong></p>
+<p><strong>Left bits = 6</strong></p>
+<p><strong>/22 = 255.255.(128+64+32+16+8+4+0+0).0</strong></p>
+<p><strong>Subnet Mask = 255.255.252.0</strong></p>
+<p><strong>Step 5 : Subnet Summery</strong></p>
+<p>Subnet:</p>
+<p>Subnet Mask :</p>
+<p>Total IP Addresses:</p>
+<p>Total Usable Address :</p>
+<p>Wastage Addresses :</p>
+<p>First usable Address :</p>
+<p>Last Usable Address :</p>
+<p>Network Address :</p>
+<p>Broadcast Address :</p>
+<hr />
+<h1 id="dhcp">DHCP</h1>
+<h3 id="purpose">Purpose:</h3>
+<ul>
+<li>DHCP automates the process of assigning IP addresses, subnet masks, default gateways, and other network configuration parameters to devices on a network.</li>
+<li>It Provides administrators with a mechanism to dynamically allocate IP addresses, rather than manually setting the address on each device.</li>
+</ul>
+<h3 id="components">Components:</h3>
+<p><strong>1. DHCP Server:</strong> Manages a pool of IP addresses and configuration information. Assigns IP addresses and other settings to DHCP clients.<br />
+<strong>2. DHCP Client:</strong> A device requesting network configuration information from a DHCP server.<br />
+<strong>3. DHCP Relay Agent:</strong> Forwards DHCP messages between clients and servers when they are on different subnets.</p>
+<h3 id="process-dora-types-of-message"><strong>Process (DORA): Types of message—</strong></h3>
+<p>There are four steps to this DHCP process :</p>
+<p><strong>1. Discover:</strong> Client broadcasts a DHCP Discover message to find available DHCP servers in local segment.<br />
+<strong>2. Offer:</strong> DHCP server responds with a DHCP Offer message, including an IP address and configuration parameters.<br />
+<strong>3. Request:</strong> Client sends a DHCP Request message to the selected DHCP server, requesting the offered IP address.<br />
+<strong>4. Acknowledge:</strong> DHCP server sends a DHCP Acknowledgment message, confirming the IP address assignment and providing configuration details.</p>
+<h3 id="dhcp-lease-time">DHCP Lease time :</h3>
+<ul>
+<li><strong>IP Address Lease:</strong> DHCP servers assign IP addresses with a lease time. When the lease expires, the client must renew it.</li>
+<li><strong>Lease Renewal:</strong> Clients can request to renew their IP lease before it expires, ensuring continuity of service.</li>
+<li><strong>Lease Rebinding:</strong> If the original DHCP server is unreachable, the client may attempt to contact any available DHCP server for lease renewal.</li>
+</ul>
+<h3 id="configuration-offered-by-dhcp-server">Configuration offered by DHCP Server :</h3>
+<p>In addition to IP address and subnet mask information, DHCP can provide the following protocol parameters:</p>
+<ul>
+<li>Default Gateway</li>
+<li>Domain Name</li>
+<li>DNS servers</li>
+<li>Time Servers</li>
+<li>WINS servers</li>
+</ul>
+<h3 id="benefits">Benefits:</h3>
+<ul>
+<li><strong>Centralized Management:</strong> Simplifies IP address management and configuration.</li>
+<li><strong>Reduced Manual Configuration:</strong> Minimizes the need for manual IP address assignments.</li>
+<li><strong>Dynamic Allocation:</strong> Efficiently manages IP address allocation and reuse.</li>
+</ul>
+<h3 id="security-considerations">Security Considerations:</h3>
+<ul>
+<li><strong>Unauthorized DHCP Servers:</strong> Risk of rogue DHCP servers assigning incorrect settings. Use DHCP snooping to mitigate this risk.</li>
+<li><strong>IP Address Conflicts:</strong> Ensure proper configuration to avoid conflicts between statically and dynamically assigned addresses.</li>
+</ul>
+<h3 id="port-number">Port Number:</h3>
+<ul>
+<li>DHCP Client broadcast the DHCP discover message on port <strong>67.</strong></li>
+<li>DHCP Server send the DHCP offer message port <strong>68</strong>.</li>
+</ul>
+<hr />
+<h1 id="dhcp-relay">DHCP Relay</h1>
+<h3 id="purpose_1"><strong>Purpose:</strong></h3>
+<ul>
+<li>
+<p>DHCP Relay allows DHCP clients on different subnets to communicate with a DHCP server that is not on the same local subnet.</p>
+</li>
+<li>
+<p>This is essential in larger networks where a central DHCP server is used to manage IP address distribution across multiple subnets.</p>
+</li>
+<li>
+<p><strong>DHCP Relay Agent:</strong> A network device (usually a router or a switch) configured to forward DHCP requests and replies between clients and the DHCP server across different subnets.</p>
+</li>
+<li>
+<p><strong>Forwarding Mechanism:</strong> The relay agent listens for DHCP messages on its local interfaces and forwards them to the DHCP server's IP address.</p>
+</li>
+</ul>
+<h3 id="how-dhcp-relay-works"><strong>How DHCP Relay Works:</strong></h3>
+<ul>
+<li><strong>DHCP Discover Message:</strong> A DHCP client broadcasts a DHCP Discover message on its local subnet.Relay</li>
+<li><strong>Agent Action:</strong> The relay agent intercepts this broadcast message and forwards it to the DHCP server, using unicast server.</li>
+<li><strong>Response:</strong> The DHCP server receives the message, processes it, and sends a DHCP Offer message back to the relay agent.</li>
+<li><strong>Relay Agent Forwarding:</strong> The relay agent receives the DHCP Offer and forwards it back to the client.</li>
+<li><strong>Client Request and Acknowledgment:</strong> The client then sends a DHCP Request message, and the server responds with a DHCP Acknowledgment, both of which are relayed by the DHCP relay agent.</li>
+</ul>
+<hr />
+<h1 id="nat-overload">NAT Overload</h1>
+<p>NAT overload, also known as Port Address Translation (PAT) is a type of NAT that <strong>allows multiple devices on a local network to share a single public IP address when accessing the internet</strong>. This is achieved by translating private IP addresses and different port numbers to the public IP address.</p>
+<p>When a device on the local network (with a private IP address) sends a request to the internet, the router or firewall translates the private IP and port number to the single public IP address. The router or firewall uses different port numbers for each device to distinguish between the connections.</p>
+<p><strong>Benefits:</strong></p>
+<p><strong>Conserves public IP addresses:</strong> It allows multiple devices to use a single public IP address, reducing the need for multiple public IP addresses.</p>
+<p><strong>Improved security:</strong> Hides internal network addresses from the internet, enhancing security.</p>
+<p><strong>Limitations:</strong></p>
+<p><strong>Potential performance issues:</strong> Can sometimes slow down performance, especially with multiple concurrent connections.</p>
+<p><strong>Can break end-to-end connectivity:</strong> Can make it difficult for external devices to directly connect to specific devices within the private network.</p>
+<p><strong>Compatibility issues with some applications:</strong> Some applications that rely on specific port numbers or require direct connections may not function correctly.</p>
+<hr />
+<h1 id="nat">NAT</h1>
+<h3 id="natnetwork-address-translation"><strong>NAT(Network Address Translation):</strong></h3>
+<ul>
+<li>Modify network address information in packet headers while they are in transit, which helps to map one IP address space into another.</li>
+<li>NAT is commonly used to enable multiple devices on a local network to share a single public IP address.</li>
+<li>Translate between private and public addresses</li>
+<li>Translate multiple privately-addressed hosts to a single public address, which conserves the public address space.</li>
+<li>Hiding the specific addresses and addressing structure of the internal (or private) network.</li>
+<li>Public-to-public address translation, as well as private-to-private address translation.</li>
+<li>Temporarily solution to the address shortage problem. IPv4 will eventually be replaced with IPv6</li>
+</ul>
+<h3 id="types-of-nat">Types of NAT :</h3>
+<p><strong>Static NAT:</strong></p>
+<ul>
+<li>One-to-one translation between two addresses, or between a port on one address to a port on another address.</li>
+<li>Maps one private IP address to one public IP address.</li>
+<li>Often used to assign a public address to a device behind a NAT-enabled firewall/router.</li>
+<li>Typically used for web servers or other devices that need to be accessible from outside the network.</li>
+</ul>
+<p><strong>Dynamic NAT:</strong></p>
+<ul>
+<li>Utilizes a pool of global addresses to dynamically translate the outbound traffic of clients behind a NAT-enabled device.</li>
+</ul>
+<h3 id="nat-overload-or-port-address-translation-pat"><strong>NAT Overload or Port Address Translation (PAT) :</strong></h3>
+<ul>
+<li>Translates the outbound traffic of clients to unique port numbers off of a single global address.</li>
+<li>PAT is necessary when the number of internal clients exceeds the available global addresses.</li>
+</ul>
+<h3 id="nat-terminology">NAT Terminology :</h3>
+<ul>
+<li><strong>Inside Local</strong>: The specific IP address assigned<br />
+    to an inside host behind a NAT-enabled device (usually a private address).</li>
+<li><strong>Inside Global:</strong> the address that identifies an<br />
+    inside host to the outside world (usually a public address). Essentially, this<br />
+    is the dynamically or statically-assigned public address assigned to a private<br />
+    host.</li>
+<li><strong>Outside Global:</strong> the address assigned to an<br />
+    outside host (usually a public address).</li>
+<li><strong>Outside Local:</strong> the address that identifies an<br />
+    outside host to the inside network. Often, this is the same address as the<br />
+    Outside Global. However, it is occasionally necessary to translate an outside<br />
+    (usually public) address to an inside (usually private) address.</li>
+</ul>
+<hr />
+<h1 id="dns">DNS</h1>
+<p>Domain Name System (DNS) is a critical service that translates domain names (like <a href="http://www.google.com/">www.google.com</a>) into IP addresses (like 209.85.225.104). This translation is essential for connecting to resources on the Internet and within private networks.</p>
+<h3 id="purpose-of-dns"><strong>Purpose of DNS:</strong></h3>
+<ul>
+<li>DNS alleviates the need to remember numerical IP addresses by allowing users to use alphanumeric domain names.</li>
+<li>It operates as a distributed hierarchical system, with servers responsible for different parts of the DNS namespace.</li>
+</ul>
+<h3 id="components-of-dns"><strong>Components of DNS:</strong></h3>
+<ul>
+<li><strong>Hierarchy:</strong> DNS is structured hierarchically, from top-level domains (TLDs) like .com, to second-level domains (e.g., .google), and finally to hostnames (e.g., www).</li>
+<li><strong>DNS Servers:</strong><ul>
+<li><strong>Primary (Master) DNS Server:</strong> This server holds the original, authoritative copies of DNS records (zone files) for a domain. It manages updates to these records.</li>
+<li><strong>Secondary (Slave) DNS Server:</strong> This server maintains a copy of the primary server's zone files. It can answer queries if the primary server is unavailable and can also forward updates to the primary server.</li>
+<li><strong>Caching DNS Server:</strong> These servers do not store zone files but temporarily store (cache) resolved</li>
+<li><strong>DNS queries.</strong> They improve performance by reducing the need to query authoritative DNS servers repeatedly for the same information.</li>
+</ul>
+</li>
+</ul>
+<h3 id="implementation-and-configuration"><strong>Implementation and Configuration:</strong></h3>
+<ul>
+<li><strong>HOSTS Files:</strong> These are local static files that can be configured on each device. They contain specific mappings of hostnames to IP addresses. Updates require manual changes on each device.</li>
+<li><strong>Centralized DNS Servers:</strong> Preferred in larger networks, all devices point to one or more DNS servers. Changes need to be made only on these servers, simplifying administration.</li>
+</ul>
+<h3 id="advantages-of-dns-over-hosts-files"><strong>Advantages of DNS over HOSTS Files</strong></h3>
+<ul>
+<li><strong>Centralized Management</strong>: Changes are made once on DNS servers rather than on every device.</li>
+<li><strong>Scalability</strong>: Handles large volumes of DNS queries efficiently.</li>
+<li><strong>Redundancy and Load Balancing</strong>: DNS can distribute queries across multiple servers for fault tolerance and load balancing.</li>
+</ul>
+<hr />
+<h3 id="cabling-connectors">Cabling &amp; Connectors</h3>
+<p><strong>Cabling and Connectors</strong> are the physical media<br />
+and interfaces used to connect devices within a network, enabling data<br />
+transmission.</p>
+<ol>
+<li><strong>Ethernet Standards</strong></li>
+</ol>
+<p>Ethernet standards<br />
+define the wiring and signaling for physical connections in a network. These<br />
+standards include different speeds, transmission methods, and media types.</p>
+<p><strong>a. 10BASE-T</strong></p>
+<ul>
+<li><strong>Speed:</strong> 10 Mbps (Megabits per second)</li>
+<li><strong>Cabling:</strong> Twisted-pair copper cable (Cat3 or higher)</li>
+<li><strong>Distance:</strong> Maximum of 100 meters per segment</li>
+<li><strong>Connector:</strong> RJ45</li>
+<li><strong>Usage:</strong> Early Ethernet networks, typically found in older infrastructure.</li>
+</ul>
+<p><strong>b. 100BASE-TX</strong></p>
+<ul>
+<li><strong>Speed:</strong> 100 Mbps</li>
+<li><strong>Cabling:</strong> Twisted-pair copper cable (Cat5 or higher)</li>
+<li><strong>Distance:</strong> Maximum of 100 meters per segment</li>
+<li><strong>Connector:</strong> RJ45</li>
+<li><strong>Usage:</strong> Common in small and medium-sized networks during the late 1990s and 2000s, still in use in some legacy systems.</li>
+</ul>
+<p><strong>c. 1000BASE-T</strong></p>
+<ul>
+<li><strong>Speed:</strong> 1 Gbps (Gigabit per second)</li>
+<li><strong>Cabling:</strong> Twisted-pair copper cable (Cat5e or Cat6)</li>
+<li><strong>Distance:</strong> Maximum of 100 meters per segment</li>
+<li><strong>Connector:</strong> RJ45</li>
+<li><strong>Usage:</strong> Widely used in modern networks, including offices and data centers.</li>
+</ul>
+<p><strong>d. 10GBASE-T</strong></p>
+<ul>
+<li><strong>Speed:</strong> 10 Gbps</li>
+<li><strong>Cabling:</strong> Twisted-pair copper cable (Cat6a or Cat7)</li>
+<li><strong>Distance:</strong> Maximum of 100 meters per segment (Cat6a) or shorter distances for lower category cables</li>
+<li><strong>Connector:</strong> RJ45</li>
+<li><strong>Usage:</strong> High-speed network backbones, data centers, and environments requiring fast data transfer rates.</li>
+</ul>
+<p><strong>2. Fiber Optics</strong></p>
+<p>Fiber optic cables<br />
+use light to transmit data, offering higher speeds and longer distances than<br />
+copper cables. They are used in environments where high bandwidth,<br />
+long-distance transmission, and resistance to electromagnetic interference<br />
+(EMI) are required.</p>
+<p><strong>a. Single-Mode Fiber (SMF)</strong></p>
+<ul>
+<li><strong>Core Diameter:</strong> Small core (typically 8-10 microns)</li>
+<li><strong>Light Source:</strong> Laser</li>
+<li><strong>Distance:</strong> Long distances, up to 40 km or more without the need for repeaters</li>
+<li><strong>Usage:</strong> Long-haul networks, metropolitan area networks (MANs), and high-speed data transmission over long distances.</li>
+</ul>
+<p><strong>b. Multi-Mode Fiber (MMF)</strong></p>
+<ul>
+<li><strong>Core Diameter:</strong> Larger core (typically 50-62.5 microns)</li>
+<li><strong>Light Source:</strong> LED or laser</li>
+<li><strong>Distance:</strong> Shorter distances, up to 550 meters for 10 Gbps</li>
+<li><strong>Usage:</strong> Shorter-distance applications like LANs, data centers, and within buildings.</li>
+</ul>
+<p><strong>3. Connectors</strong></p>
+<p>Various connectors<br />
+are used with copper and fiber optic cables to interface with network devices.</p>
+<p><strong>a. RJ45</strong></p>
+<ul>
+<li><strong>Usage:</strong> The most common connector for twisted-pair Ethernet cables (Cat5, Cat6, etc.).</li>
+<li><strong>Features:</strong> 8 pins, supports various Ethernet standards from 10BASE-T to 10GBASE-T.</li>
+</ul>
+<p><strong>b. LC (Lucent Connector)</strong></p>
+<ul>
+<li><strong>Usage:</strong> Commonly used with fiber optic cables, particularly in high-density patch panels.</li>
+<li><strong>Features:</strong> Smaller form factor, easy to use, with a push-pull latching mechanism.</li>
+</ul>
+<p><strong>c. SC (Subscriber Connector or Standard Connector)</strong></p>
+<ul>
+<li><strong>Usage:</strong> Used in fiber optic networks, known for its square shape.</li>
+<li><strong>Features:</strong> Push-pull design, widely used in network environments, especially for single-mode fiber.</li>
+</ul>
+<p><strong>d. ST (Straight Tip)</strong></p>
+<ul>
+<li><strong>Usage:</strong> Older fiber optic connector, commonly found in legacy systems.</li>
+<li><strong>Features:</strong> Bayonet-style connector, often used in multi-mode networks.</li>
+</ul>
+<p><strong>e. MTP/MPO (Multi-fiber Push On)</strong></p>
+<ul>
+<li><strong>Usage:</strong> Used in environments requiring high fiber count, like data centers.</li>
+<li><strong>Features:</strong> Connects multiple fibers (12, 24, or more) in a single connector, allowing for higher-density connections.</li>
+</ul>
+<hr />
+<h1 id="vlan">VLAN</h1>
+<p><em>Virtual LAN (VLAN)</em> is a concept in which we can divide the devices logically on layer 2 (data link layer). Generally, layer 3 devices divide the broadcast domain but the broadcast domain can be divided by switches using the concept of VLAN.</p>
+<p><strong>Broadcast Domain:</strong></p>
+<p>A broadcast domain is a network segment in which if a device broadcast a packet then all the devices in the same broadcast domain will receive it. The devices in the same broadcast domain will receive all the broadcast packets but it is limited to switches only as routers don’t forward out the broadcast packet.</p>
+<h3 id="vlans-offer-several-features-and-benefits-including">VLANs offer several features and benefits, including:</h3>
+<ul>
+<li><strong>Improved network security:</strong> VLANs can be used to separate network traffic and limit access to specific network resources. This improves security by preventing unauthorized access to sensitive data and network resources.</li>
+<li><strong>Better network performance:</strong> By segregating network traffic into smaller logical networks, VLANs can reduce the amount of broadcast traffic and improve network performance.</li>
+<li><strong>Simplified network management:</strong> VLANs allow network administrators to group devices together logically, rather than physically, which can simplify network management tasks such as configuration, troubleshooting, and maintenance.</li>
+<li><strong>Flexibility:</strong> VLANs can be configured dynamically, allowing network administrators to quickly and easily adjust network configurations as needed.</li>
+<li><strong>Cost savings:</strong> VLANs can help reduce hardware costs by allowing multiple virtual networks to share a single physical network infrastructure.</li>
+<li><strong>Scalability:</strong> VLANs can be used to segment a network into smaller, more manageable groups as the network grows in size and complexity.</li>
+</ul>
+<p>• <strong>VLAN tagging:</strong> VLAN tagging is a way to identify and distinguish VLAN traffic from other network traffic. This is typically done by adding a VLAN tag to the Ethernet frame header.</p>
+<p><strong>VLAN trunking:</strong> VLAN trunking allows multiple VLANs to be carried over a single physical link. This is typically done using a protocol such as IEEE 802.1Q</p>
+<p>Access Port : Connecting to end devices (host or Router). Part of VLAN</p>
+<p>Trunk Port : Do not belong to any VLAN. Carry Multiple VLAN Traffic. Link Between Two Switches. Also called Frame tagging.</p>
+<p><img alt="image.png" src="attachment:1457d519-7679-427e-9055-c87a0d73fb0a:image.png" /></p>
+<ul>
+<li>VLANs is a switch-only feature. It works only on manageable Ethernet switches.</li>
+<li>VLANs are used to create boundaries for broadcast messages.</li>
+<li>VLANs do not share broadcast messages.</li>
+<li>Devices in different VLANs cannot communicate directly. They can communicate through a router.</li>
+<li>You can create and use the same VLAN on multiple routers. This feature allows you to arrange devices logically.</li>
+<li>All switches have a default VLAN, called VLAN1.</li>
+<li>By default, all switch ports belong to VLAN1.</li>
+</ul>
+<hr />
+<h1 id="ethernet-technology">Ethernet Technology</h1>
+<p>What is Ethernet?</p>
+<p>Ethernet is a family of technologies that provides data-link and physical specifications for controlling access to a shared network medium. It has emerged as the dominant technology used in LAN networking.</p>
+<p>Ethernet was originally developed by Xerox in the 1970s, and operated at 2.94Mbps. The technology was standardized as Ethernet Version 1 by a consortium of three companies - DEC, Intel, and Xerox, collectively referred to as DIX - and further refined as Ethernet II in 1982.</p>
+<p>In the mid-1980s, the Institute of Electrical and Electronic Engineers (IEEE) published a formal standard for Ethernet, defined as the IEEE 802.3 standard. The original 802.3 Ethernet operated at 10Mbps, and successfully supplanted competing LAN technologies, such as Token Ring.</p>
+<p>Ethernet has several benefits over other LAN technologies:</p>
+<ul>
+<li>Simple to install and manage</li>
+<li>Inexpensive</li>
+<li>Flexible and scalable</li>
+<li>Easy to interoperate between vendors</li>
+</ul>
+<p>Ethernet Cabling Types</p>
+<p>Ethernet can be deployed over three types of cabling:</p>
+<ul>
+<li>Coaxial cabling – almost entirely deprecated in Ethernet networking</li>
+<li>Twisted-pair cabling</li>
+<li>Fiber optic cabling</li>
+</ul>
+<p><em>Coaxial Cable</em></p>
+<p>Coaxial cable, often abbreviated as coax, consists of a single copper wire surrounded by insulation, a metallic shield, and a plastic sheath. The shield helps protect against electromagnetic interference (EMI), which can cause attenuation, a reduction of the strength and quality of a signal. EMI can be generated by a variety of sources, such as florescent light ballasts, microwaves, cell phones, and radio transmitters.</p>
+<p>Coax is commonly used to deploy cable television to homes and businesses.</p>
+<p><em>Twisted Pair Cable</em></p>
+<p>Twisted-pair cable consists of two or four pairs of copper wires in a plastic sheath. Wires in a pair twist around each other to reduce crosstalk, a form of EMI that occurs when the signal from one wire bleeds or interferes with a signal on another wire. Twisted-pair is the most common Ethernet cable.</p>
+<p>Twisted-pair cabling can be either shielded or unshielded. Shielded twisted pair is more resistant to external EMI; however, all forms of twisted-pair suffer from greater signal attenuation than coax cable.</p>
+<p>There are several categories of twisted-pair cable, identified by the number of twists per inch of the copper pairs:</p>
+<ul>
+<li>Category 3 or Cat3 - three twists per inch.</li>
+<li>Cat5 - five twists per inch.</li>
+<li>Cat5e - five twists per inch; pairs are also twisted around each other.</li>
+<li>Cat6 – six twists per inch, with improved insulation.</li>
+</ul>
+<p><em>Fiber Optics Cable</em></p>
+<p>While coax and twisted-pair cabling carry electronic signals, fiber optics uses light to transmit a signal.</p>
+<p>Ethernet supports two fiber specifications:</p>
+<p><strong>1. Single mode fiber – consists of a very small glass core, allowing only a single ray or mode of light to travel across it. This greatly reduces the attenuation and dispersion of the light signal, supporting high bandwidth over very long distances, often measured in kilometers.<br />
+2. Multimode fiber – consists of a larger core, allowing multiple modes of light to traverse it. Multimode suffers from greater dispersion than single mode, resulting in shorter supported distances.</strong></p>
+<ul>
+<li><strong>Single mode fiber</strong> – consists of a very small glass core, allowing only a single ray or mode of light to travel across it. This greatly reduces the attenuation and dispersion of the light signal, supporting high bandwidth over very long distances, often measured in kilometers.</li>
+<li><strong>Multimode fiber</strong> – consists of a larger core, allowing multiple modes of light to traverse it. Multimode suffers from greater dispersion than single mode, resulting in shorter supported distances.</li>
+</ul>
+<p>Single mode fiber requires more precise electronics than multimode, and thus is significantly more expensive. Multimode fiber is often used for high-speed connectivity within a datacenter.</p>
+<p>The Ethernet Frame</p>
+<p>An Ethernet frame contains the following fields:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Field</strong></th>
+<th><strong>Length</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Preamble</td>
+<td>7 bytes</td>
+<td>Synchronizes communication</td>
+</tr>
+<tr>
+<td>Start of Frame</td>
+<td>1 byte</td>
+<td>Signals the start of a valid frame</td>
+</tr>
+<tr>
+<td>MAC Destination</td>
+<td>6 bytes</td>
+<td>Destination MAC address</td>
+</tr>
+<tr>
+<td>MAC Source</td>
+<td>6 bytes</td>
+<td>Source MAC address</td>
+</tr>
+<tr>
+<td>802.1Q tag</td>
+<td>4 bytes</td>
+<td>Optional VLAN tag</td>
+</tr>
+<tr>
+<td>Ethertype or length</td>
+<td>2 bytes</td>
+<td>Payload type or frame size</td>
+</tr>
+<tr>
+<td>Payload</td>
+<td>42-1500 bytes</td>
+<td>Data payload</td>
+</tr>
+<tr>
+<td>CRC</td>
+<td>4 bytes</td>
+<td>Frame error check</td>
+</tr>
+<tr>
+<td>Interframe Gap</td>
+<td>12 bytes</td>
+<td>Required idle period between frames</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Preamble (7 bytes)</strong>: The preamble consists of a sequence of alternating 1s and 0s used to synchronize communication between the sending and receiving devices.</li>
+<li><strong>Start of Frame Delimiter (1 byte)</strong>: This byte signals the start of a valid Ethernet frame, marking the boundary between the preamble and the frame data.</li>
+<li><strong>MAC Destination (6 bytes)</strong>: The destination MAC address is the hardware address of the receiving device.</li>
+<li><strong>MAC Source (6 bytes)</strong>: The source MAC address is the hardware address of the sending device.</li>
+<li><strong>802.1Q tag (4 bytes)</strong>: This optional field is used when VLAN tagging is required. It includes information about the VLAN ID and priority.</li>
+<li><strong>Ethertype or Length (2 bytes)</strong>: This field either indicates the type of protocol encapsulated in the payload (e.g., IPv4, IPv6) or the length of the payload, depending on the frame type.</li>
+<li><strong>Payload (42-1500 bytes)</strong>: The actual data being transported in the frame. The size can vary, but it typically ranges from 42 to 1500 bytes.</li>
+<li><strong>CRC (4 bytes)</strong>: The Cyclic Redundancy Check (CRC) is used for error detection. It allows the receiving device to verify the integrity of the frame.</li>
+<li><strong>Interframe Gap (12 bytes)</strong>: This is a required idle period between frames, allowing devices time to process the frame before the next one is sent.</li>
+</ul>
+<p>CSMA/CD and Half-Duplex Communication</p>
+<p>There are two methods of communication on a shared physical medium:</p>
+<p><strong>Half-Duplex</strong> – hosts can transmit or receive, but not simultaneously</p>
+<p><strong>Full-Duplex</strong> – hosts can both transmit and receive simultaneously</p>
+<p>Ethernet in half-duplex mode uses the <strong>Carrier Sense Multiple Access with Collision Detection (CSMA/CD)</strong> protocol to manage communication between devices on a shared network medium. Here's how it works:</p>
+<ul>
+<li><strong>Carrier Sense:</strong> Before transmitting data, a device checks the network to ensure the medium is idle. If another device is already transmitting, the device waits until the medium is free.</li>
+<li><strong>Multiple Access:</strong> Multiple devices share the same network medium. Each device has the opportunity to transmit data, but only one device can do so at a time.</li>
+<li><strong>Collision Detection:</strong> If two devices transmit data simultaneously, a collision occurs, resulting in unreadable data. Both devices detect the collision and stop transmitting.</li>
+<li><strong>Collision Handling:</strong> After a collision, both devices send a 32-bit jam sequence to notify all devices on the network. They then wait for a random backoff time before attempting to retransmit, reducing the chance of another collision.</li>
+<li><strong>Slot Time:</strong> The slot time is the maximum duration within which a collision must be detected. For 10 and 100 Mbps Ethernet, the slot time is 512 bits (64 bytes), equivalent to the minimum frame size. For Gigabit Ethernet, the slot time is extended to 4096 bits.</li>
+<li><strong>Late Collisions:</strong> If a collision is detected after the slot time, it is called a late collision, typically indicating an issue with network length or configuration.</li>
+</ul>
+<p>Full-Duplex Communication</p>
+<p>Unlike half-duplex, full-duplex Ethernet supports simultaneously communication by providing separate transmit and receive paths. This effectively doubles the throughput of a network interface.</p>
+<p>Full-duplex Ethernet was formalized in IEEE 802.3x, and does not use CSMA/CD or slot times. Collisions should never occur on a functional full duplex link. Greater distances are supported when using full-duplex over half-duplex.</p>
+<p>Full-duplex is only supported on a point-to-point connection between two devices. Thus, a bus topology using coax cable does not support full-duplex. Only a connection between two hosts or between a host and a switch supports full-duplex. A host connected to a hub is limited to half-duplex. Both hubs and half-duplex communication are mostly deprecated in modern networks.</p>
+<p>Categories of Ethernet</p>
+<p>Ethernet standards, identified by numbers and letters (e.g., 802.3u, 802.3z), have evolved to support faster speeds, longer distances, and newer hardware.</p>
+<p><strong>Speed Categories</strong></p>
+<p>Ethernet: 10 Mbps</p>
+<p>Fast Ethernet: 100 Mbps</p>
+<p>Gigabit Ethernet: 1 Gbps</p>
+<p>10 Gigabit Ethernet: 10 Gbps</p>
+<p><strong>Physical Standards</strong></p>
+<p><strong>Labeling:</strong> E.g., 100baseT:</p>
+<p>100: Transmission rate in Mbps</p>
+<p>Base: Baseband transmission (single channel)</p>
+<p>T - Media type (Twisted-pair)</p>
+<p><strong>Transmission:</strong></p>
+<p>Baseband: Single signal/channel per medium</p>
+<p>Broadband: Multiple signals/channels via modulation</p>
+<p>Ethernet(10 Mbps)</p>
+<ul>
+<li>Originally referred to the 802.3 standard (10 Mbps).</li>
+<li>Supports <strong>coax</strong>, <strong>twisted-pair</strong>, and <strong>fiber</strong> cabling.</li>
+<li><strong>Twisted-pair Ethernet</strong> uses two of the four pairs.</li>
+</ul>
+<p><strong>Common Ethernet Physical Standards</strong>:</p>
+<table>
+<thead>
+<tr>
+<th><strong>IEEE Standard</strong></th>
+<th><strong>Physical Standard</strong></th>
+<th><strong>Cable Type</strong></th>
+<th><strong>Max Speed</strong></th>
+<th><strong>Max Length</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>802.3a</strong></td>
+<td><strong>10base2</strong></td>
+<td>Coaxial (thinnet)</td>
+<td>10 Mbps</td>
+<td>185 meters</td>
+</tr>
+<tr>
+<td><strong>802.3</strong></td>
+<td><strong>10base5</strong></td>
+<td>Coaxial (thicknet)</td>
+<td>10 Mbps</td>
+<td>500 meters</td>
+</tr>
+<tr>
+<td><strong>802.3i</strong></td>
+<td><strong>10baseT</strong></td>
+<td>Twisted-pair</td>
+<td>10 Mbps</td>
+<td>100 meters</td>
+</tr>
+<tr>
+<td><strong>802.3j</strong></td>
+<td><strong>10baseF</strong></td>
+<td>Fiber</td>
+<td>10 Mbps</td>
+<td>2000 meters</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Full-Duplex</strong>:</p>
+<ul>
+<li><strong>10baseT</strong> and <strong>10baseF</strong> support full-duplex, doubling bandwidth to <strong>20 Mbps</strong>.</li>
+<li>Full-duplex is supported in <strong>point-to-point</strong> connections (e.g., between two hosts or a host and a switch).</li>
+</ul>
+<p><strong>Extending Ethernet Distance</strong>:</p>
+<ul>
+<li><strong>Repeater</strong>, <strong>hub</strong>, or <strong>switch</strong> can extend the maximum segment distance.</li>
+</ul>
+<p>Fast Ethernet (100 Mbps)</p>
+<ul>
+<li><strong>EEE 802.3u (1995)</strong>: Introduced <strong>Fast Ethernet</strong> at 100 Mbps.</li>
+<li>Supports <strong>twisted-pair copper</strong> and <strong>fiber</strong> cabling.</li>
+<li>Operates in <strong>half-duplex</strong> and <strong>full-duplex</strong> modes.</li>
+</ul>
+<p><strong>Common Fast Ethernet Physical Standards</strong>:</p>
+<table>
+<thead>
+<tr>
+<th><strong>IEEE Standard</strong></th>
+<th><strong>Physical Standard</strong></th>
+<th><strong>Cable Type</strong></th>
+<th><strong>Max Speed</strong></th>
+<th><strong>Max Length</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>802.3u</strong></td>
+<td><strong>100baseTX</strong></td>
+<td>Twisted-pair</td>
+<td>100 Mbps</td>
+<td>100 meters</td>
+</tr>
+<tr>
+<td><strong>802.3u</strong></td>
+<td><strong>100baseT4</strong></td>
+<td>Twisted-pair</td>
+<td>100 Mbps</td>
+<td>100 meters</td>
+</tr>
+<tr>
+<td><strong>802.3u</strong></td>
+<td><strong>100baseFX</strong></td>
+<td>Multimode fiber</td>
+<td>100 Mbps</td>
+<td>400-2000 meters</td>
+</tr>
+<tr>
+<td><strong>802.3u</strong></td>
+<td><strong>100baseSX</strong></td>
+<td>Multimode fiber</td>
+<td>100 Mbps</td>
+<td>500 meters</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>100baseT4</strong>: Not widely implemented; supports only half-duplex.</li>
+<li><strong>100baseTX</strong>: Dominant standard; uses two pairs in twisted-pair cables and requires <strong>Category 5</strong> cable for reliability.</li>
+</ul>
+<p>Speed and Duplex Auto negotiation</p>
+<p><strong>Compatibility</strong>:</p>
+<p>Fast Ethernet (100 Mbps) is backward-compatible with the original Ethernet (10 Mbps). Devices supporting both are known as 10/100 devices.</p>
+<p><strong>Autonegotiation</strong>:</p>
+<p>Fast Ethernet introduced autonegotiation to automatically select the best speed and duplex mode (full or half). Both sides of a connection must either autonegotiate or be hardcoded with identical settings to avoid duplex mismatches, which can cause severe performance issues.</p>
+<p><strong>Configuration Issues</strong>:</p>
+<p>A duplex mismatch occurs if one side autonegotiates and the other is hardcoded, often leading to slow network performance due to collisions. Historically, early autonegotiation had standardization problems, leading to mistrust.</p>
+<p><strong>Current Best Practices</strong>:</p>
+<p>Modern devices handle autonegotiation more reliably, but many administrators still prefer hardcoding settings, especially for servers. Gigabit Ethernet improved autonegotiation and generally recommends it as a best practice.</p>
+<p>Gigabit Ethernet</p>
+<p>Gigabit Ethernet operates at 1000 Mbps, and supports both twisted-pair (802.3ab) and fiber cabling (802.3z). Gigabit over twisted-pair uses all four pairs, and requires Category 5e cable for reliable performance.</p>
+<p>Gigabit Ethernet is backwards-compatible with the original Ethernet and Fast Ethernet. A device that supports all three is often referred to as a 10/100/1000 device. Gigabit Ethernet supports both half-duplex or full duplex operation. Full-duplex Gigabit Ethernet effectively provides 2000 Mbps of throughput.</p>
+<table>
+<thead>
+<tr>
+<th><strong>IEEE Standard</strong></th>
+<th><strong>Physical Standard</strong></th>
+<th><strong>Cable Type</strong></th>
+<th><strong>Speed</strong></th>
+<th><strong>Maximum Cable Length</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>802.3ab</td>
+<td>1000baseT</td>
+<td>Twisted-pair</td>
+<td>1 Gbps</td>
+<td>100 meters</td>
+</tr>
+<tr>
+<td>802.3z</td>
+<td>1000baseSX</td>
+<td>Multimode fiber</td>
+<td>1 Gbps</td>
+<td>500 meters</td>
+</tr>
+<tr>
+<td>802.3z</td>
+<td>1000baseLX</td>
+<td>Multimode fiber</td>
+<td>1 Gbps</td>
+<td>500 meters</td>
+</tr>
+<tr>
+<td>802.3z</td>
+<td>1000baseLX</td>
+<td>Singlemode fiber</td>
+<td>1 Gbps</td>
+<td>Several kilometers</td>
+</tr>
+</tbody>
+</table>
+<p>10 Gigabit Ethernet</p>
+<p>10 Gigabit Ethernet operates at 10000 Mbps, and supports both twisted-pair (802.3an) and fiber cabling (802.3ae). 10 Gigabit over twisted-pair uses all four pairs, and requires Category 6 cable for reliable performance.</p>
+<table>
+<thead>
+<tr>
+<th><strong>IEEE Standard</strong></th>
+<th><strong>Physical Standard</strong></th>
+<th><strong>Cable Type</strong></th>
+<th><strong>Speed</strong></th>
+<th><strong>Maximum Cable Length</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>802.3an</td>
+<td>10Gbase-T</td>
+<td>Twisted-pair</td>
+<td>10 Gbps</td>
+<td>100 meters</td>
+</tr>
+<tr>
+<td>802.3ae</td>
+<td>10Gbase-SR</td>
+<td>Multimode fiber</td>
+<td>10 Gbps</td>
+<td>300 meters</td>
+</tr>
+<tr>
+<td>802.3ae</td>
+<td>10Gbase-LR</td>
+<td>Single mode fiber</td>
+<td>10 Gbps</td>
+<td>Several kilometers</td>
+</tr>
+</tbody>
+</table>
+<p>10 Gigabit Ethernet is usually used for high-speed connectivity within a datacenter, and is predominantly deployed over fiber.</p>
+<p>Twisted-Pair Cabling Overview</p>
+<p>A typical twisted-pair cable consists of four pairs of copper wires, for a total of eight wires. Each side of the cable is terminated using an RJ45 connector, which has eight pins. When the connector is crimped onto the cable, these pins make contact with each wire.</p>
+<hr />
+<h1 id="wireless-concept">Wireless Concept</h1>
+<p><strong>Wireless Concepts</strong> are essential for understanding how wireless networks operate, including the transmission of<br />
+data, network identification, security, and the standards that govern wireless<br />
+communication.</p>
+<p><strong>1. RF (Radio Frequency)</strong></p>
+<ul>
+<li><strong>Function:</strong> Radio Frequency refers to the electromagnetic waves used to transmit data over wireless networks. RF is the core technology behind wireless communication, allowing devices to send and receive signals without physical connections.</li>
+<li><strong>Frequency Bands:</strong><ul>
+<li><strong>2.4 GHz Band:</strong> Offers wider coverage but is more prone to interference from other devices like microwaves and Bluetooth. Supports 802.11b/g/n standards.</li>
+<li><strong>5 GHz Band:</strong> Provides faster speeds and less interference but with a shorter range. Supports 802.11a/n/ac/ax standards.</li>
+</ul>
+</li>
+<li><strong>Channel:</strong> RF spectrum is divided into channels. Proper channel selection can minimize interference and optimize performance.</li>
+<li><strong>Signal Strength and Quality:</strong><ul>
+<li><strong>RSSI (Received Signal Strength Indicator):</strong> Measures the power level of a received signal.</li>
+<li><strong>SNR (Signal-to-Noise Ratio):</strong> The difference between the signal strength and background noise; higher SNR means better quality.</li>
+</ul>
+</li>
+</ul>
+<p><strong>2. SSID (Service Set Identifier)</strong></p>
+<ul>
+<li><strong>Function:</strong> SSID is the name assigned to a wireless network. It helps users identify and connect to a specific network, especially in environments with multiple networks available.</li>
+<li><strong>Broadcasting:</strong><ul>
+<li><strong>Enabled (Default):</strong> The SSID is broadcasted, allowing devices to easily find and connect to the network.</li>
+<li><strong>Disabled:</strong> The SSID is hidden, requiring users to manually enter the network name to connect, which adds a layer of security.</li>
+</ul>
+</li>
+<li><strong>Use Cases:</strong> In home and business networks, the SSID distinguishes one wireless network from another, making it easier for users to connect to the correct network.</li>
+</ul>
+<p><strong>3. Encryption</strong></p>
+<p>Encryption is<br />
+critical for securing wireless networks by protecting the data transmitted<br />
+between devices from being intercepted or tampered with. There are several<br />
+encryption standards:</p>
+<p><strong>a. WEP (Wired Equivalent Privacy)</strong></p>
+<ul>
+<li><strong>Security Level:</strong> Low</li>
+<li><strong>Encryption:</strong> 40-bit or 104-bit key</li>
+<li><strong>Vulnerabilities:</strong> WEP is considered insecure due to flaws that make it easily crackable.</li>
+<li><strong>Use Cases:</strong> Legacy systems; not recommended for modern networks.</li>
+</ul>
+<p><strong>b. WPA (Wi-Fi Protected Access)</strong></p>
+<ul>
+<li><strong>Security Level:</strong> Medium</li>
+<li><strong>Encryption:</strong> TKIP (Temporal Key Integrity Protocol)</li>
+<li><strong>Improvements Over WEP:</strong> Dynamic key generation and integrity checking, but still vulnerable to certain attacks.</li>
+<li><strong>Use Cases:</strong> Transitional standard; better than WEP but largely replaced by WPA2.</li>
+</ul>
+<p><strong>c. WPA2 (Wi-Fi Protected Access 2)</strong></p>
+<ul>
+<li><strong>Security Level:</strong> High</li>
+<li><strong>Encryption:</strong> AES (Advanced Encryption Standard), which is more secure than TKIP.</li>
+<li><strong>Security Modes:</strong><ul>
+<li><strong>Personal Mode (WPA2-PSK):</strong> Uses a pre-shared key, suitable for home and small business networks.</li>
+<li><strong>Enterprise Mode (WPA2-EAP):</strong> Uses an authentication server (RADIUS), suitable for larger organizations requiring stronger security.</li>
+</ul>
+</li>
+<li><strong>Use Cases:</strong> The most common and recommended standard for securing modern wireless networks.</li>
+</ul>
+<p><strong>d. WPA3</strong></p>
+<ul>
+<li><strong>Security Level:</strong> Very High</li>
+<li><strong>Encryption:</strong> Improved encryption methods over WPA2, including better protection against brute-force attacks and enhanced security for public networks.</li>
+<li><strong>Use Cases:</strong> Emerging standard for future-proofing wireless networks with stronger security.</li>
+</ul>
+<p><strong>4. Wireless Standards (802.11)</strong></p>
+<p>Wireless standards<br />
+are defined by the IEEE 802.11 family, specifying the protocols for wireless<br />
+local area networks (WLANs).</p>
+<p><strong>a. 802.11a(1999)</strong></p>
+<ul>
+<li><strong>Speed:</strong> Up to 54 Mbps</li>
+<li><strong>Frequency:</strong> 5 GHz</li>
+<li><strong>Range:</strong> Shorter range, less interference</li>
+<li><strong>Use Cases:</strong> Early adoption in corporate environments, now largely obsolete.</li>
+</ul>
+<p><strong>b. 802.11b</strong></p>
+<ul>
+<li><strong>Speed:</strong> Up to 11 Mbps</li>
+<li><strong>Frequency:</strong> 2.4 GHz</li>
+<li><strong>Range:</strong> Wider range but susceptible to interference</li>
+<li><strong>Use Cases:</strong> Early home and small business networks; now outdated.</li>
+</ul>
+<p><strong>c. 802.11g</strong></p>
+<ul>
+<li><strong>Speed:</strong> Up to 54 Mbps</li>
+<li><strong>Frequency:</strong> 2.4 GHz</li>
+<li><strong>Backward Compatibility:</strong> Compatible with 802.11b</li>
+<li><strong>Use Cases:</strong> Common in home and small business networks during the early 2000s.</li>
+</ul>
+<p><strong>d. 802.11n</strong></p>
+<ul>
+<li><strong>Speed:</strong> Up to 600 Mbps (depending on configuration)</li>
+<li><strong>Frequency:</strong> 2.4 GHz and 5 GHz (dual-band)</li>
+<li><strong>Technology:</strong> MIMO (Multiple Input, Multiple Output) for better performance and range</li>
+<li><strong>Use Cases:</strong> Widely used in both home and enterprise networks, offering better performance and range.</li>
+</ul>
+<p><strong>e. 802.11ac</strong></p>
+<ul>
+<li><strong>Speed:</strong> Up to 1.3 Gbps or higher</li>
+<li><strong>Frequency:</strong> 5 GHz</li>
+<li><strong>Technology:</strong> Advanced MIMO, wider channels (up to 160 MHz), and beamforming for improved speed and reliability</li>
+<li><strong>Use Cases:</strong> Modern networks requiring high-speed wireless connections, such as streaming HD content and gaming.</li>
+</ul>
+<p><strong>f. 802.11ax (Wi-Fi 6)</strong></p>
+<ul>
+<li><strong>Speed:</strong> Up to 9.6 Gbps</li>
+<li><strong>Frequency:</strong> 2.4 GHz and 5 GHz (dual-band, with potential for 6 GHz in Wi-Fi 6E)</li>
+<li><strong>Technology:</strong> OFDMA (Orthogonal Frequency Division Multiple Access), MU-MIMO, better efficiency in crowded environments</li>
+<li><strong>Use Cases:</strong> Next-generation networks, ideal for environments with many connected devices (IoT, smart homes, offices).</li>
+</ul>
+<p><strong>802.11be (Wi-Fi 7) (Upcoming, expected around<br />
+2024)</strong></p>
+<ul>
+<li><strong>802.11be (Wi-Fi 7) (Upcoming, expected around 2024)</strong></li>
+<li>Frequency: 2.4 GHz, 5 GHz, and 6 GHzMax</li>
+<li>Speed: Expected up to 46 Gbps</li>
+<li>Range: Focus on high efficiency and lower latency, suitable for high-density environments</li>
+</ul>
+<p><strong>1.) 802.11a (1999)</strong></p>
+<p>Frequency: 5 GHzMax</p>
+<p>Speed: 54 Mbps</p>
+<p>Range: Shorter range compared to 2.4<br />
+GHz standards</p>
+<p>2<strong>.) 802.11b (1999)</strong></p>
+<p><strong>Frequency</strong>: 2.4 GHzMax<br />
+Speed: 11 Mbps</p>
+<p>Range: Longer range, but more<br />
+interference due to many devices using 2.4 GHz</p>
+<p><strong>3.) 802.11g (2003)</strong></p>
+<p>Frequency: 2.4 GHzMax</p>
+<p>Speed: 54 Mbps</p>
+<p>Range: Similar to 802.11b but with<br />
+higher speed</p>
+<p><strong>4.) 802.11n - Wi-Fi 4(2009)</strong></p>
+<p>Frequency: 2.4 GHz and 5 GHz<br />
+(dual-band)Max Speed: 600<br />
+Mbps</p>
+<p>Range: Improved range and speed due to<br />
+MIMO (Multiple Input Multiple Output) technology</p>
+<p><strong>5.) 802.11ac- Wi-Fi 5(2013)</strong></p>
+<p>Frequency: 5 GHzMax</p>
+<p>Speed: Up to 1.3 Gbps</p>
+<p>Range: Better performance at 5 GHz,<br />
+wider channels, and more MIMO streams</p>
+<p><strong>6.) 802.11ad (2016)</strong></p>
+<p>Frequency: 60 GHz</p>
+<p>Max Speed: Up to 7 Gbps</p>
+<p>Range: Very short range, mainly used<br />
+for specific high-speed applications</p>
+<p><strong>7.) 802.11ax (Wi-Fi 6) (2019)</strong></p>
+<p>Frequency: 2.4 GHz and 5 GHz</p>
+<p>Max Speed<strong>:</strong> Up to 9.6 Gbps</p>
+<p>Range: Improved efficiency, capacity,<br />
+and performance in dense environments</p>
+<p><strong>8.) 802.11ax (Wi-Fi 6E) (2020)</strong></p>
+<p>Frequency: 2.4 GHz, 5 GHz, and 6<br />
+GHzMax Speed: Up to 9.6<br />
+Gbps</p>
+<p>Range: Improved efficiency and<br />
+capacity, access to 6 GHz band, lower latency</p>
+<p><strong>9.) 802.11ay (2021)</strong></p>
+<p>Frequency: 60 GHzMax Speed: Up to 176<br />
+Gbps</p>
+<p>Range: Short range, used for<br />
+ultra-high-speed short-distance communications</p>
+<p>Note:</p>
+<p>Wi-Fi<br />
+works on radio frequency.</p>
+<p>Repeatation<br />
+of radio frequency:</p>
+<p>1 time/<br />
+sec - 1 hz</p>
+<p>1<br />
+thousand/ sec - 1 Khz</p>
+<p>1<br />
+million/ sec - 1 Mhz</p>
+<p>1<br />
+billion/ sec - 1 Ghz</p>
+<p><strong>2.4 Ghz</strong></p>
+<p><strong>Low bandwidth, 100 Mbps</strong></p>
+<p><strong>Longer range</strong></p>
+<p><strong>5 Ghz</strong></p>
+<p><strong>Fast speed, 1 Gbps</strong></p>
+<p><strong>Shortest range,</strong></p>
+<hr />
+<h1 id="routing">Routing</h1>
+<p><strong>Routing</strong> is the process of sending a packet of information from one network to another network.</p>
+<p>To do this, routers use <strong>Routing Tables</strong>, which contain:</p>
+<ul>
+<li>The destination network and subnet mask</li>
+<li>The “next hop” router to reach the destination</li>
+<li>Routing metrics and Administrative Distance (AD)</li>
+</ul>
+<hr />
+<h3 id="types-of-protocols-in-routing"><strong>Types of Protocols in Routing</strong></h3>
+<ul>
+<li><strong>Routed Protocols</strong>: These are Layer 3 protocols that assign logical addresses to devices and move data between networks.<ul>
+<li><strong>Examples</strong>: IP, IPX</li>
+</ul>
+</li>
+<li><strong>Routing Protocols</strong>: These build the network topology and determine the best path to each destination.<ul>
+<li><strong>Examples</strong>: RIP, IGRP, OSPF</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3 id="determining-the-best-route"><strong>Determining the Best Route</strong></h3>
+<p>Routers decide the best route using <strong>three criteria, in this exact order</strong>:</p>
+<ol>
+<li>
+<p><strong>Prefix-Length</strong></p>
+</li>
+<li>
+<p>The number of bits that identify the network.</p>
+</li>
+<li>
+<p>A <strong>longer prefix-length</strong> = more specific route.</p>
+</li>
+<li>
+<p>Example:</p>
+<p>Trying to reach 10.1.5.2/24</p>
+<ul>
+<li>Routes in the table:<ul>
+<li>10.1.5.0/24</li>
+<li>10.0.0.0/8</li>
+</ul>
+</li>
+<li>The router chooses <strong>10.1.5.0/24</strong> because it’s the most specific match.</li>
+</ul>
+</li>
+<li>
+<p><strong>Metric</strong></p>
+</li>
+<li>
+<p>Used <strong>within</strong> a routing protocol to choose the best path.</p>
+</li>
+<li><strong>Distance Vector protocols</strong> (e.g., RIP): Use hop count.</li>
+<li><strong>Link State protocols</strong> (e.g., OSPF): Use a cost metric.</li>
+<li>Only the best metric route is inserted into the routing table.</li>
+<li>
+<p>If multiple equal-metric paths exist, routers typically load-balance.</p>
+</li>
+<li>
+<p><strong>Administrative Distance (AD)</strong></p>
+</li>
+<li>
+<p>Used <strong>between</strong> routing protocols to decide which one to trust.</p>
+</li>
+<li>Lower AD = More trusted</li>
+<li>If prefix-lengths are equal, AD determines the preferred route.</li>
+</ol>
+<hr />
+<h3 id="routing_1">Routing</h3>
+<p><strong>Routing</strong> is the process of sending a packet of<br />
+information from one network to another network.</p>
+<p><em>To route, routers build Routing<br />
+Tables that contain the following:</em></p>
+<ul>
+<li>The<br />
+    destination network and subnet mask</li>
+<li>The<br />
+    “next hop” router to get to the destination network</li>
+<li>Routing<br />
+    metrics and Administrative Distance</li>
+</ul>
+<p><em>The routing table is concerned with<br />
+two types of protocols:</em></p>
+<ul>
+<li>A<br />
+    routed protocol is a layer 3 protocol that applies logical addresses to devices<br />
+    and routes data between networks. Examples would be IP and IPX.</li>
+<li>A<br />
+    routing protocol dynamically builds the network, topology, and next hop<br />
+    information in routing tables. Examples would be RIP, IGRP, OSPF, etc.</li>
+</ul>
+<p><em>Determining the best route by router<br />
+:</em></p>
+<p>To<br />
+determine the best route to a destination, a router considers three elements<br />
+(in this order):</p>
+<ul>
+<li>Prefix-Length</li>
+<li>Metric<br />
+    (within a routing protocol)</li>
+<li>Administrative Distance (between separate routing protocols)</li>
+</ul>
+<p><strong>Prefix-length</strong> is the number of bits used to<br />
+identify the network, and is used to determine the most specific route. A<br />
+longer prefix-length indicates a more specific route. For example, assume we<br />
+are trying to reach a host address of 10.1.5.2/24. If we had routes to the<br />
+following networks in the routing table:</p>
+<p>10.1.5.0/24</p>
+<p>10.0.0.0/8</p>
+<p>The<br />
+router will do a bit-by-bit comparison to find the most specific route (i.e.,<br />
+longest matching prefix). Since the 10.1.5.0/24 network is more specific, that<br />
+route will be used, regardless of metric or Administrative Distance.</p>
+<p><em>Administrative Distance vs. Metric</em></p>
+<p>A<br />
+“metric” allows a router to choose the best path within a routing protocol.<br />
+Distance vector routing protocols use “distance” (usually hop-count) as their<br />
+metric. Link state protocols utilize some sort of “cost” as their metric.</p>
+<p>Only<br />
+routes with the best metric are added to the routing table. Thus, even if a<br />
+particular routing protocol (for example, RIP) has four routes to the same<br />
+network, only the route with the best metric (hop-count in this example) would<br />
+make it to the routing table. If multiple equal-metric routes exist to a<br />
+particular network, most routing protocols will load-balance.</p>
+<p>If your<br />
+router is running multiple routing protocols, Administrative Distance is used<br />
+to determine which routing protocol to trust the most. Lowest administrative<br />
+distance wins.</p>
+<p>Again: if<br />
+a router receives two RIP routes to the same network, it will use the routes’<br />
+metric to determine which path to use. If the metric is identical for both<br />
+routes, the router will load balance between both paths.</p>
+<p>If a<br />
+router receives a RIP and an OSPF route to the same network, it will use<br />
+Administrative Distance to determine which routing path to choose.</p>
+<p><em>The Administrative Distance of<br />
+common routing protocols (remember, lowest wins):</em></p>
+<p>A route<br />
+with an “unknown” Administrative Distance will never be inserted into the<br />
+routing table.</p>
+<p><strong>The following command will allow you to view the<br />
+routing table:</strong></p>
+<p>Router#<br />
+show ip route</p>
+<p><strong>Routes are labeled based on what protocol placed them<br />
+in the table:</strong></p>
+<p>C –<br />
+Directly connected</p>
+<p>S –<br />
+Static</p>
+<p>S* -<br />
+Default route</p>
+<p>D - EIGRP</p>
+<p>R – RIP</p>
+<p>I – IGRP</p>
+<p>i – IS-IS</p>
+<p>O - OSPF</p>
+<p>Notice<br />
+the RIP routes contain the following field: [120/1]. This indicates both the<br />
+administrative distance and the metric (the 120 is the AD, and the 1 is the<br />
+hop-count metric).</p>
+<p><strong>To clear all routes from the routing table, and thus<br />
+forcing any routing protocol to repopulate the table:</strong></p>
+<p>Router#<br />
+clear ip route *</p>
+<p><em>Example:- Choosing the Best Route</em></p>
+<p>Assume<br />
+the following routes existed to the following host: 192.168.111.5/24</p>
+<p>We have<br />
+two RIP routes, an OSPF route, and a Static route to that destination. Which<br />
+route will be chosen by the router?</p>
+<p>Remember<br />
+the three criteria the router considers:</p>
+<ul>
+<li>Prefix-Length</li>
+<li>Metric</li>
+<li>Administrative Distance</li>
+</ul>
+<p>The<br />
+static route has the lowest administrative distance (1) of any of the routes;<br />
+however, its prefix-length is less specific. 192.168.111.0/24 is a more<br />
+specific route than 192.168.0.0/16. Remember, prefix-length is always<br />
+considered first.</p>
+<p>The<br />
+second RIP route will not be inserted into the routing table, because it has a<br />
+higher metric (5) than the first RIP route (1). Thus, our routing table will<br />
+actually look as follows:</p>
+<p>Thus, the<br />
+true choice is between the OSPF route and the first RIP route. OSPF has the<br />
+lowest administrative distance, and thus that route will be preferred.</p>
+<p>PLEASE<br />
+NOTE: Calculating the lowest metric route within a routing protocol occurs<br />
+before administrative distance chooses the route it “trusts” the most. This is<br />
+why the order of the above “criteria” is prefix-length, metric, and then<br />
+administrative distance.</p>
+<p>However,<br />
+the route with the lowest administrative distance is always preferred,<br />
+regardless of metric (assuming the prefix-length is equal). Thus, the metric is<br />
+calculated first, but not preferred first over AD.</p>
+<hr />
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+  
+
+
+
+      
+    </article>
+  </div>
+
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+<footer class="hitop-footer">
+  <div class="hitop-footer__inner">
+
+    <div class="hitop-footer__brand">
+      <a class="hitop-footer__logo"
+         href="../../../..">
+        HITOP
+      </a>
+      <p>
+        Your knowledge hub for standard operating procedures,
+        documentation and troubleshooting.
+      </p>
+    </div>
+
+    <div class="hitop-footer__links">
+      <h3>Quick Links</h3>
+      <a href="../../../../about/">About Us</a>
+      <a href="../../../../category/how-to-guide/">How to Guide</a>
+      <a href="../../../../category/tutorials/">Tutorials</a>
+      <a href="../../../../category/sops/">SOPs</a>
+      <a href="../../../../category/troubleshooting/">Troubleshooting</a>
+      <a href="../../../../support/">Get Support</a>
+    </div>
+
+  </div>
+
+  <div class="hitop-footer__bottom">
+    <p>© 2026 HITOP. All rights reserved.</p>
+    <p>Built for better documentation and knowledge sharing.</p>
+  </div>
+</footer>
+
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": [], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
