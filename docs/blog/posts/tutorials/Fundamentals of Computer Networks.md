@@ -27,6 +27,8 @@ A computer network is a group of components or other devices connected together 
 
 
 ![Network Devices|533](<../../../images/network-devices.jpg>)
+
+---
 ## Network Topology
 
 Network topology is the physical or logical arrangement of computers, network devices, and communication links within a computer network.
@@ -42,9 +44,6 @@ All devices connect to a central switch or hub.
 1. Easy to manage and troubleshoot.
 2. A central device failure can affect the entire network.
 
-<img src="../../../images/star-topology.jpg" alt="Star Topology" width="533">
-
-
 **Example:** Office LAN.
 #### 2. Bus Topology
 
@@ -52,10 +51,6 @@ All devices share one main backbone cable.
 
 - Uses less cable.
 - A backbone failure can disrupt the network.
-
-
-![[Pasted image 20261019175911.png|247]]
-
 
 **Example:** Older Ethernet networks.
 
@@ -66,8 +61,6 @@ All devices share one main backbone cable.
 2. Data can travel around the ring.
 - A single link failure may disrupt a basic, unprotected ring.
 
-![[Pasted image 20261019180041.png|219]]
-
 **Example:** Some legacy ring networks.
 
 #### 4. Mesh Topology
@@ -76,8 +69,6 @@ Devices have multiple interconnections. In a full mesh, every device connects di
 
 1. High redundancy and reliability.
 2. Expensive and complex to implement.
-
-![[Pasted image 20261019180935.png|226]]
 
 **Example:** Redundant WAN connections.
 
@@ -88,8 +79,6 @@ Devices are arranged in a hierarchical structure with branches.
 1. Easy to expand and organize.
 2. Failure of an upper-level device can affect its branches.
 
-![[Pasted image 20261019181126.png|280]]
-
 **Example:** Enterprise campus network.
 
 #### 6. Hybrid Topology
@@ -98,8 +87,6 @@ Combines two or more different topologies.
 
 1. Flexible and scalable.
 2. Design and troubleshooting can be more complex.
-
-![[Pasted image 20261019181257.png|325]]
 
 **Example:** A company combining star LANs with a redundant backbone.
 
@@ -115,6 +102,7 @@ Logical topology refers to how data flows between devices across a network, rega
 
 In simple words, it describes how devices communicate and how data travels through the network.
 
+---
 ## Network Types
 
 ### 1. LAN(Local Area Network)
@@ -132,6 +120,7 @@ A short-range network used for personal devices (e.g., smartphones, wearables) u
 ### 5. Virtual Private Network (VPN)
 A secure overlay network built over a public infrastructure (usually the Internet), providing encrypted tunnels (e.g., IPSec, SSL-VPN) for secure remote access.
 
+---
 ## Communication Media
 
 Communication media is the physical path or wireless medium through which data travels from one network device to another.
@@ -168,18 +157,11 @@ A cable containing pairs of insulated copper wires twisted together to reduce el
 - Common categories: Cat5e, Cat6, Cat6A
 - Common Ethernet channel length: up to 100 metres, depending on the standard and installation.
 
-![[Pasted image 20261019183731.png|318]]
-
-##### B. Coaxial Cable
-
 A cable with a central conductor, insulation, metallic shielding, and an outer jacket.
 
 - Good shielding against interference.
 - Used in cable television and some broadband access networks.
 - Less common for modern Ethernet LAN connections.
-
-![[Pasted image 20261019184118.png|405]]
-
 
 ##### C. Fiber-Optic Cable
 
@@ -189,14 +171,8 @@ Transmits data using light pulses through glass or plastic fibers.
 - Multimode fiber (MMF): Common for shorter links, such as within buildings and data centers.
 - High bandwidth and immunity to electromagnetic interference.
 
-![[Pasted image 20261019184231.png|293]]
-
 #### 2. Unguided Media (Wireless Communication)
 
-
-
-
-___
 
 Data is transmitted through the air or vacuum using electromagnetic waves.
 
