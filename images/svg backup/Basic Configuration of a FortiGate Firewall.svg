@@ -1,0 +1,167 @@
+﻿
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#10151e"/>
+      <stop offset="100%" stop-color="#242b38"/>
+    </linearGradient>
+    <linearGradient id="red" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ff5a36"/>
+      <stop offset="100%" stop-color="#c91e26"/>
+    </linearGradient>
+    <linearGradient id="screen" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#183a43"/>
+      <stop offset="100%" stop-color="#0a2029"/>
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#ffffff" stroke-opacity=".045"/>
+    </pattern>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1280" height="720" rx="24" fill="url(#bg)"/>
+  <rect width="1280" height="720" rx="24" fill="url(#grid)"/>
+
+  <!-- Accent shapes -->
+  <path d="M0 0H440L260 720H0Z" fill="#ff4b35" opacity=".055"/>
+  <circle cx="1050" cy="335" r="250" fill="#f04438" opacity=".055"/>
+
+  <!-- Category label -->
+  <rect x="72" y="75" width="270" height="45" rx="22"
+        fill="#35262a" stroke="#ff6548" stroke-opacity=".7"/>
+  <circle cx="96" cy="97" r="6" fill="#ff5a36"/>
+  <text x="115" y="104" font-family="Arial, sans-serif"
+        font-size="18" font-weight="700" letter-spacing="2"
+        fill="#ffb09c">NETWORK SECURITY</text>
+
+  <!-- Main title -->
+  <text x="72" y="205" font-family="Arial, sans-serif"
+        font-size="49" font-weight="800" fill="#ffffff">FORTIGATE</text>
+
+  <text x="72" y="268" font-family="Arial, sans-serif"
+        font-size="43" font-weight="800" fill="#ff6246">INITIAL CONFIGURATION</text>
+
+  <text x="72" y="324" font-family="Arial, sans-serif"
+        font-size="43" font-weight="800" fill="#ffffff">&amp; BASIC SETUP</text>
+
+  <!-- Accent underline -->
+  <rect x="75" y="350" width="130" height="6" rx="3" fill="#ff5a36"/>
+
+  <!-- Feature list -->
+  <g font-family="Arial, sans-serif" font-size="23" fill="#d8e0eb">
+    <circle cx="89" cy="405" r="12" fill="#ff5a36"/>
+    <path d="M83 405L88 410L96 400" fill="none"
+          stroke="#ffffff" stroke-width="2.5"
+          stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="115" y="413">Management Access</text>
+
+    <circle cx="89" cy="458" r="12" fill="#ff5a36"/>
+    <path d="M83 458L88 463L96 453" fill="none"
+          stroke="#ffffff" stroke-width="2.5"
+          stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="115" y="466">Interfaces &amp; IP Address</text>
+
+    <circle cx="89" cy="511" r="12" fill="#ff5a36"/>
+    <path d="M83 511L88 516L96 506" fill="none"
+          stroke="#ffffff" stroke-width="2.5"
+          stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="115" y="519">Basic Firewall Setup</text>
+  </g>
+
+  <!-- Firewall appliance -->
+  <g transform="translate(775 385)">
+    <!-- Shadow -->
+    <ellipse cx="185" cy="170" rx="205" ry="24" fill="#000000" opacity=".3"/>
+
+    <!-- Device body -->
+    <path d="M0 30L330 30L370 58L370 145L330 170L0 170Z"
+          fill="#343b46" stroke="#68727e" stroke-width="2"/>
+    <path d="M0 30L40 8L370 8L330 30Z"
+          fill="#4b5563" stroke="#737e8d" stroke-width="2"/>
+    <path d="M330 30L370 58V145L330 170Z"
+          fill="#242b35" stroke="#68727e" stroke-width="2"/>
+
+    <!-- Front panel -->
+    <path d="M15 45H320V154H15Z" fill="#252c36"
+          stroke="#596371" stroke-width="2"/>
+
+    <!-- Ventilation -->
+    <g stroke="#606b78" stroke-width="4" stroke-linecap="round">
+      <path d="M35 64V133 M47 64V133 M59 64V133 M71 64V133"/>
+      <path d="M88 64V133 M100 64V133 M112 64V133 M124 64V133"/>
+    </g>
+
+    <!-- Port section -->
+    <g fill="#111820" stroke="#75808d" stroke-width="2">
+      <rect x="153" y="72" width="34" height="27" rx="3"/>
+      <rect x="195" y="72" width="34" height="27" rx="3"/>
+      <rect x="237" y="72" width="34" height="27" rx="3"/>
+      <rect x="279" y="72" width="25" height="27" rx="3"/>
+    </g>
+
+    <g fill="#ff674b" filter="url(#glow)">
+      <circle cx="170" cy="119" r="4"/>
+      <circle cx="212" cy="119" r="4"/>
+      <circle cx="254" cy="119" r="4"/>
+    </g>
+
+    <g fill="#4ade80">
+      <circle cx="291" cy="119" r="4"/>
+    </g>
+
+    <!-- Device label -->
+    <text x="153" y="143" font-family="Arial, sans-serif"
+          font-size="13" font-weight="700" fill="#f2f4f8">FIREWALL</text>
+
+    <!-- Fortinet-inspired abstract shield (not an official logo) -->
+    <g transform="translate(165 -125)">
+      <path d="M55 0L105 18V55Q105 95 55 120Q5 95 5 55V18Z"
+            fill="#332226" stroke="#ff6246" stroke-width="3"/>
+      <path d="M30 35H80V46H30Z M30 52H68V63H30Z M30 69H80V80H30Z"
+            fill="#ff6246"/>
+      <path d="M80 35L91 35L91 80L80 80Z" fill="#ff6246"/>
+    </g>
+  </g>
+
+  <!-- Network connections -->
+  <g fill="none" stroke="#ff674b" stroke-width="3" opacity=".8">
+    <path d="M870 275V325H845V370"/>
+    <path d="M1125 275V325H1140V370"/>
+  </g>
+  <g fill="#ff674b">
+    <circle cx="870" cy="275" r="5"/>
+    <circle cx="1125" cy="275" r="5"/>
+  </g>
+
+  <!-- Small network nodes -->
+  <g stroke="#718096" stroke-width="2" fill="#252c36">
+    <rect x="815" y="220" width="95" height="55" rx="8"/>
+    <rect x="1080" y="220" width="95" height="55" rx="8"/>
+  </g>
+  <g stroke="#ff674b" stroke-width="2" fill="none">
+    <rect x="831" y="235" width="24" height="16" rx="2"/>
+    <path d="M843 251V258 M836 258H850"/>
+    <rect x="1096" y="235" width="24" height="16" rx="2"/>
+    <path d="M1108 251V258 M1101 258H1115"/>
+  </g>
+  <g fill="#cbd5e1" font-family="Arial, sans-serif" font-size="12">
+    <text x="863" y="247">LAN</text>
+    <text x="1128" y="247">WAN</text>
+  </g>
+
+  <!-- Footer -->
+  <path d="M72 610H1208" stroke="#ffffff" stroke-opacity=".15"/>
+  <text x="75" y="658" font-family="Arial, sans-serif"
+        font-size="23" font-weight="800" letter-spacing="3"
+        fill="#ff6a4e">HITOP</text>
+  <text x="1205" y="657" text-anchor="end"
+        font-family="Arial, sans-serif" font-size="18"
+        fill="#aeb9c8">BEGINNER-FRIENDLY TUTORIAL</text>
+</svg>
