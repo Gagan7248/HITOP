@@ -6,7 +6,7 @@ categories:
 description: Everything You Need to Know About Computer Networks (and Why They Power Our Digital World)
 thumbnail: images/computer-network.png
 ---
-# Everything You Need to Know About Computer Networks (and Why They Power Our Digital World)
+# Everything You Need to Know About Computer Networks and Why They Power Our Digital World
 
 ### 1. Introduction: The Invisible Web Connecting Our Daily Tech
 
