@@ -6,10 +6,7 @@ categories:
 description: Configured a Cisco router using CLI, including hostname, passwords, interface IP address, and interface activation.
 thumbnail: images/router-config.png
 ---
-# Practical Lab: Basic Router Configuration
-
-Software: Cisco Packet Tracer  
-Device: Cisco 2911 Router
+# Basic configuration on Cisco Router
 
 ### 1. Network Details
 
