@@ -4,7 +4,7 @@ date: 2026-11-01 13:00:00
 description: Learn Static Routing Configuration in Cisco Packet Tracer using practical CLI commands. Connect two different networks, configure static routes
 categories:
   - Tutorials
-thumbnail: image/static-routing.png
+thumbnail: images/static-routing.png
 ---
 # Static Routing Configuration | Cisco Packet Tracer
 
