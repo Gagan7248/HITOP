@@ -1,0 +1,137 @@
+﻿
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#071522"/>
+      <stop offset="100%" stop-color="#102b3d"/>
+    </linearGradient>
+    <linearGradient id="green" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#4ade80"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#67e8f9" stroke-opacity=".07"/>
+    </pattern>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1280" height="720" rx="24" fill="url(#bg)"/>
+  <rect width="1280" height="720" rx="24" fill="url(#grid)"/>
+  <circle cx="1000" cy="350" r="260" fill="#10b981" opacity=".06"/>
+
+  <!-- Category badge -->
+  <rect x="72" y="76" width="275" height="45" rx="22"
+        fill="#123b36" stroke="#4ade80" stroke-opacity=".7"/>
+  <circle cx="97" cy="98" r="6" fill="#4ade80"/>
+  <text x="115" y="105" font-family="Arial, sans-serif"
+        font-size="18" font-weight="700" letter-spacing="2"
+        fill="#86efac">CYBERSECURITY</text>
+
+  <!-- Main title -->
+  <text x="72" y="225" font-family="Arial, sans-serif"
+        font-size="86" font-weight="900" fill="#ffffff">PEN</text>
+  <text x="72" y="320" font-family="Arial, sans-serif"
+        font-size="86" font-weight="900" fill="url(#green)">TESTING</text>
+
+  <rect x="77" y="350" width="135" height="6" rx="3" fill="#4ade80"/>
+
+  <text x="78" y="405" font-family="Arial, sans-serif"
+        font-size="27" font-weight="700" fill="#e2e8f0">
+    PENETRATION TESTING
+  </text>
+  <text x="78" y="448" font-family="Arial, sans-serif"
+        font-size="23" fill="#a8c5d4">
+    Find vulnerabilities. Strengthen security.
+  </text>
+
+  <!-- Terminal window -->
+  <g transform="translate(80 500)">
+    <rect width="480" height="105" rx="12"
+          fill="#071019" stroke="#315365" stroke-width="2"/>
+    <path d="M0 35H480" stroke="#315365" stroke-width="2"/>
+    <circle cx="20" cy="18" r="5" fill="#fb7185"/>
+    <circle cx="39" cy="18" r="5" fill="#fbbf24"/>
+    <circle cx="58" cy="18" r="5" fill="#4ade80"/>
+    <text x="20" y="61" font-family="monospace"
+          font-size="17" fill="#4ade80">$ security-assessment</text>
+    <text x="20" y="86" font-family="monospace"
+          font-size="16" fill="#7dd3fc">Scanning authorized targets...</text>
+  </g>
+
+  <!-- Right-side shield -->
+  <g transform="translate(820 130)">
+    <path d="M155 0L295 50V190
+             Q295 300 155 375
+             Q15 300 15 190V50Z"
+          fill="#102f3c" stroke="#4ade80" stroke-width="5"
+          filter="url(#glow)"/>
+
+    <!-- Inner shield -->
+    <path d="M155 27L270 68V190
+             Q270 280 155 345
+             Q40 280 40 190V68Z"
+          fill="#0c2230" stroke="#1c7765" stroke-width="2"/>
+
+    <!-- Checkmark -->
+    <path d="M95 187L137 229L220 139"
+          fill="none" stroke="#4ade80" stroke-width="15"
+          stroke-linecap="round" stroke-linejoin="round"
+          filter="url(#glow)"/>
+
+    <!-- Shield label -->
+    <text x="155" y="278" text-anchor="middle"
+          font-family="Arial, sans-serif" font-size="19"
+          font-weight="700" letter-spacing="2" fill="#a7f3d0">
+      SECURE
+    </text>
+  </g>
+
+  <!-- Scanning radar rings -->
+  <g fill="none" stroke="#22d3ee" stroke-width="2" opacity=".55">
+    <circle cx="1010" cy="350" r="225" stroke-dasharray="8 12"/>
+    <circle cx="1010" cy="350" r="190" stroke-dasharray="3 13"/>
+  </g>
+
+  <!-- Network nodes and connections -->
+  <g fill="none" stroke="#38bdf8" stroke-width="3" opacity=".8">
+    <path d="M700 180L775 220L735 290"/>
+    <path d="M1110 180L1165 230L1135 300"/>
+    <path d="M740 470L805 430L770 380"/>
+    <path d="M1120 485L1170 445L1130 410"/>
+  </g>
+  <g fill="#4ade80" filter="url(#glow)">
+    <circle cx="700" cy="180" r="6"/>
+    <circle cx="775" cy="220" r="6"/>
+    <circle cx="735" cy="290" r="6"/>
+    <circle cx="1110" cy="180" r="6"/>
+    <circle cx="1165" cy="230" r="6"/>
+    <circle cx="1135" cy="300" r="6"/>
+    <circle cx="740" cy="470" r="6"/>
+    <circle cx="805" cy="430" r="6"/>
+    <circle cx="1170" cy="445" r="6"/>
+  </g>
+
+  <!-- Magnifying glass -->
+  <g transform="translate(1080 490)" stroke="#7dd3fc"
+     stroke-width="9" fill="none" stroke-linecap="round">
+    <circle cx="0" cy="0" r="36"/>
+    <path d="M27 27L58 58"/>
+  </g>
+  <circle cx="1080" cy="490" r="19" fill="#22d3ee" opacity=".12"/>
+
+  <!-- Footer -->
+  <path d="M72 640H1208" stroke="#94a3b8" stroke-opacity=".25"/>
+  <text x="75" y="680" font-family="Arial, sans-serif"
+        font-size="23" font-weight="800" letter-spacing="3"
+        fill="#4ade80">HITOP</text>
+  <text x="1205" y="679" text-anchor="end"
+        font-family="Arial, sans-serif" font-size="18"
+        fill="#a8c5d4">ETHICAL HACKING • DEFENSIVE SECURITY</text>
+</svg>
