@@ -4,7 +4,7 @@ date: 2026-11-01 11:00:00
 categories:
   - Tutorials
 description: Configured a Cisco router using CLI, including hostname, passwords, interface IP address, and interface activation.
-thumbnail: images/router-config.png
+thumbnail: images/basic-cisco-config.png
 ---
 # Basic configuration on Cisco Router
 
