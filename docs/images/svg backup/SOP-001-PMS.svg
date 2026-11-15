@@ -1,0 +1,174 @@
+
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="1200" height="630"
+     viewBox="0 0 1200 630">
+
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#101F35"/>
+      <stop offset="100%" stop-color="#183D50"/>
+    </linearGradient>
+
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#32B9A8"/>
+      <stop offset="100%" stop-color="#76D6C3"/>
+    </linearGradient>
+
+    <linearGradient id="glass" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#80C9C6" stop-opacity=".24"/>
+      <stop offset="100%" stop-color="#80C9C6" stop-opacity=".04"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- Subtle hotel architecture -->
+  <g opacity=".16" fill="none" stroke="#A7D8D5"
+     stroke-width="2">
+    <path d="M700 0 V630 M1200 0 V630"/>
+    <path d="M740 0 L740 630 M1150 0 L1150 630"/>
+    <path d="M780 0 H1200"/>
+    <path d="M780 180 H1200"/>
+    <path d="M780 360 H1200"/>
+    <path d="M780 540 H1200"/>
+  </g>
+
+  <!-- Hotel building silhouette -->
+  <g opacity=".20">
+    <path d="M850 170 H1090 V500 H850 Z"
+          fill="#B4D9D5"/>
+    <path d="M820 170 L970 85 L1120 170 Z"
+          fill="#B4D9D5"/>
+    <g fill="#16354A">
+      <rect x="880" y="205" width="35" height="45"/>
+      <rect x="950" y="205" width="35" height="45"/>
+      <rect x="1020" y="205" width="35" height="45"/>
+      <rect x="880" y="285" width="35" height="45"/>
+      <rect x="950" y="285" width="35" height="45"/>
+      <rect x="1020" y="285" width="35" height="45"/>
+      <rect x="880" y="365" width="35" height="45"/>
+      <rect x="1020" y="365" width="35" height="45"/>
+      <rect x="950" y="420" width="45" height="80"/>
+    </g>
+  </g>
+
+  <!-- Decorative floor line -->
+  <path d="M0 540 H1200" stroke="#6BC7B9"
+        stroke-opacity=".18" stroke-width="2"/>
+
+  <!-- Branding -->
+  <g transform="translate(75 65)">
+    <rect width="42" height="42" rx="10"
+          fill="url(#accent)"/>
+    <path d="M11 30 V13 H19 L26 21 L33 13 V30"
+          fill="none" stroke="#10283A"
+          stroke-width="3" stroke-linejoin="round"/>
+    <text x="57" y="18" fill="#FFFFFF"
+          font-family="Arial, sans-serif"
+          font-size="17" font-weight="700"
+          letter-spacing="2">HOTEL IT</text>
+    <text x="57" y="39" fill="#9FC6CC"
+          font-family="Arial, sans-serif"
+          font-size="12" letter-spacing="3">SOP LIBRARY</text>
+  </g>
+
+  <!-- SOP number -->
+  <g transform="translate(75 175)">
+    <rect width="145" height="39" rx="19"
+          fill="#2AAB9B"/>
+    <text x="72" y="26" text-anchor="middle"
+          fill="#FFFFFF"
+          font-family="Arial, sans-serif"
+          font-size="17" font-weight="700"
+          letter-spacing="1">SOP - 001</text>
+  </g>
+
+  <!-- Main title -->
+  <g font-family="Arial, sans-serif"
+     font-weight="700" fill="#FFFFFF">
+
+    <text x="75" y="290" font-size="57">
+      PMS OPERATIONS
+    </text>
+
+    <text x="75" y="360" font-size="57">
+      &amp; SUPPORT
+    </text>
+
+    <text x="75" y="430" font-size="57">
+      SOP
+    </text>
+  </g>
+
+  <!-- Accent line -->
+  <rect x="75" y="463" width="100" height="5"
+        rx="2.5" fill="url(#accent)"/>
+
+  <!-- Subtitle -->
+  <text x="75" y="505" fill="#B9D4DA"
+        font-family="Arial, sans-serif"
+        font-size="19" letter-spacing="1">
+    PROPERTY MANAGEMENT SYSTEM
+  </text>
+
+  <!-- PMS Monitor illustration -->
+  <g transform="translate(825 205)">
+
+    <!-- Monitor frame -->
+    <rect x="0" y="0" width="280" height="195"
+          rx="14" fill="#102A40"
+          stroke="#65C9B8" stroke-width="3"/>
+
+    <rect x="14" y="14" width="252" height="165"
+          rx="7" fill="#F0F6F5"/>
+
+    <!-- Interface header -->
+    <rect x="14" y="14" width="252" height="29"
+          rx="7" fill="#21475A"/>
+    <circle cx="29" cy="28" r="4" fill="#70D4C0"/>
+    <rect x="43" y="25" width="75" height="6"
+          rx="3" fill="#D1E5E4"/>
+
+    <!-- Dashboard cards -->
+    <g fill="#D9EAE9">
+      <rect x="28" y="56" width="67" height="43" rx="5"/>
+      <rect x="105" y="56" width="67" height="43" rx="5"/>
+      <rect x="182" y="56" width="67" height="43" rx="5"/>
+    </g>
+
+    <g fill="#279C91">
+      <rect x="39" y="68" width="24" height="5" rx="2"/>
+      <rect x="116" y="68" width="24" height="5" rx="2"/>
+      <rect x="193" y="68" width="24" height="5" rx="2"/>
+    </g>
+
+    <!-- Dashboard chart -->
+    <rect x="28" y="111" width="221" height="55"
+          rx="5" fill="#E2EEEE"/>
+
+    <path d="M42 151 L75 137 L107 144 L141 124
+             L174 135 L211 119"
+          fill="none" stroke="#279C91"
+          stroke-width="4" stroke-linecap="round"
+          stroke-linejoin="round"/>
+
+    <!-- Monitor stand -->
+    <path d="M110 195 V216 H170 V195"
+          fill="#65C9B8"/>
+    <rect x="94" y="216" width="92" height="8"
+          rx="4" fill="#65C9B8"/>
+
+    <!-- Small status indicator -->
+    <circle cx="260" cy="225" r="7"
+            fill="#65C9B8"/>
+  </g>
+
+  <!-- Bottom branding -->
+  <text x="75" y="585" fill="#86AEB8"
+        font-family="Arial, sans-serif"
+        font-size="14" letter-spacing="2">
+    HOTEL IT OPERATIONS &amp; MANAGEMENT
+  </text>
+
+</svg>
