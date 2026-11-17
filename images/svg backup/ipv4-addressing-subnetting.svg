@@ -1,0 +1,136 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#071a33"/>
+      <stop offset="100%" stop-color="#103d70"/>
+    </linearGradient>
+    <linearGradient id="blue" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#22d3ee"/>
+      <stop offset="100%" stop-color="#1677ff"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#12365d"/>
+      <stop offset="100%" stop-color="#0a2342"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="675" rx="24" fill="url(#bg)"/>
+  <circle cx="1080" cy="70" r="190" fill="#1677ff" opacity=".08"/>
+  <circle cx="30" cy="650" r="230" fill="#22d3ee" opacity=".06"/>
+
+  <!-- HITOP branding -->
+  <text x="55" y="75" fill="#ffffff"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="48" font-weight="800" letter-spacing="2">HITOP</text>
+  <rect x="55" y="91" width="70" height="5" rx="2.5" fill="url(#blue)"/>
+  <text x="55" y="120" fill="#a9c8e8"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="14" letter-spacing="3">LEARN • PRACTICE • GROW</text>
+
+  <!-- Main title -->
+  <text x="55" y="220" fill="#ffffff"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="59" font-weight="800">IPv4 Addressing</text>
+  <text x="55" y="290" fill="#22d3ee"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="59" font-weight="800">and Subnetting</text>
+
+  <!-- Subtitle -->
+  <text x="58" y="335" fill="#c2d7ef"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="19">IP addresses • Subnet masks • CIDR</text>
+  <text x="58" y="365" fill="#c2d7ef"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="19">Network IDs • ARP • ICMP</text>
+
+  <!-- IPv4 cloud -->
+  <g transform="translate(760 120)">
+    <path d="M70 150
+             C30 150 10 125 10 95
+             C10 65 34 42 65 42
+             C78 8 111 -5 140 12
+             C165 25 177 49 175 70
+             C210 65 235 91 235 120
+             C235 139 220 150 197 150 Z"
+          fill="url(#blue)" opacity=".95"/>
+    <text x="123" y="105" text-anchor="middle"
+          fill="#ffffff" font-family="Arial, Helvetica, sans-serif"
+          font-size="34" font-weight="800">IPv4</text>
+  </g>
+
+  <!-- Network connection lines -->
+  <g stroke="#22d3ee" stroke-width="4" fill="none"
+     stroke-linecap="round" stroke-linejoin="round">
+    <path d="M883 270 V310"/>
+    <path d="M760 350 H1005"/>
+    <path d="M760 350 V385"/>
+    <path d="M883 350 V385"/>
+    <path d="M1005 350 V385"/>
+  </g>
+
+  <!-- CIDR network label -->
+  <rect x="755" y="305" width="258" height="48" rx="12"
+        fill="#0b2442" stroke="#22a8ff" stroke-width="2"/>
+  <text x="884" y="336" text-anchor="middle"
+        fill="#ffffff" font-family="Arial, Helvetica, sans-serif"
+        font-size="22" font-weight="700">192.168.1.0/24</text>
+
+  <!-- Connected devices -->
+  <g>
+    <g transform="translate(720 385)">
+      <rect width="80" height="53" rx="7" fill="#d8ecff"/>
+      <rect x="6" y="6" width="68" height="40" rx="3" fill="#1677c8"/>
+      <path d="M30 53 V62 H50 V53" fill="#d8ecff"/>
+      <rect x="20" y="62" width="40" height="5" rx="2" fill="#d8ecff"/>
+    </g>
+    <g transform="translate(843 385)">
+      <rect width="80" height="53" rx="7" fill="#d8ecff"/>
+      <rect x="6" y="6" width="68" height="40" rx="3" fill="#1677c8"/>
+      <path d="M30 53 V62 H50 V53" fill="#d8ecff"/>
+      <rect x="20" y="62" width="40" height="5" rx="2" fill="#d8ecff"/>
+    </g>
+    <g transform="translate(966 385)">
+      <rect width="80" height="53" rx="7" fill="#d8ecff"/>
+      <rect x="6" y="6" width="68" height="40" rx="3" fill="#1677c8"/>
+      <path d="M30 53 V62 H50 V53" fill="#d8ecff"/>
+      <rect x="20" y="62" width="40" height="5" rx="2" fill="#d8ecff"/>
+    </g>
+  </g>
+
+  <!-- Subnet information panel -->
+  <rect x="720" y="490" width="350" height="120" rx="16"
+        fill="url(#panel)" stroke="#28639b" stroke-width="2"/>
+  <text x="745" y="522" fill="#22d3ee"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="17" font-weight="700">SUBNET MASK</text>
+  <text x="745" y="551" fill="#ffffff"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="24" font-weight="700">255.255.255.0</text>
+  <line x1="745" y1="568" x2="1045" y2="568"
+        stroke="#28639b" stroke-width="2"/>
+  <text x="745" y="594" fill="#bcd8f6"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="17">NETWORK ID: 192.168.1.0</text>
+
+  <!-- Decorative network nodes -->
+  <g fill="#22d3ee">
+    <circle cx="675" cy="160" r="5"/>
+    <circle cx="695" cy="185" r="3"/>
+    <circle cx="1080" cy="280" r="4"/>
+    <circle cx="1100" cy="300" r="3"/>
+    <circle cx="680" cy="450" r="4"/>
+  </g>
+  <g stroke="#22d3ee" stroke-width="1.5" opacity=".35">
+    <path d="M675 160 L695 185 L720 185"/>
+    <path d="M1080 280 L1100 300 L1120 300"/>
+    <path d="M680 450 L700 470 L720 470"/>
+  </g>
+
+  <!-- Footer -->
+  <line x1="55" y1="625" x2="1145" y2="625"
+        stroke="#32618d" stroke-width="1"/>
+  <text x="55" y="650" fill="#a9c8e8"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="14" letter-spacing="1.5">NETWORKING • LEARNING • HITOP</text>
+</svg>

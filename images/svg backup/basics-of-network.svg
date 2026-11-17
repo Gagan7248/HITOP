@@ -1,0 +1,150 @@
+﻿
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#07152e"/>
+      <stop offset="100%" stop-color="#102f59"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#22d3ee"/>
+      <stop offset="100%" stop-color="#60a5fa"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#60a5fa" stroke-opacity=".09"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1280" height="720" rx="28" fill="url(#bg)"/>
+  <rect width="1280" height="720" rx="28" fill="url(#grid)"/>
+
+  <!-- Decorative elements -->
+  <circle cx="1120" cy="110" r="170" fill="#2563eb" opacity=".10"/>
+  <circle cx="1150" cy="570" r="210" fill="#06b6d4" opacity=".07"/>
+
+  <!-- Left-side title -->
+  <rect x="75" y="105" width="300" height="48" rx="24"
+        fill="#123b60" stroke="#22d3ee" stroke-opacity=".6"/>
+  <circle cx="102" cy="129" r="7" fill="#22d3ee"/>
+  <text x="123" y="137" font-family="Arial, sans-serif"
+        font-size="20" font-weight="700" letter-spacing="2"
+        fill="#7de8ff">COMPUTER FUNDAMENTALS</text>
+
+  <text x="75" y="250" font-family="Arial, sans-serif"
+        font-size="68" font-weight="800" fill="#ffffff">BASICS OF</text>
+  <text x="75" y="330" font-family="Arial, sans-serif"
+        font-size="68" font-weight="800" fill="url(#accent)">COMPUTER</text>
+  <text x="75" y="410" font-family="Arial, sans-serif"
+        font-size="68" font-weight="800" fill="url(#accent)">NETWORK</text>
+
+  <rect x="78" y="450" width="110" height="5" rx="2.5" fill="#22d3ee"/>
+
+  <text x="78" y="500" font-family="Arial, sans-serif"
+        font-size="25" fill="#d1e5ff">Understand how computers</text>
+  <text x="78" y="536" font-family="Arial, sans-serif"
+        font-size="25" fill="#d1e5ff">connect and communicate.</text>
+
+  <!-- Network connection lines -->
+  <g fill="none" stroke="#38bdf8" stroke-width="4"
+     stroke-linecap="round" stroke-linejoin="round" opacity=".8">
+    <path d="M850 205 L1010 145 L1135 235"/>
+    <path d="M850 205 L850 375"/>
+    <path d="M850 375 L1010 465 L1135 375"/>
+    <path d="M1010 145 L1010 465"/>
+    <path d="M1135 235 L1135 375"/>
+    <path d="M850 375 L720 480"/>
+    <path d="M1135 235 L1180 115"/>
+  </g>
+
+  <!-- Connection nodes -->
+  <g fill="#22d3ee" filter="url(#glow)">
+    <circle cx="850" cy="205" r="7"/>
+    <circle cx="1010" cy="145" r="7"/>
+    <circle cx="1135" cy="235" r="7"/>
+    <circle cx="850" cy="375" r="7"/>
+    <circle cx="1010" cy="465" r="7"/>
+    <circle cx="1135" cy="375" r="7"/>
+    <circle cx="720" cy="480" r="7"/>
+    <circle cx="1180" cy="115" r="7"/>
+  </g>
+
+  <!-- Central router -->
+  <g transform="translate(900 275)">
+    <rect x="-65" y="-38" width="130" height="76" rx="15"
+          fill="#123d68" stroke="#67e8f9" stroke-width="3"/>
+    <path d="M-36 -4 Q0 -42 36 -4" fill="none"
+          stroke="#67e8f9" stroke-width="4" stroke-linecap="round"/>
+    <path d="M-23 8 Q0 -15 23 8" fill="none"
+          stroke="#67e8f9" stroke-width="4" stroke-linecap="round"/>
+    <circle cx="0" cy="19" r="4" fill="#67e8f9"/>
+    <circle cx="-39" cy="24" r="4" fill="#4ade80"/>
+    <circle cx="-25" cy="24" r="4" fill="#4ade80"/>
+  </g>
+
+  <!-- Computer icon function: computer at each network endpoint -->
+  <g stroke="#93c5fd" stroke-width="4" stroke-linejoin="round">
+    <!-- Top computer -->
+    <g transform="translate(970 82)">
+      <rect width="80" height="54" rx="6" fill="#10294a"/>
+      <rect x="8" y="8" width="64" height="37" rx="2"
+            fill="#0e7490" stroke="#22d3ee" stroke-width="2"/>
+      <path d="M40 54V65 M23 65H57" fill="none" stroke-linecap="round"/>
+    </g>
+
+    <!-- Right computer -->
+    <g transform="translate(1095 190)">
+      <rect width="80" height="54" rx="6" fill="#10294a"/>
+      <rect x="8" y="8" width="64" height="37" rx="2"
+            fill="#0e7490" stroke="#22d3ee" stroke-width="2"/>
+      <path d="M40 54V65 M23 65H57" fill="none" stroke-linecap="round"/>
+    </g>
+
+    <!-- Bottom right laptop -->
+    <g transform="translate(1095 350)">
+      <rect width="80" height="53" rx="5" fill="#10294a"/>
+      <rect x="8" y="8" width="64" height="35" rx="2"
+            fill="#0e7490" stroke="#22d3ee" stroke-width="2"/>
+      <path d="M-8 57H88L80 65H0Z" fill="#123d68"/>
+    </g>
+
+    <!-- Bottom computer -->
+    <g transform="translate(970 442)">
+      <rect width="80" height="54" rx="6" fill="#10294a"/>
+      <rect x="8" y="8" width="64" height="37" rx="2"
+            fill="#0e7490" stroke="#22d3ee" stroke-width="2"/>
+      <path d="M40 54V65 M23 65H57" fill="none" stroke-linecap="round"/>
+    </g>
+
+    <!-- Left computer -->
+    <g transform="translate(680 460)">
+      <rect width="80" height="54" rx="6" fill="#10294a"/>
+      <rect x="8" y="8" width="64" height="37" rx="2"
+            fill="#0e7490" stroke="#22d3ee" stroke-width="2"/>
+      <path d="M40 54V65 M23 65H57" fill="none" stroke-linecap="round"/>
+    </g>
+  </g>
+
+  <!-- Data packets -->
+  <g fill="#fbbf24">
+    <rect x="925" y="164" width="12" height="12" rx="3"/>
+    <rect x="1065" y="185" width="12" height="12" rx="3"/>
+    <rect x="990" y="365" width="12" height="12" rx="3"/>
+    <rect x="1095" y="290" width="12" height="12" rx="3"/>
+  </g>
+
+  <!-- Footer -->
+  <path d="M75 610H1205" stroke="#60a5fa" stroke-opacity=".3"/>
+  <text x="78" y="655" font-family="Arial, sans-serif"
+        font-size="21" font-weight="700" letter-spacing="3"
+        fill="#7dd3fc">HITOP</text>
+  <text x="1200" y="655" text-anchor="end"
+        font-family="Arial, sans-serif" font-size="18"
+        fill="#9fb9da">LEARN • CONNECT • EXPLORE</text>
+</svg>
