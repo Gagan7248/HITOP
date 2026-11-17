@@ -2,7 +2,7 @@
 title: "SOP-001: PROPERTY MANAGEMENT SYSTEM (PMS) OPERATIONS & SUPPORT"
 date: 2026-11-15 11:00:00
 categories:
-  - SOP
+  - SOPs
 description: Standard Operating Procedure is to establish a standardized process to manage the Property Management System (PMS) used in hotel operations.
 thumbnail: images/IT-SOP-001-png
 ---

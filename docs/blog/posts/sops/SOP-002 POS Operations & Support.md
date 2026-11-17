@@ -2,7 +2,7 @@
 title: "SOP-002: POS Operations & Support"
 date: 2026-11-17 16:30:00
 categories:
-  - SOP
+  - SOPs
 description: Standard Operating Procedure is to establish a consistent process for the operation, monitoring, maintenance, troubleshooting, and support of the hotel's Point of Sale (POS) system.
 thumbnail: images/IT-SOP-002.png
 ---
